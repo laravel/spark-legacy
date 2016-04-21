@@ -1,0 +1,27 @@
+.spark-settings-stacked-tabs {
+	border-radius: @border-radius-base;
+	font-weight: 300;
+
+	a {
+		border-bottom: 1px solid lighten(@spark-border-color, 5%);
+		border-left: 3px solid transparent;
+		color: @text-color;
+
+		i {
+			color: lighten(@text-color, 25%);
+			position: relative;
+		}
+	}
+
+	li:last-child a {
+		border-bottom: 0;
+	}
+
+	li.active a {
+		border-left: 3px solid @brand-primary;
+	}
+
+	li a:active, li a:hover, li a:link, li a:visited {
+		background-color: white;
+	}
+}

@@ -1,0 +1,51 @@
+.spark-profile-photo {
+    border: 2px solid @spark-border-color;
+    border-radius: 50%;
+    height: 40px;
+    padding: 2px;
+    width: 40px;
+}
+
+.spark-profile-photo-lg {
+    .spark-profile-photo;
+    height: 75px;
+    width: 75px;
+}
+
+.spark-profile-photo-xl {
+    .spark-profile-photo;
+    height: 125px;
+    width: 125px;
+}
+
+.spark-nav-profile-photo {
+    .spark-profile-photo;
+    height: 50px;
+    width: 50px;
+}
+
+.spark-team-photo {
+    .spark-profile-photo;
+}
+
+.spark-team-photo-xs {
+    border-radius: 50%;
+    height: 1.28571429em;
+    width: 1.28571429em;
+}
+
+.spark-screen {
+    .profile-photo-preview {
+        .img-rounded;
+        display: inline-block;
+        background-position: center;
+        background-size: cover;
+        height: 150px;
+        vertical-align: middle;
+        width: 150px;
+    }
+
+    .team-photo-preview {
+        .profile-photo-preview;
+    }
+}

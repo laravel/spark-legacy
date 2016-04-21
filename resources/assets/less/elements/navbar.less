@@ -1,0 +1,71 @@
+.navbar-inverse .navbar-brand {
+    color: @navbar-inverse-link-color;
+    font-weight: 400;
+}
+
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus {
+    color: @navbar-inverse-link-color;
+}
+
+.navbar-nav > li > a {
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.navbar-nav > li > a,
+.navbar-brand,
+.hamburger {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-icon {
+    padding-top: 3px;
+    position: relative;
+
+    .activity-indicator {
+        width: 13px;
+        height: 13px;
+        border-radius: 10px;
+        background: @brand-danger;
+        border: 2px solid #fff;
+        border-radius: 10px;
+        position: absolute;
+        right: -1px;
+        transition: all .15s;
+        transform: scale(.85);
+    }
+
+    .icon { font-size: 21px; }
+}
+
+.has-activity-indicator:hover .activity-indicator {
+    transform: scale(1.1);
+}
+
+.navbar .dropdown-header {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.navbar .dropdown-menu > li > a {
+    font-weight: 300;
+
+    i {
+        color: lighten(@text-color, 25%);
+    }
+
+    i.text-success {
+        color: @brand-success;
+    }
+}
+
+.hamburger { float: right; }
+
+.with-navbar {
+    padding-top: 100px;
+}

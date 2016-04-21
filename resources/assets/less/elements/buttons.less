@@ -1,0 +1,97 @@
+// Basic Buttons
+.btn {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+}
+
+.btn-primary, .btn-info, .btn-success, .btn-warning, .btn-danger {
+  border: 0;
+}
+
+.btn-default:hover {
+  background-color: white;
+}
+
+// Outline Buttons
+.button-outline-variant(@color; @activeTextColor: #fff) {
+    color: @color;
+    background-color: transparent;
+    border-color: @color;
+
+    &:focus,
+    &.focus,
+    &:hover,
+    &:active,
+    &.active,
+    .open > .dropdown-toggle& {
+        color: @activeTextColor;
+        background-color: @color;
+        box-shadow: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active {
+            border-color: @color;
+        }
+    }
+}
+
+.btn-default-outline {
+  .button-outline-variant(@btn-default-color);
+}
+
+.btn-primary-outline {
+  .button-outline-variant(@btn-primary-border);
+}
+
+.btn-success-outline {
+  .button-outline-variant(@btn-success-border);
+}
+
+.btn-info-outline {
+  .button-outline-variant(@btn-info-border);
+}
+
+.btn-warning-outline {
+  .button-outline-variant(@btn-warning-border);
+}
+
+.btn-danger-outline {
+  .button-outline-variant(@btn-danger-border);
+}
+
+// File Upload Button
+.btn-upload {
+  overflow: hidden;
+  position: relative;
+
+  input[type="file"] {
+    cursor: pointer;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+
+// Other Button Utilities
+.btn-table-align {
+    padding-top: @padding-base-vertical + 1px;
+    padding-bottom: @padding-base-vertical + 1px;
+}
+
+.fa-btn {
+    .m-r-xs;
+}
