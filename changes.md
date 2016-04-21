@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.4
+
+- Use `SPARK_PATH` in `UpdateInstallation` class.
+
 ## Version 1.0.3
 
 - Fix closing tag of metrics Vue component.

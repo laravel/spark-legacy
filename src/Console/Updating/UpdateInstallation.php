@@ -35,7 +35,7 @@ class UpdateInstallation
      */
     public function update()
     {
-        (new Filesystem)->deleteDirectory(base_path('spark'));
+        (new Filesystem)->deleteDirectory(SPARK_PATH);
 
         rename($this->downloadPath, SPARK_PATH);
     }
