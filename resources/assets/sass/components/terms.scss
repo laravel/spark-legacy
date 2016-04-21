@@ -1,0 +1,37 @@
+.terms-of-service {
+    h1 {
+        font-size: 26px;
+        margin-top: 35px;
+        margin-bottom: 20px;
+
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    h4 {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    p {
+        line-height: 25px;
+        margin: 0;
+    }
+
+    ul {
+        margin-top: 15px;
+    }
+
+    li {
+        line-height: 25px;
+    }
+}

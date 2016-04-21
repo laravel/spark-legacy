@@ -1,0 +1,9 @@
+.table-borderless {
+    > thead > tr > th {
+        border-bottom: 0;
+    }
+
+	> tbody > tr > td {
+		border-top: 0;
+	}
+}
