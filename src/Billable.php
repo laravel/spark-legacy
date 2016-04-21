@@ -10,7 +10,7 @@ trait Billable
     use CashierBillable;
 
     /**
-     * Determine if the user is connected ot any payment provider.
+     * Determine if the user is connected to any payment provider.
      *
      * @return bool
      */
