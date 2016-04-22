@@ -7,7 +7,7 @@
 
 @section('content')
 <spark-kiosk :user="user" inline-template>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <!-- Tabs -->
             <div class="col-md-4">
