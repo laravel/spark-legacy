@@ -2,6 +2,9 @@
 
 $router->group(['middleware' => 'web'], function ($router) {
     // Terms Of Service...
+    $router->get('/dashboard', 'SaasController@dashboard');    
+
+    // Terms Of Service...
     $router->get('/terms', 'TermsController@show');
 
     // Missing Team Notice...
