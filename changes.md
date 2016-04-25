@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.5
+
+- Fix HTTP calls with new `vue-resource` updates.
+
 ## Version 1.0.4
 
 - Use `SPARK_PATH` in `UpdateInstallation` class.
