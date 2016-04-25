@@ -25,7 +25,7 @@ class StripeLocalInvoiceRepository implements Contract
     /**
      * Create a local invoice for the given billable entity.
      *
-     * @param  mixzed  $billable
+     * @param  mixed  $billable
      * @param  \Laravel\Cashier\Invoice  $invoice
      * @return \Laravel\Spark\LocalInvoice
      */
