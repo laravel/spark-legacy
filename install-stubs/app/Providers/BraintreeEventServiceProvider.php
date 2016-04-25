@@ -27,10 +27,6 @@ class EventServiceProvider extends ServiceProvider
             'Laravel\Spark\Listeners\Profile\UpdateContactInformationOnBraintree',
         ],
 
-        'Laravel\Spark\Events\Profile\ContactInformationUpdated' => [
-            'Laravel\Spark\Listeners\Profile\UpdateContactInformationOnBraintree',
-        ],
-
         'Laravel\Spark\Events\Subscription\SubscriptionUpdated' => [
             'Laravel\Spark\Listeners\Subscription\UpdateActiveSubscription',
         ],
