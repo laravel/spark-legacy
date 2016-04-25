@@ -37,6 +37,10 @@ class TokenGuard
      */
     public function user(Request $request)
     {
+        if (Auth::user()) {
+            return $this->alreadyHasUser();
+        }
+
         if (! $token = $this->getToken($request)) {
             return;
         }
@@ -49,6 +53,18 @@ class TokenGuard
         $token->touchLastUsedTimestamp();
 
         return $token->user->setToken($token);
+    }
+
+    /**
+     * Return the current user with a fresh transient token.
+     *
+     * @return \Illuminate\Contracts\Auth\Authenticatable
+     */
+    protected function alreadyHasUser()
+    {
+        return Auth::user()->setToken(
+            $this->createTransientToken(Auth::id(), Carbon::now()->addMinutes(5))
+        );
     }
 
     /**
@@ -117,13 +133,27 @@ class TokenGuard
         // Here we will create a token instance from the JWT token. This'll be a transient
         // token which allows all operations since the user is physically logged into a
         // screen of the application. We'll check the expiration date then return it.
-        $token = (new Token)->forceFill([
-            'user_id' => $token['sub'],
-            'transient' => true,
-            'expires_at' => Carbon::createFromTimestamp($token['expiry']),
-        ]);
+        $token = $this->createTransientToken(
+            $token['sub'], Carbon::createFromTimestamp($token['expiry'])
+        );
 
         return $token->isExpired() ? null : $token;
+    }
+
+    /**
+     * Create a new transient token instance for the given user.
+     *
+     * @param  int  $userId
+     * @param  Carbon  $expiration
+     * @return Token
+     */
+    protected function createTransientToken($userId, Carbon $expiration)
+    {
+        return (new Token)->forceFill([
+            'user_id' => $userId,
+            'transient' => true,
+            'expires_at' => $expiration,
+        ]);
     }
 
     /**
