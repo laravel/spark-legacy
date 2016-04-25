@@ -31,7 +31,7 @@
             <div class="clearfix"></div>
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body table-responsive">
             <!-- Plan Error Message - In General Will Never Be Shown -->
             <div class="alert alert-danger" v-if="planForm.errors.has('plan')">
                 @{{ planForm.errors.get('plan') }}
