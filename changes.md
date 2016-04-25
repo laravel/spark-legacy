@@ -3,6 +3,7 @@
 ## Version 1.0.4
 
 - Use `SPARK_PATH` in `UpdateInstallation` class.
+- Update Blade layout to use same global script logic as Vue layout.
 
 ## Version 1.0.3
 
