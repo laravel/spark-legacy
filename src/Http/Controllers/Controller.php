@@ -29,6 +29,6 @@ class Controller extends BaseController
             $this->throwValidationException($request, $validator);
         }
 
-        Spark::interact($interaction, $parameters);
+        return Spark::interact($interaction, $parameters);
     }
 }
