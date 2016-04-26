@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.6
+
+- Fix calculation of revenue when using subscription quantities.
+
 ## Version 1.0.5
 
 - Fix HTTP calls with new `vue-resource` updates.
