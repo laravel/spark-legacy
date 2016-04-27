@@ -3,6 +3,7 @@
 ## Version 1.0.6
 
 - Fix calculation of revenue when using subscription quantities.
+- Return result of interactions from base controller.
 
 ## Version 1.0.5
 
