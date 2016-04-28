@@ -3,6 +3,7 @@
 ## Version 1.0.8
 
 - Fix typo in class name.
+- Constrain Vue packages tighter.
 
 ## Version 1.0.7
 
