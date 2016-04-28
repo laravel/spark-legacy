@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.8
+
+- Fix typo in class name.
+
 ## Version 1.0.7
 
 - Stringify a few forms before handing them to vue-resource.
