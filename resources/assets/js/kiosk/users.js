@@ -77,7 +77,7 @@ module.exports = {
             this.searching = true;
             this.noSearchResults = false;
 
-            this.$http.post('/spark/kiosk/users/search', this.searchForm)
+            this.$http.post('/spark/kiosk/users/search', JSON.stringify(this.searchForm))
                 .then(response => {
                     this.searchResults = response.data;
                     this.noSearchResults = this.searchResults.length === 0;
