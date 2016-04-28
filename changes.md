@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.7
+
+- Stringify a few forms before handing them to vue-resource.
+
 ## Version 1.0.6
 
 - Fix calculation of revenue when using subscription quantities.
