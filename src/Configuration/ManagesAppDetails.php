@@ -80,7 +80,17 @@ trait ManagesAppDetails
      */
     public static function developer($email)
     {
-        return in_array($email, static::$developers);
+        if (in_array($email, static::$developers)) {
+            return true;
+        }
+
+        foreach (static::$developers as $developer) {
+            if (str_is($developer, $email)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
