@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark\Configuration;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\HtmlString;
 
 trait ManagesAppDetails
@@ -80,7 +81,17 @@ trait ManagesAppDetails
      */
     public static function developer($email)
     {
-        return in_array($email, static::$developers);
+        if (in_array($email, static::$developers)) {
+            return true;
+        }
+        
+        foreach (static::$developers as $developer) {
+            if (Str::is($developer, $email)) {
+                return true;
+            }
+        }
+        
+        return false;
     }
 
     /**
