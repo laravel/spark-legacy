@@ -189,7 +189,7 @@ module.exports = {
         sendRegistration() {
             Spark.post('/register', this.registerForm)
                 .then(response => {
-                    window.location = '/home';
+                    window.location = response.redirect;
                 });
         }
     },
