@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.9
+
+- Fix various bugs.
+
 ## Version 1.0.8
 
 - Fix typo in class name.
