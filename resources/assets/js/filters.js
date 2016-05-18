@@ -23,14 +23,14 @@ Vue.filter('relative', value => {
             future: "in %s",
             past:   "%s",
             s:  "1s",
-            m:  "m",
+            m:  "1m",
             mm: "%dm",
             h:  "1h",
             hh: "%dh",
             d:  "1d",
             dd: "%dd",
-            M:  "1m",
-            MM: "%dm",
+            M:  "1 month ago",
+            MM: "%d months ago",
             y:  "1y",
             yy: "%dy"
         }
