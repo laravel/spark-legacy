@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.10
+
+- Fix relative date formatting.
+
 ## Version 1.0.9
 
 - Fix various bugs.
