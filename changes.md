@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.11
+
+- Remove empty parentheses on "delete announcement" modal.
+
 ## Version 1.0.10
 
 - Fix relative date formatting.
