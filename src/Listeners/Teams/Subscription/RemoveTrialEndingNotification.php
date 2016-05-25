@@ -3,8 +3,8 @@
 namespace Laravel\Spark\Listeners\Teams\Subscription;
 
 use Laravel\Spark\Spark;
+use Laravel\Spark\Notification;
 use Laravel\Spark\Events\Teams\Subscription\TeamSubscribed;
-use Laravel\Spark\Contracts\Repositories\NotificationRepository;
 
 class RemoveTrialEndingNotification
 {
