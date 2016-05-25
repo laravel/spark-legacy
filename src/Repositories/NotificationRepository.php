@@ -14,9 +14,26 @@ class NotificationRepository implements NotificationRepositoryContract
      */
     public function recent($user)
     {
-        $notifications = Notification::with('creator')->where('user_id', $user->id)
-                ->orderBy('created_at', 'desc')->take(8)->get();
+        //Retrieve all unread notifications for the user.
+        $unreadNotifications = Notification::with('creator')
+                                    ->where('user_id', $user->id)
+                                    ->where('read', 0)
+                                    ->orderBy('created_at', 'desc')
+                                    ->get();
 
+        //Retrieve the 8 most recent read notifications for the user.
+        $readNotifications = Notification::with('creator')
+                                    ->where('user_id', $user->id)
+                                    ->where('read', 1)
+                                    ->orderBy('created_at', 'desc')
+                                    ->take(8)
+                                    ->get();
+
+        //Add the read notifications to the unread notifications so they show afterwards.
+        $notifications = $unreadNotifications->merge($readNotifications)->sortBy('read');
+
+        //Clean up all notifications that have been read and are not being shown in the
+        //Notification panel.
         if (count($notifications) > 0) {
             Notification::whereNotIn('id', $notifications->lists('id'))
                         ->where('user_id', $user->id)
