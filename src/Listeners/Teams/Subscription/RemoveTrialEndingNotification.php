@@ -6,7 +6,7 @@ use Laravel\Spark\Spark;
 use Laravel\Spark\Events\Teams\Subscription\TeamSubscribed;
 use Laravel\Spark\Contracts\Repositories\NotificationRepository;
 
-class CreateTrialEndingNotification
+class RemoveTrialEndingNotification
 {
     /**
      * Handle the event.
