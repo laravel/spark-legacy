@@ -3,6 +3,7 @@
 ## Version 1.0.11
 
 - Remove empty parentheses on "delete announcement" modal.
+- Fix notifications overflow.
 
 ## Version 1.0.10
 
