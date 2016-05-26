@@ -30,7 +30,7 @@ class NotificationRepository implements NotificationRepositoryContract
                                     ->get();
 
         //Add the read notifications to the unread notifications so they show afterwards.
-        $notifications = $unreadNotifications->merge($readNotifications)->sortBy('read');
+        $notifications = $unreadNotifications->merge($readNotifications)->sortBy('created_at');
 
         //Clean up all notifications that have been read and are not being shown in the
         //Notification panel.
