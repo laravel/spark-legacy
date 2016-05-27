@@ -21,7 +21,7 @@
 
     <!-- Global Spark Object -->
     <script>
-        window.Spark = {!! json_encode(Spark::scriptVariables()) !!}
+        window.Spark = {!! json_encode(Spark::scriptVariables()) !!};
         @stack('global-spark-objects')
     </script>
 </head>
