@@ -26,6 +26,7 @@ trait ProvidesScriptVariables
             'csrfToken' => csrf_token(),
             'currencySymbol' => Cashier::usesCurrencySymbol(),
             'env' => config('app.env'),
+            'injectedObjects' => [],
             'roles' => Spark::roles(),
             'state' => Spark::call(InitialFrontendState::class.'@forUser', [Auth::user()]),
             'stripeKey' => config('services.stripe.key'),
