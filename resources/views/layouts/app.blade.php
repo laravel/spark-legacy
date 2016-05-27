@@ -21,9 +21,8 @@
 
     <!-- Global Spark Object -->
     <script>
-        window.Spark = <?php echo json_encode(array_merge(
-            Spark::scriptVariables(), []
-        )); ?>
+        window.Spark = {!! json_encode(Spark::scriptVariables()) !!};
+        @stack('global-spark-objects')
     </script>
 </head>
 <body class="with-navbar" v-cloak>
