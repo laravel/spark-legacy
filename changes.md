@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.12
+
+- Various improvements to notifications.
+
 ## Version 1.0.11
 
 - Remove empty parentheses on "delete announcement" modal.
