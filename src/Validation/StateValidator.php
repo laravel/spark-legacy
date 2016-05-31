@@ -35,9 +35,10 @@ class StateValidator
             return true;
         }
 
-        $abbreviations = $this->states->forCountry($parameters[0])
-                                ->pluck('abbreviation')->all();
+        $abbreviations = $this->states->forCountry($parameters[0])->flatten()->map(function ($item, $key) {
+            return strtoupper($item);
+        })->all();
 
-        return empty($abbreviations) || in_array($value, $abbreviations);
+        return empty($abbreviations) || in_array(strtoupper($value), $abbreviations);
     }
 }
