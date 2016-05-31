@@ -35,10 +35,10 @@ class StateValidator
             return true;
         }
 
-        $abbreviations = $this->states->forCountry($parameters[0])->flatten()->map(function ($item, $key) {
+        $states = $this->states->forCountry($parameters[0])->flatten()->map(function ($item, $key) {
             return strtoupper($item);
         })->all();
 
-        return empty($abbreviations) || in_array(strtoupper($value), $abbreviations);
+        return empty($states) || in_array(strtoupper($value), $states);
     }
 }
