@@ -3,6 +3,7 @@
 ## Version 1.0.12
 
 - Various improvements to notifications.
+- Allow full state names in billing information instead of just abbreviations.
 
 ## Version 1.0.11
 
