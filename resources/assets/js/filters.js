@@ -18,7 +18,7 @@ Vue.filter('datetime', value => {
  * Format the given date into a relative time.
  */
 Vue.filter('relative', value => {
-    moment.locale('en', {
+    moment.updateLocale('en', {
         relativeTime : {
             future: "in %s",
             past:   "%s",
