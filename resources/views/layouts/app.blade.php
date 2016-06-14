@@ -23,7 +23,7 @@
     <script>
         window.Spark = <?php echo json_encode(array_merge(
             Spark::scriptVariables(), []
-        )); ?>
+        )); ?>;
     </script>
 </head>
 <body class="with-navbar" v-cloak>
