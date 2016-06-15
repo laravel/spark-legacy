@@ -39,7 +39,7 @@ class NotificationRepository implements NotificationRepositoryContract
                         ->delete();
         }
 
-        return $notifications;
+        return $notifications->values();
     }
 
     /**
