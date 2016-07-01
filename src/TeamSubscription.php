@@ -33,7 +33,7 @@ class TeamSubscription extends CashierSubscription
      */
     public function user()
     {
-        return $this->belongsTo(Team::class, 'team_id');
+        return $this->belongsTo(Spark::teamModel(), 'team_id');
     }
 
     /**
