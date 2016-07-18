@@ -82,7 +82,7 @@ module.exports = {
 
             switch (discount.duration) {
                 case 'forever':
-                    return 'for all future invoices';
+                    return 'all future invoices';
                 case 'once':
                     return 'a single invoice';
                 case 'repeating':
