@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.14
+
+- Various minor bug fixes.
+
 ## Version 1.0.13
 
 - Various minor bug fixes.
