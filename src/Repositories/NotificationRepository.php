@@ -30,7 +30,7 @@ class NotificationRepository implements NotificationRepositoryContract
                                     ->get();
 
         // Add the read notifications to the unread notifications so they show afterwards...
-        $notifications = $unreadNotifications->merge($readNotifications)->sortBy('created_at');
+        $notifications = $unreadNotifications->merge($readNotifications)->sortByDesc('created_at');
 
         if (count($notifications) > 0) {
             Notification::whereNotIn('id', $notifications->lists('id'))
