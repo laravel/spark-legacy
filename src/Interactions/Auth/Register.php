@@ -35,7 +35,7 @@ class Register implements Contract
         $user = Spark::interact(CreateUserContract::class, [$request]);
 
         if (Spark::usesTeams()) {
-            $this->configureTeamForNewUser($request, $user);
+            Spark::interact(self::class.'@configureTeamForNewUser', [$request, $user]);
         }
 
         return $user;
