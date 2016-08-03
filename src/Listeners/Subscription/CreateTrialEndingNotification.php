@@ -34,7 +34,7 @@ class CreateTrialEndingNotification
      */
     public function handle(UserRegistered $event)
     {
-        if (! Spark::trialDays()) {
+        if (! Spark::trialDays() || ! $event->user->trial_ends_at) {
             return;
         }
 
