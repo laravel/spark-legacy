@@ -56,7 +56,7 @@
                                             </span>
 
                                             <span v-else>
-                                                Spark
+                                                {{ Spark::product() }}
                                             </span>
                                         </p>
 
