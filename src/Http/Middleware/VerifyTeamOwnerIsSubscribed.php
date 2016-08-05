@@ -33,7 +33,7 @@ class VerifyTeamOwnerIsSubscribed
      */
     protected function subscribed($user, $subscription, $plan, $defaultSubscription)
     {
-        if (! $user || ! $user->currentTeam->owner()) {
+        if (! $user || ! $user->currentTeam->owner) {
             return false;
         }
         return ($defaultSubscription && $user->currentTeam->owner->onGenericTrial()) ||
