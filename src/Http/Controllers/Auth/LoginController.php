@@ -52,8 +52,6 @@ class LoginController extends Controller
     {
         if ($request->has('remember')) {
             $request->session()->put('spark:auth-remember', $request->remember);
-
-            $request->merge(['remember' => '']);
         }
 
         return $this->traitLogin($request);
