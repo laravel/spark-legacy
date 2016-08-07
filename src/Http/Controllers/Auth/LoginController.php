@@ -54,7 +54,9 @@ class LoginController extends Controller
             $request->session()->put('spark:auth-remember', $request->remember);
         }
 
-        if (Spark::usesTwoFactorAuth() && \App\User::where('email', $request->email)->first()->uses_two_factor_auth) {
+        $user = Spark::user()->where('email', $request->email)->first();
+
+        if (Spark::usesTwoFactorAuth() && $user && $user->uses_two_factor_auth) {
             $request->merge(['remember' => '']);
         }
 
