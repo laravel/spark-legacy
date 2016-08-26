@@ -46,7 +46,7 @@ class CreateSubscriptionRequest extends FormRequest
     /**
      * Validate the coupon on the request.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validateCoupon($validator)

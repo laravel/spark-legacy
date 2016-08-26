@@ -80,7 +80,7 @@ class RegisterRequest extends FormRequest
     /**
      * Validate the coupon on the request.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validateCoupon($validator)
@@ -93,7 +93,7 @@ class RegisterRequest extends FormRequest
     /**
      * Validate the invitation code on the request.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validateInvitation($validator)
