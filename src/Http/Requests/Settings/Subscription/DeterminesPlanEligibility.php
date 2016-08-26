@@ -10,7 +10,7 @@ trait DeterminesPlanEligibility
     /**
      * Validate that the plan is eligible based on team restrictions.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validatePlanEligibility($validator)
