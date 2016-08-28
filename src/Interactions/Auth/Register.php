@@ -48,7 +48,7 @@ class Register implements Contract
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
      */
-    protected function configureTeamForNewUser(RegisterRequest $request, $user)
+    public function configureTeamForNewUser(RegisterRequest $request, $user)
     {
         if ($invitation = $request->invitation()) {
             Spark::interact(AddTeamMember::class, [$invitation->team, $user]);
