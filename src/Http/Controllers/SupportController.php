@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers;
 
-use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Laravel\Spark\Contracts\Interactions\Support\SendSupportEmail;
 

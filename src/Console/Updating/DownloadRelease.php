@@ -2,17 +2,16 @@
 
 namespace Laravel\Spark\Console\Updating;
 
-use Exception;
 use ZipArchive;
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Filesystem\Filesystem;
-use Laravel\Spark\InteractsWithSparkApi;
+use Laravel\Spark\InteractsWithSparkAPI;
 use GuzzleHttp\Exception\ClientException;
 use Laravel\Spark\InteractsWithSparkConfiguration;
 
 class DownloadRelease
 {
-    use InteractsWithSparkApi,
+    use InteractsWithSparkAPI,
         InteractsWithSparkConfiguration;
 
     /**

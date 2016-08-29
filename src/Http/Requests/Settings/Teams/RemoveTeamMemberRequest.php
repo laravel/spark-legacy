@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Http\Requests\Settings\Teams;
 
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RemoveTeamMemberRequest extends FormRequest

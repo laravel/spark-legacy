@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers\Settings\Teams;
 
-use Laravel\Spark\Spark;
-use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Spark\Http\Controllers\Controller;

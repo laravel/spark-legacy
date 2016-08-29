@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Http\Controllers\Settings\API;
 
 use Laravel\Spark\Spark;
-use Laravel\Spark\Token;
 use Illuminate\Http\Request;
 use Laravel\Spark\Http\Controllers\Controller;
 use Laravel\Spark\Contracts\Repositories\TokenRepository;

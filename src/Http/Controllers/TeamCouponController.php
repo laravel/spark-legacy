@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Http\Controllers;
 
 use Laravel\Spark\Spark;
-use Laravel\Spark\Coupon;
 use Illuminate\Http\Request;
 use Laravel\Spark\Contracts\Repositories\CouponRepository;
 

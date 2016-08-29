@@ -4,7 +4,6 @@ namespace Laravel\Spark;
 
 use Exception;
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Spark\Contracts\Repositories\TokenRepository;

@@ -5,11 +5,8 @@ namespace Laravel\Spark\Http\Controllers\Auth;
 use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Laravel\Spark\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Laravel\Spark\Contracts\Interactions\Settings\Security\VerifyTwoFactorAuthToken as Verify;
 
 class LoginController extends Controller

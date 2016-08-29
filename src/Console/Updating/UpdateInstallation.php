@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Console\Updating;
 
-use Exception;
 use Illuminate\Filesystem\Filesystem;
 
 class UpdateInstallation

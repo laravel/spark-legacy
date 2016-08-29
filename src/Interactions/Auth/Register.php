@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Interactions\Auth;
 
 use Laravel\Spark\Spark;
-use Laravel\Spark\Invitation;
 use Illuminate\Support\Facades\DB;
 use Laravel\Spark\Contracts\Interactions\Subscribe;
 use Laravel\Spark\Contracts\Http\Requests\Auth\RegisterRequest;

@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark;
 
-use Laravel\Spark\Billable;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
 
 class Team extends Model

@@ -5,7 +5,6 @@ namespace Laravel\Spark\Http\Middleware;
 use Closure;
 use Laravel\Spark\Spark;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Spark\Contracts\Repositories\TokenRepository;
 
 class CreateFreshApiToken

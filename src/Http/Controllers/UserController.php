@@ -2,11 +2,9 @@
 
 namespace Laravel\Spark\Http\Controllers;
 
-use Exception;
 use Carbon\Carbon;
 use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
-use GuzzleHttp\Client as HttpClient;
 use Laravel\Spark\Contracts\Repositories\UserRepository;
 
 class UserController extends Controller

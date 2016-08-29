@@ -5,7 +5,6 @@ namespace Laravel\Spark\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Laravel\Spark\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class PasswordController extends Controller

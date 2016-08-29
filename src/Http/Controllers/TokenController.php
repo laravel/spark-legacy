@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers;
 
-use Carbon\Carbon;
-use Laravel\Spark\Token;
 use Illuminate\Http\Request;
 use Laravel\Spark\Contracts\Repositories\TokenRepository;
 

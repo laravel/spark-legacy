@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Http\Controllers;
 
 use Parsedown;
-use Laravel\Spark\Spark;
 
 class TermsController extends Controller
 {

@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark;
 
-use Illuminate\Support\Facades\Auth;
 use Laravel\Spark\Contracts\Repositories\UserRepository;
 use Laravel\Spark\Contracts\Repositories\TeamRepository;
 use Laravel\Spark\Contracts\InitialFrontendState as Contract;

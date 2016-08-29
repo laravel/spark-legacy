@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Repositories;
 
-use Exception;
 use Laravel\Spark\Spark;
 use Laravel\Spark\Coupon;
 use Braintree\Discount as BraintreeDiscount;
