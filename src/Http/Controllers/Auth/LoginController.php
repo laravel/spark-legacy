@@ -14,7 +14,7 @@ use Laravel\Spark\Contracts\Interactions\Settings\Security\VerifyTwoFactorAuthTo
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers, ThrottlesLogins {
+    use AuthenticatesUsers {
         AuthenticatesUsers::login as traitLogin;
     }
 
@@ -155,7 +155,7 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        Auth::guard($this->getGuard())->logout();
+        $this->guard()->logout();
 
         session()->flush();
 

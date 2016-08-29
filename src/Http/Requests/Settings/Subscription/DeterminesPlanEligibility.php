@@ -76,7 +76,7 @@ trait DeterminesPlanEligibility
             return false;
         }
 
-        return ! is_null($this->user()->teams->first(function ($key, $team) use ($plan) {
+        return ! is_null($this->user()->teams->first(function ($team) use ($plan) {
             return $plan->teamMembers < $team->totalPotentialUsers();
         }));
     }

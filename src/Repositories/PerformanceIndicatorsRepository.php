@@ -17,7 +17,7 @@ class PerformanceIndicatorsRepository implements Contract
     public function all($take = 60)
     {
         return array_reverse(
-            DB::table('performance_indicators')->orderBy('created_at', 'desc')->take($take)->get()
+             DB::table('performance_indicators')->orderBy('created_at', 'desc')->take($take)->get()->all()
         );
     }
 
