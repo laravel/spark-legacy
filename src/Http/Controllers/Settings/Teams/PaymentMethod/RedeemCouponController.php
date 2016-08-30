@@ -21,6 +21,7 @@ class RedeemCouponController extends Controller
     /**
      * Create a new controller instance.
      *
+     * @param  \Laravel\Spark\Contracts\Repositories\CouponRepository  $coupons
      * @return void
      */
     public function __construct(CouponRepository $coupons)

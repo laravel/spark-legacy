@@ -18,6 +18,7 @@ class TeamCouponController extends Controller
     /**
      * Create a new controller instance.
      *
+     * @param  \Laravel\Spark\Contracts\Repositories\CouponRepository  $coupons
      * @return void
      */
     public function __construct(CouponRepository $coupons)
@@ -31,7 +32,7 @@ class TeamCouponController extends Controller
      * Get the current discount for the given team.
      *
      * @param  Request  $request
-     * @param  string  $userId
+     * @param  string  $teamId
      * @return Response
      */
     public function current(Request $request, $teamId)

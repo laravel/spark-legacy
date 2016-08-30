@@ -4,15 +4,8 @@ namespace Laravel\Spark;
 
 use GuzzleHttp\Client as HttpClient;
 
-trait InteractsWithSparkAPI
+trait InteractsWithSparkApi
 {
-    /**
-     * The Spark base URL.
-     *
-     * @var string
-     */
-    protected $sparkUrl = 'https://spark.laravel.com';
-
     /**
      * Get the latest Spark release version.
      *
@@ -24,4 +17,11 @@ trait InteractsWithSparkAPI
             $this->sparkUrl.'/api/releases/version'
         )->getBody())->version;
     }
+
+    /**
+     * The Spark base URL.
+     *
+     * @var string
+     */
+    protected $sparkUrl = 'https://spark.laravel.com';
 }

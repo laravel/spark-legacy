@@ -62,7 +62,7 @@ class TeamPhotoController extends Controller
     /**
      * Format the given file into a resized image.
      *
-     * @param  \Symfony\Component\HttpFoundation\File\UplaodedFile  $file
+     * @param  \Symfony\Component\HttpFoundation\File\UploadedFile  $file
      * @return string
      */
     protected function toImage($file)

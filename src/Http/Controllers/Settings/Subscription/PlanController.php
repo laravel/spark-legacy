@@ -41,7 +41,7 @@ class PlanController extends Controller
     /**
      * Update the subscription for the user.
      *
-     * @param  \Laravel\Spark\Http\Requests\UpdateSubscriptionRequest  $request
+     * @param  \Laravel\Spark\Http\Requests\Settings\Subscription\UpdateSubscriptionRequest  $request
      * @return Response
      */
     public function update(UpdateSubscriptionRequest $request)

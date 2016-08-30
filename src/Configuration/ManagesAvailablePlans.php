@@ -2,11 +2,7 @@
 
 namespace Laravel\Spark\Configuration;
 
-use Closure;
-use Exception;
-use LogicException;
 use Laravel\Spark\Plan;
-use Laravel\Spark\Spark;
 use Laravel\Spark\TeamPlan;
 
 trait ManagesAvailablePlans
@@ -104,7 +100,7 @@ trait ManagesAvailablePlans
      * Define or retrieve an application wide promotion for new registrations.
      *
      * @param  string|null  $coupon
-     * @return void
+     * @return string|void
      */
     public static function promotion($coupon = null)
     {
@@ -153,7 +149,6 @@ trait ManagesAvailablePlans
      * Create a new free plan instance.
      *
      * @param  string  $name
-     * @param  string  $id
      * @return \Laravel\Spark\Plan
      */
     public static function freePlan($name = 'Free')
@@ -165,7 +160,6 @@ trait ManagesAvailablePlans
      * Create a new free team plan instance.
      *
      * @param  string  $name
-     * @param  string  $id
      * @return \Laravel\Spark\Plan
      */
     public static function freeTeamPlan($name = 'Free')

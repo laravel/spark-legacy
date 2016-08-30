@@ -10,7 +10,6 @@ class RemoveDownloadPath
      * Create a new command instance.
      *
      * @param  \Illuminate\Console\Command  $command
-     * @param  string  $downloadPath
      * @return void
      */
     public function __construct($command)

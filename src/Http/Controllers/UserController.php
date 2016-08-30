@@ -22,7 +22,7 @@ class UserController extends Controller
     }
 
     /**
-     * Get the current user of the appliation.
+     * Get the current user of the application.
      *
      * @return Response
      */

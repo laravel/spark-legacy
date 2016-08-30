@@ -146,6 +146,8 @@ trait ManagesBillingProviders
      *
      * @param  bool  $value
      * @return static
+     * 
+     * @throws \Exception
      */
     public static function collectBillingAddress($value = true)
     {

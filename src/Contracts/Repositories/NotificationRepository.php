@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Contracts\Repositories;
 
-use Laravel\Spark\Notification;
-
 interface NotificationRepository
 {
     /**

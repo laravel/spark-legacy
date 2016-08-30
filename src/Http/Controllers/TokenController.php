@@ -30,6 +30,7 @@ class TokenController extends Controller
     /**
      * Exchange the current transient API token for a new one.
      *
+     * @param  Request  $request
      * @return Response
      */
     public function refresh(Request $request)

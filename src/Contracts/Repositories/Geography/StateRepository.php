@@ -7,6 +7,7 @@ interface StateRepository
     /**
      * Get a comma delimited list of abbreviation for the given country.
      *
+     * @param  string  $country
      * @return string
      */
     public function abbreviationListForCountry($country);

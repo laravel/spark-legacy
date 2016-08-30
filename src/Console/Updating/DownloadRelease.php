@@ -5,13 +5,13 @@ namespace Laravel\Spark\Console\Updating;
 use ZipArchive;
 use GuzzleHttp\Client as HttpClient;
 use Illuminate\Filesystem\Filesystem;
-use Laravel\Spark\InteractsWithSparkAPI;
+use Laravel\Spark\InteractsWithSparkApi;
 use GuzzleHttp\Exception\ClientException;
 use Laravel\Spark\InteractsWithSparkConfiguration;
 
 class DownloadRelease
 {
-    use InteractsWithSparkAPI,
+    use InteractsWithSparkApi,
         InteractsWithSparkConfiguration;
 
     /**
@@ -107,6 +107,7 @@ class DownloadRelease
     /**
      * Inform the user that their Spark license is invalid.
      *
+     * @param  string  $release
      * @return void
      */
     protected function invalidLicense($release)

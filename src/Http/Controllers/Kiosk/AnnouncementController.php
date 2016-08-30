@@ -20,6 +20,7 @@ class AnnouncementController extends Controller
     /**
      * Create a new controller instance.
      *
+     * @param  \Laravel\Spark\Contracts\Repositories\AnnouncementRepository  $announcements
      * @return void
      */
     public function __construct(AnnouncementRepository $announcements)
