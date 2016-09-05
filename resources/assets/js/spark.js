@@ -48,8 +48,6 @@ module.exports = {
      * Prepare the application.
      */
     ready() {
-        console.log('Application Ready.');
-
         this.whenReady();
     },
 
@@ -139,10 +137,7 @@ module.exports = {
         refreshApiToken() {
             this.lastRefreshedApiTokenAt = moment();
 
-            this.$http.put('/spark/token')
-                .then(response => {
-                    console.log('API Token Refreshed.');
-                });
+            this.$http.put('/spark/token');
         },
 
 
