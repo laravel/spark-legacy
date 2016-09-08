@@ -36,7 +36,7 @@ class PerformanceIndicatorsRepository implements Contract
     {
         $teamIds = Spark::usesTeams() ? $user->teams->pluck('id')->all() : [];
 
-        return DB::table('invoices')
+        return (int) DB::table('invoices')
                         ->where('user_id', $user->id)
                         ->orWhereIn('team_id', $teamIds)
                         ->sum('total');
