@@ -110,6 +110,9 @@ class StripeWebhookController extends WebhookController
             })->each(function ($subscription) {
                 $subscription->markAsCancelled();
             });
+        } else {
+            // No team found
+            return new Response('Webhook Handled', 200);
         }
 
         event(new TeamSubscriptionCancelled($team));
