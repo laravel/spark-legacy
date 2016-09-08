@@ -7,7 +7,7 @@
     "bootstrap": "^3.0.0",
     "jquery": "^2.1.4",
     "js-cookie": "^2.1.0",
-    "laravel-elixir": "^5.0.0",
+    "laravel-elixir": "^6.0.0-10",
     "moment": "^2.10.6",
     "promise": "^7.1.1",
     "sweetalert": "^1.1.3",
