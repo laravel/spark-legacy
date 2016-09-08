@@ -102,7 +102,7 @@ class UpdateViews
     }
 
     /**
-     * Create the view's directory if it doens't exist.
+     * Create the view's directory if it doesn't exist.
      *
      * @param  \SplFileInfo  $view
      * @return void

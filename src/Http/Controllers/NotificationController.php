@@ -42,6 +42,7 @@ class NotificationController extends Controller
     /**
      * Get the recent notifications and announcements for the user.
      *
+     * @param  Request  $request
      * @return Response
      */
     public function recent(Request $request)

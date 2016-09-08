@@ -3,9 +3,7 @@
 namespace Laravel\Spark\Http\Requests\Settings\Subscription;
 
 use Laravel\Spark\Spark;
-use Laravel\Spark\Coupon;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Spark\Contracts\Repositories\CouponRepository;
 use Laravel\Spark\Contracts\Http\Requests\Settings\Subscription\CreateSubscriptionRequest as Contract;
 
 class CreateBraintreeSubscriptionRequest extends CreateSubscriptionRequest implements Contract

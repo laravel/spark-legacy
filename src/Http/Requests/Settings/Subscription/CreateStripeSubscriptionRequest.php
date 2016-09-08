@@ -3,11 +3,8 @@
 namespace Laravel\Spark\Http\Requests\Settings\Subscription;
 
 use Laravel\Spark\Spark;
-use Laravel\Spark\Coupon;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Http\FormRequest;
 use Laravel\Spark\Http\Requests\ValidatesBillingAddresses;
-use Laravel\Spark\Contracts\Repositories\CouponRepository;
 use Laravel\Spark\Contracts\Http\Requests\Settings\Subscription\CreateSubscriptionRequest as Contract;
 
 class CreateStripeSubscriptionRequest extends CreateSubscriptionRequest implements Contract
@@ -24,7 +21,7 @@ class CreateStripeSubscriptionRequest extends CreateSubscriptionRequest implemen
         $validator = Validator::make($this->all(), [
             'stripe_token' => 'required',
             'plan' => 'required|in:'.Spark::activePlanIdList(),
-            'vat_id' => 'max:50|vat_id',
+            'vat_id' => 'nullable|max:50|vat_id',
         ]);
 
         if (Spark::collectsBillingAddress()) {

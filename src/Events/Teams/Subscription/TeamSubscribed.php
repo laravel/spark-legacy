@@ -23,7 +23,6 @@ class TeamSubscribed
      *
      * @param  \Laravel\Spark\Team  $team
      * @param  \Laravel\Spark\Plan  $plan
-     * @param  bool  $fromRegistration
      * @return void
      */
     public function __construct($team, $plan)

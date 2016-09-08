@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Http\Controllers\Settings\PaymentMethod;
 
 use Laravel\Spark\Spark;
-use Illuminate\Http\Request;
 use Laravel\Spark\Http\Controllers\Controller;
 use Laravel\Spark\Contracts\Interactions\Settings\PaymentMethod\UpdatePaymentMethod;
 use Laravel\Spark\Contracts\Http\Requests\Settings\PaymentMethod\UpdatePaymentMethodRequest;

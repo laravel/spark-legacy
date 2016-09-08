@@ -2,9 +2,6 @@
 
 namespace Laravel\Spark\Http\Requests\Settings\Subscription;
 
-use Laravel\Spark\Spark;
-use Laravel\Spark\Coupon;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Laravel\Spark\Contracts\Repositories\CouponRepository;
 

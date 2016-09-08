@@ -23,7 +23,7 @@ interface TeamRepository
     public function forUser($user);
 
     /**
-     * Create a new team with the given ownwer.
+     * Create a new team with the given owner.
      *
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  array  $data

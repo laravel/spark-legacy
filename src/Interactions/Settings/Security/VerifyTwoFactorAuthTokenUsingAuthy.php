@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Interactions\Settings\Security;
 
-use Exception;
-use GuzzleHttp\Client as HttpClient;
 use Laravel\Spark\Services\Security\Authy;
 use Laravel\Spark\Contracts\Interactions\Settings\Security\VerifyTwoFactorAuthToken as Contract;
 

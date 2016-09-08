@@ -4,7 +4,6 @@ namespace Laravel\Spark;
 
 use Exception;
 use Carbon\Carbon;
-use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Spark\Contracts\Repositories\TokenRepository;
@@ -159,8 +158,8 @@ class TokenGuard
     /**
      * Determine if the XSRF / header are valid and match.
      *
-     * @param  string  $xsrf
-     * @param  string  $header
+     * @param  array  $token
+     * @param  Request  $request
      * @return bool
      */
     protected function validXsrf($token, $request)

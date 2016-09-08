@@ -33,7 +33,7 @@ class NotificationRepository implements NotificationRepositoryContract
         $notifications = $unreadNotifications->merge($readNotifications)->sortByDesc('created_at');
 
         if (count($notifications) > 0) {
-            Notification::whereNotIn('id', $notifications->lists('id'))
+            Notification::whereNotIn('id', $notifications->pluck('id'))
                         ->where('user_id', $user->id)
                         ->where('created_at', '<', $notifications->first()->created_at)
                         ->delete();

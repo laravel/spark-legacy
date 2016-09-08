@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Console\Updating;
 
-use Exception;
 use Illuminate\Filesystem\Filesystem;
 
 class RemoveDownloadPath
@@ -11,7 +10,6 @@ class RemoveDownloadPath
      * Create a new command instance.
      *
      * @param  \Illuminate\Console\Command  $command
-     * @param  string  $downloadPath
      * @return void
      */
     public function __construct($command)

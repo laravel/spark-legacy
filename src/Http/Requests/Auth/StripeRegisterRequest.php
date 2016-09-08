@@ -2,9 +2,7 @@
 
 namespace Laravel\Spark\Http\Requests\Auth;
 
-use Exception;
 use Laravel\Spark\Spark;
-use Stripe\Token as StripeToken;
 use Laravel\Spark\Http\Requests\ValidatesBillingAddresses;
 use Laravel\Spark\Contracts\Http\Requests\Auth\RegisterRequest as Contract;
 

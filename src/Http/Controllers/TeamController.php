@@ -4,7 +4,6 @@ namespace Laravel\Spark\Http\Controllers;
 
 use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
-use Laravel\Spark\Http\Controllers\Controller;
 use Laravel\Spark\Contracts\Repositories\TeamRepository;
 
 class TeamController extends Controller
