@@ -47,7 +47,7 @@ class PerformanceIndicatorsRepository implements Contract
      */
     public function totalVolume()
     {
-        return DB::table('invoices')->sum('total');
+        return (int) DB::table('invoices')->sum('total');
     }
 
     /**
