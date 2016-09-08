@@ -37,5 +37,7 @@ class InstallHttp
     public function install()
     {
         (new Filesystem)->copyDirectory(SPARK_STUB_PATH.'/app/Http', app_path('Http'));
+
+        (new Filesystem)->copyDirectory(SPARK_STUB_PATH.'/routes', base_path('routes'));
     }
 }
