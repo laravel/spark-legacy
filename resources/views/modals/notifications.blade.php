@@ -22,11 +22,11 @@
 
                     <div class="modal-body">
                         <!-- Informational Messages -->
-                        <div v-if="loadingNotifications">
+                        <div class="notification-container" v-if="loadingNotifications">
                             <i class="fa fa-btn fa-spinner fa-spin"></i>Loading Notifications
                         </div>
 
-                        <div v-if=" ! loadingNotifications && activeNotifications.length == 0">
+                        <div class="notification-container" v-if=" ! loadingNotifications && activeNotifications.length == 0">
                             <div class="alert alert-warning m-b-none">
                                 We don't have anything to show you right now! But when we do,
                                 we'll be sure to let you know. Talk to you soon!
@@ -34,7 +34,7 @@
                         </div>
 
                         <!-- List Of Notifications -->
-                        <div v-if="showingNotifications && hasNotifications">
+                        <div class="notification-container" v-if="showingNotifications && hasNotifications">
                             <div class="notification" v-for="notification in notifications.notifications">
 
                                 <!-- Notification Icon -->
@@ -56,7 +56,7 @@
                                             </span>
 
                                             <span v-else>
-                                                Spark
+                                                {{ Spark::product() }}
                                             </span>
                                         </p>
 
@@ -79,7 +79,7 @@
                         </div>
 
                         <!-- List Of Announcements -->
-                        <div v-if="showingAnnouncements && hasAnnouncements">
+                        <div class="notification-container" v-if="showingAnnouncements && hasAnnouncements">
                             <div class="notification" v-for="announcement in notifications.announcements">
 
                                 <!-- Notification Icon -->

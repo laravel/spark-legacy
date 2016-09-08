@@ -8,7 +8,7 @@ interface UpdateTeamMember
      * Get a validator instance for the given data.
      *
      * @param  \Laravel\Spark\Team  $team
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $member
      * @param  array  $data
      * @return \Illuminate\Validation\Validator
      */
@@ -18,7 +18,7 @@ interface UpdateTeamMember
      * Update the given team member.
      *
      * @param  \Laravel\Spark\Team  $team
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $member
      * @param  array  $data
      * @return void
      */

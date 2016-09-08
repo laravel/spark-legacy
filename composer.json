@@ -18,6 +18,8 @@
         "intervention/image": "^2.3"
     },
     "require-dev": {
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.0",
         "mpociot/vat-calculator": "^1.6"
     },
     "autoload": {

@@ -4,7 +4,6 @@ namespace Laravel\Spark\Http\Controllers\Kiosk;
 
 use Carbon\Carbon;
 use Laravel\Spark\Spark;
-use Illuminate\Support\Facades\DB;
 use Laravel\Spark\Http\Controllers\Controller;
 use Laravel\Spark\Contracts\Repositories\PerformanceIndicatorsRepository;
 

@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers\Settings\Teams;
 
-use Laravel\Spark\Spark;
-use Illuminate\Http\Request;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Spark\Http\Controllers\Controller;
@@ -64,7 +62,7 @@ class TeamPhotoController extends Controller
     /**
      * Format the given file into a resized image.
      *
-     * @param  \Symfony\Component\HttpFoundation\File\UplaodedFile  $file
+     * @param  \Symfony\Component\HttpFoundation\File\UploadedFile  $file
      * @return string
      */
     protected function toImage($file)

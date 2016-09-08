@@ -10,7 +10,7 @@ interface SubscribeTeam
      * @param  \Laravel\Spark\Team  $team
      * @param  \Laravel\Spark\Plan  $plan
      * @param  array  $data
-     * @return \Laravel\Spark\Tean
+     * @return \Laravel\Spark\Team
      */
     public function handle($team, $plan, array $data);
 }

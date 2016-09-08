@@ -7,7 +7,7 @@ use Laravel\Spark\Spark;
 class TeamPlanController extends Controller
 {
     /**
-     * Get the all of the team plans defined for the appliation.
+     * Get the all of the team plans defined for the application.
      *
      * @return Response
      */

@@ -19,7 +19,7 @@ class CreateStripeSubscriptionRequest extends CreateSubscriptionRequest implemen
     {
         $validator = $this->baseValidator([
             'stripe_token' => 'required',
-            'vat_id' => 'max:50|vat_id',
+            'vat_id' => 'nullable|max:50|vat_id',
         ]);
 
         if (Spark::collectsBillingAddress()) {

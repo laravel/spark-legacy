@@ -27,6 +27,9 @@ class StateValidator
     /**
      * Validate the given data.
      *
+     * @param  string  $attribute
+     * @param  mixed  $value
+     * @param  array  $parameters
      * @return bool
      */
     public function validate($attribute, $value, $parameters)
@@ -35,9 +38,10 @@ class StateValidator
             return true;
         }
 
-        $abbreviations = $this->states->forCountry($parameters[0])
-                                ->pluck('abbreviation')->all();
+        $states = $this->states->forCountry($parameters[0])->flatten()->map(function ($item, $key) {
+            return strtoupper($item);
+        })->all();
 
-        return empty($abbreviations) || in_array($value, $abbreviations);
+        return empty($states) || in_array(strtoupper($value), $states);
     }
 }

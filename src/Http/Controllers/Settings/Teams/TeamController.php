@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers\Settings\Teams;
 
-use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Laravel\Spark\Events\Teams\TeamDeleted;
 use Laravel\Spark\Events\Teams\DeletingTeam;
@@ -29,7 +28,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        $team = $this->interaction($request, CreateTeam::class, [
+        $this->interaction($request, CreateTeam::class, [
             $request->user(), $request->all()
         ]);
     }

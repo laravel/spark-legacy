@@ -20,18 +20,9 @@
 
     <!-- Global Spark Object -->
     <script>
-        window.Spark = <?php echo json_encode([
-            'braintreeToken' => Spark::billsUsing('braintree') ? Braintree\ClientToken::generate() : null,
-            'cardUpFront' => Spark::needsCardUpFront(),
-            'csrfToken' => csrf_token(),
-            'roles' => Spark::roles(),
-            'stripeKey' => config('services.stripe.key'),
-            'userId' => Auth::id(),
-            'usesApi' => Spark::usesApi(),
-            'usesBraintree' => Spark::billsUsingBraintree(),
-            'usesTeams' => Spark::usesTeams(),
-            'usesStripe' => Spark::billsUsingStripe(),
-        ]) ?>;
+        window.Spark = <?php echo json_encode(array_merge(
+            Spark::scriptVariables(), []
+        )); ?>;
     </script>
 </head>
 <body class="with-navbar">

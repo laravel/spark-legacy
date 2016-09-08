@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers\Settings\Teams;
 
-use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Laravel\Spark\Http\Controllers\Controller;
 use Laravel\Spark\Events\Teams\TeamMemberRemoved;

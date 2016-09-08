@@ -17,7 +17,7 @@ class PerformanceIndicatorsRepository implements Contract
     public function all($take = 60)
     {
         return array_reverse(
-            DB::table('performance_indicators')->orderBy('created_at', 'desc')->take($take)->get()
+            DB::table('performance_indicators')->orderBy('created_at', 'desc')->take($take)->get()->all()
         );
     }
 
@@ -89,7 +89,7 @@ class PerformanceIndicatorsRepository implements Contract
                                       ->orWhere('trial_ends_at', '<=', Carbon::now());
                             })
                             ->whereNull('ends_at')
-                            ->count() * $plan->price;
+                            ->sum('quantity') * $plan->price;
         }
 
         return $total;

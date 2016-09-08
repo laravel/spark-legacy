@@ -4,8 +4,6 @@ namespace Laravel\Spark\Http\Controllers\Settings\Billing;
 
 use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
-use Illuminate\Support\HtmlString;
-use Illuminate\Support\Facades\Cache;
 use Laravel\Spark\Http\Controllers\Controller;
 
 class InvoiceController extends Controller

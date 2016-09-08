@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Interactions\Auth;
 
 use Laravel\Spark\Spark;
-use Laravel\Spark\Invitation;
 use Illuminate\Support\Facades\DB;
 use Laravel\Spark\Contracts\Interactions\Subscribe;
 use Laravel\Spark\Contracts\Http\Requests\Auth\RegisterRequest;
@@ -35,7 +34,7 @@ class Register implements Contract
         $user = Spark::interact(CreateUserContract::class, [$request]);
 
         if (Spark::usesTeams()) {
-            $this->configureTeamForNewUser($request, $user);
+            Spark::interact(self::class.'@configureTeamForNewUser', [$request, $user]);
         }
 
         return $user;
@@ -48,7 +47,7 @@ class Register implements Contract
      * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
      */
-    protected function configureTeamForNewUser(RegisterRequest $request, $user)
+    public function configureTeamForNewUser(RegisterRequest $request, $user)
     {
         if ($invitation = $request->invitation()) {
             Spark::interact(AddTeamMember::class, [$invitation->team, $user]);

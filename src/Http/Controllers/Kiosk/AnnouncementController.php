@@ -2,10 +2,8 @@
 
 namespace Laravel\Spark\Http\Controllers\Kiosk;
 
-use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Laravel\Spark\Announcement;
-use Illuminate\Support\Facades\Auth;
 use Laravel\Spark\Http\Controllers\Controller;
 use Laravel\Spark\Contracts\Repositories\AnnouncementRepository;
 
@@ -21,6 +19,7 @@ class AnnouncementController extends Controller
     /**
      * Create a new controller instance.
      *
+     * @param  \Laravel\Spark\Contracts\Repositories\AnnouncementRepository  $announcements
      * @return void
      */
     public function __construct(AnnouncementRepository $announcements)

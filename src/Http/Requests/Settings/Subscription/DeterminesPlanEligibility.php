@@ -10,7 +10,7 @@ trait DeterminesPlanEligibility
     /**
      * Validate that the plan is eligible based on team restrictions.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validatePlanEligibility($validator)
@@ -76,7 +76,7 @@ trait DeterminesPlanEligibility
             return false;
         }
 
-        return ! is_null($this->user()->teams->first(function ($key, $team) use ($plan) {
+        return ! is_null($this->user()->teams->first(function ($team) use ($plan) {
             return $plan->teamMembers < $team->totalPotentialUsers();
         }));
     }

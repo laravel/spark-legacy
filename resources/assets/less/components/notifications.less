@@ -4,6 +4,9 @@
         border-bottom: 0;
         margin-bottom: 0;
         height: 70px;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
 
         .btn-group {
             padding-top: 4px;
@@ -34,6 +37,14 @@
         background: #fff;
         border-top: 1px dashed rgba(0,0,0,.1);
         width: 350px;
+    }
+
+    .notification-container:first-child {
+      padding-top: 70px;
+    }
+
+    .notification-container:last-child {
+      padding-bottom: 65px + 23px;
     }
 
     .notification:not(:first-child) {

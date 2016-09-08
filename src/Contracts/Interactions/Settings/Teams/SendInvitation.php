@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Contracts\Interactions\Settings\Teams;
 
-use Laravel\Spark\Team;
-
 interface SendInvitation
 {
     /**

@@ -5,7 +5,6 @@ namespace Laravel\Spark\Interactions\Auth;
 use Laravel\Spark\Spark;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Spark\Contracts\Repositories\UserRepository;
-use Laravel\Spark\Contracts\Repositories\Geography\StateRepository;
 use Laravel\Spark\Contracts\Interactions\Auth\CreateUser as Contract;
 
 class CreateUser implements Contract

@@ -48,6 +48,7 @@ class SendInvitation implements Contract
      * @param  \Laravel\Spark\Team  $team
      * @param  string  $email
      * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $invitedUser
+     * @return Invitation
      */
     protected function createInvitation($team, $email, $invitedUser)
     {

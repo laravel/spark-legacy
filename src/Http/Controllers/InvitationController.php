@@ -2,9 +2,7 @@
 
 namespace Laravel\Spark\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Laravel\Spark\Invitation;
-use Laravel\Spark\Http\Controllers\Controller;
 
 class InvitationController extends Controller
 {

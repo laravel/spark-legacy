@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Console\Updating;
 
-use Exception;
 use Illuminate\Filesystem\Filesystem;
 
 class UpdateInstallation
@@ -35,7 +34,7 @@ class UpdateInstallation
      */
     public function update()
     {
-        (new Filesystem)->deleteDirectory(base_path('spark'));
+        (new Filesystem)->deleteDirectory(SPARK_PATH);
 
         rename($this->downloadPath, SPARK_PATH);
     }

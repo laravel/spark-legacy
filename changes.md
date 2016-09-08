@@ -1,5 +1,56 @@
 # Change Log
 
+## Version 1.0.14
+
+- Various minor bug fixes.
+
+## Version 1.0.13
+
+- Various minor bug fixes.
+
+## Version 1.0.12
+
+- Various improvements to notifications.
+- Allow full state names in billing information instead of just abbreviations.
+
+## Version 1.0.11
+
+- Remove empty parentheses on "delete announcement" modal.
+- Fix notifications overflow.
+
+## Version 1.0.10
+
+- Fix relative date formatting.
+
+## Version 1.0.9
+
+- Fix various bugs.
+
+## Version 1.0.8
+
+- Fix typo in class name.
+- Constrain Vue packages tighter.
+
+## Version 1.0.7
+
+- Stringify a few forms before handing them to vue-resource.
+
+## Version 1.0.6
+
+- Fix calculation of revenue when using subscription quantities.
+- Return result of interactions from base controller.
+
+## Version 1.0.5
+
+- Fix HTTP calls with new `vue-resource` updates.
+
+## Version 1.0.4
+
+- Use `SPARK_PATH` in `UpdateInstallation` class.
+- Update Blade layout to use same global script logic as Vue layout.
+- Fix `TokenGuard` to allow API authentication to work with `actingAs` during testing.
+- Fix responsiveness of update subscription screen.
+
 ## Version 1.0.3
 
 - Fix closing tag of metrics Vue component.

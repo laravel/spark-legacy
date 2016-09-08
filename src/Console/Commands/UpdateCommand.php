@@ -2,7 +2,6 @@
 
 namespace Laravel\Spark\Console\Commands;
 
-use Exception;
 use Laravel\Spark\Spark;
 use Illuminate\Console\Command;
 use Laravel\Spark\Console\Updating;

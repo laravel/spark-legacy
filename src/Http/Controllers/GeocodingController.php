@@ -3,7 +3,6 @@
 namespace Laravel\Spark\Http\Controllers;
 
 use Exception;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client as HttpClient;
 use Laravel\Spark\Contracts\Repositories\Geography\StateRepository;

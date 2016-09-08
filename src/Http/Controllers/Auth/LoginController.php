@@ -5,16 +5,13 @@ namespace Laravel\Spark\Http\Controllers\Auth;
 use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Laravel\Spark\Http\Controllers\Controller;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Laravel\Spark\Contracts\Interactions\Settings\Security\VerifyTwoFactorAuthToken as Verify;
 
 class LoginController extends Controller
 {
-    use AuthenticatesUsers, ThrottlesLogins {
+    use AuthenticatesUsers {
         AuthenticatesUsers::login as traitLogin;
     }
 
@@ -52,7 +49,11 @@ class LoginController extends Controller
     {
         if ($request->has('remember')) {
             $request->session()->put('spark:auth-remember', $request->remember);
+        }
 
+        $user = Spark::user()->where('email', $request->email)->first();
+
+        if (Spark::usesTwoFactorAuth() && $user && $user->uses_two_factor_auth) {
             $request->merge(['remember' => '']);
         }
 
@@ -151,7 +152,7 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        Auth::guard($this->getGuard())->logout();
+        $this->guard()->logout();
 
         session()->flush();
 

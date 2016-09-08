@@ -10,7 +10,7 @@ trait DeterminesTeamPlanEligibility
     /**
      * Validate that the plan is eligible based on team restrictions.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validatePlanEligibility($validator)
@@ -49,7 +49,7 @@ trait DeterminesTeamPlanEligibility
     }
 
     /**
-     * Determine if the team exceeds the maximum team memebrs for the plan.
+     * Determine if the team exceeds the maximum team members for the plan.
      *
      * @param  \Laravel\Spark\Team  $team
      * @param  \Laravel\Spark\Plan  $plan

@@ -2,9 +2,6 @@
 
 namespace Laravel\Spark\Http\Requests\Settings\Subscription;
 
-use Laravel\Spark\Spark;
-use Laravel\Spark\Coupon;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Laravel\Spark\Contracts\Repositories\CouponRepository;
 
@@ -25,7 +22,7 @@ class CreateSubscriptionRequest extends FormRequest
     /**
      * Validate the coupon on the request.
      *
-     * @param  \Illuminate\Validation\Validator  $valdiator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function validateCoupon($validator)

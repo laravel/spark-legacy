@@ -10,7 +10,7 @@ trait Billable
     use CashierBillable;
 
     /**
-     * Determine if the user is connected ot any payment provider.
+     * Determine if the user is connected to any payment provider.
      *
      * @return bool
      */
@@ -42,12 +42,12 @@ trait Billable
         $subscription = $this->subscription($subscription);
 
         if ($subscription) {
-            return $this->availablePlans()->first(function ($key, $value) use ($subscription) {
+            return $this->availablePlans()->first(function ($value) use ($subscription) {
                 return $value->id === $subscription->provider_plan;
             });
         }
 
-        return $this->availablePlans()->first(function ($key, $value) {
+        return $this->availablePlans()->first(function ($value) {
             return $value->price === 0;
         });
     }

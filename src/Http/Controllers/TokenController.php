@@ -2,8 +2,6 @@
 
 namespace Laravel\Spark\Http\Controllers;
 
-use Carbon\Carbon;
-use Laravel\Spark\Token;
 use Illuminate\Http\Request;
 use Laravel\Spark\Contracts\Repositories\TokenRepository;
 
@@ -32,6 +30,7 @@ class TokenController extends Controller
     /**
      * Exchange the current transient API token for a new one.
      *
+     * @param  Request  $request
      * @return Response
      */
     public function refresh(Request $request)

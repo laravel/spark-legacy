@@ -7,7 +7,6 @@ use Laravel\Spark\TokenGuard;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Spark\Validation\StateValidator;
@@ -238,7 +237,7 @@ class SparkServiceProvider extends ServiceProvider
      */
     protected function registerInterventionService()
     {
-        $this->app->bind(ImageManger::class, function () {
+        $this->app->bind(ImageManager::class, function () {
             return new ImageManager(['driver' => 'gd']);
         });
     }
