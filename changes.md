@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 2.0.3
+
+- Update Vue Resource and JWT libraries.
+
+## Version 2.0.0
+
+- Compatibility with Laravel 5.3
+
 ## Version 1.0.14
 
 - Various minor bug fixes.
