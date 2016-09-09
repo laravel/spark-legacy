@@ -1,22 +1,7 @@
-module.exports = {
-    /**
-     * Intercept the outgoing requests.
-     *
-     * Set common headers on the request.
-     */
-    request(request) {
-        request.headers['X-XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN');
+module.exports = (request, next) => {
+    request.headers.set('X-XSRF-TOKEN', Cookies.get('XSRF-TOKEN'));
 
-        return request;
-    },
-
-
-    /**
-     * Intercept the incoming responses.
-     *
-     * Handle any unexpected HTTP errors and pop up modals, etc.
-     */
-    response(response) {
+    next(response => {
         switch (response.status) {
             case 401:
                 Vue.http.get('/logout');
@@ -27,7 +12,5 @@ module.exports = {
                 window.location = '/settings#/subscription';
                 break;
         }
-
-        return response;
-    }
+    });
 };

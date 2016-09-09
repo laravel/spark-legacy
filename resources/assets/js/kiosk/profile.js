@@ -41,8 +41,8 @@ module.exports = {
 
             this.$http.get('/spark/kiosk/users/' + id + '/profile')
                 .then(response => {
-                    this.profile = response.data.user;
-                    this.revenue = response.data.revenue;
+                    this.profile = response.json().user;
+                    this.revenue = response.json().revenue;
 
                     this.loading = false;
                 });
