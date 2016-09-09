@@ -52,7 +52,7 @@ module.exports = {
         getTeam() {
             this.$http.get(`/teams/${this.teamId}`)
                 .then(response => {
-                    this.team = response.data;
+                    this.team = response.json();
                 });
         }
     }

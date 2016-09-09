@@ -36,7 +36,7 @@ module.exports = {
                 .then(response => {
                     form.finishProcessing();
 
-                    resolve(response.data);
+                    resolve(response.json());
                 })
                 .catch(errors => {
                     form.errors.set(errors.data);

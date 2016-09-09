@@ -24,7 +24,7 @@ module.exports = {
         getPendingInvitations() {
             this.$http.get('/settings/invitations/pending')
                 .then(response => {
-                    this.invitations = response.data;
+                    this.invitations = response.json();
                 });
         },
 

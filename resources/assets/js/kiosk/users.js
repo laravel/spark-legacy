@@ -65,7 +65,7 @@ module.exports = {
         getPlans() {
             this.$http.get('/spark/plans')
                 .then(function(response) {
-                    this.plans = response.data;
+                    this.plans = response.json();
                 });
         },
 
@@ -79,7 +79,7 @@ module.exports = {
 
             this.$http.post('/spark/kiosk/users/search', JSON.stringify(this.searchForm))
                 .then(response => {
-                    this.searchResults = response.data;
+                    this.searchResults = response.json();
                     this.noSearchResults = this.searchResults.length === 0;
 
                     this.searching = false;

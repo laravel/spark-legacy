@@ -152,7 +152,7 @@ module.exports = {
         getUser() {
             this.$http.get('/user/current')
                 .then(response => {
-                    this.user = response.data;
+                    this.user = response.json();
                 });
         },
 
@@ -163,7 +163,7 @@ module.exports = {
         getTeams() {
             this.$http.get('/teams')
                 .then(response => {
-                    this.teams = response.data;
+                    this.teams = response.json();
                 });
         },
 
@@ -174,7 +174,7 @@ module.exports = {
         getCurrentTeam() {
             this.$http.get('/teams/current')
                 .then(response => {
-                    this.currentTeam = response.data;
+                    this.currentTeam = response.json();
                 })
                 .catch(response => {
                     //
@@ -190,7 +190,7 @@ module.exports = {
 
             this.$http.get('/notifications/recent')
                 .then(response => {
-                    this.notifications = response.data;
+                    this.notifications = response.json();
 
                     this.loadingNotifications = false;
                 });
