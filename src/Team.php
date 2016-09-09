@@ -46,6 +46,7 @@ class Team extends Model
      * @var array
      */
     protected $casts = [
+        'owner_id' => 'int',
         'trial_ends_at' => 'date',
     ];
 
