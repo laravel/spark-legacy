@@ -14,9 +14,7 @@ Vue.config.debug = true;
 /**
  * Load Vue HTTP Interceptors.
  */
-Vue.http.interceptors.push(() => {
-    return require('./interceptors');
-});
+Vue.http.interceptors.push(require('./interceptors'));
 
 /**
  * Load Vue Global Mixin.
