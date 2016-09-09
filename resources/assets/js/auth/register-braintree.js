@@ -87,7 +87,7 @@ module.exports = {
         getCoupon() {
             this.$http.get('/coupon/' + this.query.coupon)
                 .then(response => {
-                    this.coupon = response.json();
+                    this.coupon = response.data;
                 })
                 .catch(response => {
                     this.invalidCoupon = true;

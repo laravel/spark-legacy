@@ -24,7 +24,7 @@ module.exports = {
 
             this.$http.get('/spark/plans')
                 .then(function(response) {
-                    this.plans = response.json();
+                    this.plans = response.data;
 
                     this.selectAppropriateDefaultPlan();
                 });
@@ -37,7 +37,7 @@ module.exports = {
         getInvitation() {
             this.$http.get(`/invitations/${this.query.invitation}`)
                 .then(function(response) {
-                    this.invitation = response.json();
+                    this.invitation = response.data;
                 })
                 .catch(function(response) {
                     this.invalidInvitation = true;

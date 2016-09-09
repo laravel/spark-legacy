@@ -36,7 +36,7 @@ module.exports = {
         getTokens() {
             this.$http.get('/settings/api/tokens')
                     .then(function(response) {
-                        this.tokens = response.json();
+                        this.tokens = response.data;
                     });
         },
 
@@ -47,7 +47,7 @@ module.exports = {
         getAvailableAbilities() {
             this.$http.get('/settings/api/token/abilities')
                 .then(function(response) {
-                    this.availableAbilities = response.json();
+                    this.availableAbilities = response.data;
                 });
         }
     }

@@ -26,7 +26,7 @@ module.exports = {
 		getInvoices() {
 			this.$http.get(this.urlForInvoices)
 				.then(response => {
-					this.invoices = _.filter(response.json(), invoice => {
+					this.invoices = _.filter(response.data, invoice => {
 						return invoice.total != '$0.00';
 					});
 				});

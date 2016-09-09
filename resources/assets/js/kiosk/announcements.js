@@ -43,7 +43,7 @@ module.exports = {
         getAnnouncements() {
             this.$http.get('/spark/kiosk/announcements')
                 .then(response => {
-                    this.announcements = response.json();
+                    this.announcements = response.data;
                 });
         },
 
