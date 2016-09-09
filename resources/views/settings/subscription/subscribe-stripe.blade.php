@@ -78,7 +78,7 @@
                     <label for="number" class="col-md-4 control-label">ZIP / Postal Code</label>
 
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="zip" v-model="cardForm.zip">
+                        <input type="text" class="form-control" name="zip" v-model="form.zip">
                     </div>
                 </div>
 
