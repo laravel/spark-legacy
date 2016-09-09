@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.4
+
+- Revert Vue Resource upgrade.
+
 ## Version 2.0.3
 
 - Update Vue Resource and JWT libraries.
