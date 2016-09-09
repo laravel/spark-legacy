@@ -21,7 +21,7 @@ module.exports = {
         refreshTaxRate(form) {
             this.$http.post('/tax-rate', JSON.stringify(form))
                 .then(response => {
-                    this.taxRate = response.data.rate;
+                    this.taxRate = response.json().rate;
                 });
         },
 

@@ -45,7 +45,7 @@ module.exports = {
         getPlans() {
             this.$http.get(this.urlForPlans)
                 .then(response => {
-                    this.plans = response.data;
+                    this.plans = response.json();
                 });
         }
     },
