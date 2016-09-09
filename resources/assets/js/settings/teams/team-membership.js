@@ -36,7 +36,7 @@ module.exports = {
         getInvitations() {
             this.$http.get(`/settings/teams/${this.team.id}/invitations`)
                 .then(response => {
-                    this.invitations = response.json();
+                    this.invitations = response.data;
                 });
         }
     }

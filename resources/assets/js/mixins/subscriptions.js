@@ -36,7 +36,7 @@ module.exports = {
                     this.$dispatch('updateTeam');
                 })
                 .catch(response => {
-                    this.planForm.errors.set(response.json());
+                    this.planForm.errors.set(response.data);
                 })
                 .finally(() => {
                     this.selectingPlan = null;

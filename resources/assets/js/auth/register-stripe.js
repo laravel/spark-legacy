@@ -108,8 +108,8 @@ module.exports = {
         guessCountry() {
             this.$http.get('/geocode/country')
                 .then(response => {
-                    if (response.text() != 'ZZ') {
-                        this.registerForm.country = response.text();
+                    if (response.data != 'ZZ') {
+                        this.registerForm.country = response.data;
                     }
                 })
                 .catch (response => {
@@ -127,7 +127,7 @@ module.exports = {
         getCoupon() {
             this.$http.get('/coupon/' + this.query.coupon)
                 .then(response => {
-                    this.coupon = response.json();
+                    this.coupon = response.data;
                 })
                 .catch(response => {
                     this.invalidCoupon = true;

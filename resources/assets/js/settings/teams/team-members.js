@@ -36,7 +36,7 @@ module.exports = {
         getRoles() {
             this.$http.get('/settings/teams/roles')
                 .then(response => {
-                    this.roles = response.json();
+                    this.roles = response.data;
                 });
         },
 
