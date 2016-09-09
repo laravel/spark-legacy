@@ -42,9 +42,9 @@ module.exports = {
         getRevenue() {
             this.$http.get('/spark/kiosk/performance-indicators/revenue')
                 .then(response => {
-                    this.yearlyRecurringRevenue = response.data.yearlyRecurringRevenue;
-                    this.monthlyRecurringRevenue = response.data.monthlyRecurringRevenue;
-                    this.totalVolume = response.data.totalVolume;
+                    this.yearlyRecurringRevenue = response.json().yearlyRecurringRevenue;
+                    this.monthlyRecurringRevenue = response.json().monthlyRecurringRevenue;
+                    this.totalVolume = response.json().totalVolume;
                 });
         },
 
@@ -55,7 +55,7 @@ module.exports = {
         getPlans() {
             this.$http.get('/spark/kiosk/performance-indicators/plans')
                 .then(response => {
-                    this.plans = response.data;
+                    this.plans = response.json();
                 });
         },
 
@@ -66,7 +66,7 @@ module.exports = {
         getTrialUsers() {
             this.$http.get('/spark/kiosk/performance-indicators/trialing')
                 .then(response => {
-                    this.genericTrialUsers = response.data;
+                    this.genericTrialUsers = response.json();
                 });
         },
 
@@ -77,9 +77,9 @@ module.exports = {
         getPerformanceIndicators() {
             this.$http.get('/spark/kiosk/performance-indicators')
                 .then(response => {
-                    this.indicators = response.data.indicators;
-                    this.lastMonthsIndicators = response.data.last_month;
-                    this.lastYearsIndicators = response.data.last_year;
+                    this.indicators = response.json().indicators;
+                    this.lastMonthsIndicators = response.json().last_month;
+                    this.lastYearsIndicators = response.json().last_year;
 
                     Vue.nextTick(() => {
                         this.drawCharts();

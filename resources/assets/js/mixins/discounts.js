@@ -21,7 +21,7 @@ module.exports = {
 
             this.$http.get(`/coupon/user/${user.id}`)
                 .then(response => {
-                    this.currentDiscount = response.data;
+                    this.currentDiscount = response.json();
 
                     this.loadingCurrentDiscount = false;
                 });
@@ -38,7 +38,7 @@ module.exports = {
 
             this.$http.get(`/coupon/team/${team.id}`)
                 .then(response => {
-                    this.currentDiscount = response.data;
+                    this.currentDiscount = response.json();
 
                     this.loadingCurrentDiscount = false;
                 });

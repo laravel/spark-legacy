@@ -31,7 +31,7 @@ module.exports = {
                     this.form.finishProcessing();
                 })
                 .catch(function(response) {
-                    this.form.setErrors(response.data);
+                    this.form.setErrors(response.json());
                 });
         },
 
