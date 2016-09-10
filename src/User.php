@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark;
 
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Str;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

@@ -5,7 +5,7 @@ module.exports = {
     data() {
         return {
             tokens: [],
-            availableAbilities: []
+            scopes: []
         };
     },
 
@@ -15,7 +15,7 @@ module.exports = {
      */
     ready() {
         this.getTokens();
-        this.getAvailableAbilities();
+        this.getScopes();
     },
 
 
@@ -34,7 +34,7 @@ module.exports = {
          * Get the current API tokens for the user.
          */
         getTokens() {
-            this.$http.get('/settings/api/tokens')
+            this.$http.get('/oauth/personal-access-tokens')
                     .then(function(response) {
                         this.tokens = response.data;
                     });
@@ -44,10 +44,10 @@ module.exports = {
         /**
          * Get all of the available token abilities.
          */
-        getAvailableAbilities() {
-            this.$http.get('/settings/api/token/abilities')
+        getScopes() {
+            this.$http.get('/oauth/scopes')
                 .then(function(response) {
-                    this.availableAbilities = response.data;
+                    this.scopes = response.data;
                 });
         }
     }

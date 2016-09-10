@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark\Providers;
 
+use Laravel\Passport\Passport;
 use Laravel\Spark\Spark;
 use Braintree_Configuration;
 use Illuminate\Support\ServiceProvider;
@@ -89,6 +90,10 @@ class AppServiceProvider extends ServiceProvider
 
         if ($this->usesApi) {
             Spark::useApi();
+
+            Passport::routes(function ($router) {
+                $router->forPersonalAccessTokens();
+            });
         }
 
         Spark::tokensCan($this->tokensCan);

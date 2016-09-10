@@ -1,5 +1,5 @@
 module.exports = {
-    props: ['tokens', 'availableAbilities'],
+    props: ['tokens', 'scopes'],
 
 
     /**
@@ -7,96 +7,34 @@ module.exports = {
      */
     data() {
         return {
-            updatingToken: null,
-            deletingToken: null,
+            revokingToken: null,
 
-            updateTokenForm: new SparkForm({
-                name: '',
-                abilities: []
-            }),
-
-            deleteTokenForm: new SparkForm({})
+            revokeTokenForm: new SparkForm({})
         }
     },
 
 
     methods: {
-        /**
-         * Show the edit token modal.
-         */
-        editToken(token) {
-            this.updatingToken = token;
-
-            this.initializeUpdateFormWith(token);
-
-            $('#modal-update-token').modal('show');
-        },
-
 
         /**
-         * Initialize the edit form with the given token.
+         * Get user confirmation that the token should be revoked.
          */
-        initializeUpdateFormWith(token) {
-            this.updateTokenForm.name = token.name;
+        approveTokenRevoke(token) {
+            this.revokingToken = token;
 
-            this.updateTokenForm.abilities = token.metadata.abilities;
-        },
-
-
-        /**
-         * Update the token being edited.
-         */
-        updateToken() {
-            Spark.put(`/settings/api/token/${this.updatingToken.id}`, this.updateTokenForm)
-                .then(response => {
-                    this.$dispatch('updateTokens');
-
-                    $('#modal-update-token').modal('hide');
-                })
-        },
-
-
-        /**
-         * Toggle the ability on the current token being edited.
-         */
-        toggleAbility(ability) {
-            if (this.abilityIsAssigned(ability)) {
-                this.updateTokenForm.abilities = _.reject(
-                    this.updateTokenForm.abilities, a => a == ability
-                );
-            } else {
-                this.updateTokenForm.abilities.push(ability);
-            }
-        },
-
-
-        /**
-         * Determine if the ability has been assigned to the token being edited.
-         */
-        abilityIsAssigned(ability) {
-            return _.contains(this.updateTokenForm.abilities, ability);
-        },
-
-
-        /**
-         * Get user confirmation that the token should be deleted.
-         */
-        approveTokenDelete(token) {
-            this.deletingToken = token;
-
-            $('#modal-delete-token').modal('show');
+            $('#modal-revoke-token').modal('show');
         },
 
 
         /**
          * Delete the specified token.
          */
-        deleteToken() {
-            Spark.delete(`/settings/api/token/${this.deletingToken.id}`, this.deleteTokenForm)
+        revokeToken() {
+            Spark.delete(`/oauth/personal-access-tokens/${this.revokingToken.id}`, this.revokeTokenForm)
                 .then(() => {
                     this.$dispatch('updateTokens');
 
-                    $('#modal-delete-token').modal('hide');
+                    $('#modal-revoke-token').modal('hide');
                 });
         }
     }

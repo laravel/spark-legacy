@@ -12,7 +12,6 @@
 */
 
 Route::group([
-    'prefix' => 'api',
     'middleware' => 'auth:api'
 ], function () {
     //

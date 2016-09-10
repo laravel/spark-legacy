@@ -1,5 +1,5 @@
 module.exports = {
-    props: ['availableAbilities'],
+    props: ['scopes'],
 
 
     /**
@@ -8,11 +8,11 @@ module.exports = {
     data() {
         return {
             showingToken: null,
-            allAbilitiesAssigned: false,
+            allScopesAssigned: false,
 
             form: new SparkForm({
                 name: '',
-                abilities: []
+                scopes: []
             })
         };
     },
@@ -20,11 +20,11 @@ module.exports = {
 
     watch: {
         /**
-         * Watch the available abilities for changes.
+         * Watch the scopes for changes.
          */
-        availableAbilities() {
-            if (this.availableAbilities.length > 0) {
-                this.assignDefaultAbilities();
+        scopes() {
+            if (this.scopes.length > 0) {
+                this.assignDefaultScopes();
             }
         }
     },
@@ -32,52 +32,52 @@ module.exports = {
 
     methods: {
         /**
-         * Assign all of the default abilities.
+         * Assign all of the default scopes.
          */
-        assignDefaultAbilities() {
-            var defaults = _.filter(this.availableAbilities, a => a.default);
+        assignDefaultScopes() {
+            var defaults = _.filter(this.scopes, s => s.default);
 
-            this.form.abilities = _.pluck(defaults, 'value');
+            this.form.scopes = _.pluck(defaults, 'id');
         },
 
 
         /**
-         * Enable all the available abilities for the given token.
+         * Enable all the scopes for the given token.
          */
-        assignAllAbilities() {
-            this.allAbilitiesAssigned = true;
+        assignAllScopes() {
+            this.allScopesAssigned = true;
 
-            this.form.abilities = _.pluck(this.availableAbilities, 'value');
+            this.form.scopes = _.pluck(this.scopes, 'id');
         },
 
 
         /**
-         * Remove all of the abilities from the token.
+         * Remove all of the scopes from the token.
          */
-        removeAllAbilities() {
-            this.allAbilitiesAssigned = false;
+        removeAllScopes() {
+            this.allScopesAssigned = false;
 
-            this.form.abilities = [];
+            this.form.scopes = [];
         },
 
 
         /**
-         * Toggle the given ability in the list of assigned abilities.
+         * Toggle the given scope in the list of assigned scopes.
          */
-        toggleAbility(ability) {
-            if (this.abilityIsAssigned(ability)) {
-                this.form.abilities = _.reject(this.form.abilities, a => a == ability);
+        toggleScope(scope) {
+            if (this.scopeIsAssigned(scope)) {
+                this.form.scopes = _.reject(this.form.scopes, s => s == scope);
             } else {
-                this.form.abilities.push(ability);
+                this.form.scopes.push(scope);
             }
         },
 
 
         /**
-         * Determine if the given ability has been assigned to the token.
+         * Determine if the given scope has been assigned to the token.
          */
-        abilityIsAssigned(ability) {
-            return _.contains(this.form.abilities, ability);
+        scopeIsAssigned(scope) {
+            return _.contains(this.form.scopes, scope);
         },
 
 
@@ -85,9 +85,9 @@ module.exports = {
          * Create a new API token.
          */
         create() {
-            Spark.post('/settings/api/token', this.form)
+            Spark.post('/oauth/personal-access-tokens', this.form)
                 .then(response => {
-                    this.showToken(response.token);
+                    this.showToken(response.accessToken);
 
                     this.resetForm();
 
@@ -112,9 +112,9 @@ module.exports = {
         resetForm() {
             this.form.name = '';
 
-            this.assignDefaultAbilities();
+            this.assignDefaultScopes();
 
-            this.allAbilitiesAssigned = false;
+            this.allScopesAssigned = false;
         }
     }
 };
