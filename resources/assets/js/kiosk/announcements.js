@@ -70,6 +70,7 @@ module.exports = {
             this.updateForm.icon = announcement.icon;
             this.updateForm.body = announcement.body;
             this.updateForm.action_text = announcement.action_text;
+            this.updateForm.action_url = announcement.action_url;
 
             $('#modal-update-announcement').modal('show');
         },
