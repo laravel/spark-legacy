@@ -18,7 +18,7 @@ module.exports = {
         update(e) {
             e.preventDefault();
 
-            var that = this;
+            var self = this;
 
             this.form.startProcessing();
 
@@ -35,13 +35,13 @@ module.exports = {
                 headers: {
                     'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
                 },
-                success: function(){
-                    that.$dispatch('updateUser');
+                success: function () {
+                    self.$dispatch('updateUser');
 
-                    that.form.finishProcessing();
+                    self.form.finishProcessing();
                 },
-                error: function(error){
-                    that.form.setErrors(error.responseJSON);
+                error: function (error) {
+                    self.form.setErrors(error.responseJSON);
                 }
             });
         },
