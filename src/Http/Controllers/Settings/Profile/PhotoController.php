@@ -26,7 +26,6 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-
         $this->interaction(
             $request, UpdateProfilePhoto::class,
             [$request->user(), $request->all()]
