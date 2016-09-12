@@ -80,7 +80,6 @@ trait CanJoinTeams
     /**
      * Get the user's role on the team currently being viewed.
      *
-     * @param  \Laravel\Spark\Team  $team
      * @return string
      */
     public function roleOnCurrentTeam()
