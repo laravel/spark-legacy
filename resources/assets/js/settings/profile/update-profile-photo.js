@@ -18,20 +18,32 @@ module.exports = {
         update(e) {
             e.preventDefault();
 
+            var that = this;
+
             this.form.startProcessing();
 
             // We need to gather a fresh FormData instance with the profile photo appended to
             // the data so we can POST it up to the server. This will allow us to do async
             // uploads of the profile photos. We will update the user after this action.
-            this.$http.post('/settings/photo', this.gatherFormData())
-                .then(function(response) {
-                    this.$dispatch('updateUser');
+            $.ajax({
+                url: '/settings/photo',
+                data: this.gatherFormData(),
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                headers: {
+                    'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
+                },
+                success: function(){
+                    that.$dispatch('updateUser');
 
-                    this.form.finishProcessing();
-                })
-                .catch(function(response) {
-                    this.form.setErrors(response.data);
-                });
+                    that.form.finishProcessing();
+                },
+                error: function(error){
+                    that.form.setErrors(error.responseJSON);
+                }
+            });
         },
 
 
