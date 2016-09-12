@@ -13,7 +13,7 @@
                         <!-- Invoice Date -->
                         <td>
                             <div class="btn-table-align">
-                                <strong>@{{ invoice.date | date }}</strong>
+                                <strong>@{{ invoice.created_at | date }}</strong>
                             </div>
                         </td>
 
