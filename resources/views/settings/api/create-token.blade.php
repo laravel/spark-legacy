@@ -1,4 +1,4 @@
-<spark-create-token :available-abilities="availableAbilities" inline-template>
+<spark-create-token :scopes="scopes" inline-template>
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -20,40 +20,40 @@
                         </div>
                     </div>
 
-                    <!-- Mass Ability Assignment / Removal -->
-                    <div class="form-group" v-if="availableAbilities.length > 0">
+                    <!-- Mass Scope Assignment / Removal -->
+                    <div class="form-group" v-if="scopes.length > 0">
                         <label class="col-md-4 control-label">&nbsp;</label>
 
                         <div class="col-md-6">
-                            <button class="btn btn-default" @click.prevent="assignAllAbilities" v-if=" ! allAbilitiesAssigned">
-                                <i class="fa fa-btn fa-check"></i>Assign All Abilities
+                            <button class="btn btn-default" @click.prevent="assignAllScopes" v-if=" ! allScopesAssigned">
+                                <i class="fa fa-btn fa-check"></i>Assign All Scopes
                             </button>
 
-                            <button class="btn btn-default" @click.prevent="removeAllAbilities" v-if="allAbilitiesAssigned">
-                                <i class="fa fa-btn fa-times"></i>Remove All Abilities
+                            <button class="btn btn-default" @click.prevent="removeAllScopes" v-if="allScopesAssigned">
+                                <i class="fa fa-btn fa-times"></i>Remove All Scopes
                             </button>
                         </div>
                     </div>
 
-                    <!-- Token Abilities -->
-                    <div class="form-group" :class="{'has-error': form.errors.has('abilities')}" v-if="availableAbilities.length > 0">
+                    <!-- Token Scopes -->
+                    <div class="form-group" :class="{'has-error': form.errors.has('scopes')}" v-if="scopes.length > 0">
                         <label class="col-md-4 control-label">Token Can</label>
 
                         <div class="col-md-6">
-                            <div v-for="ability in availableAbilities">
+                            <div v-for="scope in scopes">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox"
-                                            @click="toggleAbility(ability.value)"
-                                            :checked="abilityIsAssigned(ability.value)">
+                                            @click="toggleScope(scope.id)"
+                                            :checked="scopeIsAssigned(scope.id)">
 
-                                            @{{ ability.name }}
+                                            @{{ scope.description }}
                                     </label>
                                 </div>
                             </div>
 
-                            <span class="help-block" v-show="form.errors.has('abilities')">
-                                @{{ form.errors.get('abilities') }}
+                            <span class="help-block" v-show="form.errors.has('scopes')">
+                                @{{ form.errors.get('scopes') }}
                             </span>
                         </div>
                     </div>

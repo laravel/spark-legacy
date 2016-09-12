@@ -1,4 +1,4 @@
-<spark-tokens :tokens="tokens" :available-abilities="availableAbilities" inline-template>
+<spark-tokens :tokens="tokens" :scopes="scopes" inline-template>
     <div>
         <div>
             <div class="panel panel-default" v-if="tokens.length > 0">
@@ -9,7 +9,6 @@
                         <thead>
                             <th>Name</th>
                             <th>Last Used</th>
-                            <th></th>
                             <th></th>
                         </thead>
 
@@ -35,16 +34,9 @@
                                     </div>
                                 </td>
 
-                                <!-- Edit Button -->
-                                <td>
-                                    <button class="btn btn-primary" @click="editToken(token)">
-                                        <i class="fa fa-pencil"></i>
-                                    </button>
-                                </td>
-
                                 <!-- Delete Button -->
                                 <td>
-                                    <button class="btn btn-danger-outline" @click="approveTokenDelete(token)">
+                                    <button class="btn btn-danger-outline" @click="approveTokenRevoke(token)">
                                         <i class="fa fa-times"></i>
                                     </button>
                                 </td>
@@ -55,80 +47,15 @@
             </div>
         </div>
 
-        <!-- Update Token Modal -->
-        <div class="modal fade" id="modal-update-token" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="updatingToken">
+        <!-- Revoke Token Modal -->
+        <div class="modal fade" id="modal-revoke-token" tabindex="-1" role="dialog">
+            <div class="modal-dialog" v-if="revokingToken">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Edit Token (@{{ updatingToken.name }})
-                        </h4>
-                    </div>
-
-                    <div class="modal-body">
-                        <!-- Update Token Form -->
-                        <form class="form-horizontal" role="form">
-                            <!-- Token Name -->
-                            <div class="form-group" :class="{'has-error': updateTokenForm.errors.has('name')}">
-                                <label class="col-md-4 control-label">Token Name</label>
-
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" name="name" v-model="updateTokenForm.name">
-
-                                    <span class="help-block" v-show="updateTokenForm.errors.has('name')">
-                                        @{{ updateTokenForm.errors.get('name') }}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <!-- Token Abilities -->
-                            <div class="form-group" :class="{'has-error': updateTokenForm.errors.has('abilities')}" v-if="availableAbilities.length > 0">
-                                <label class="col-md-4 control-label">Token Can</label>
-
-                                <div class="col-md-6">
-                                    <div v-for="ability in availableAbilities">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"
-                                                    @click="toggleAbility(ability.value)"
-                                                    :checked="abilityIsAssigned(ability.value)">
-
-                                                    @{{ ability.name }}
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <span class="help-block" v-show="updateTokenForm.errors.has('abilities')">
-                                        @{{ updateTokenForm.errors.get('abilities') }}
-                                    </span>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                    <!-- Modal Actions -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-
-                        <button type="button" class="btn btn-primary" @click="updateToken" :disabled="updateTokenForm.busy">
-                            Update
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Delete Token Modal -->
-        <div class="modal fade" id="modal-delete-token" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="deletingToken">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
-                            Delete Token (@{{ deletingToken.name }})
+                            Delete Token (@{{ revokingToken.name }})
                         </h4>
                     </div>
 
@@ -141,7 +68,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
 
-                        <button type="button" class="btn btn-danger" @click="deleteToken" :disabled="deleteTokenForm.busy">
+                        <button type="button" class="btn btn-danger" @click="revokeToken" :disabled="revokeTokenForm.busy">
                             Yes, Delete
                         </button>
                     </div>

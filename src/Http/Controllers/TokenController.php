@@ -3,26 +3,26 @@
 namespace Laravel\Spark\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Laravel\Spark\Contracts\Repositories\TokenRepository;
+use Laravel\Passport\ApiTokenCookieFactory;
 
 class TokenController extends Controller
 {
     /**
-     * The token repository instance.
+     * The API token cookie factory instance.
      *
-     * @var TokenRepository
+     * @var ApiTokenCookieFactory
      */
-    protected $tokens;
+    protected $cookieFactory;
 
     /**
      * Create a new controller instance.
      *
-     * @param  TokenRepository  $tokens
+     * @param  ApiTokenCookieFactory  $cookieFactory
      * @return void
      */
-    public function __construct(TokenRepository $tokens)
+    public function __construct(ApiTokenCookieFactory $cookieFactory)
     {
-        $this->tokens = $tokens;
+        $this->cookieFactory = $cookieFactory;
 
         $this->middleware('auth');
     }
@@ -35,10 +35,8 @@ class TokenController extends Controller
      */
     public function refresh(Request $request)
     {
-        $this->tokens->deleteExpiredTokens($request->user());
-
-        return response('Refreshed.')->withCookie(
-            $this->tokens->createTokenCookie($request->user())
-        );
+        return response('Refreshed.')->withCookie($this->cookieFactory->make(
+            $request->user()->getKey(), $request->session()->token()
+        ));
     }
 }

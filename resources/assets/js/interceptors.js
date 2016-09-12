@@ -5,7 +5,7 @@ module.exports = {
      * Set common headers on the request.
      */
     request(request) {
-        request.headers['X-XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN');
+        request.headers['X-CSRF-TOKEN'] = Laravel.csrfToken;
 
         return request;
     },
