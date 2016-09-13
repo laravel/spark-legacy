@@ -6,7 +6,7 @@
 
         <!-- Interval Selector Button Group -->
         <div class="pull-right">
-            <div class="btn-group" v-if="hasMonthlyAndYearlyPlans">
+            <div class="btn-group" v-if="hasMonthlyAndYearlyPaidPlans">
                 <!-- Monthly Plans -->
                 <button type="button" class="btn btn-default"
                         @click="showMonthlyPlans"
