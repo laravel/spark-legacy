@@ -68,7 +68,7 @@ module.exports = {
          // If only yearly subscription plans are available, we will select that interval so that we
          // can show the plans. Then we'll select the first available paid plan from the list and
          // start the form in a good default spot. The user may then select another plan later.
-        if (this.onlyHasYearlyPlans) {
+        if (this.onlyHasYearlyPaidPlans) {
             this.showYearlyPlans();
         }
 
