@@ -3,8 +3,10 @@
 namespace Laravel\Spark\Interactions\Auth;
 
 use Laravel\Spark\Spark;
+use Laravel\Spark\TeamPlan;
 use Illuminate\Support\Facades\DB;
 use Laravel\Spark\Contracts\Interactions\Subscribe;
+use Laravel\Spark\Contracts\Interactions\SubscribeTeam;
 use Laravel\Spark\Contracts\Http\Requests\Auth\RegisterRequest;
 use Laravel\Spark\Contracts\Interactions\Settings\Teams\CreateTeam;
 use Laravel\Spark\Contracts\Interactions\Auth\Register as Contract;
@@ -13,6 +15,13 @@ use Laravel\Spark\Contracts\Interactions\Auth\CreateUser as CreateUserContract;
 
 class Register implements Contract
 {
+    /**
+     * The team created at registration.
+     *
+     * @var \Laravel\Spark\Team
+     */
+    private static $team;
+
     /**
      * {@inheritdoc}
      */
@@ -52,9 +61,11 @@ class Register implements Contract
         if ($invitation = $request->invitation()) {
             Spark::interact(AddTeamMember::class, [$invitation->team, $user]);
 
+            self::$team = $invitation->team;
+
             $invitation->delete();
         } else {
-            Spark::interact(CreateTeam::class, [$user, ['name' => $request->team]]);
+            self::$team = Spark::interact(CreateTeam::class, [$user, ['name' => $request->team]]);
         }
 
         $user->currentTeam();
@@ -73,9 +84,15 @@ class Register implements Contract
             return $user;
         }
 
-        Spark::interact(Subscribe::class, [
-            $user, $request->plan(), true, $request->all()
-        ]);
+        if ($request->plan() instanceof TeamPlan) {
+            Spark::interact(SubscribeTeam::class, [
+                self::$team, $request->plan(), true, $request->all()
+            ]);
+        } else {
+            Spark::interact(Subscribe::class, [
+                $user, $request->plan(), true, $request->all()
+            ]);
+        }
 
         return $user;
     }

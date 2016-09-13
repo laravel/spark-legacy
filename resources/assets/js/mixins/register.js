@@ -22,7 +22,7 @@ module.exports = {
                 return;
             }
 
-            this.$http.get('/spark/plans')
+            this.$http.get('/spark/all-plans')
                 .then(function(response) {
                     this.plans = response.data;
 

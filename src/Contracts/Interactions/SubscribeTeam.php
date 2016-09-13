@@ -12,5 +12,5 @@ interface SubscribeTeam
      * @param  array  $data
      * @return \Laravel\Spark\Team
      */
-    public function handle($team, $plan, array $data);
+    public function handle($team, $plan, $fromRegistration, array $data);
 }

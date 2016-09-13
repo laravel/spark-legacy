@@ -104,6 +104,7 @@ $router->group(['middleware' => 'web'], function ($router) {
 
     // Plans...
     $router->get('/spark/plans', 'PlanController@all');
+    $router->get('/spark/all-plans', 'PlanController@allRegularAndTeam');
 
     // Subscription Settings...
     $router->post('/settings/subscription', 'Settings\Subscription\PlanController@store');
