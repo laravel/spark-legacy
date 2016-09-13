@@ -86,8 +86,9 @@ class PerformanceIndicatorsController extends Controller
      */
     public function trialUsers()
     {
-        return Spark::user()->where('trial_ends_at', '>=', Carbon::now())
-            ->whereDoesntHave('subscriptions')
-            ->count();
+        return Spark::user()
+                        ->where('trial_ends_at', '>=', Carbon::now())
+                        ->whereDoesntHave('subscriptions')
+                        ->count();
     }
 }
