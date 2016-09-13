@@ -78,6 +78,16 @@ trait CanJoinTeams
     }
 
     /**
+     * Get the user's role on the team currently being viewed.
+     *
+     * @return string
+     */
+    public function roleOnCurrentTeam()
+    {
+        return $this->roleOn($this->currentTeam);
+    }
+
+    /**
      * Accessor for the currentTeam method.
      *
      * @return \Illuminate\Database\Eloquent\Model|null
