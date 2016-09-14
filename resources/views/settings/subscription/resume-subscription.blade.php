@@ -56,48 +56,62 @@
                 </p>
             @endif
 
-            <table class="table table-borderless m-b-none">
-                <thead></thead>
-                <tbody>
-                    <tr v-for="plan in paidPlansForActiveInterval">
-                        <!-- Plan Name -->
-                        <td>
-                            <div class="btn-table-align" @click="showPlanDetails(plan)">
-                                <span style="cursor: pointer;">
-                                    <strong>@{{ plan.name }}</strong>
-                                </span>
+            <div class="row">
+                <div v-for="plan in plansForActiveInterval">
+
+                    <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-0 ">
+
+                        <div class="panel" :class="{'panel-default' : ! isActivePlan(plan), 'panel-success' : isActivePlan(plan)}">
+                            <div class="panel-body">
+                                <div class="text-center">
+                                    <h4 class="text-uppercase">
+                                        <strong>@{{ plan.name }}</strong>
+                                    </h4>
+                                </div>
+
+                                <ul>
+                                    <li v-for="feature in plan.features">
+                                        @{{ feature }}
+                                    </li>
+                                </ul>
+
+                                <div class="text-center">
+                                    <div v-if="plan.trialDays">
+                                        @{{ plan.trialDays}} Day Trial
+                                    </div>
+
+                                    <span class="text-muted" v-if="plan.price == 0">
+                                        Free
+                                    </span>
+
+                                    <span class="text-muted" v-else>
+                                        @{{ priceWithTax(plan) | currency spark.currencySymbol }} / @{{ plan.interval | capitalize }}
+                                    </span>
+                                </div>
                             </div>
-                        </td>
 
-                        <!-- Plan Features Button -->
-                        <td>
-                            <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                <i class="fa fa-btn fa-star-o"></i>Plan Features
-                            </button>
-                        </td>
 
-                        <!-- Plan Price -->
-                        <td>
-                            <div class="btn-table-align">
-                                @{{ priceWithTax(plan) | currency spark.currencySymbol }} / @{{ plan.interval | capitalize }}
-                            </div>
-                        </td>
+                            <button class="panel-footer" @click="updateSubscription(plan)" :disabled="selectingPlan">
 
-                        <!-- Plan Select Button -->
-                        <td class="text-right">
-                            <button class="btn btn-warning btn-plan" @click="updateSubscription(plan)" :disabled="selectingPlan">
                                 <span v-if="selectingPlan === plan">
                                     <i class="fa fa-btn fa-spinner fa-spin"></i>Resuming
                                 </span>
 
-                                <span v-else>
+                                <span v-if="selectingPlan !== plan && isActivePlan(plan)">
                                     Resume
                                 </span>
+
+                                <span v-if="selectingPlan !== plan && !isActivePlan(plan)">
+                                    Change and resume
+                                </span>
                             </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </spark-resume-subscription>
