@@ -103,7 +103,7 @@
                                     @click="confirmPlanUpdate(plan)"
                                     :disabled="selectingPlan">
 
-                                Select
+                                Switch
                             </button>
 
                             <button class="btn btn-primary btn-plan"
