@@ -69,7 +69,11 @@ trait CallsInteractions
             return static::interact(static::$interactions[$interaction], $parameters);
         }
 
-        return call_user_func_array(static::$interactions[$interaction], $parameters);
+        list($class) = explode('@', $interaction);
+
+        $method = static::$interactions[$interaction]->bindTo(app($class));
+
+        return call_user_func_array($method, $parameters);
     }
 
     /**
