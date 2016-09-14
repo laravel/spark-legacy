@@ -31,7 +31,7 @@
             <div class="clearfix"></div>
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body table-responsive">
             <!-- Plan Error Message - In General Will Never Be Shown -->
             <div class="alert alert-danger" v-if="planForm.errors.has('plan')">
                 @{{ planForm.errors.get('plan') }}
@@ -85,12 +85,20 @@
 
                         <!-- Plan Select Button -->
                         <td class="text-right">
-                            <button class="btn btn-warning btn-plan" @click="updateSubscription(plan)" :disabled="selectingPlan">
+                            <button class="btn btn-plan"
+                                    v-bind:class="{'btn-warning-outline': ! isActivePlan(plan), 'btn-warning': isActivePlan(plan)}"
+                                    @click="updateSubscription(plan)"
+                                    :disabled="selectingPlan">
+
                                 <span v-if="selectingPlan === plan">
                                     <i class="fa fa-btn fa-spinner fa-spin"></i>Resuming
                                 </span>
 
-                                <span v-else>
+                                <span v-if="! isActivePlan(plan) && selectingPlan !== plan">
+                                    Switch
+                                </span>
+
+                                <span v-if="isActivePlan(plan) && selectingPlan !== plan">
                                     Resume
                                 </span>
                             </button>

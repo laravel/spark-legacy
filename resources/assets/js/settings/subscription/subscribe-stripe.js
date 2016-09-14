@@ -71,10 +71,6 @@ module.exports = {
         if (this.onlyHasYearlyPaidPlans) {
             this.showYearlyPlans();
         }
-
-        this.selectPlan(
-            this.paidPlansForActiveInterval[0]
-        );
     },
 
 
