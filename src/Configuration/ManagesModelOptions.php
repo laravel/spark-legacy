@@ -114,7 +114,7 @@ trait ManagesModelOptions
      *
      * @return void
      */
-    public static function doesntCreateTeamsFromDashboard()
+    public static function dontCreateTeamsFromDashboard()
     {
         static::$createsTeamsFromDashboard = false;
     }
