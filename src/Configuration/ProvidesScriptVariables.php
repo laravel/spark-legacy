@@ -33,6 +33,7 @@ trait ProvidesScriptVariables
             'usesApi' => Spark::usesApi(),
             'usesBraintree' => Spark::billsUsingBraintree(),
             'usesTeams' => Spark::usesTeams(),
+            'createsTeamsFromDashboard' => Spark::createsTeamsFromDashboard(),
             'usesStripe' => Spark::billsUsingStripe(),
         ];
     }
