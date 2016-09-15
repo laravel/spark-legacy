@@ -3,6 +3,7 @@
 namespace Laravel\Spark\Notifications;
 
 use RuntimeException;
+use Laravel\Spark\Team;
 use Illuminate\Notifications\Notification;
 use Laravel\Spark\Contracts\Repositories\NotificationRepository;
 
@@ -35,10 +36,13 @@ class SparkChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        $this->notifications->create(
-            $notifiable,
-            $this->getData($notifiable, $notification)
-        );
+        $users = $notifiable instanceof Team ? $notifiable->users : [$notifiable];
+
+        $data = $this->getData($notifiable, $notification);
+
+        foreach ($users as $user) {
+            $this->notifications->create($user, $data);
+        }
     }
 
     /**

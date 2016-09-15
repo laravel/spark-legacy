@@ -3,10 +3,11 @@
 namespace Laravel\Spark;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Team extends Model
 {
-    use Billable;
+    use Billable, Notifiable;
 
     /**
      * The database table used by the model.
