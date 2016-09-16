@@ -44,7 +44,7 @@ class CreateTeam implements Contract
             return;
         }
 
-        if ($plan->teams <= $user->ownedTeams()->count()) {
+        if ($plan->teams <= $user->ownedTeams->count()) {
             $validator->errors()->add('name', 'Please upgrade your subscription to create more teams.');
         }
     }
