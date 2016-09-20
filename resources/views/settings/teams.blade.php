@@ -1,7 +1,7 @@
 <spark-teams :user="user" :teams="teams" inline-template>
     <div>
         <!-- Create Team -->
-        @if(Spark::createsTeamsFromDashboard())
+        @if (Spark::createsAdditionalTeams())
             @include('spark::settings.teams.create-team')
         @endif
 

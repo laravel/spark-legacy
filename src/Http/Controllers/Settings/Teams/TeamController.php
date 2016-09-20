@@ -29,7 +29,7 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        if (! Spark::createsTeamsFromDashboard()) {
+        if (! Spark::createsAdditionalTeams()) {
             abort(404);
         }
 

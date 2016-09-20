@@ -23,6 +23,7 @@ trait ProvidesScriptVariables
             'cardUpFront' => Spark::needsCardUpFront(),
             'collectsBillingAddress' => Spark::collectsBillingAddress(),
             'collectsEuropeanVat' => Spark::collectsEuropeanVat(),
+            'createsAdditionalTeams' => Spark::createsAdditionalTeams(),
             'csrfToken' => csrf_token(),
             'currencySymbol' => Cashier::usesCurrencySymbol(),
             'env' => config('app.env'),
@@ -33,7 +34,6 @@ trait ProvidesScriptVariables
             'usesApi' => Spark::usesApi(),
             'usesBraintree' => Spark::billsUsingBraintree(),
             'usesTeams' => Spark::usesTeams(),
-            'createsTeamsFromDashboard' => Spark::createsTeamsFromDashboard(),
             'usesStripe' => Spark::billsUsingStripe(),
         ];
     }

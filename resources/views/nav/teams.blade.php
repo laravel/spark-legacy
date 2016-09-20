@@ -4,7 +4,7 @@
 <li class="dropdown-header">Teams</li>
 
 <!-- Create Team -->
-@if(Spark::createsTeamsFromDashboard())
+@if (Spark::createsAdditionalTeams())
     <li>
         <a href="/settings#/teams">
             <i class="fa fa-fw fa-btn fa-plus"></i>Create Team

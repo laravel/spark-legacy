@@ -21,11 +21,11 @@ trait ManagesModelOptions
     public static $teamModel = 'App\Team';
 
     /**
-     * Indicates that users can create teams from the dashboard.
+     * Indicates that users can create additional teams from the dashboard.
      *
      * @var bool
      */
-    public static $createsTeamsFromDashboard = true;
+    public static $createsAdditionalTeams = true;
 
     /**
      * Set the user model class name.
@@ -100,22 +100,22 @@ trait ManagesModelOptions
     }
 
     /**
-     * Determines if users can create teams from dashboard.
+     * Determines if users can additional create teams from dashboard.
      *
      * @return bool
      */
-    public static function createsTeamsFromDashboard()
+    public static function createsAdditionalTeams()
     {
-        return static::$createsTeamsFromDashboard;
+        return static::$createsAdditionalTeams;
     }
 
     /**
-     * Specifies that users cannot create teams from dashboard.
+     * Specifies that users cannot create additional teams from dashboard.
      *
      * @return void
      */
-    public static function dontCreateTeamsFromDashboard()
+    public static function noAdditionalTeams()
     {
-        static::$createsTeamsFromDashboard = false;
+        static::$createsAdditionalTeams = false;
     }
 }
