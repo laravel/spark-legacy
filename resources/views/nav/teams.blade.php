@@ -4,11 +4,13 @@
 <li class="dropdown-header">Teams</li>
 
 <!-- Create Team -->
-<li>
-    <a href="/settings#/teams">
-        <i class="fa fa-fw fa-btn fa-plus"></i>Create Team
-    </a>
-</li>
+@if(Spark::createsTeamsFromDashboard())
+    <li>
+        <a href="/settings#/teams">
+            <i class="fa fa-fw fa-btn fa-plus"></i>Create Team
+        </a>
+    </li>
+@endif
 
 <!-- Switch Current Team -->
 <li v-for="team in teams">

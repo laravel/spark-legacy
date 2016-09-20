@@ -1,7 +1,9 @@
 <spark-teams :user="user" :teams="teams" inline-template>
     <div>
         <!-- Create Team -->
-        @include('spark::settings.teams.create-team')
+        @if(Spark::createsTeamsFromDashboard())
+            @include('spark::settings.teams.create-team')
+        @endif
 
         <!-- Pending Invitations -->
         @include('spark::settings.teams.pending-invitations')
