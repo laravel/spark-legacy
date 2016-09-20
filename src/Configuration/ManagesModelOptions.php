@@ -100,7 +100,7 @@ trait ManagesModelOptions
     }
 
     /**
-     * Determines if users can additional create teams from dashboard.
+     * Determines if users can create additional teams from dashboard.
      *
      * @return bool
      */
