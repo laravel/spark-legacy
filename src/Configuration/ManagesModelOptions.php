@@ -28,6 +28,13 @@ trait ManagesModelOptions
     public static $createsAdditionalTeams = true;
 
     /**
+     * The name used in the URI and interface to describe a team.
+     *
+     * @var string
+     */
+    public static $teamString = 'team';
+
+    /**
      * Set the user model class name.
      *
      * @param  string  $userModel
@@ -117,5 +124,26 @@ trait ManagesModelOptions
     public static function noAdditionalTeams()
     {
         static::$createsAdditionalTeams = false;
+    }
+
+    /**
+     * Set the string used to describe a team.
+     *
+     * @param  string  $string
+     * @return void
+     */
+    public static function setTeamString($string)
+    {
+        static::$teamString = $string;
+    }
+
+    /**
+     * Get the string used to describe a team..
+     *
+     * @return string
+     */
+    public static function teamString()
+    {
+        return static::$teamString;
     }
 }

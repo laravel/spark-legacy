@@ -92,7 +92,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Teams
+                            {{ucfirst(str_plural(Spark::teamString()))}}
                         </div>
 
                         <div class="panel-body">

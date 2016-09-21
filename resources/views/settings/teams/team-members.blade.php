@@ -1,7 +1,7 @@
 <spark-team-members :user="user" :team="team" inline-template>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">Team Members (@{{ team.users.length }})</div>
+            <div class="panel-heading">{{ucfirst(Spark::teamString())}} Members (@{{ team.users.length }})</div>
 
             <div class="panel-body">
                 <table class="table table-borderless m-b-none">
@@ -73,7 +73,7 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Edit Team Member (@{{ updatingTeamMember.name }})
+                            Edit {{ucfirst(Spark::teamString())}} Member (@{{ updatingTeamMember.name }})
                         </h4>
                     </div>
 
@@ -81,7 +81,7 @@
                         <!-- Update Team Member Form -->
                         <form class="form-horizontal" role="form">
                             <div class="form-group" :class="{'has-error': updateTeamMemberForm.errors.has('role')}">
-                                <label class="col-md-4 control-label">Team Member Role</label>
+                                <label class="col-md-4 control-label">{{ucfirst(Spark::teamString())}} Member Role</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control" v-model="updateTeamMemberForm.role">
@@ -118,12 +118,12 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Remove Team Member (@{{ deletingTeamMember.name }})
+                            Remove {{ucfirst(Spark::teamString())}} Member (@{{ deletingTeamMember.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to remove this team member?
+                        Are you sure you want to remove this {{ucfirst(Spark::teamString())}} member?
                     </div>
 
                     <!-- Modal Actions -->

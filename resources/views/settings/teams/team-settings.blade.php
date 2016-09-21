@@ -17,7 +17,7 @@
                 <div class="panel panel-default panel-flush">
                     <div class="panel-heading">
                         <span v-if="team">
-                            @{{ team.name }} Team Settings
+                            @{{ team.name }} {{ucfirst(Spark::teamString())}} Settings
                         </span>
                     </div>
 
@@ -28,7 +28,7 @@
                                 @if (Auth::user()->ownsTeam($team))
                                     <li role="presentation" class="active">
                                         <a href="#owner" aria-controls="owner" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-edit"></i>Team Profile
+                                            <i class="fa fa-fw fa-btn fa-edit"></i>{{ucfirst(Spark::teamString())}} Profile
                                         </a>
                                     </li>
                                 @endif
@@ -47,7 +47,7 @@
                                 <!-- View All Teams -->
                                 <li role="presentation">
                                     <a href="/settings#/teams">
-                                        <i class="fa fa-fw fa-btn fa-arrow-left"></i>View All Teams
+                                        <i class="fa fa-fw fa-btn fa-arrow-left"></i>View All {{ucfirst(str_plural(Spark::teamString()))}}
                                     </a>
                                 </li>
                             </ul>
@@ -59,7 +59,7 @@
                 @if (Spark::canBillTeams() && Auth::user()->ownsTeam($team))
                     <div class="panel panel-default panel-flush">
                         <div class="panel-heading">
-                            Team Billing
+                            {{ucfirst(Spark::teamString())}} Billing
                         </div>
 
                         <div class="panel-body">

@@ -1,13 +1,13 @@
 <li class="divider"></li>
 
 <!-- Teams -->
-<li class="dropdown-header">Teams</li>
+<li class="dropdown-header">{{ucfirst(str_plural(Spark::teamString()))}}</li>
 
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())
     <li>
         <a href="/settings#/teams">
-            <i class="fa fa-fw fa-btn fa-plus"></i>Create Team
+            <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ucfirst(Spark::teamString())}}
         </a>
     </li>
 @endif

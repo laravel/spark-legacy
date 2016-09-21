@@ -33,7 +33,7 @@
                                 @if (Spark::usesTeams())
                                     <li role="presentation">
                                         <a href="#teams" aria-controls="teams" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-users"></i>Teams
+                                            <i class="fa fa-fw fa-btn fa-users"></i>{{ucfirst(Spark::teamString())}}
                                         </a>
                                     </li>
                                 @endif

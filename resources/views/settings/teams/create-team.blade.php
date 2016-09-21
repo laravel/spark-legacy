@@ -1,12 +1,12 @@
 <spark-create-team inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Create Team</div>
+        <div class="panel-heading">Create {{ucfirst(Spark::teamString())}}</div>
 
         <div class="panel-body">
             <form class="form-horizontal" role="form">
                 <!-- Name -->
                 <div class="form-group" :class="{'has-error': form.errors.has('name')}">
-                    <label class="col-md-4 control-label">Team Name</label>
+                    <label class="col-md-4 control-label">{{ucfirst(Spark::teamString())}} Name</label>
 
                     <div class="col-md-6">
                         <input type="text" id="create-team-name" class="form-control" name="name" v-model="form.name">
