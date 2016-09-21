@@ -6,7 +6,7 @@
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())
     <li>
-        <a href="/settings#/teams">
+        <a href="/settings#/{{str_plural(Spark::teamString())}}">
             <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ucfirst(Spark::teamString())}}
         </a>
     </li>
@@ -14,7 +14,7 @@
 
 <!-- Switch Current Team -->
 <li v-for="team in teams">
-    <a href="/teams/@{{ team.id }}/switch">
+    <a href="/{{str_plural(Spark::teamString())}}/@{{ team.id }}/switch">
         <span v-if="user.current_team_id == team.id">
             <i class="fa fa-fw fa-btn fa-check text-success"></i>@{{ team.name }}
         </span>
