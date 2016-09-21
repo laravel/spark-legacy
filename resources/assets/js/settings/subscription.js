@@ -56,7 +56,7 @@ module.exports = {
          * Get the URL for retrieving the application's plans.
          */
         urlForPlans() {
-            return this.billingUser ? '/spark/plans' : '/spark/team-plans';
+            return this.billingUser ? '/spark/plans' : `/spark/${Spark.teamString}-plans`;
         }
     }
 };

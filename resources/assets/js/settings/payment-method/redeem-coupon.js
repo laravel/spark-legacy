@@ -35,7 +35,7 @@ module.exports = {
         urlForRedemption() {
             return this.billingUser
                             ? '/settings/payment-method/coupon'
-                            : `/settings/teams/${this.team.id}/payment-method/coupon`;
+                            : `/settings/${Spark.teamStringPlural}/${this.team.id}/payment-method/coupon`;
         }
     }
 };

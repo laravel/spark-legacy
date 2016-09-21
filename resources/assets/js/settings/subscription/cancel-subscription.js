@@ -42,7 +42,7 @@ module.exports = {
         urlForCancellation() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.teamStringPlural}/${this.team.id}/subscription`;
         }
     }
 };

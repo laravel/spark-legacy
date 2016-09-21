@@ -33,29 +33,29 @@ $router->group(['middleware' => 'web'], function ($router) {
     // Teams...
     if (Spark::usesTeams()) {
         // General Settings...
-        $router->get('/settings/teams/roles', 'Settings\Teams\TeamMemberRoleController@all');
-        $router->get('/settings/teams/{team}', 'Settings\Teams\DashboardController@show');
+        $router->get('/settings/'.str_plural(Spark::teamString()).'/roles', 'Settings\Teams\TeamMemberRoleController@all');
+        $router->get('/settings/'.str_plural(Spark::teamString()).'/{team}', 'Settings\Teams\DashboardController@show');
 
-        $router->get('/teams', 'TeamController@all');
-        $router->get('/teams/current', 'TeamController@current');
-        $router->get('/teams/{team_id}', 'TeamController@show');
-        $router->post('/settings/teams', 'Settings\Teams\TeamController@store');
-        $router->post('/settings/teams/{team}/photo', 'Settings\Teams\TeamPhotoController@update');
-        $router->put('/settings/teams/{team}/name', 'Settings\Teams\TeamNameController@update');
+        $router->get('/'.str_plural(Spark::teamString()).'', 'TeamController@all');
+        $router->get('/'.str_plural(Spark::teamString()).'/current', 'TeamController@current');
+        $router->get('/'.str_plural(Spark::teamString()).'/{team_id}', 'TeamController@show');
+        $router->post('/settings/'.str_plural(Spark::teamString()).'', 'Settings\Teams\TeamController@store');
+        $router->post('/settings/'.str_plural(Spark::teamString()).'/{team}/photo', 'Settings\Teams\TeamPhotoController@update');
+        $router->put('/settings/'.str_plural(Spark::teamString()).'/{team}/name', 'Settings\Teams\TeamNameController@update');
 
         // Invitations...
-        $router->get('/settings/teams/{team}/invitations', 'Settings\Teams\MailedInvitationController@all');
-        $router->post('/settings/teams/{team}/invitations', 'Settings\Teams\MailedInvitationController@store');
+        $router->get('/settings/'.str_plural(Spark::teamString()).'/{team}/invitations', 'Settings\Teams\MailedInvitationController@all');
+        $router->post('/settings/'.str_plural(Spark::teamString()).'/{team}/invitations', 'Settings\Teams\MailedInvitationController@store');
         $router->get('/settings/invitations/pending', 'Settings\Teams\PendingInvitationController@all');
         $router->get('/invitations/{invitation}', 'InvitationController@show');
         $router->post('/settings/invitations/{invitation}/accept', 'Settings\Teams\PendingInvitationController@accept');
         $router->post('/settings/invitations/{invitation}/reject', 'Settings\Teams\PendingInvitationController@reject');
         $router->delete('/settings/invitations/{invitation}', 'Settings\Teams\MailedInvitationController@destroy');
 
-        $router->put('/settings/teams/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@update');
-        $router->delete('/settings/teams/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@destroy');
-        $router->delete('/settings/teams/{team}', 'Settings\Teams\TeamController@destroy');
-        $router->get('/teams/{team}/switch', 'TeamController@switchCurrentTeam');
+        $router->put('/settings/'.str_plural(Spark::teamString()).'/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@update');
+        $router->delete('/settings/'.str_plural(Spark::teamString()).'/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@destroy');
+        $router->delete('/settings/'.str_plural(Spark::teamString()).'/{team}', 'Settings\Teams\TeamController@destroy');
+        $router->get('/'.str_plural(Spark::teamString()).'/{team}/switch', 'TeamController@switchCurrentTeam');
 
         // Billing
 
@@ -63,31 +63,31 @@ $router->group(['middleware' => 'web'], function ($router) {
         $router->get('/spark/team-plans', 'TeamPlanController@all');
 
         // Subscription Settings...
-        $router->post('/settings/teams/{team}/subscription', 'Settings\Teams\Subscription\PlanController@store');
-        $router->put('/settings/teams/{team}/subscription', 'Settings\Teams\Subscription\PlanController@update');
-        $router->delete('/settings/teams/{team}/subscription', 'Settings\Teams\Subscription\PlanController@destroy');
+        $router->post('/settings/'.str_plural(Spark::teamString()).'/{team}/subscription', 'Settings\Teams\Subscription\PlanController@store');
+        $router->put('/settings/'.str_plural(Spark::teamString()).'/{team}/subscription', 'Settings\Teams\Subscription\PlanController@update');
+        $router->delete('/settings/'.str_plural(Spark::teamString()).'/{team}/subscription', 'Settings\Teams\Subscription\PlanController@destroy');
 
         // VAT ID Settings...
-        $router->put('/settings/teams/{team}/payment-method/vat-id', 'Settings\Teams\PaymentMethod\VatIdController@update');
+        $router->put('/settings/'.str_plural(Spark::teamString()).'/{team}/payment-method/vat-id', 'Settings\Teams\PaymentMethod\VatIdController@update');
 
         // Credit Card Settings...
-        $router->put('/settings/teams/{team}/payment-method', 'Settings\Teams\PaymentMethod\PaymentMethodController@update');
+        $router->put('/settings/'.str_plural(Spark::teamString()).'/{team}/payment-method', 'Settings\Teams\PaymentMethod\PaymentMethodController@update');
 
         // Redeem Coupon...
-        $router->post('/settings/teams/{team}/payment-method/coupon', 'Settings\Teams\PaymentMethod\RedeemCouponController@redeem');
+        $router->post('/settings/'.str_plural(Spark::teamString()).'/{team}/payment-method/coupon', 'Settings\Teams\PaymentMethod\RedeemCouponController@redeem');
 
         // Billing History...
         $router->put(
-            '/settings/teams/{team}/extra-billing-information',
+            '/settings/'.str_plural(Spark::teamString()).'/{team}/extra-billing-information',
             'Settings\Teams\Billing\BillingInformationController@update'
         );
 
         // Coupons...
-        $router->get('/coupon/team/{id}', 'TeamCouponController@current');
+        $router->get('/coupon/'.Spark::teamString().'/{id}', 'TeamCouponController@current');
 
         // Invoices...
-        $router->get('/settings/teams/{team}/invoices', 'Settings\Teams\Billing\InvoiceController@all');
-        $router->get('/settings/teams/{team}/invoice/{id}', 'Settings\Teams\Billing\InvoiceController@download');
+        $router->get('/settings/'.str_plural(Spark::teamString()).'/{team}/invoices', 'Settings\Teams\Billing\InvoiceController@all');
+        $router->get('/settings/'.str_plural(Spark::teamString()).'/{team}/invoice/{id}', 'Settings\Teams\Billing\InvoiceController@download');
     }
 
     // Security Settings...

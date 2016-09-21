@@ -111,6 +111,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'team' => Spark::teamString()
+    ],
 
 ];

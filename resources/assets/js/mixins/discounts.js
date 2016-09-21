@@ -36,7 +36,7 @@ module.exports = {
 
             this.loadingCurrentDiscount = true;
 
-            this.$http.get(`/coupon/team/${team.id}`)
+            this.$http.get(`/coupon/${Spark.teamString}/${team.id}`)
                 .then(response => {
                     this.currentDiscount = response.data;
 

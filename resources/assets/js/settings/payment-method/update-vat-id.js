@@ -36,7 +36,7 @@ module.exports = {
         urlForUpdate() {
             return this.billingUser
                             ? '/settings/payment-method/vat-id'
-                            : `/settings/teams/${this.team.id}/payment-method/vat-id`;
+                            : `/settings/${Spark.teamStringPlural}/${this.team.id}/payment-method/vat-id`;
         }
     }
 }

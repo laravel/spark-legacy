@@ -66,7 +66,7 @@ module.exports = {
          * Get the URL for updating the team photo.
          */
         urlForUpdate() {
-            return `/settings/teams/${this.team.id}/photo`;
+            return `/settings/${Spark.teamStringPlural}/${this.team.id}/photo`;
         },
 
 

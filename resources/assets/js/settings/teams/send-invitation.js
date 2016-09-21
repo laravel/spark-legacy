@@ -18,7 +18,7 @@ module.exports = {
          * Send a team invitation.
          */
         send() {
-            Spark.post(`/settings/teams/${this.team.id}/invitations`, this.form)
+            Spark.post(`/settings/${Spark.teamStringPlural}/${this.team.id}/invitations`, this.form)
                 .then(() => {
                     this.form.email = '';
 

@@ -41,7 +41,7 @@ module.exports = {
 		urlForInvoices() {
 			return this.billingUser
 							? '/settings/invoices'
-							: `/settings/teams/${this.team.id}/invoices`;
+							: `/settings/${Spark.teamStringPlural}/${this.team.id}/invoices`;
 		}
 	}
 };

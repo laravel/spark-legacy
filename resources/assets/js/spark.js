@@ -156,7 +156,7 @@ module.exports = {
          * Get the current team list.
          */
         getTeams() {
-            this.$http.get('/teams')
+            this.$http.get('/'+Spark.teamStringPlural)
                 .then(response => {
                     this.teams = response.data;
                 });
@@ -167,7 +167,7 @@ module.exports = {
          * Get the current team.
          */
         getCurrentTeam() {
-            this.$http.get('/teams/current')
+            this.$http.get(`/${Spark.teamStringPlural}/current`)
                 .then(response => {
                     this.currentTeam = response.data;
                 })

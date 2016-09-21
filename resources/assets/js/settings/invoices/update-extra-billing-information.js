@@ -39,7 +39,7 @@ module.exports = {
         urlForUpdate() {
             return this.billingUser
                             ? '/settings/extra-billing-information'
-                            : `/settings/teams/${this.team.id}/extra-billing-information`;
+                            : `/settings/${Spark.teamStringPlural}/${this.team.id}/extra-billing-information`;
         }
     }
 };
