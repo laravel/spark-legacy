@@ -42,7 +42,7 @@
 
                             <!-- Edit Button -->
                             <td>
-                                <a href="/settings/teams/@{{ team.id }}">
+                                <a href="/settings/{{str_plural(Spark::teamString())}}/@{{ team.id }}">
                                     <button class="btn btn-primary">
                                         <i class="fa fa-cog"></i>
                                     </button>

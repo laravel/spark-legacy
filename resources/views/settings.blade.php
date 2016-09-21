@@ -32,8 +32,8 @@
                                 <!-- Teams Link -->
                                 @if (Spark::usesTeams())
                                     <li role="presentation">
-                                        <a href="#teams" aria-controls="teams" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-users"></i>{{ucfirst(Spark::teamString())}}
+                                        <a href="#{{str_plural(Spark::teamString())}}" aria-controls="teams" role="tab" data-toggle="tab">
+                                            <i class="fa fa-fw fa-btn fa-users"></i>{{ucfirst(str_plural(Spark::teamString()))}}
                                         </a>
                                     </li>
                                 @endif
@@ -107,7 +107,7 @@
 
                     <!-- Teams -->
                     @if (Spark::usesTeams())
-                        <div role="tabpanel" class="tab-pane" id="teams">
+                        <div role="tabpanel" class="tab-pane" id="{{str_plural(Spark::teamString())}}">
                             @include('spark::settings.teams')
                         </div>
                     @endif

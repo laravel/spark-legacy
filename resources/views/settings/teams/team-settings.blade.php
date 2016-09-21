@@ -46,7 +46,7 @@
 
                                 <!-- View All Teams -->
                                 <li role="presentation">
-                                    <a href="/settings#/teams">
+                                    <a href="/settings#/{{str_plural(Spark::teamString())}}">
                                         <i class="fa fa-fw fa-btn fa-arrow-left"></i>View All {{ucfirst(str_plural(Spark::teamString()))}}
                                     </a>
                                 </li>
