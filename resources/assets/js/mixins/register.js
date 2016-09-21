@@ -22,9 +22,13 @@ module.exports = {
                 return;
             }
 
-            this.$http.get('/spark/all-plans')
+            this.$http.get('/spark/plans')
                 .then(function(response) {
-                    this.plans = response.data;
+                    var plans = response.data;
+
+                    this.plans = _.where(plans, {type: "user"}).length > 0
+                                    ? _.where(plans, {type: "user"})
+                                    : _.where(plans, {type: "team"});
 
                     this.selectAppropriateDefaultPlan();
                 });

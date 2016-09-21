@@ -13,16 +13,6 @@ class PlanController extends Controller
      */
     public function all()
     {
-        return response()->json(Spark::plans());
-    }
-
-    /**
-     * Get the all of the plans defined for the application.
-     *
-     * @return Response
-     */
-    public function allRegularAndTeam()
-    {
         return response()->json(Spark::plans()->merge(Spark::teamPlans()));
     }
 }

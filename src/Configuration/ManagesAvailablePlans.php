@@ -238,7 +238,11 @@ trait ManagesAvailablePlans
      */
     public static function plans()
     {
-        return collect(static::$plans);
+        return collect(static::$plans)->map(function ($plan) {
+            $plan->type = 'user';
+
+            return $plan;
+        });
     }
 
     /**
@@ -304,7 +308,11 @@ trait ManagesAvailablePlans
      */
     public static function teamPlans()
     {
-        return collect(static::$teamPlans);
+        return collect(static::$teamPlans)->map(function ($plan) {
+            $plan->type = 'team';
+
+            return $plan;
+        });
     }
 
     /**

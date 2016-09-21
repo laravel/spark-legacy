@@ -59,9 +59,6 @@ $router->group(['middleware' => 'web'], function ($router) {
 
         // Billing
 
-        // Plans...
-        $router->get('/spark/team-plans', 'TeamPlanController@all');
-
         // Subscription Settings...
         $router->post('/settings/teams/{team}/subscription', 'Settings\Teams\Subscription\PlanController@store');
         $router->put('/settings/teams/{team}/subscription', 'Settings\Teams\Subscription\PlanController@update');
@@ -104,7 +101,6 @@ $router->group(['middleware' => 'web'], function ($router) {
 
     // Plans...
     $router->get('/spark/plans', 'PlanController@all');
-    $router->get('/spark/all-plans', 'PlanController@allRegularAndTeam');
 
     // Subscription Settings...
     $router->post('/settings/subscription', 'Settings\Subscription\PlanController@store');

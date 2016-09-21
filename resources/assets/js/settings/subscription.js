@@ -43,20 +43,12 @@ module.exports = {
          * Get the active plans for the application.
          */
         getPlans() {
-            this.$http.get(this.urlForPlans)
+            this.$http.get('/spark/plans')
                 .then(response => {
-                    this.plans = response.data;
+                    this.plans = this.billingUser
+                                    ? _.where(response.data, {type: "user"})
+                                    : _.where(response.data, {type: "team"});
                 });
-        }
-    },
-
-
-    computed: {
-        /**
-         * Get the URL for retrieving the application's plans.
-         */
-        urlForPlans() {
-            return this.billingUser ? '/spark/plans' : '/spark/team-plans';
         }
     }
 };
