@@ -9,7 +9,7 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('/terms', 'TermsController@show');
 
     // Missing Team Notice...
-    $router->get('/missing-team', 'MissingTeamController@show');
+    $router->get('/missing-'.$teamString, 'MissingTeamController@show');
 
     // Customer Support...
     $router->post('/support/email', 'SupportController@sendEmail');
@@ -64,7 +64,7 @@ $router->group(['middleware' => 'web'], function ($router) {
         // Billing
 
         // Plans...
-        $router->get('/spark/team-plans', 'TeamPlanController@all');
+        $router->get('/spark/'.$teamString.'-plans', 'TeamPlanController@all');
 
         // Subscription Settings...
         $router->post('/settings/'.$teamStringPlural.'/{team}/subscription', 'Settings\Teams\Subscription\PlanController@store');
