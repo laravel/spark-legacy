@@ -167,7 +167,7 @@ class UpdateViews
      */
     protected function publishedViewPath($view)
     {
-        return resource_path('views/vendor/spark/'.$this->relativeViewPath($view));
+        return resource_path(implode(DIRECTORY_SEPARATOR, ['views', 'vendor', 'spark', $this->relativeViewPath($view)]));
     }
 
     /**
@@ -178,7 +178,7 @@ class UpdateViews
      */
     protected function downloadedViewPath($view)
     {
-        return $this->downloadPath.'/resources/views/'.$this->relativeViewPath($view);
+        return implode(DIRECTORY_SEPARATOR, [$this->downloadPath, 'resources', 'views', $this->relativeViewPath($view)]);
     }
 
     /**
@@ -189,8 +189,14 @@ class UpdateViews
      */
     protected function relativeViewPath($view)
     {
-        $viewPath = str_replace(SPARK_PATH.'/resources/views/', '', $view->getRealPath());
+        $sparkPath = implode(DIRECTORY_SEPARATOR, [SPARK_PATH, 'resources', 'views']);
 
-        return str_replace($this->downloadPath.'/resources/views/', '', $viewPath);
+        $downloadPath = implode(DIRECTORY_SEPARATOR, [$this->downloadPath, 'resources', 'views']);
+
+        return str_replace(
+            [$sparkPath.DIRECTORY_SEPARATOR, $downloadPath.DIRECTORY_SEPARATOR],
+            '',
+            $view->getRealPath()
+        );
     }
 }

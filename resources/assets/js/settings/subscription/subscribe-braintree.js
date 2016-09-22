@@ -37,8 +37,6 @@ module.exports = {
             this.showYearlyPlans();
         }
 
-        this.selectPlan(this.paidPlansForActiveInterval[0]);
-
          // Next, we will configure the braintree container element on the page and handle the nonce
          // received callback. We'll then set the nonce and fire off the subscribe method so this
          // nonce can be used to create the subscription for the billable entity being managed.
@@ -92,7 +90,7 @@ module.exports = {
         urlForNewSubscription() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         }
     }
 };

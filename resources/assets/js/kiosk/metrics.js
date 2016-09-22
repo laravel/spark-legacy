@@ -66,7 +66,7 @@ module.exports = {
         getTrialUsers() {
             this.$http.get('/spark/kiosk/performance-indicators/trialing')
                 .then(response => {
-                    this.genericTrialUsers = response.data;
+                    this.genericTrialUsers = parseInt(response.data);
                 });
         },
 

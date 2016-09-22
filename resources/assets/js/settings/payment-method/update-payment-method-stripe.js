@@ -138,7 +138,7 @@ module.exports = {
         urlForUpdate() {
             return this.billingUser
                             ? '/settings/payment-method'
-                            : `/settings/teams/${this.team.id}/payment-method`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/payment-method`;
         },
 
 

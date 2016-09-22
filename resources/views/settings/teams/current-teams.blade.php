@@ -1,7 +1,7 @@
 <spark-current-teams :user="user" :teams="teams" inline-template>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">Current Teams</div>
+            <div class="panel-heading">Current {{ ucfirst(str_plural(Spark::teamString())) }}</div>
 
             <div class="panel-body">
                 <table class="table table-borderless m-b-none">
@@ -42,7 +42,7 @@
 
                             <!-- Edit Button -->
                             <td>
-                                <a href="/settings/teams/@{{ team.id }}">
+                                <a href="/settings/{{str_plural(Spark::teamString())}}/@{{ team.id }}">
                                     <button class="btn btn-primary">
                                         <i class="fa fa-cog"></i>
                                     </button>
@@ -78,12 +78,12 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Leave Team (@{{ leavingTeam.name }})
+                            Leave {{ ucfirst(Spark::teamString()) }} (@{{ leavingTeam.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to leave this team?
+                        Are you sure you want to leave this {{ Spark::teamString() }}?
                     </div>
 
                     <!-- Modal Actions -->
@@ -106,13 +106,13 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Delete Team (@{{ deletingTeam.name }})
+                            Delete {{ ucfirst(Spark::teamString()) }} (@{{ deletingTeam.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this team? If you choose to delete the team, all of the
-                        team's data will be permanently deleted.
+                        Are you sure you want to delete this {{ Spark::teamString() }}? If you choose to delete the {{ Spark::teamString() }}, all of the
+                        {{ Spark::teamString() }}'s data will be permanently deleted.
                     </div>
 
                     <!-- Modal Actions -->

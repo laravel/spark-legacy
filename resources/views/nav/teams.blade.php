@@ -1,18 +1,20 @@
 <li class="divider"></li>
 
 <!-- Teams -->
-<li class="dropdown-header">Teams</li>
+<li class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</li>
 
 <!-- Create Team -->
-<li>
-    <a href="/settings#/teams">
-        <i class="fa fa-fw fa-btn fa-plus"></i>Create Team
-    </a>
-</li>
+@if (Spark::createsAdditionalTeams())
+    <li>
+        <a href="/settings#/{{str_plural(Spark::teamString())}}">
+            <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ ucfirst(Spark::teamString()) }}
+        </a>
+    </li>
+@endif
 
 <!-- Switch Current Team -->
 <li v-for="team in teams">
-    <a href="/teams/@{{ team.id }}/switch">
+    <a href="/{{str_plural(Spark::teamString())}}/@{{ team.id }}/switch">
         <span v-if="user.current_team_id == team.id">
             <i class="fa fa-fw fa-btn fa-check text-success"></i>@{{ team.name }}
         </span>

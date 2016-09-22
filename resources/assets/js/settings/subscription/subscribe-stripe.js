@@ -71,10 +71,6 @@ module.exports = {
         if (this.onlyHasYearlyPaidPlans) {
             this.showYearlyPlans();
         }
-
-        this.selectPlan(
-            this.paidPlansForActiveInterval[0]
-        );
     },
 
 
@@ -193,7 +189,7 @@ module.exports = {
         urlForNewSubscription() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         },
 
 

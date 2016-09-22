@@ -156,7 +156,7 @@ module.exports = {
          * Get the current team list.
          */
         getTeams() {
-            this.$http.get('/teams')
+            this.$http.get('/'+Spark.pluralTeamString)
                 .then(response => {
                     this.teams = response.data;
                 });
@@ -167,7 +167,7 @@ module.exports = {
          * Get the current team.
          */
         getCurrentTeam() {
-            this.$http.get('/teams/current')
+            this.$http.get(`/${Spark.pluralTeamString}/current`)
                 .then(response => {
                     this.currentTeam = response.data;
                 })
@@ -247,7 +247,7 @@ module.exports = {
          */
         hasUnreadAnnouncements() {
             if (this.notifications && this.user) {
-                if (! this.user.last_read_announcements_at) {
+                if (this.notifications.announcements.length && ! this.user.last_read_announcements_at) {
                     return true;
                 }
 

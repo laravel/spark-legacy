@@ -169,7 +169,7 @@ module.exports = {
         urlForPlanUpdate() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         }
     }
 };

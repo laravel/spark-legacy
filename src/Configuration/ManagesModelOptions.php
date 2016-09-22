@@ -21,6 +21,20 @@ trait ManagesModelOptions
     public static $teamModel = 'App\Team';
 
     /**
+     * Indicates that users can create additional teams from the dashboard.
+     *
+     * @var bool
+     */
+    public static $createsAdditionalTeams = true;
+
+    /**
+     * The name used in the URI and interface to describe a team.
+     *
+     * @var string
+     */
+    public static $teamString = 'team';
+
+    /**
      * Set the user model class name.
      *
      * @param  string  $userModel
@@ -90,5 +104,46 @@ trait ManagesModelOptions
     public static function team()
     {
         return new static::$teamModel;
+    }
+
+    /**
+     * Determines if users can create additional teams from dashboard.
+     *
+     * @return bool
+     */
+    public static function createsAdditionalTeams()
+    {
+        return static::$createsAdditionalTeams;
+    }
+
+    /**
+     * Specifies that users cannot create additional teams from dashboard.
+     *
+     * @return void
+     */
+    public static function noAdditionalTeams()
+    {
+        static::$createsAdditionalTeams = false;
+    }
+
+    /**
+     * Get the string used to describe a team.
+     *
+     * @return string
+     */
+    public static function teamString()
+    {
+        return static::$teamString;
+    }
+
+    /**
+     * Set the string used to describe a team.
+     *
+     * @param  string  $string
+     * @return void
+     */
+    public static function referToTeamAs($string)
+    {
+        static::$teamString = $string;
     }
 }
