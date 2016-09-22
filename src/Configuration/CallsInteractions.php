@@ -69,7 +69,9 @@ trait CallsInteractions
             return static::interact(static::$interactions[$interaction], $parameters);
         }
 
-        $method = static::$interactions[$interaction]->bindTo(app($class));
+        $instance = app($class);
+
+        $method = static::$interactions[$interaction]->bindTo($instance, $instance);
 
         return call_user_func_array($method, $parameters);
     }
