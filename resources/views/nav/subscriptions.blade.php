@@ -13,7 +13,7 @@
 
 @if (Spark::usesTeams() && Auth::user()->currentTeamOnTrial())
     <!-- Team Trial Reminder -->
-    <li class="dropdown-header">{{ucfirst(Spark::teamString())}} Trial</li>
+    <li class="dropdown-header">{{ ucfirst(Spark::teamString()) }} Trial</li>
 
     <li>
         <a href="/settings/teams/{{ Auth::user()->currentTeam()->id }}#/subscription">

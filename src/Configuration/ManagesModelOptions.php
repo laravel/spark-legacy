@@ -127,23 +127,23 @@ trait ManagesModelOptions
     }
 
     /**
-     * Set the string used to describe a team.
-     *
-     * @param  string  $string
-     * @return void
-     */
-    public static function setTeamString($string)
-    {
-        static::$teamString = $string;
-    }
-
-    /**
-     * Get the string used to describe a team..
+     * Get the string used to describe a team.
      *
      * @return string
      */
     public static function teamString()
     {
         return static::$teamString;
+    }
+
+    /**
+     * Set the string used to describe a team.
+     *
+     * @param  string  $string
+     * @return void
+     */
+    public static function referToTeamAs($string)
+    {
+        static::$teamString = $string;
     }
 }

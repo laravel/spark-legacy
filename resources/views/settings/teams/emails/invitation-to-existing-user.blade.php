@@ -2,7 +2,7 @@ Hi!
 
 <br><br>
 
-{{ $invitation->team->owner->name }} has invited you to join their {{Spark::teamString()}}!
+{{ $invitation->team->owner->name }} has invited you to join their {{ Spark::teamString() }}!
 
 <br><br>
 

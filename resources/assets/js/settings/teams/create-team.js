@@ -16,7 +16,7 @@ module.exports = {
          * Handle the "activatedTab" event.
          */
         activatedTab(tab) {
-            if (tab === Spark.teamStringPlural) {
+            if (tab === Spark.pluralTeamString) {
                 Vue.nextTick(() => {
                     $('#create-team-name').focus();
                 });
@@ -32,7 +32,7 @@ module.exports = {
          * Create a new team.
          */
         create() {
-            Spark.post('/settings/'+Spark.teamStringPlural, this.form)
+            Spark.post('/settings/'+Spark.pluralTeamString, this.form)
                 .then(() => {
                     this.form.name = '';
 

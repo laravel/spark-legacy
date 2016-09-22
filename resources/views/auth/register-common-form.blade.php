@@ -2,7 +2,7 @@
     <!-- Team Name -->
     @if (Spark::usesTeams())
         <div class="form-group" :class="{'has-error': registerForm.errors.has('team')}" v-if=" ! invitation">
-            <label class="col-md-4 control-label">{{ucfirst(Spark::teamString())}} Name</label>
+            <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
 
             <div class="col-md-6">
                 <input type="name" class="form-control" name="team" v-model="registerForm.team" autofocus>

@@ -33,7 +33,7 @@
                                 @if (Spark::usesTeams())
                                     <li role="presentation">
                                         <a href="#{{str_plural(Spark::teamString())}}" aria-controls="teams" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-users"></i>{{ucfirst(str_plural(Spark::teamString()))}}
+                                            <i class="fa fa-fw fa-btn fa-users"></i>{{ ucfirst(str_plural(Spark::teamString())) }}
                                         </a>
                                     </li>
                                 @endif

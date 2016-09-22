@@ -6,7 +6,7 @@
             <div class="panel-body">
                 <table class="table table-borderless m-b-none">
                     <thead>
-                        <th>{{ucfirst(Spark::teamString())}}</th>
+                        <th>{{ ucfirst(Spark::teamString()) }}</th>
                         <th></th>
                         <th></th>
                     </thead>

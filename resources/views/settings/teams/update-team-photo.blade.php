@@ -1,7 +1,7 @@
 <spark-update-team-photo :user="user" :team="team" inline-template>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">{{ucfirst(Spark::teamString())}} Photo</div>
+            <div class="panel-heading">{{ ucfirst(Spark::teamString()) }} Photo</div>
 
             <div class="panel-body">
                 <div class="alert alert-danger" v-if="form.errors.has('photo')">

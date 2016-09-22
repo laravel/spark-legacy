@@ -9,7 +9,7 @@ module.exports = {
         downloadUrlFor(invoice) {
             return this.billingUser
                         ? `/settings/invoice/${invoice.id}`
-                        : `/settings/${Spark.teamStringPlural}/${this.team.id}/invoice/${invoice.id}`;
+                        : `/settings/${Spark.pluralTeamString}/${this.team.id}/invoice/${invoice.id}`;
         }
     }
 };

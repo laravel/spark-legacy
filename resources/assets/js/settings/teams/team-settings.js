@@ -50,7 +50,7 @@ module.exports = {
          * Get the team being managed.
          */
         getTeam() {
-            this.$http.get(`/${Spark.teamStringPlural}/${this.teamId}`)
+            this.$http.get(`/${Spark.pluralTeamString}/${this.teamId}`)
                 .then(response => {
                     this.team = response.data;
                 });

@@ -1,11 +1,11 @@
 <spark-update-team-name :user="user" :team="team" inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Update {{ucfirst(Spark::teamString())}} Name</div>
+        <div class="panel-heading">Update {{ ucfirst(Spark::teamString()) }} Name</div>
 
         <div class="panel-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your {{Spark::teamString()}} name has been updated!
+                Your {{ Spark::teamString() }} name has been updated!
             </div>
 
             <form class="form-horizontal" role="form">

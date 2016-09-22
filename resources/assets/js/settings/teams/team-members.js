@@ -34,7 +34,7 @@ module.exports = {
          * Get the available team member roles.
          */
         getRoles() {
-            this.$http.get(`/settings/${Spark.teamStringPlural}/roles`)
+            this.$http.get(`/settings/${Spark.pluralTeamString}/roles`)
                 .then(response => {
                     this.roles = response.data;
                 });
@@ -130,7 +130,7 @@ module.exports = {
          * Get the URL for updating a team member.
          */
         urlForUpdating: function () {
-            return `/settings/${Spark.teamStringPlural}/${this.team.id}/members/${this.updatingTeamMember.id}`;
+            return `/settings/${Spark.pluralTeamString}/${this.team.id}/members/${this.updatingTeamMember.id}`;
         },
 
 
@@ -138,7 +138,7 @@ module.exports = {
          * Get the URL for deleting a team member.
          */
         urlForDeleting() {
-            return `/settings/${Spark.teamStringPlural}/${this.team.id}/members/${this.deletingTeamMember.id}`;
+            return `/settings/${Spark.pluralTeamString}/${this.team.id}/members/${this.deletingTeamMember.id}`;
         }
     }
 };

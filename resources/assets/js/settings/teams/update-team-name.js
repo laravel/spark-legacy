@@ -26,7 +26,7 @@ module.exports = {
          * Update the team name.
          */
         update() {
-            Spark.put(`/settings/${Spark.teamStringPlural}/${this.team.id}/name`, this.form)
+            Spark.put(`/settings/${Spark.pluralTeamString}/${this.team.id}/name`, this.form)
                 .then(() => {
                     this.$dispatch('updateTeam');
                     this.$dispatch('updateTeams');
