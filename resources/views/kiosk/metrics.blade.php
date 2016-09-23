@@ -143,14 +143,11 @@
 
                             <tbody>
                                 <tr v-if="genericTrialUsers">
-                                    <!-- Plan Name -->
-                                    <td>
+                                    <td colspan="2">
                                         <div class="btn-table-align">
                                             On Generic Trial
                                         </div>
                                     </td>
-
-                                    <td></td>
 
                                     <td>
                                         <div class="btn-table-align">
