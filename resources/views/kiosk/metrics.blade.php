@@ -143,9 +143,15 @@
 
                             <tbody>
                                 <tr v-if="genericTrialUsers">
-                                    <td colspan="2">
+                                    <td>
                                         <div class="btn-table-align">
                                             On Generic Trial
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-table-align">
+                                            N/A
                                         </div>
                                     </td>
 
