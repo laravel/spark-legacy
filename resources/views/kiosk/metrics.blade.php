@@ -150,14 +150,8 @@
                                         </div>
                                     </td>
 
-                                    <!-- Subscriber Count -->
-                                    <td>
-                                        <div class="btn-table-align">
+                                    <td></td>
 
-                                        </div>
-                                    </td>
-
-                                    <!-- Trialing Count -->
                                     <td>
                                         <div class="btn-table-align">
                                             @{{ genericTrialUsers }}
