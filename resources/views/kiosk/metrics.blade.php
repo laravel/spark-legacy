@@ -131,7 +131,7 @@
         <div class="row" v-if="plans.length > 0">
             <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Subscribers Per Plan</div>
+                    <div class="panel-heading">Subscribers</div>
 
                     <div class="panel-body">
                         <table class="table table-borderless m-b-none">
@@ -142,6 +142,25 @@
                             </thead>
 
                             <tbody>
+                                <tr v-if="genericTrialUsers">
+                                    <td>
+                                        <div class="btn-table-align">
+                                            On Generic Trial
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-table-align">
+                                            N/A
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="btn-table-align">
+                                            @{{ genericTrialUsers }}
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr v-for="plan in plans">
                                     <!-- Plan Name -->
                                     <td>
