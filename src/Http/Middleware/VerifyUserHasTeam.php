@@ -16,7 +16,7 @@ class VerifyUserHasTeam
     public function handle($request, $next)
     {
         if (Spark::usesTeams() && $request->user() && ! $request->user()->hasTeams()) {
-            return redirect('missing-team');
+            return redirect('missing-'.Spark::teamString());
         }
 
         return $next($request);
