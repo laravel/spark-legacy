@@ -5,7 +5,7 @@
 
 <!-- Create Team -->
 <li>
-    <a href="/settings#/teams">
+    <a href="/settings#/{{ str_plural(Spark::teamString()) }}">
         <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ ucfirst(Spark::teamString()) }}
     </a>
 </li>
@@ -13,7 +13,7 @@
 <!-- Switch Current Team -->
 @foreach (Auth::user()->teams as $team)
     <li>
-        <a href="/teams/{{ $team->id }}/switch">
+        <a href="/{{ str_plural(Spark::teamString()) }}/{{ $team->id }}/switch">
             @if (Auth::user()->current_team_id === $team->id)
                 <i class="fa fa-fw fa-btn fa-check text-success"></i>{{ $team->name }}
             @else

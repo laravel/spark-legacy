@@ -16,7 +16,7 @@
     <li class="dropdown-header">{{ ucfirst(Spark::teamString()) }} Trial</li>
 
     <li>
-        <a href="/settings/{{str_plural(Spark::teamString())}}/{{ Auth::user()->currentTeam()->id }}#/subscription">
+        <a href="/settings/{{ str_plural(Spark::teamString()) }}/{{ Auth::user()->currentTeam()->id }}#/subscription">
             <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscribe
         </a>
     </li>

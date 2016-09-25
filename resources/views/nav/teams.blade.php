@@ -14,7 +14,7 @@
 
 <!-- Switch Current Team -->
 <li v-for="team in teams">
-    <a href="/{{str_plural(Spark::teamString())}}/@{{ team.id }}/switch">
+    <a href="/{{ str_plural(Spark::teamString()) }}/@{{ team.id }}/switch">
         <span v-if="user.current_team_id == team.id">
             <i class="fa fa-fw fa-btn fa-check text-success"></i>@{{ team.name }}
         </span>

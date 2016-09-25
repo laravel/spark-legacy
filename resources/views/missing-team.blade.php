@@ -9,7 +9,7 @@
 
                 <div class="panel-body">
                     It looks like you're not part of any {{ Spark::teamString() }}! You can create one in your
-                    <a href="/settings#/teams">settings</a>.
+                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}">settings</a>.
                 </div>
             </div>
         </div>
