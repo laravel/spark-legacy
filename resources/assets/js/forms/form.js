@@ -42,6 +42,18 @@ window.SparkForm = function (data) {
 
 
     /**
+     * Set the raw errors for the collection.
+     */
+    this.set = function (errors) {
+        if (typeof errors === 'object') {
+            this.errors = errors;
+        } else {
+            this.errors = {'form': ['Something went wrong. Please try again or contact customer support.']};
+        }
+    };
+
+
+    /**
      * Forget all of the errors from the object,
      * or errors of a field if passed.
      */
