@@ -42,10 +42,14 @@ window.SparkForm = function (data) {
 
 
     /**
-     * Set the errors on the form.
+     * Forget all of the errors from the object,
+     * or errors of a field if passed.
      */
-    this.setErrors = function (errors) {
-        form.busy = false;
-        form.errors.set(errors);
-    }
+    this.forget = function (field) {
+        if (typeof field === 'undefined') {
+            this.errors = {};
+        } else {
+            Vue.delete(this.errors, field);
+        }
+    };
 };
