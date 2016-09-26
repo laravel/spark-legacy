@@ -42,10 +42,26 @@ window.SparkForm = function (data) {
 
 
     /**
-     * Set the errors on the form.
+     * Set the raw errors for the collection.
      */
-    this.setErrors = function (errors) {
-        form.busy = false;
-        form.errors.set(errors);
-    }
+    this.set = function (errors) {
+        if (typeof errors === 'object') {
+            this.errors = errors;
+        } else {
+            this.errors = {'form': ['Something went wrong. Please try again or contact customer support.']};
+        }
+    };
+
+
+    /**
+     * Forget all of the errors from the object,
+     * or errors of a field if passed.
+     */
+    this.forget = function (field) {
+        if (typeof field === 'undefined') {
+            this.errors = {};
+        } else {
+            Vue.delete(this.errors, field);
+        }
+    };
 };
