@@ -59,9 +59,14 @@ window.SparkFormErrors = function () {
 
 
     /**
-     * Forget all of the errors currently in the collection.
+     * Forget all of the errors from from the collection,
+     * Or all errors of a specific field if passed.
      */
-    this.forget = function () {
-        this.errors = {};
+    this.forget = function (field) {
+        if (typeof field === 'undefined') {
+            this.errors = {};
+        } else {
+            Vue.delete(this.errors, field);
+        }
     };
 };
