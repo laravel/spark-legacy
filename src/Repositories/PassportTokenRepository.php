@@ -6,9 +6,10 @@ use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
 use Laravel\Spark\JWT;
 use Laravel\Spark\Token;
+use Laravel\Passport\Token as PassportToken;
 use Laravel\Spark\Contracts\Repositories\TokenRepository as Contract;
 
-class TokenRepository implements Contract
+class PassportTokenRepository implements Contract
 {
     /**
      * {@inheritdoc}
@@ -16,9 +17,15 @@ class TokenRepository implements Contract
     public function all($user)
     {
         return $user->tokens()
-                    ->where('transient', false)
                     ->orderBy('created_at', 'desc')
-                    ->get();
+                    ->get()
+                    ->map(function ($token) {
+                        return new Token([
+                            'id' => $token->id,
+                            'name' => $token->name,
+                            'metadata' => ['abilities' => $token->scopes],
+                        ]);
+                    });
     }
 
     /**
@@ -26,10 +33,7 @@ class TokenRepository implements Contract
      */
     public function validToken($token)
     {
-        return Token::where('token', $token)->where(function ($query) {
-            return $query->whereNull('expires_at')
-                         ->orWhere('expires_at', '>=', Carbon::now());
-        })->first();
+        //
     }
 
     /**
@@ -37,16 +41,10 @@ class TokenRepository implements Contract
      */
     public function createToken($user, $name, array $data = [])
     {
-        $this->deleteExpiredTokens($user);
+        $scopes = isset($data['abilities']) ? $data['abilities'] : [];
 
-        return $user->tokens()->create([
-            'id' => Uuid::uuid4(),
-            'user_id' => $user->id,
-            'name' => $name,
-            'token' => str_random(60),
-            'metadata' => $data,
-            'transient' => false,
-            'expires_at' => null,
+        return new Token([
+            'token' => $user->createToken($name, $scopes)->accessToken
         ]);
     }
 
@@ -72,13 +70,11 @@ class TokenRepository implements Contract
      */
     public function updateToken(Token $token, $name, array $abilities = [])
     {
-        $metadata = $token->metadata;
-
-        $metadata['abilities'] = $abilities;
+        $token = PassportToken::findOrFail($token->id);
 
         $token->forceFill([
             'name' => $name,
-            'metadata' => $metadata,
+            'scopes' => $abilities,
         ])->save();
     }
 

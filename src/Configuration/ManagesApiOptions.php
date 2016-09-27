@@ -2,6 +2,8 @@
 
 namespace Laravel\Spark\Configuration;
 
+use Laravel\Passport\Passport;
+
 trait ManagesApiOptions
 {
     /**
@@ -57,6 +59,10 @@ trait ManagesApiOptions
             return static::$tokensCan;
         } else {
             static::$tokensCan = $abilities;
+
+            if (class_exists('Laravel\Passport\Passport')) {
+                Passport::tokensCan($abilities);
+            }
         }
     }
 

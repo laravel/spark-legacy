@@ -175,6 +175,8 @@ class SparkServiceProvider extends ServiceProvider
 
         $this->registerInterventionService();
 
+        $this->registerApiTokenRepository();
+
         $services = [
             'Contracts\Http\Requests\Auth\RegisterRequest' => 'Http\Requests\Auth\StripeRegisterRequest',
             'Contracts\Http\Requests\Settings\Subscription\CreateSubscriptionRequest' => 'Http\Requests\Settings\Subscription\CreateStripeSubscriptionRequest',
@@ -184,7 +186,6 @@ class SparkServiceProvider extends ServiceProvider
             'Contracts\Repositories\CouponRepository' => 'Repositories\StripeCouponRepository',
             'Contracts\Repositories\NotificationRepository' => 'Repositories\NotificationRepository',
             'Contracts\Repositories\TeamRepository' => 'Repositories\TeamRepository',
-            'Contracts\Repositories\TokenRepository' => 'Repositories\TokenRepository',
             'Contracts\Repositories\UserRepository' => 'Repositories\UserRepository',
             'Contracts\Repositories\LocalInvoiceRepository' => 'Repositories\StripeLocalInvoiceRepository',
             'Contracts\Repositories\PerformanceIndicatorsRepository' => 'Repositories\PerformanceIndicatorsRepository',
@@ -240,5 +241,19 @@ class SparkServiceProvider extends ServiceProvider
         $this->app->bind(ImageManager::class, function () {
             return new ImageManager(['driver' => 'gd']);
         });
+    }
+
+    /**
+     * Register the Api Token repository.
+     *
+     * @return void
+     */
+    private function registerApiTokenRepository()
+    {
+        $concrete = class_exists('Laravel\Passport\Passport')
+                        ? 'Laravel\Spark\Repositories\PassportTokenRepository'
+                        : 'Laravel\Spark\Repositories\TokenRepository';
+
+        $this->app->singleton('Laravel\Spark\Contracts\Repositories\TokenRepository', $concrete);
     }
 }
