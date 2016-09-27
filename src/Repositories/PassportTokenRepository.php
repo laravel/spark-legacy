@@ -41,6 +41,8 @@ class PassportTokenRepository implements Contract
      */
     public function createToken($user, $name, array $data = [])
     {
+        $this->deleteExpiredTokens($user);
+
         $scopes = isset($data['abilities']) ? $data['abilities'] : [];
 
         return new Token([
