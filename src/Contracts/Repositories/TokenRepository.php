@@ -2,8 +2,8 @@
 
 namespace Laravel\Spark\Contracts\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
 use Laravel\Spark\Token;
+use Illuminate\Database\Eloquent\Collection;
 
 interface TokenRepository
 {
