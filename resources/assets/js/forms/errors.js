@@ -59,8 +59,7 @@ window.SparkFormErrors = function () {
 
 
     /**
-     * Forget all of the errors from from the collection,
-     * Or all errors of a specific field if passed.
+     * Remove errors from the collection.
      */
     this.forget = function (field) {
         if (typeof field === 'undefined') {
