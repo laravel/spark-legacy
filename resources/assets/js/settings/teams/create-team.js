@@ -4,10 +4,87 @@ module.exports = {
      */
     data() {
         return {
+            plans: [],
+
             form: new SparkForm({
                 name: ''
             })
         };
+    },
+
+
+    computed: {
+        /**
+         * Get the active subscription instance.
+         */
+        activeSubscription() {
+            if ( ! this.$parent.billable) {
+                return;
+            }
+
+            const subscription = _.find(
+                this.$parent.billable.subscriptions,
+                subscription => subscription.name == 'default'
+            );
+
+            if (typeof subscription !== 'undefined') {
+                return subscription;
+            }
+        },
+
+
+        /**
+         * Get the active plan instance.
+         */
+        activePlan() {
+            if (this.activeSubscription) {
+                return _.find(this.plans, (plan) => {
+                    return plan.id == this.activeSubscription.provider_plan;
+                });
+            }
+        },
+
+
+        /**
+         * Check if there's a limit for the number of teams.
+         */
+        hasTeamLimit() {
+            if (! this.activePlan) {
+                return false;
+            }
+
+            return !! this.activePlan.attributes.teams;
+        },
+
+
+        /**
+         *
+         * Get the remaining teams in the active plan.
+         */
+        remainingTeams() {
+            return this.activePlan
+                    ? this.activePlan.attributes.teams - this.$parent.teams.length
+                    : 0;
+        },
+
+
+        /**
+         * Check if the user can create more teams.
+         */
+        canCreateMoreTeams() {
+            if (! this.hasTeamLimit) {
+                return true;
+            }
+            return this.remainingTeams > 0;
+        }
+    },
+
+
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        this.getPlans();
     },
 
 
@@ -38,6 +115,17 @@ module.exports = {
 
                     this.$dispatch('updateUser');
                     this.$dispatch('updateTeams');
+                });
+        },
+
+
+        /**
+         * Get all the plans defined in the application.
+         */
+        getPlans() {
+            this.$http.get('/spark/plans')
+                .then(response => {
+                    this.plans = response.data;
                 });
         }
     }
