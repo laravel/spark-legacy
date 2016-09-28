@@ -155,6 +155,9 @@ $router->group(['middleware' => 'web'], function ($router) {
     // Kiosk User Profiles...
     $router->get('/spark/kiosk/users/{id}/profile', 'Kiosk\ProfileController@show');
 
+    // Kiosk Create User...
+    $router->post('/spark/kiosk/users/create', 'Kiosk\ProfileController@create');
+
     // Kiosk Discounts...
     $router->post('/spark/kiosk/users/discount/{id}', 'Kiosk\DiscountController@store');
 
