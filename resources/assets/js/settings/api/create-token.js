@@ -105,6 +105,16 @@ module.exports = {
             $('#modal-show-token').modal('show');
         },
 
+        
+        /**
+         * Display the token to the user.
+         */
+        selectToken() {
+            $('#api-token').select();
+
+            document.execCommand("copy");
+        },
+
 
         /**
          * Reset the token form back to its default state.
