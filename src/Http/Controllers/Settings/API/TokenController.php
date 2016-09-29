@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark\Http\Controllers\Settings\API;
 
+use Laravel\Spark\Token;
 use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Laravel\Spark\Http\Controllers\Controller;
@@ -39,10 +40,7 @@ class TokenController extends Controller
      */
     public function all(Request $request)
     {
-        return $request->user()->tokens()
-                    ->where('transient', false)
-                    ->orderBy('created_at', 'desc')
-                    ->get();
+        return $this->tokens->all($request->user());
     }
 
     /**
@@ -70,6 +68,14 @@ class TokenController extends Controller
     public function update(UpdateTokenRequest $request, $tokenId)
     {
         $token = $request->user()->tokens()->where('id', $tokenId)->firstOrFail();
+
+        if (class_exists('Laravel\Passport\Passport')) {
+            $token = new Token([
+                'id' => $token->id,
+                'name' => $token->name,
+                'metadata' => ['abilities' => $token->scopes],
+            ]);
+        }
 
         $this->tokens->updateToken(
             $token, $request->name, (array) $request->abilities
