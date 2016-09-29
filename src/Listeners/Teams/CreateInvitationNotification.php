@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark\Listeners\Teams;
 
+use Laravel\Spark\Spark;
 use Laravel\Spark\Events\Teams\UserInvitedToTeam;
 use Laravel\Spark\Contracts\Repositories\NotificationRepository;
 
@@ -37,7 +38,7 @@ class CreateInvitationNotification
             'icon' => 'fa-users',
             'body' => 'You have been invited to join the '.$event->team->name.' team!',
             'action_text' => 'View Invitations',
-            'action_url' => '/settings#/teams',
+            'action_url' => '/settings#/'.str_plural(Spark::teamString()),
         ]);
     }
 }
