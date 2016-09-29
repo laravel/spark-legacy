@@ -107,7 +107,7 @@ module.exports = {
 
         
         /**
-         * Display the token to the user.
+         * Select the token and copy to Clipboard.
          */
         selectToken() {
             $('#api-token').select();
