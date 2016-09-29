@@ -18,6 +18,13 @@ module.exports = {
     },
 
 
+    computed: {
+        copyCommandSupported (){
+            return document.queryCommandSupported('copy');
+        }
+    },
+
+
     watch: {
         /**
          * Watch the available abilities for changes.
@@ -112,7 +119,9 @@ module.exports = {
         selectToken() {
             $('#api-token').select();
 
-            document.execCommand("copy");
+            if (this.copyCommandSupported) {
+                document.execCommand("copy");
+            }
         },
 
 
