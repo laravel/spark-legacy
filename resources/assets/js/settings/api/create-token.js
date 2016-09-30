@@ -19,7 +19,7 @@ module.exports = {
 
 
     computed: {
-        copyCommandSupported (){
+        copyCommandSupported() {
             return document.queryCommandSupported('copy');
         }
     },
@@ -112,7 +112,7 @@ module.exports = {
             $('#modal-show-token').modal('show');
         },
 
-        
+
         /**
          * Select the token and copy to Clipboard.
          */

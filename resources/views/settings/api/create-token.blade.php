@@ -100,7 +100,7 @@
                     <!-- Modal Actions -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" @click="selectToken">
-                        <span v-if="copyCommandSupported">Copy to Clipboard</span>
+                        <span v-if="copyCommandSupported">Copy To Clipboard</span>
                         <span v-else>Select All</span>
                         </button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
