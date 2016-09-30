@@ -40,9 +40,9 @@ class CreateTrialEndingNotification
 
         $this->notifications->create($event->team->owner, [
             'icon' => 'fa-clock-o',
-            'body' => "The ".$event->team->name." team's trial period will expire on ".$event->team->trial_ends_at->format('F jS').'.',
+            'body' => "The ".$event->team->name." ".Spark::teamString()."'s trial period will expire on ".$event->team->trial_ends_at->format('F jS').'.',
             'action_text' => 'Subscribe',
-            'action_url' => '/settings/'.Spark::teamString().'/'.$event->team->id.'#/subscription',
+            'action_url' => '/settings/'.str_plural(Spark::teamString()).'/'.$event->team->id.'#/subscription',
         ]);
     }
 }
