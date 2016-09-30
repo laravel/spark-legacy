@@ -43,6 +43,6 @@ class TeamCouponController extends Controller
             return response()->json($coupon->toArray());
         }
 
-        abort(404);
+        abort(204);
     }
 }
