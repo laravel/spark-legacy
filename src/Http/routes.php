@@ -6,7 +6,7 @@ $router->group(['middleware' => 'web'], function ($router) {
     $pluralTeamString = str_plural(Spark::teamString());
 
     // Terms Of Service...
-    $router->get('/terms', 'TermsController@show');
+    $router->get('/terms', 'TermsController@show')->name('terms');
 
     // Missing Team Notice...
     $router->get('/missing-'.$teamString, 'MissingTeamController@show');
@@ -26,7 +26,7 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->put('/notifications/read', 'NotificationController@markAsRead');
 
     // Settings Dashboard...
-    $router->get('/settings', 'Settings\DashboardController@show');
+    $router->get('/settings', 'Settings\DashboardController@show')->name('settings');
 
     // Profile Contact Information...
     $router->put('/settings/contact', 'Settings\Profile\ContactInformationController@update');
@@ -38,12 +38,12 @@ $router->group(['middleware' => 'web'], function ($router) {
     if (Spark::usesTeams()) {
         // General Settings...
         $router->get('/settings/'.$pluralTeamString.'/roles', 'Settings\Teams\TeamMemberRoleController@all');
-        $router->get('/settings/'.$pluralTeamString.'/{team}', 'Settings\Teams\DashboardController@show');
+        $router->get('/settings/'.$pluralTeamString.'/{team}', 'Settings\Teams\DashboardController@show')->name('settings.team');
 
         $router->get('/'.$pluralTeamString.'', 'TeamController@all');
         $router->get('/'.$pluralTeamString.'/current', 'TeamController@current');
         $router->get('/'.$pluralTeamString.'/{team_id}', 'TeamController@show');
-        $router->post('/settings/'.$pluralTeamString.'', 'Settings\Teams\TeamController@store');
+        $router->post('/settings/'.$pluralTeamString, 'Settings\Teams\TeamController@store');
         $router->post('/settings/'.$pluralTeamString.'/{team}/photo', 'Settings\Teams\TeamPhotoController@update');
         $router->put('/settings/'.$pluralTeamString.'/{team}/name', 'Settings\Teams\TeamNameController@update');
 
@@ -135,7 +135,7 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('/coupon/{code}', 'CouponController@show');
 
     // Kiosk...
-    $router->get('/spark/kiosk', 'Kiosk\DashboardController@show');
+    $router->get('/spark/kiosk', 'Kiosk\DashboardController@show')->name('kiosk');
 
     // Kiosk Search...
     $router->post('/spark/kiosk/users/search', 'Kiosk\SearchController@performBasicSearch');
@@ -163,9 +163,9 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('/spark/kiosk/users/stop-impersonating', 'Kiosk\ImpersonationController@stopImpersonating');
 
     // Authentication...
-    $router->get('/login', 'Auth\LoginController@showLoginForm');
+    $router->get('/login', 'Auth\LoginController@showLoginForm')->name('login');
     $router->post('/login', 'Auth\LoginController@login');
-    $router->get('/logout', 'Auth\LoginController@logout');
+    $router->get('/logout', 'Auth\LoginController@logout')->name('logout');
 
     // Two-Factor Authentication Routes...
     $router->get('/login/token', 'Auth\LoginController@showTokenForm');
@@ -176,11 +176,11 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->post('/login-via-emergency-token', 'Auth\EmergencyLoginController@login');
 
     // Registration...
-    $router->get('/register', 'Auth\RegisterController@showRegistrationForm');
+    $router->get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
     $router->post('/register', 'Auth\RegisterController@register');
 
     // Password Reset...
-    $router->get('/password/reset/{token?}', 'Auth\PasswordController@showResetForm');
+    $router->get('/password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('password.reset');
     $router->post('/password/email', 'Auth\PasswordController@sendResetLinkEmail');
     $router->post('/password/reset', 'Auth\PasswordController@reset');
 });
