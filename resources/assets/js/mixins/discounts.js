@@ -21,7 +21,9 @@ module.exports = {
 
             this.$http.get(`/coupon/user/${user.id}`)
                 .then(response => {
-                    this.currentDiscount = response.data;
+                    if (response.status == 200) {
+                        this.currentDiscount = response.data;
+                    }
 
                     this.loadingCurrentDiscount = false;
                 });
@@ -38,7 +40,9 @@ module.exports = {
 
             this.$http.get(`/coupon/${Spark.teamString}/${team.id}`)
                 .then(response => {
-                    this.currentDiscount = response.data;
+                    if (response.status == 200) {
+                        this.currentDiscount = response.data;
+                    }
 
                     this.loadingCurrentDiscount = false;
                 });
