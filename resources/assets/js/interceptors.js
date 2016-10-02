@@ -1,6 +1,8 @@
 module.exports = (request, next) => {
 
-    request.headers.set('X-XSRF-TOKEN', Cookies.get('XSRF-TOKEN'));
+    if (Cookies.get('XSRF-TOKEN') !== undefined) {
+        request.headers.set('X-XSRF-TOKEN', Cookies.get('XSRF-TOKEN'));
+    }
 
     /**
      * Intercept the incoming responses.
