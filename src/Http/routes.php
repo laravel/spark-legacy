@@ -63,6 +63,9 @@ $router->group(['middleware' => 'web'], function ($router) {
 
         // Billing
 
+        // Plans...
+        $router->get('/spark/'.$teamString.'-plans', 'TeamPlanController@all');
+
         // Subscription Settings...
         $router->post('/settings/'.$pluralTeamString.'/{team}/subscription', 'Settings\Teams\Subscription\PlanController@store');
         $router->put('/settings/'.$pluralTeamString.'/{team}/subscription', 'Settings\Teams\Subscription\PlanController@update');
