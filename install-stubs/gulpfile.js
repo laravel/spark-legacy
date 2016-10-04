@@ -1,6 +1,8 @@
 var elixir = require('laravel-elixir');
 var path = require('path');
 
+require('laravel-elixir-vue');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
