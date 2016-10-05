@@ -5,34 +5,29 @@ namespace Laravel\Spark\Configuration;
 trait ManagesAppOptions
 {
     /**
-     * Indicates that users must create teams on registration.
+     * Indicates that a users may not have teams.
      *
      * @var bool
      */
-    public static $requireTeamOnRegistration = true;
+    public static $optionalTeams = false;
 
     /**
-     * Determines if users can have to create a team on registration.
+     * Determines if users may not have any teams.
      *
      * @return bool
      */
-    public static function teamOnRegistration()
+    public static function optionalTeams()
     {
-        if (! static::usesTeams()) {
-            return false;
-        }
-
-        return static::$requireTeamOnRegistration ||
-               (static::needsCardUpFront() && static::plans()->isEmpty());
+        return ! static::usesTeams() || static::$optionalTeams;
     }
 
     /**
-     * Indicate that no team is required on registration.
+     * Indicate that having a team is optional.
      *
      * @return void
      */
-    public static function noTeamOnRegistration()
+    public static function makeTeamsOptional()
     {
-        static::$requireTeamOnRegistration = false;
+        static::$optionalTeams = true;
     }
 }

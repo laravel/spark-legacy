@@ -24,3 +24,13 @@
         </span>
     </a>
 </li>
+
+@if (Spark::optionalTeams() && Auth::user()->teams()->count() > 0 && auth()->user()->current_team)
+    <li class="divider"></li>
+
+    <li>
+        <a href="/switch-to-user">
+            <img :src="user.photo_url" class="spark-team-photo-xs"><i class="fa fa-btn"></i>Use as {{ auth()->user()->name }}
+        </a>
+    </li>
+@endif

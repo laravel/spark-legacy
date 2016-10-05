@@ -20,6 +20,7 @@ $router->group(['middleware' => 'web'], function ($router) {
     // Users...
     $router->get('/user/current', 'UserController@current');
     $router->put('/user/last-read-announcements-at', 'UserController@updateLastReadAnnouncementsTimestamp');
+    $router->get('/switch-to-user', 'UserController@switchToUser');
 
     // Notifications
     $router->get('/notifications/recent', 'NotificationController@recent');
