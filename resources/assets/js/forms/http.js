@@ -16,6 +16,14 @@ module.exports = {
 
 
     /**
+     * Helper method for making PATCH HTTP requests.
+     */
+    patch(uri, form) {
+        return Spark.sendForm('patch', uri, form);
+    },
+
+
+    /**
      * Helper method for making DELETE HTTP requests.
      */
     delete(uri, form) {
