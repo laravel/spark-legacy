@@ -38,7 +38,7 @@
                 <div class="form-group" :class="{'has-error': cardForm.errors.has('number')}">
                     <label for="number" class="col-md-4 control-label">Card Number</label>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input type="text" class="form-control" name="number" data-stripe="number" v-model="cardForm.number">
 
                         <span class="help-block" v-show="cardForm.errors.has('number')">
@@ -51,7 +51,7 @@
                 <div class="form-group">
                     <label for="number" class="col-md-4 control-label">Security Code</label>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input type="text" class="form-control" name="cvc" data-stripe="cvc" v-model="cardForm.cvc">
                     </div>
                 </div>
@@ -60,16 +60,20 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Expiration</label>
 
-                    <!-- Month -->
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" name="month"
-                            placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
-                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <!-- Month -->
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control" name="month"
+                                    placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
+                            </div>
 
-                    <!-- Year -->
-                    <div class="col-md-3">
-                        <input type="text" class="form-control" name="year"
-                            placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
+                            <!-- Year -->
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control" name="year"
+                                    placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -77,7 +81,7 @@
                 <div class="form-group" v-if=" ! spark.collectsBillingAddress">
                     <label for="number" class="col-md-4 control-label">ZIP / Postal Code</label>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input type="text" class="form-control" name="zip" v-model="form.zip">
                     </div>
                 </div>
@@ -86,7 +90,7 @@
                 <div class="form-group" :class="{'has-error': form.errors.has('coupon')}">
                     <label class="col-md-4 control-label">Coupon</label>
 
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                         <input type="text" class="form-control" v-model="form.coupon">
 
                         <span class="help-block" v-show="form.errors.has('coupon')">
@@ -111,7 +115,7 @@
 
                 <!-- Subscribe Button -->
                 <div class="form-group">
-                    <div class="col-sm-6 col-sm-offset-4">
+                    <div class="col-md-6 col-md-offset-4">
                         <button type="submit" class="btn btn-primary" @click.prevent="subscribe" :disabled="form.busy">
                             <span v-if="form.busy">
                                 <i class="fa fa-btn fa-spinner fa-spin"></i>Subscribing
