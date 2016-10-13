@@ -24,7 +24,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
 
-        $this->redirectTo = Spark::authRedirect();
+        $this->redirectTo = Spark::afterLoginRedirect();
     }
 
     /**

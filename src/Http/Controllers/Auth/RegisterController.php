@@ -24,7 +24,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
 
-        $this->redirectTo = Spark::authRedirect();
+        $this->redirectTo = Spark::afterLoginRedirect();
     }
 
     /**

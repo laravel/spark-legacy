@@ -9,16 +9,16 @@ trait ManagesAppOptions
      *
      * @var string
      */
-    public static $authRedirect = '/home';
+    public static $afterLoginRedirectTo = '/home';
 
     /**
      * Where to redirect users after authentication.
      *
      * @return string
      */
-    public static function authRedirect()
+    public static function afterLoginRedirect()
     {
-        return static::$authRedirect;
+        return static::$afterLoginRedirectTo;
     }
 
     /**
@@ -26,8 +26,8 @@ trait ManagesAppOptions
      *
      * @return void
      */
-    public static function redirectionPathAfterAuth($path)
+    public static function afterLoginRedirectTo($path)
     {
-        static::$authRedirect = $path;
+        static::$afterLoginRedirectTo = $path;
     }
 }
