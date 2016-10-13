@@ -1,6 +1,6 @@
 <form class="form-horizontal" role="form">
     <!-- Team Name -->
-    @if (Spark::usesTeams())
+    @if ((Spark::needsCardUpFront() && Spark::plans()->isEmpty()) || ! Spark::optionalTeams())
         <div class="form-group" :class="{'has-error': registerForm.errors.has('team')}" v-if=" ! invitation">
             <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
 

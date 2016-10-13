@@ -16,8 +16,13 @@ class CreateUser implements Contract
     {
         $validator = $this->baseValidator($request);
 
-        $validator->sometimes('team', 'required|max:255', function ($input) {
-            return Spark::usesTeams() && ! isset($input['invitation']);
+        $validator->sometimes('team', 'required|max:255', function ($input){
+            if (isset($input['invitation'])) {
+                return false;
+            }
+
+            return (Spark::needsCardUpFront() && Spark::plans()->isEmpty()) ||
+                   ! Spark::optionalTeams();
         });
 
         return $validator;

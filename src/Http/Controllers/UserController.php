@@ -43,4 +43,21 @@ class UserController extends Controller
             'last_read_announcements_at' => Carbon::now(),
         ])->save();
     }
+
+    /**
+     * Switch the dashboard to the current user.
+     *
+     * @param  Request  $request
+     * @return Response
+     */
+    public function switchToUser(Request $request)
+    {
+        $user = $request->user();
+
+        $user->current_team_id = null;
+
+        $user->save();
+
+        return back();
+    }
 }

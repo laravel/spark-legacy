@@ -104,7 +104,11 @@ trait CanJoinTeams
      */
     public function currentTeam()
     {
-        if (is_null($this->current_team_id) && $this->hasTeams()) {
+        if (
+            ! Spark::optionalTeams() &&
+            is_null($this->current_team_id) &&
+            $this->hasTeams()
+        ) {
             $this->switchToTeam($this->teams->first());
 
             return $this->currentTeam();
