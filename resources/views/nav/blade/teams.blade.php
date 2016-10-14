@@ -4,11 +4,13 @@
 <li class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</li>
 
 <!-- Create Team -->
-<li>
-    <a href="/settings#/{{ str_plural(Spark::teamString()) }}">
-        <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ ucfirst(Spark::teamString()) }}
-    </a>
-</li>
+@if (Spark::createsAdditionalTeams())
+    <li>
+        <a href="/settings#/{{ str_plural(Spark::teamString()) }}">
+            <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ ucfirst(Spark::teamString()) }}
+        </a>
+    </li>
+@endif
 
 <!-- Switch Current Team -->
 @if (Spark::showsTeamSwitcher())

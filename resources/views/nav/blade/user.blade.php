@@ -69,7 +69,7 @@
                             </a>
                         </li>
 
-                        @if (Spark::usesTeams())
+                        @if (Spark::usesTeams() && (Spark::createsAdditionalTeams() || Spark::showsTeamSwitcher()))
                             <!-- Team Settings -->
                             @include('spark::nav.blade.teams')
                         @endif
