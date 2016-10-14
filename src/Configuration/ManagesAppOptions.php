@@ -39,6 +39,26 @@ trait ManagesAppOptions
     }
 
     /**
+     * Determine if teams are identified by path.
+     *
+     * @return bool
+     */
+    public static function teamsIdentifiedByPath()
+    {
+        return ! static::showsTeamSwitcher();
+    }
+
+    /**
+     * Indicate that teams will be identified by path, not by "switching".
+     *
+     * @return static
+     */
+    public static function identifyTeamsByPath()
+    {
+        return static::hideTeamSwitcher();
+    }
+
+    /**
      * Determine if the application should show the team switcher.
      *
      * @return bool
@@ -56,5 +76,7 @@ trait ManagesAppOptions
     public static function hideTeamSwitcher()
     {
         static::$showTeamSwitcher = false;
+
+        return new static;
     }
 }

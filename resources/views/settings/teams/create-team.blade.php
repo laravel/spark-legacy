@@ -10,26 +10,35 @@
 
                     <div class="col-md-6">
                         <input type="text" id="create-team-name" class="form-control" name="name" v-model="form.name">
+
                         <span class="help-block" v-if="hasTeamLimit">
                             You currently have @{{ remainingTeams }} teams remaining.
                         </span>
+
                         <span class="help-block" v-show="form.errors.has('name')">
                             @{{ form.errors.get('name') }}
                         </span>
                     </div>
                 </div>
 
-                <!-- Slug -->
+                @if (Spark::teamsIdentifiedByPath())
+                <!-- Slug (Only Shown When Using Paths For Teams) -->
                 <div class="form-group" :class="{'has-error': form.errors.has('slug')}">
                     <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
 
                     <div class="col-md-6">
                         <input type="text" id="create-team-slug" class="form-control" name="slug" v-model="form.slug">
+
+                        <p class="help-block" v-show="! form.errors.has('slug')">
+                            This slug is used to identify your team in URLs.
+                        </p>
+
                         <span class="help-block" v-show="form.errors.has('slug')">
                             @{{ form.errors.get('slug') }}
                         </span>
                     </div>
                 </div>
+                @endif
 
                 <!-- Create Button -->
                 <div class="form-group">
