@@ -13,14 +13,16 @@
 @endif
 
 <!-- Switch Current Team -->
-<li v-for="team in teams">
-    <a href="/{{ str_plural(Spark::teamString()) }}/@{{ team.id }}/switch">
-        <span v-if="user.current_team_id == team.id">
-            <i class="fa fa-fw fa-btn fa-check text-success"></i>@{{ team.name }}
-        </span>
+@if (Spark::showsTeamSwitcher())
+    <li v-for="team in teams">
+        <a href="/{{ str_plural(Spark::teamString()) }}/@{{ team.id }}/switch">
+            <span v-if="user.current_team_id == team.id">
+                <i class="fa fa-fw fa-btn fa-check text-success"></i>@{{ team.name }}
+            </span>
 
-        <span v-else>
-            <img :src="team.photo_url" class="spark-team-photo-xs"><i class="fa fa-btn"></i>@{{ team.name }}
-        </span>
-    </a>
-</li>
+            <span v-else>
+                <img :src="team.photo_url" class="spark-team-photo-xs"><i class="fa fa-btn"></i>@{{ team.name }}
+            </span>
+        </a>
+    </li>
+@endif
