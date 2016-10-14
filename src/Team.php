@@ -21,7 +21,7 @@ class Team extends Model
      *
      * @var array
      */
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'slug'];
 
     /**
      * The attributes excluded from the model's JSON form.

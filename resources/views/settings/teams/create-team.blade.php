@@ -19,6 +19,18 @@
                     </div>
                 </div>
 
+                <!-- Slug -->
+                <div class="form-group" :class="{'has-error': form.errors.has('slug')}">
+                    <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
+
+                    <div class="col-md-6">
+                        <input type="text" id="create-team-slug" class="form-control" name="slug" v-model="form.slug">
+                        <span class="help-block" v-show="form.errors.has('slug')">
+                            @{{ form.errors.get('slug') }}
+                        </span>
+                    </div>
+                </div>
+
                 <!-- Create Button -->
                 <div class="form-group">
                     <div class="col-md-offset-4 col-md-6">

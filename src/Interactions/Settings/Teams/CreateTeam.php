@@ -18,6 +18,7 @@ class CreateTeam implements Contract
     {
         $validator = Validator::make($data, [
             'name' => 'required',
+            'slug' => 'required|alpha_dash|unique:teams,slug',
         ]);
 
         $validator->after(function ($validator) use ($user) {

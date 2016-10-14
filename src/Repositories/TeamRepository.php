@@ -34,6 +34,7 @@ class TeamRepository implements TeamRepositoryContract
         return Spark::team()->forceCreate([
             'owner_id' => $user->id,
             'name' => $data['name'],
+            'slug' => $data['slug'],
             'trial_ends_at' => Carbon::now()->addDays(Spark::teamTrialDays()),
         ]);
     }
