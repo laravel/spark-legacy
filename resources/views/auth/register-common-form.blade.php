@@ -14,16 +14,20 @@
         </div>
 
         @if (Spark::teamsIdentifiedByPath())
-            <!-- Team Slug -->
+            <!-- Team Slug (Only Shown When Using Paths For Teams) -->
             <div class="form-group" :class="{'has-error': registerForm.errors.has('team_slug')}" v-if=" ! invitation">
                 <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
 
                 <div class="col-md-6">
                     <input type="name" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
 
-                <span class="help-block" v-show="registerForm.errors.has('team_slug')">
-                    @{{ registerForm.errors.get('team_slug') }}
-                </span>
+                    <p class="help-block" v-show=" ! registerForm.errors.has('team_slug')">
+                        This slug is used to identify your team in URLs.
+                    </p>
+
+                    <span class="help-block" v-show="registerForm.errors.has('team_slug')">
+                        @{{ registerForm.errors.get('team_slug') }}
+                    </span>
                 </div>
             </div>
         @endif

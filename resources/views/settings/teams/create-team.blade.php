@@ -29,7 +29,7 @@
                     <div class="col-md-6">
                         <input type="text" id="create-team-slug" class="form-control" name="slug" v-model="form.slug">
 
-                        <p class="help-block" v-show="! form.errors.has('slug')">
+                        <p class="help-block" v-show=" ! form.errors.has('slug')">
                             This slug is used to identify your team in URLs.
                         </p>
 
