@@ -22,6 +22,13 @@ class CreateUser implements Contract
                    ! isset($input['invitation']);
         });
 
+        $validator->sometimes('team_slug', 'required|alpha_dash|unique:teams,slug', function ($input) {
+            return Spark::usesTeams() &&
+                   Spark::onlyTeamPlans() &&
+                   Spark::teamsIdentifiedByPath() &&
+                   ! isset($input['invitation']);
+        });
+
         return $validator;
     }
 

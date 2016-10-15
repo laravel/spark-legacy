@@ -24,6 +24,7 @@ module.exports = {
                 braintree_token: '',
                 plan: '',
                 team: '',
+                team_slug: '',
                 name: '',
                 email: '',
                 password: '',
@@ -33,6 +34,20 @@ module.exports = {
                 invitation: null
             }), Spark.forms.register)
         };
+    },
+
+
+    watch: {
+        /**
+         * Watch the team name for changes.
+         */
+        'registerForm.team': function (val, oldVal) {
+            if (this.registerForm.team_slug == '' ||
+                this.registerForm.team_slug == oldVal.toLowerCase().replace(/[\s\W-]+/g, '-')
+            ) {
+                this.registerForm.team_slug = val.toLowerCase().replace(/[\s\W-]+/g, '-');
+            }
+        }
     },
 
 
