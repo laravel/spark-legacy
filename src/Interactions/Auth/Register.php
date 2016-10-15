@@ -65,7 +65,9 @@ class Register implements Contract
 
             $invitation->delete();
         } else {
-            self::$team = Spark::interact(CreateTeam::class, [$user, ['name' => $request->team]]);
+            self::$team = Spark::interact(CreateTeam::class, [
+                $user, ['name' => $request->team, 'slug' => $request->team_slug]
+            ]);
         }
 
         $user->currentTeam();

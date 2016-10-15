@@ -1,6 +1,6 @@
 <form class="form-horizontal" role="form">
-    <!-- Team Name -->
     @if (Spark::usesTeams() && Spark::onlyTeamPlans())
+        <!-- Team Name -->
         <div class="form-group" :class="{'has-error': registerForm.errors.has('team')}" v-if=" ! invitation">
             <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
 
@@ -12,6 +12,21 @@
                 </span>
             </div>
         </div>
+
+        @if (Spark::teamsIdentifiedByPath())
+            <!-- Team Slug -->
+            <div class="form-group" :class="{'has-error': registerForm.errors.has('team_slug')}" v-if=" ! invitation">
+                <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
+
+                <div class="col-md-6">
+                    <input type="name" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
+
+                <span class="help-block" v-show="registerForm.errors.has('team_slug')">
+                    @{{ registerForm.errors.get('team_slug') }}
+                </span>
+                </div>
+            </div>
+        @endif
     @endif
 
     <!-- Name -->
