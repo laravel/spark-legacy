@@ -31,12 +31,17 @@ class TeamRepository implements TeamRepositoryContract
      */
     public function create($user, array $data)
     {
-        return Spark::team()->forceCreate([
+        $attributes = [
             'owner_id' => $user->id,
             'name' => $data['name'],
-            'slug' => Spark::teamsIdentifiedByPath() ? $data['slug'] : null,
             'trial_ends_at' => Carbon::now()->addDays(Spark::teamTrialDays()),
-        ]);
+        ];
+
+        if (Spark::teamsIdentifiedByPath()) {
+            $attributes['slug'] = $data['slug'];
+        }
+
+        return Spark::team()->forceCreate($attributes);
     }
 
     /**
