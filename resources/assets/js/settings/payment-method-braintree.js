@@ -22,22 +22,24 @@ module.exports = {
 
 
     /**
-     * Prepare the component.
+     * The component has been created by Vue.
      */
-    ready() {
-        this.getCurrentDiscountForBillable(this.billableType, this.billable);
+    created() {
+        var self = this;
+
+        this.$on('updateDiscount', function(){
+            self.getCurrentDiscountForBillable(self.billableType, self.billable);
+
+            return true;
+        })
     },
 
 
-    events: {
-        /**
-         * Update the discount for the current entity.
-         */
-        updateDiscount() {
-            this.getCurrentDiscountForBillable(this.billableType, this.billable);
-
-            return true;
-        }
+    /**
+     * Prepare the component.
+     */
+    mounted() {
+        this.getCurrentDiscountForBillable(this.billableType, this.billable);
     },
 
 

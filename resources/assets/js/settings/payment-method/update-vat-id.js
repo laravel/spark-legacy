@@ -14,7 +14,7 @@ module.exports = {
     /**
      * Bootstrap the component.
      */
-    ready() {
+    mounted() {
         this.form.vat_id = this.billable.vat_id;
     },
 

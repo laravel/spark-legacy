@@ -19,7 +19,7 @@
 
                         <!-- Invoice Total -->
                         <td>
-                            <div class="btn-table-align">@{{ invoice.total | currency spark.currencySymbol }}</div>
+                            <div class="btn-table-align">@{{ invoice.total | currency }}</div>
                         </td>
 
                         <!-- Invoice Download Button -->

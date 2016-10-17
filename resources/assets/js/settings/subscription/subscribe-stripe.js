@@ -60,7 +60,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         Stripe.setPublishableKey(Spark.stripeKey);
 
         this.initializeBillingAddress();
@@ -149,8 +149,8 @@ module.exports = {
 
             Spark.post(this.urlForNewSubscription, this.form)
                 .then(response => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
                 });
         },
 
@@ -161,7 +161,7 @@ module.exports = {
          * We'll ask the parent subscription component to display it.
          */
         showPlanDetails(plan) {
-            this.$dispatch('showPlanDetails', plan);
+            this.$parent.$emit('showPlanDetails', plan);
         }
     },
 

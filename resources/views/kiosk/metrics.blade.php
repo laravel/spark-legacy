@@ -9,7 +9,7 @@
 
                     <div class="panel-body text-center">
                         <div style="font-size: 24px;">
-                            @{{ monthlyRecurringRevenue | currency spark.currencySymbol }}
+                            @{{ monthlyRecurringRevenue | currency }}
                         </div>
 
                         <!-- Compared To Last Month -->
@@ -32,7 +32,7 @@
 
                     <div class="panel-body text-center">
                         <div style="font-size: 24px;">
-                            @{{ yearlyRecurringRevenue | currency spark.currencySymbol }}
+                            @{{ yearlyRecurringRevenue | currency }}
                         </div>
 
                         <!-- Compared To Last Month -->
@@ -57,7 +57,7 @@
 
                     <div class="panel-body text-center">
                         <span style="font-size: 24px;">
-                            @{{ totalVolume | currency spark.currencySymbol }}
+                            @{{ totalVolume | currency }}
                         </span>
                     </div>
                 </div>

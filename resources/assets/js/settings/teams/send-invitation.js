@@ -99,7 +99,7 @@ module.exports = {
                 .then(() => {
                     this.form.email = '';
 
-                    this.$dispatch('updateInvitations');
+                    this.$parent.$emit('updateInvitations');
                 });
         },
 

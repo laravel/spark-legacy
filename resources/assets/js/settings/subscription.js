@@ -23,18 +23,14 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
+        var self = this;
+
         this.getPlans();
-    },
 
-
-    events: {
-        /**
-         * Show the details for the given plan.
-         */
-        showPlanDetails(plan) {
-            this.showPlanDetails(plan);
-        }
+        this.$on('showPlanDetails', function (plan) {
+            self.showPlanDetails(plan);
+        });
     },
 
 

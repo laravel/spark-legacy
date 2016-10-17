@@ -5,11 +5,11 @@
  */
 if (window.Vue === undefined) {
     window.Vue = require('vue');
+
+    window.Bus = new Vue();
 }
 
 require('vue-resource');
-
-Vue.config.debug = true;
 
 /**
  * Load Vue HTTP Interceptors.

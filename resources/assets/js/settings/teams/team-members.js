@@ -58,7 +58,7 @@ module.exports = {
         update() {
             Spark.put(this.urlForUpdating, this.updateTeamMemberForm)
                 .then(() => {
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateTeam');
 
                     $('#modal-update-team-member').modal('hide');
                 });
@@ -78,10 +78,10 @@ module.exports = {
         /**
          * Delete the given team member.
          */
-        delete() {
+        deleteMember() {
             Spark.delete(this.urlForDeleting, this.deleteTeamMemberForm)
                 .then(() => {
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateTeam');
 
                     $('#modal-delete-member').modal('hide');
                 });

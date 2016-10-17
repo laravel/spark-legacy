@@ -17,7 +17,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-	ready() {
+	mounted() {
 		this.form.country_code = this.user.country_code;
 		this.form.phone = this.user.phone;
 	},
@@ -30,9 +30,9 @@ module.exports = {
 		enable() {
 			Spark.post('/settings/two-factor-auth', this.form)
 				.then(code => {
-					this.$dispatch('receivedTwoFactorResetCode', code);
+					this.$parent.$emit('receivedTwoFactorResetCode', code);
 
-					this.$dispatch('updateUser');
+					Bus.$emit('updateUser');
 				});
 		}
 	}

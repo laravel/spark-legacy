@@ -16,7 +16,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.form.information = this.billable.extra_billing_information;
     },
 

@@ -49,7 +49,7 @@ module.exports = {
         updateToken() {
             Spark.put(`/settings/api/token/${this.updatingToken.id}`, this.updateTokenForm)
                 .then(response => {
-                    this.$dispatch('updateTokens');
+                    this.$parent.$emit('updateTokens');
 
                     $('#modal-update-token').modal('hide');
                 })
@@ -94,7 +94,7 @@ module.exports = {
         deleteToken() {
             Spark.delete(`/settings/api/token/${this.deletingToken.id}`, this.deleteTokenForm)
                 .then(() => {
-                    this.$dispatch('updateTokens');
+                    this.$parent.$emit('updateTokens');
 
                     $('#modal-delete-token').modal('hide');
                 });

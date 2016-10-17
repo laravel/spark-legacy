@@ -85,8 +85,7 @@ module.exports = {
          * Broadcast that a tab change happened.
          */
         broadcastTabChange(hash, parameters) {
-            this.$dispatch('sparkHashChanged', hash, parameters);
-            this.$broadcast('sparkHashChanged', hash, parameters);
+            Bus.$emit('sparkHashChanged', hash, parameters);
         }
     }
 };

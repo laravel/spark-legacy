@@ -13,19 +13,21 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.getTokens();
         this.getAvailableAbilities();
     },
 
 
-    events: {
-        /**
-         * Broadcast that child components should update their tokens.
-         */
-        updateTokens() {
-            this.getTokens();
-        }
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        var self = this;
+        
+        this.$on('updateTokens', function(){
+            self.getTokens();
+        });
     },
 
 

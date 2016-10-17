@@ -36,7 +36,7 @@ module.exports = {
                     'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
                 },
                 success: function () {
-                    self.$dispatch('updateUser');
+                    Bus.$emit('updateUser');
 
                     self.form.finishProcessing();
                 },
@@ -53,7 +53,7 @@ module.exports = {
         gatherFormData() {
             const data = new FormData();
 
-            data.append('photo', this.$els.photo.files[0]);
+            data.append('photo', this.$refs.photo.files[0]);
 
             return data;
         }

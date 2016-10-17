@@ -22,7 +22,7 @@ module.exports = {
                 .then(() => {
                     this.form.coupon = '';
 
-                    this.$dispatch('updateDiscount');
+                    this.$parent.$emit('updateDiscount');
                 });
         }
     },

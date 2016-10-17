@@ -23,7 +23,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.selectActivePlanInterval();
 
          // We need to watch the activePlan computed property for changes so we can select
@@ -78,7 +78,7 @@ module.exports = {
          * We'll ask the parent subscription component to display it.
          */
         showPlanDetails(plan) {
-            this.$dispatch('showPlanDetails', plan);
+            this.$parent.$emit('showPlanDetails', plan);
         },
 
 

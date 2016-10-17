@@ -25,17 +25,19 @@ module.exports = {
     },
 
 
-    events: {
-        /**
-         * Confirm the discount for the given user.
-         */
-        addDiscount(user) {
-            this.form = new SparkForm(kioskAddDiscountForm());
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        var self = this;
 
-            this.setUser(user);
+        Bus.$on('addDiscount', function (user) {
+            self.form = new SparkForm(kioskAddDiscountForm());
+
+            self.setUser(user);
 
             $('#modal-add-discount').modal('show');
-        }
+        });
     },
 
 

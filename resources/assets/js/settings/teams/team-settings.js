@@ -23,25 +23,21 @@ module.exports = {
      * The component has been created by Vue.
      */
     created() {
+        var self = this;
+
         this.getTeam();
+
+        Bus.$on('updateTeam', function () {
+            self.getTeam();
+        });
     },
 
 
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.usePushStateForTabs('.spark-settings-tabs');
-    },
-
-
-    events: {
-        /**
-         * Update the team being managed.
-         */
-        updateTeam() {
-            this.getTeam();
-        }
     },
 
 

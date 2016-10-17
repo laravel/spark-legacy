@@ -26,8 +26,8 @@
         )); ?>;
     </script>
 </head>
-<body class="with-navbar" v-cloak>
-    <div id="spark-app">
+<body class="with-navbar">
+    <div id="spark-app" v-cloak>
         <!-- Navigation -->
         @if (Auth::check())
             @include('spark::nav.user')
@@ -44,10 +44,10 @@
             @include('spark::modals.support')
             @include('spark::modals.session-expired')
         @endif
-
-        <!-- JavaScript -->
-        <script src="/js/app.js"></script>
-        <script src="/js/sweetalert.min.js"></script>
     </div>
+
+    <!-- JavaScript -->
+    <script src="/js/app.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
 </body>
 </html>

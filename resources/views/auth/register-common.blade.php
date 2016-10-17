@@ -112,7 +112,7 @@
                                     </span>
 
                                     <span v-else>
-                                        @{{ plan.price | currency spark.currencySymbol }} / @{{ plan.interval | capitalize }}
+                                        @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
                                     </span>
                                 </div>
                             </td>

@@ -13,7 +13,8 @@ module.exports = {
      */
     data() {
         return {
-            billableType: 'user'
+            billableType: 'user',
+            team: null
         };
     },
 
@@ -21,7 +22,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.usePushStateForTabs('.spark-settings-tabs');
-    },
+    }
 };

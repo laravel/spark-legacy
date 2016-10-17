@@ -26,7 +26,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.braintree(
             'braintree-payment-method-container',
             this.braintreeCallback
@@ -41,8 +41,8 @@ module.exports = {
         update() {
             Spark.put(this.urlForUpdate, this.form)
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
 
                     this.resetBraintree(
                         'braintree-payment-method-container',

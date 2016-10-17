@@ -26,35 +26,27 @@ module.exports = {
      * The component has been created by Vue.
      */
     created() {
+        var self = this;
+
         this.getPlans();
-    },
 
+        this.$on('showSearch', function(){
+            self.navigateToSearch();
+        });
 
-    events: {
-        /**
-         * Show the search results and hide the user profile.
-         */
-        showSearch() {
-            this.navigateToSearch();
-        },
-
-
-        /**
-         * Handle the Spark tab changed event.
-         */
-        sparkHashChanged(hash, parameters) {
+        Bus.$on('sparkHashChanged', function (hash, parameters) {
             if (hash != 'users') {
                 return true;
             }
 
             if (parameters && parameters.length > 0) {
-                this.loadProfile({ id: parameters[0] });
+                self.loadProfile({ id: parameters[0] });
             } else {
-                this.showSearch();
+                self.showSearch();
             }
 
             return true;
-        }
+        });
     },
 
 
@@ -123,7 +115,7 @@ module.exports = {
          * Load the user profile for the given user.
          */
         loadProfile(user) {
-            this.$broadcast('showUserProfile', user.id);
+            this.$emit('showUserProfile', user.id);
 
             this.showingUserProfile = true;
         }

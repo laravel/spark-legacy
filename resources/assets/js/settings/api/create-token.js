@@ -98,7 +98,7 @@ module.exports = {
 
                     this.resetForm();
 
-                    this.$dispatch('updateTokens');
+                    this.$parent.$emit('updateTokens');
                 });
         },
 
