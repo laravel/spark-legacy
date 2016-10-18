@@ -119,11 +119,13 @@ trait ManagesModelOptions
     /**
      * Specifies that users cannot create additional teams from dashboard.
      *
-     * @return void
+     * @return static
      */
     public static function noAdditionalTeams()
     {
         static::$createsAdditionalTeams = false;
+
+        return new static;
     }
 
     /**

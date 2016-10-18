@@ -71,7 +71,7 @@ trait ManagesAppOptions
     /**
      * Hides the team switcher from the navigation menu.
      *
-     * @return void
+     * @return static
      */
     public static function hideTeamSwitcher()
     {
