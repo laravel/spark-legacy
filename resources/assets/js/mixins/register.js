@@ -58,7 +58,7 @@ module.exports = {
             }
 
             if (this.query.plan) {
-                this.selectPlanByName(this.query.plan);
+                ! this.selectPlanById(this.query.plan) && this.selectPlanByName(this.query.plan);
             } else if (this.query.invitation) {
                 this.selectFreePlan();
             } else if (this.paidPlansForActiveInterval.length > 0) {
@@ -90,6 +90,22 @@ module.exports = {
                     this.selectPlan(plan);
                 }
             });
+
+            return this.selectedPlan;
+        },
+
+
+        /**
+         * Select the plan with the given id.
+         */
+        selectPlanById(id) {
+            _.each(this.plans, plan => {
+                if (plan.id == id) {
+                    this.selectPlan(plan);
+                }
+            });
+
+            return this.selectedPlan;
         },
 
 
