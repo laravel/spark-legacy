@@ -57,8 +57,8 @@ module.exports = {
                 this.showYearlyPlans();
             }
 
-            if (this.query.plan) {
-                ! this.selectPlanById(this.query.plan) && this.selectPlanByName(this.query.plan);
+            if (this.query.plan && ! this.selectPlanById(this.query.plan)) {
+                this.selectPlanByName(this.query.plan)
             } else if (this.query.invitation) {
                 this.selectFreePlan();
             } else if (this.paidPlansForActiveInterval.length > 0) {
@@ -82,11 +82,11 @@ module.exports = {
 
 
         /**
-         * Select the plan with the given name.
+         * Select the plan with the given id.
          */
-        selectPlanByName(name) {
+        selectPlanById(id) {
             _.each(this.plans, plan => {
-                if (plan.name == name) {
+                if (plan.id == id) {
                     this.selectPlan(plan);
                 }
             });
@@ -96,11 +96,11 @@ module.exports = {
 
 
         /**
-         * Select the plan with the given id.
+         * Select the plan with the given name.
          */
-        selectPlanById(id) {
+        selectPlanByName(name) {
             _.each(this.plans, plan => {
-                if (plan.id == id) {
+                if (plan.name == name) {
                     this.selectPlan(plan);
                 }
             });
