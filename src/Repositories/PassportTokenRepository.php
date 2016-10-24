@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Ramsey\Uuid\Uuid;
 use Laravel\Spark\JWT;
 use Laravel\Spark\Token;
+use Laravel\Passport\Passport;
 use Laravel\Passport\Token as PassportToken;
 use Laravel\Spark\Contracts\Repositories\TokenRepository as Contract;
 
@@ -57,12 +58,12 @@ class PassportTokenRepository implements Contract
     {
         $token = JWT::encode([
             'sub' => $user->id,
-            'xsrf' => csrf_token(),
+            'csrf' => csrf_token(),
             'expiry' => Carbon::now()->addMinutes(5)->getTimestamp(),
         ]);
 
         return cookie(
-            'spark_token', $token, 5, null,
+            Passport::cookie(), $token, 5, null,
             config('session.domain'), config('session.secure'), true
         );
     }
