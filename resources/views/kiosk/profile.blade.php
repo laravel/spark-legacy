@@ -53,7 +53,7 @@
                                 <div class="col-md-9">
                                     <!-- Email Address -->
                                     <p>
-                                        <strong>Email Address:</strong> <a href="mailto:@{{ profile.email }}">@{{ profile.email }}</a>
+                                        <strong>Email Address:</strong> <a :href="'mailto:'+profile.email">@{{ profile.email }}</a>
                                     </p>
 
                                     <!-- Joined Date -->
@@ -78,7 +78,7 @@
 
                                     <!-- Total Revenue -->
                                     <p>
-                                        <strong>Total Revenue:</strong> @{{ revenue | currency spark.currencySymbol }}
+                                        <strong>Total Revenue:</strong> @{{ revenue | currency(spark.currencySymbol) }}
                                     </p>
                                 </div>
                             </div>

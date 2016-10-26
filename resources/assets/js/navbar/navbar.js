@@ -10,7 +10,7 @@ module.exports = {
           * Show the user's notifications.
           */
          showNotifications() {
-            this.$dispatch('showNotifications');
+            Bus.$emit('showNotifications');
         },
 
 
@@ -18,7 +18,7 @@ module.exports = {
          * Show the customer support e-mail form.
          */
         showSupportForm() {
-            this.$dispatch('showSupportForm');
+            Bus.$emit('showSupportForm');
         }
     }
 };

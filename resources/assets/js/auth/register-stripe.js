@@ -109,7 +109,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         //
     },
 
@@ -225,7 +225,7 @@ module.exports = {
                 if (this.coupon.percent_off) {
                     return this.coupon.percent_off + '%';
                 } else {
-                    return Vue.filter('currency')(this.coupon.amount_off / 100, Spark.currencySymbol);
+                    return Vue.filter('currency')(this.coupon.amount_off / 100);
                 }
             }
         },

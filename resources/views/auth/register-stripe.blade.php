@@ -130,10 +130,10 @@
 
                                     <div class="col-md-6">
                                         <div class="alert alert-info" style="margin: 0;">
-                                            <strong>Tax:</strong> @{{ taxAmount(selectedPlan) | currency spark.currencySymbol }}
+                                            <strong>Tax:</strong> @{{ taxAmount(selectedPlan) | currency }}
                                             <br><br>
                                             <strong>Total Price Including Tax:</strong>
-                                            @{{ priceWithTax(selectedPlan) | currency spark.currencySymbol }} / @{{ selectedPlan.interval | capitalize }}
+                                            @{{ priceWithTax(selectedPlan) | currency }} / @{{ selectedPlan.interval | capitalize }}
                                         </div>
                                     </div>
                                 </div>

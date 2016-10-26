@@ -14,7 +14,7 @@ module.exports = {
 	/**
 	 * Prepare the component.
 	 */
-	ready() {
+	mounted() {
 		this.getInvoices();
 	},
 

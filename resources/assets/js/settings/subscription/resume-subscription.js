@@ -13,7 +13,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         if (this.onlyHasYearlyPlans) {
             this.showYearlyPlans();
         }
@@ -27,7 +27,7 @@ module.exports = {
          * We'll ask the parent subscription component to display it.
          */
         showPlanDetails(plan) {
-            this.$dispatch('showPlanDetails', plan);
+            this.$parent.$emit('showPlanDetails', plan);
         },
 
 

@@ -76,7 +76,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.configureBraintree();
     },
 
@@ -128,7 +128,7 @@ module.exports = {
          */
         discount() {
             if (this.coupon) {
-                return Vue.filter('currency')(this.coupon.amount_off, Spark.currencySymbol);
+                return Vue.filter('currency')(this.coupon.amount_off);
             }
         }
     }

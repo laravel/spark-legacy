@@ -19,7 +19,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         $('[data-toggle="tooltip"]').tooltip();
     },
 
@@ -41,8 +41,8 @@ module.exports = {
         leaveTeam() {
             Spark.delete(this.urlForLeaving, this.leaveTeamForm)
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeams');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeams');
 
                     $('#modal-leave-team').modal('hide');
                 });
@@ -65,8 +65,8 @@ module.exports = {
         deleteTeam() {
             Spark.delete(`/settings/${Spark.pluralTeamString}/${this.deletingTeam.id}`, this.deleteTeamForm)
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeams');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeams');
 
                     $('#modal-delete-team').modal('hide');
                 });

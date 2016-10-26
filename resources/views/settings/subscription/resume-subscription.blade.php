@@ -79,7 +79,7 @@
                         <!-- Plan Price -->
                         <td>
                             <div class="btn-table-align">
-                                @{{ priceWithTax(plan) | currency spark.currencySymbol }} / @{{ plan.interval | capitalize }}
+                                @{{ priceWithTax(plan) | currency }} / @{{ plan.interval | capitalize }}
                             </div>
                         </td>
 

@@ -15,17 +15,13 @@ module.exports = {
      * The component has been created by Vue.
      */
     created() {
+        var self = this;
+
         this.getInvitations();
-    },
 
-
-    events: {
-        /**
-         * Update the team's invitations.
-         */
-        updateInvitations() {
-            this.getInvitations();
-        }
+        this.$on('updateInvitations', function () {
+            self.getInvitations();
+        });
     },
 
 

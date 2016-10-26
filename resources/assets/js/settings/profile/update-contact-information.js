@@ -17,7 +17,7 @@ module.exports = {
     /**
      * Bootstrap the component.
      */
-    ready() {
+    mounted() {
         this.form.name = this.user.name;
         this.form.email = this.user.email;
     },
@@ -30,7 +30,7 @@ module.exports = {
         update() {
             Spark.put('/settings/contact', this.form)
                 .then(() => {
-                    this.$dispatch('updateUser');
+                    Bus.$emit('updateUser');
                 });
         }
     }

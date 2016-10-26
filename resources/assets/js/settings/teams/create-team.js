@@ -129,8 +129,8 @@ module.exports = {
                     this.form.name = '';
                     this.form.slug = '';
 
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeams');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeams');
                 });
         },
 

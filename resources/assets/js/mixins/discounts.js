@@ -61,8 +61,7 @@ module.exports = {
                 return `${discount.percent_off}%`;
             } else {
                 return Vue.filter('currency')(
-                    this.calculateAmountOff(discount.amount_off),
-                    Spark.currencySymbol
+                    this.calculateAmountOff(discount.amount_off)
                 );
             }
         },

@@ -26,8 +26,8 @@ module.exports = {
         cancel() {
             Spark.delete(this.urlForCancellation, this.form)
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
 
                     $('#modal-confirm-cancellation').modal('hide');
                 });

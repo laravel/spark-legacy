@@ -18,7 +18,7 @@ module.exports = {
 		disable() {
 			Spark.delete('/settings/two-factor-auth', this.form)
 				.then(() => {
-					this.$dispatch('updateUser');
+					Bus.$emit('updateUser');
 				});
 		}
 	}

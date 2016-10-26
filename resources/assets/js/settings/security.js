@@ -12,14 +12,16 @@ module.exports = {
     },
 
 
-    events: {
-        /**
-         * Display the received two-factor authentication code.
-         */
-        receivedTwoFactorResetCode(code) {
-            this.twoFactorResetCode = code;
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        var self = this;
+
+        this.$on('receivedTwoFactorResetCode', function (code) {
+            self.twoFactorResetCode = code;
 
             $('#modal-show-two-factor-reset-code').modal('show');
-        }
+        });
     }
 };
