@@ -83,9 +83,7 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div>
         <!-- User Profile Detail -->
         <div v-show="showingUserProfile">
             @include('spark::kiosk.profile')

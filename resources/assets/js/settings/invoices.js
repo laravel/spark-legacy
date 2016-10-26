@@ -14,7 +14,7 @@ module.exports = {
 	/**
 	 * Prepare the component.
 	 */
-	ready() {
+	mounted() {
 		this.getInvoices();
 	},
 
@@ -41,7 +41,7 @@ module.exports = {
 		urlForInvoices() {
 			return this.billingUser
 							? '/settings/invoices'
-							: `/settings/teams/${this.team.id}/invoices`;
+							: `/settings/${Spark.pluralTeamString}/${this.team.id}/invoices`;
 		}
 	}
 };

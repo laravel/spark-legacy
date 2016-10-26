@@ -13,22 +13,23 @@ module.exports = {
         };
     },
 
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        var self = this;
+
+        this.$parent.$on('showUserProfile', function(id) {
+            self.getUserProfile(id);
+        });
+    },
+
 
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         Mousetrap.bind('esc', e => this.showSearch());
-    },
-
-
-    events: {
-        /**
-         * Watch the current profile user for changes.
-         */
-        showUserProfile(id) {
-            this.getUserProfile(id);
-        }
     },
 
 
@@ -61,7 +62,7 @@ module.exports = {
          * Show the discount modal for the given user.
          */
         addDiscount(user) {
-            this.$broadcast('addDiscount', user);
+            Bus.$emit('addDiscount', user);
         },
 
 
@@ -139,7 +140,7 @@ module.exports = {
          * Show the search results and hide the user profile.
          */
         showSearch() {
-            this.$dispatch('showSearch');
+            this.$parent.$emit('showSearch');
 
             this.profile = null;
         }

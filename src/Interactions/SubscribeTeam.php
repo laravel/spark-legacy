@@ -12,14 +12,18 @@ class SubscribeTeam implements Contract
     /**
      * {@inheritdoc}
      */
-    public function handle($team, $plan, array $data)
+    public function handle($team, $plan, $fromRegistration, array $data)
     {
         $subscription = $team->newSubscription('default', $plan->id);
 
-        // Here we will fill the trial days for this team subscription. We will also set any
-        // coupon on the subscription so that the team can receive a discount on the team
-        // subscription. Then we will almost be ready to create the final subscription.
-        $subscription->trialDays($plan->trialDays);
+        // Here we will check if we need to skip trial or set trial days on the subscription
+        // when creating it on the provider. By default, we will skip the trial when this
+        // interaction isn't from registration since they have already usually trialed.
+        if (! $fromRegistration) {
+            $subscription->skipTrial();
+        } elseif ($plan->trialDays > 0) {
+            $subscription->trialDays($plan->trialDays);
+        }
 
         if (isset($data['coupon'])) {
             $subscription->withCoupon($data['coupon']);

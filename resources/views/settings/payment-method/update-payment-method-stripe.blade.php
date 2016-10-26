@@ -8,7 +8,7 @@
 
             <div class="pull-right">
                 <span v-if="billable.card_last_four">
-                    <i class="fa fa-btn @{{ cardIcon }}"></i>
+                    <i :class="['fa', 'fa-btn', cardIcon]"></i>
                     ************@{{ billable.card_last_four }}
                 </span>
             </div>
@@ -77,16 +77,20 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Expiration</label>
 
-                    <!-- Month -->
-                    <div class="col-md-3">
-                        <input type="text" class="form-control"
-                            placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
-                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <!-- Month -->
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control"
+                                    placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
+                            </div>
 
-                    <!-- Year -->
-                    <div class="col-md-3">
-                        <input type="text" class="form-control"
-                            placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
+                            <!-- Year -->
+                            <div class="col-xs-6">
+                                <input type="text" class="form-control"
+                                    placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
+                            </div>  
+                        </div>
                     </div>
                 </div>
 

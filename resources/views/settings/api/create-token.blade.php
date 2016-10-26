@@ -92,11 +92,17 @@
                             at any time from your API settings.
                         </div>
 
-                        <pre><code id="api-token">@{{ showingToken }}</code></pre>
+                        <textarea id="api-token" class="form-control"
+                                  @click="selectToken"
+                                  rows="5">@{{ showingToken }}</textarea>
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" @click="selectToken">
+                        <span v-if="copyCommandSupported">Copy To Clipboard</span>
+                        <span v-else>Select All</span>
+                        </button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>

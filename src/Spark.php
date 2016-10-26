@@ -7,6 +7,7 @@ class Spark
     use Configuration\CallsInteractions,
         Configuration\ManagesApiOptions,
         Configuration\ManagesAppDetails,
+        Configuration\ManagesAppOptions,
         Configuration\ManagesAvailablePlans,
         Configuration\ManagesAvailableRoles,
         Configuration\ManagesBillingProviders,
@@ -18,5 +19,5 @@ class Spark
     /**
      * The Spark version.
      */
-    public static $version = '3.0.0';
+    public static $version = '4.0.0';
 }

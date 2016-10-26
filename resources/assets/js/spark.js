@@ -2,7 +2,7 @@
  * Export the root Spark application.
  */
 module.exports = {
-    el: 'body',
+    el: '#spark-app',
 
 
     /**
@@ -34,6 +34,8 @@ module.exports = {
      * The component has been created by Vue.
      */
     created() {
+        var self = this;
+
         if (Spark.userId) {
             this.loadDataForAuthenticatedUser();
         }
@@ -41,52 +43,24 @@ module.exports = {
         if (Spark.userId && Spark.usesApi) {
             this.refreshApiTokenEveryFewMinutes();
         }
-    },
 
+        Bus.$on('updateUser', function () {
+            self.getUser();
+        });
 
-    /**
-     * Prepare the application.
-     */
-    ready() {
-        console.log('Application Ready.');
+        Bus.$on('updateTeams', function () {
+            self.getTeams();
+        });
 
-        this.whenReady();
-    },
-
-
-    events: {
-        /*
-         * Update the current user of the application.
-         */
-        updateUser() {
-            this.getUser();
-        },
-
-
-        /**
-         * Update the current team list.
-         */
-        updateTeams() {
-            this.getTeams();
-        },
-
-
-        /**
-         * Show the application's notifications.
-         */
-        showNotifications() {
+        Bus.$on('showNotifications', function () {
             $('#modal-notifications').modal('show');
 
-            this.markNotificationsAsRead();
-        },
+            self.markNotificationsAsRead();
+        });
 
-
-        /**
-         * Show the customer support e-mail form.
-         */
-        showSupportForm() {
-            if (this.user) {
-                this.supportForm.from = this.user.email;
+        Bus.$on('showSupportForm', function () {
+            if (self.user) {
+                self.supportForm.from = self.user.email;
             }
 
             $('#modal-support').modal('show');
@@ -94,7 +68,15 @@ module.exports = {
             setTimeout(() => {
                 $('#support-subject').focus();
             }, 500);
-        }
+        });
+    },
+
+
+    /**
+     * Prepare the application.
+     */
+    mounted() {
+        this.whenReady();
     },
 
 
@@ -139,10 +121,7 @@ module.exports = {
         refreshApiToken() {
             this.lastRefreshedApiTokenAt = moment();
 
-            this.$http.put('/spark/token')
-                .then(response => {
-                    console.log('API Token Refreshed.');
-                });
+            this.$http.put('/spark/token');
         },
 
 
@@ -161,7 +140,7 @@ module.exports = {
          * Get the current team list.
          */
         getTeams() {
-            this.$http.get('/teams')
+            this.$http.get('/'+Spark.pluralTeamString)
                 .then(response => {
                     this.teams = response.data;
                 });
@@ -172,7 +151,7 @@ module.exports = {
          * Get the current team.
          */
         getCurrentTeam() {
-            this.$http.get('/teams/current')
+            this.$http.get(`/${Spark.pluralTeamString}/current`)
                 .then(response => {
                     this.currentTeam = response.data;
                 })
@@ -252,7 +231,7 @@ module.exports = {
          */
         hasUnreadAnnouncements() {
             if (this.notifications && this.user) {
-                if (! this.user.last_read_announcements_at) {
+                if (this.notifications.announcements.length && ! this.user.last_read_announcements_at) {
                     return true;
                 }
 

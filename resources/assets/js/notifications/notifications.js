@@ -39,7 +39,7 @@ module.exports = {
         updateLastReadAnnouncementsTimestamp() {
             this.$http.put('/user/last-read-announcements-at')
                 .then(() => {
-                    this.$dispatch('updateUser');
+                    Bus.$emit('updateUser');
                 });
         }
     },

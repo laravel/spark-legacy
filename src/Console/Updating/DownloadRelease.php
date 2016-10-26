@@ -99,7 +99,7 @@ class DownloadRelease
      */
     protected function releasePath()
     {
-        return base_path('spark-new/'.basename(
+        return base_path('spark-new'. DIRECTORY_SEPARATOR .basename(
             (new Filesystem)->directories(base_path('spark-new'))[0]
         ));
     }

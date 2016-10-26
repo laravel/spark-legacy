@@ -35,7 +35,7 @@ module.exports = {
         accept(invitation) {
             this.$http.post(`/settings/invitations/${invitation.id}/accept`)
                 .then(() => {
-                    this.$dispatch('updateTeams');
+                    Bus.$emit('updateTeams');
 
                     this.getPendingInvitations();
                 });

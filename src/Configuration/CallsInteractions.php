@@ -44,13 +44,13 @@ trait CallsInteractions
         list($class, $method) = explode('@', $interaction);
 
         if (isset(static::$interactions[$interaction])) {
-            return static::callSwappedInteraction($interaction, $parameters);
+            return static::callSwappedInteraction($interaction, $parameters, $class);
         }
 
         $base = class_basename($class);
 
         if (isset(static::$interactions[$base.'@'.$method])) {
-            return static::callSwappedInteraction($base.'@'.$method, $parameters);
+            return static::callSwappedInteraction($base.'@'.$method, $parameters, $class);
         }
 
         return call_user_func_array([app($class), $method], $parameters);
@@ -63,13 +63,17 @@ trait CallsInteractions
      * @param  array  $parameters
      * @return mixed
      */
-    protected static function callSwappedInteraction($interaction, array $parameters)
+    protected static function callSwappedInteraction($interaction, array $parameters, $class)
     {
         if (is_string(static::$interactions[$interaction])) {
             return static::interact(static::$interactions[$interaction], $parameters);
         }
 
-        return call_user_func_array(static::$interactions[$interaction], $parameters);
+        $instance = app($class);
+
+        $method = static::$interactions[$interaction]->bindTo($instance, $instance);
+
+        return call_user_func_array($method, $parameters);
     }
 
     /**

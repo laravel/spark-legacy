@@ -30,7 +30,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         Stripe.setPublishableKey(Spark.stripeKey);
 
         this.initializeBillingAddress();
@@ -106,8 +106,8 @@ module.exports = {
 
             Spark.put(this.urlForUpdate, this.form)
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
 
                     this.cardForm.name = '';
                     this.cardForm.number = '';
@@ -138,7 +138,7 @@ module.exports = {
         urlForUpdate() {
             return this.billingUser
                             ? '/settings/payment-method'
-                            : `/settings/teams/${this.team.id}/payment-method`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/payment-method`;
         },
 
 

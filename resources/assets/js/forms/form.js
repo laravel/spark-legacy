@@ -38,7 +38,7 @@ window.SparkForm = function (data) {
         form.errors.forget();
         form.busy = false;
         form.successful = false;
-    },
+    };
 
 
     /**
@@ -47,5 +47,5 @@ window.SparkForm = function (data) {
     this.setErrors = function (errors) {
         form.busy = false;
         form.errors.set(errors);
-    }
+    };
 };

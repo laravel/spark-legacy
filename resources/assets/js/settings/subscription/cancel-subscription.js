@@ -26,8 +26,8 @@ module.exports = {
         cancel() {
             Spark.delete(this.urlForCancellation, this.form)
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
 
                     $('#modal-confirm-cancellation').modal('hide');
                 });
@@ -42,7 +42,7 @@ module.exports = {
         urlForCancellation() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         }
     }
 };

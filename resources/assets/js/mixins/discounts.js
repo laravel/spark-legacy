@@ -21,7 +21,9 @@ module.exports = {
 
             this.$http.get(`/coupon/user/${user.id}`)
                 .then(response => {
-                    this.currentDiscount = response.data;
+                    if (response.status == 200) {
+                        this.currentDiscount = response.data;
+                    }
 
                     this.loadingCurrentDiscount = false;
                 });
@@ -36,9 +38,11 @@ module.exports = {
 
             this.loadingCurrentDiscount = true;
 
-            this.$http.get(`/coupon/team/${team.id}`)
+            this.$http.get(`/coupon/${Spark.teamString}/${team.id}`)
                 .then(response => {
-                    this.currentDiscount = response.data;
+                    if (response.status == 200) {
+                        this.currentDiscount = response.data;
+                    }
 
                     this.loadingCurrentDiscount = false;
                 });
@@ -57,8 +61,7 @@ module.exports = {
                 return `${discount.percent_off}%`;
             } else {
                 return Vue.filter('currency')(
-                    this.calculateAmountOff(discount.amount_off),
-                    Spark.currencySymbol
+                    this.calculateAmountOff(discount.amount_off)
                 );
             }
         },

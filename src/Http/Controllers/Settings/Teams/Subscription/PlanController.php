@@ -34,7 +34,7 @@ class PlanController extends Controller
     public function store(CreateSubscriptionRequest $request, Team $team)
     {
         Spark::interact(SubscribeTeam::class, [
-            $team, $request->plan(), $request->all()
+            $team, $request->plan(), false, $request->all()
         ]);
     }
 

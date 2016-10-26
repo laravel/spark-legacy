@@ -54,7 +54,9 @@ class User extends Authenticatable
     {
         $array = parent::toArray();
 
-        $array['tax_rate'] = $this->taxPercentage();
+        if (! in_array('tax_rate', $this->hidden)) {
+            $array['tax_rate'] = $this->taxPercentage();
+        }
 
         return $array;
     }

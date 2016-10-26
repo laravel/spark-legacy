@@ -63,6 +63,13 @@ class Plan implements JsonSerializable
     public $active = true;
 
     /**
+     * The style of the plan.
+     *
+     * @var string
+     */
+    public $type = 'user';
+
+    /**
      * Create a new plan instance.
      *
      * @param  string  $name
@@ -212,6 +219,7 @@ class Plan implements JsonSerializable
             'features' => $this->features,
             'active' => $this->active,
             'attributes' => $this->attributes,
+            'type' => $this->type,
         ];
     }
 

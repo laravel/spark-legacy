@@ -16,7 +16,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.form.name = this.team.name;
     },
 
@@ -26,10 +26,10 @@ module.exports = {
          * Update the team name.
          */
         update() {
-            Spark.put(`/settings/teams/${this.team.id}/name`, this.form)
+            Spark.put(`/settings/${Spark.pluralTeamString}/${this.team.id}/name`, this.form)
                 .then(() => {
-                    this.$dispatch('updateTeam');
-                    this.$dispatch('updateTeams');
+                    Bus.$emit('updateTeam');
+                    Bus.$emit('updateTeams');
                 });
         }
     }

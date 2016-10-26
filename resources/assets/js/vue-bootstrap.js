@@ -5,18 +5,16 @@
  */
 if (window.Vue === undefined) {
     window.Vue = require('vue');
+
+    window.Bus = new Vue();
 }
 
 require('vue-resource');
 
-Vue.config.debug = true;
-
 /**
  * Load Vue HTTP Interceptors.
  */
-Vue.http.interceptors.push(() => {
-    return require('./interceptors');
-});
+Vue.http.interceptors.push(require('./interceptors'));
 
 /**
  * Load Vue Global Mixin.

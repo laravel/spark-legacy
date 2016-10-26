@@ -28,7 +28,7 @@
                             <label type="button" class="btn btn-primary btn-upload" :disabled="form.busy">
                                 <span>Select New Photo</span>
 
-                                <input v-el:photo type="file" class="form-control" name="photo" @change="update">
+                                <input ref="photo" type="file" class="form-control" name="photo" @change="update">
                             </label>
                         </div>
                     </div>

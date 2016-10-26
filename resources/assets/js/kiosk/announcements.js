@@ -23,16 +23,18 @@ module.exports = {
         };
     },
 
+    
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        var self = this;
 
-    events: {
-        /**
-         * Handle this component becoming the active tab.
-         */
-        sparkHashChanged: function (hash) {
-            if (hash == 'announcements' && this.announcements.length === 0) {
-                this.getAnnouncements();
+        Bus.$on('sparkHashChanged', function (hash, parameters) {
+            if (hash == 'announcements' && self.announcements.length === 0) {
+                self.getAnnouncements();
             }
-        }
+        });
     },
 
 
@@ -70,6 +72,7 @@ module.exports = {
             this.updateForm.icon = announcement.icon;
             this.updateForm.body = announcement.body;
             this.updateForm.action_text = announcement.action_text;
+            this.updateForm.action_url = announcement.action_url;
 
             $('#modal-update-announcement').modal('show');
         },
@@ -101,7 +104,7 @@ module.exports = {
         /**
          * Delete the specified announcement.
          */
-        delete() {
+        deleteAnnouncement() {
             Spark.delete('/spark/kiosk/announcements/' + this.deletingAnnouncement.id, this.deleteForm)
                 .then(() => {
                     this.getAnnouncements();

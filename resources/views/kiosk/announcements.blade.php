@@ -201,7 +201,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
 
-                        <button type="button" class="btn btn-danger" @click="delete" :disabled="deleteForm.busy">
+                        <button type="button" class="btn btn-danger" @click="deleteAnnouncement" :disabled="deleteForm.busy">
                             Yes, Delete
                         </button>
                     </div>

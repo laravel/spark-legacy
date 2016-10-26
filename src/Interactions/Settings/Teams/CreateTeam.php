@@ -20,6 +20,10 @@ class CreateTeam implements Contract
             'name' => 'required',
         ]);
 
+        $validator->sometimes('slug', 'required|alpha_dash|unique:teams,slug', function () {
+            return Spark::teamsIdentifiedByPath();
+        });
+
         $validator->after(function ($validator) use ($user) {
             $this->validateMaximumTeamsNotExceeded($validator, $user);
         });
@@ -45,7 +49,7 @@ class CreateTeam implements Contract
         }
 
         if ($plan->teams <= $user->ownedTeams()->count()) {
-            $validator->errors()->add('name', 'Please upgrade your subscription to create more teams.');
+            $validator->errors()->add('name', 'Please upgrade your subscription to create more '.str_plural(Spark::teamString()).'.');
         }
     }
 

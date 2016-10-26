@@ -18,6 +18,13 @@ module.exports = {
     },
 
 
+    computed: {
+        copyCommandSupported() {
+            return document.queryCommandSupported('copy');
+        }
+    },
+
+
     watch: {
         /**
          * Watch the available abilities for changes.
@@ -91,7 +98,7 @@ module.exports = {
 
                     this.resetForm();
 
-                    this.$dispatch('updateTokens');
+                    this.$parent.$emit('updateTokens');
                 });
         },
 
@@ -103,6 +110,18 @@ module.exports = {
             this.showingToken = token;
 
             $('#modal-show-token').modal('show');
+        },
+
+
+        /**
+         * Select the token and copy to Clipboard.
+         */
+        selectToken() {
+            $('#api-token').select();
+
+            if (this.copyCommandSupported) {
+                document.execCommand("copy");
+            }
         },
 
 

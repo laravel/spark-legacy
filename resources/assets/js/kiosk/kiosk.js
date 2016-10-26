@@ -11,16 +11,16 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.usePushStateForTabs('.spark-settings-tabs');
     },
 
 
-    events: {
-        /**
-         * Handle the Spark tab changed event.
-         */
-        sparkHashChanged(hash) {
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        Bus.$on('sparkHashChanged', function (hash, parameters) {
             if (hash == 'users') {
                 setTimeout(() => {
                     $('#kiosk-users-search').focus();
@@ -28,6 +28,6 @@ module.exports = {
             }
 
             return true;
-        }
+        });
     }
 };

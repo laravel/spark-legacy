@@ -15,7 +15,7 @@
 
                 <!-- Credit Card Indicator -->
                 <span v-if="billable.card_last_four">
-                    <i class="fa fa-btn @{{ cardIcon }}"></i>
+                    <i class="['fa', 'fa-btn', cardIcon]"></i>
                     ************@{{ billable.card_last_four }}
                 </span>
             </div>

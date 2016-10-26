@@ -60,21 +60,14 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         Stripe.setPublishableKey(Spark.stripeKey);
 
         this.initializeBillingAddress();
 
-         // If only yearly subscription plans are available, we will select that interval so that we
-         // can show the plans. Then we'll select the first available paid plan from the list and
-         // start the form in a good default spot. The user may then select another plan later.
-        if (this.onlyHasYearlyPlans) {
+        if (this.onlyHasYearlyPaidPlans) {
             this.showYearlyPlans();
         }
-
-        this.selectPlan(
-            this.paidPlansForActiveInterval[0]
-        );
     },
 
 
@@ -153,8 +146,8 @@ module.exports = {
 
             Spark.post(this.urlForNewSubscription, this.form)
                 .then(response => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
                 });
         },
 
@@ -165,7 +158,7 @@ module.exports = {
          * We'll ask the parent subscription component to display it.
          */
         showPlanDetails(plan) {
-            this.$dispatch('showPlanDetails', plan);
+            this.$parent.$emit('showPlanDetails', plan);
         }
     },
 
@@ -193,7 +186,7 @@ module.exports = {
         urlForNewSubscription() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         },
 
 

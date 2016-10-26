@@ -26,6 +26,7 @@ module.exports = {
                 stripe_token: '',
                 plan: '',
                 team: '',
+                team_slug: '',
                 name: '',
                 email: '',
                 password: '',
@@ -63,6 +64,18 @@ module.exports = {
             }
 
             this.refreshTaxRate(this.registerForm);
+        },
+
+
+        /**
+         * Watch the team name for changes.
+         */
+        'registerForm.team': function (val, oldVal) {
+            if (this.registerForm.team_slug == '' ||
+                this.registerForm.team_slug == oldVal.toLowerCase().replace(/[\s\W-]+/g, '-')
+            ) {
+                this.registerForm.team_slug = val.toLowerCase().replace(/[\s\W-]+/g, '-');
+            }
         }
     },
 
@@ -96,7 +109,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         //
     },
 
@@ -212,7 +225,7 @@ module.exports = {
                 if (this.coupon.percent_off) {
                     return this.coupon.percent_off + '%';
                 } else {
-                    return Vue.filter('currency')(this.coupon.amount_off / 100, Spark.currencySymbol);
+                    return Vue.filter('currency')(this.coupon.amount_off / 100);
                 }
             }
         },

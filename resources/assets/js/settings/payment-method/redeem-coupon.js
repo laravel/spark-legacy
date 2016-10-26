@@ -22,7 +22,7 @@ module.exports = {
                 .then(() => {
                     this.form.coupon = '';
 
-                    this.$dispatch('updateDiscount');
+                    this.$parent.$emit('updateDiscount');
                 });
         }
     },
@@ -35,7 +35,7 @@ module.exports = {
         urlForRedemption() {
             return this.billingUser
                             ? '/settings/payment-method/coupon'
-                            : `/settings/teams/${this.team.id}/payment-method/coupon`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/payment-method/coupon`;
         }
     }
 };

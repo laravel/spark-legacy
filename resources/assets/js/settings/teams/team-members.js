@@ -34,7 +34,7 @@ module.exports = {
          * Get the available team member roles.
          */
         getRoles() {
-            this.$http.get('/settings/teams/roles')
+            this.$http.get(`/settings/${Spark.pluralTeamString}/roles`)
                 .then(response => {
                     this.roles = response.data;
                 });
@@ -58,7 +58,7 @@ module.exports = {
         update() {
             Spark.put(this.urlForUpdating, this.updateTeamMemberForm)
                 .then(() => {
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateTeam');
 
                     $('#modal-update-team-member').modal('hide');
                 });
@@ -78,10 +78,10 @@ module.exports = {
         /**
          * Delete the given team member.
          */
-        delete() {
+        deleteMember() {
             Spark.delete(this.urlForDeleting, this.deleteTeamMemberForm)
                 .then(() => {
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateTeam');
 
                     $('#modal-delete-member').modal('hide');
                 });
@@ -130,7 +130,7 @@ module.exports = {
          * Get the URL for updating a team member.
          */
         urlForUpdating: function () {
-            return `/settings/teams/${this.team.id}/members/${this.updatingTeamMember.id}`;
+            return `/settings/${Spark.pluralTeamString}/${this.team.id}/members/${this.updatingTeamMember.id}`;
         },
 
 
@@ -138,7 +138,7 @@ module.exports = {
          * Get the URL for deleting a team member.
          */
         urlForDeleting() {
-            return `/settings/teams/${this.team.id}/members/${this.deletingTeamMember.id}`;
+            return `/settings/${Spark.pluralTeamString}/${this.team.id}/members/${this.deletingTeamMember.id}`;
         }
     }
 };

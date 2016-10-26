@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', 'Spark')</title>
+    <title>@yield('title', config('app.name'))</title>
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
@@ -26,8 +26,8 @@
         )); ?>;
     </script>
 </head>
-<body class="with-navbar" v-cloak>
-    <div id="spark-app">
+<body class="with-navbar">
+    <div id="spark-app" v-cloak>
         <!-- Navigation -->
         @if (Auth::check())
             @include('spark::nav.user')
@@ -44,10 +44,10 @@
             @include('spark::modals.support')
             @include('spark::modals.session-expired')
         @endif
-
-        <!-- JavaScript -->
-        <script src="/js/app.js"></script>
-        <script src="/js/sweetalert.min.js"></script>
     </div>
+
+    <!-- JavaScript -->
+    <script src="/js/app.js"></script>
+    <script src="/js/sweetalert.min.js"></script>
 </body>
 </html>

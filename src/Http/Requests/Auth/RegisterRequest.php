@@ -51,7 +51,9 @@ class RegisterRequest extends FormRequest
             CreateUser::class.'@validator', [$this]
         );
 
-        $validator->sometimes('plan', 'required|in:'.Spark::activePlanIdList(), function () {
+        $allPlanIdList = Spark::activePlanIdList().','.Spark::activeTeamPlanIdList();
+
+        $validator->sometimes('plan', 'required|in:'.$allPlanIdList, function () {
             return Spark::needsCardUpFront();
         });
 
@@ -121,7 +123,7 @@ class RegisterRequest extends FormRequest
     public function plan()
     {
         if ($this->plan) {
-            return Spark::plans()->where('id', $this->plan)->first();
+            return Spark::plans()->merge(Spark::teamPlans())->where('id', $this->plan)->first();
         }
     }
 

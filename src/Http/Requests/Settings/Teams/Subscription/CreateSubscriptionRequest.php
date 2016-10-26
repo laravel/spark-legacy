@@ -18,7 +18,7 @@ class CreateSubscriptionRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->ownsTeam($this->route('team'));
+        return $this->user() && $this->user()->ownsTeam($this->route('team'));
     }
 
     /**

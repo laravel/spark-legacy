@@ -29,7 +29,7 @@
     <label class="col-md-4 control-label">City</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" v-model="registerForm.city" lazy>
+        <input type="text" class="form-control" v-model.lazy="registerForm.city">
 
         <span class="help-block" v-show="registerForm.errors.has('city')">
             @{{ registerForm.errors.get('city') }}
@@ -43,7 +43,7 @@
 
     <!-- State -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="State" v-model="registerForm.state" lazy>
+        <input type="text" class="form-control" placeholder="State" v-model.lazy="registerForm.state">
 
         <span class="help-block" v-show="registerForm.errors.has('state')">
             @{{ registerForm.errors.get('state') }}
@@ -52,7 +52,7 @@
 
     <!-- Zip Code -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="Postal Code" v-model="registerForm.zip" lazy>
+        <input type="text" class="form-control" placeholder="Postal Code" v-model.lazy="registerForm.zip">
 
         <span class="help-block" v-show="registerForm.errors.has('zip')">
             @{{ registerForm.errors.get('zip') }}
@@ -65,7 +65,7 @@
     <label class="col-md-4 control-label">Country</label>
 
     <div class="col-sm-6">
-        <select class="form-control" v-model="registerForm.country" lazy>
+        <select class="form-control" v-model.lazy="registerForm.country">
             @foreach (app(Laravel\Spark\Repositories\Geography\CountryRepository::class)->all() as $key => $country)
                 <option value="{{ $key }}">{{ $country }}</option>
             @endforeach
@@ -82,7 +82,7 @@
     <label class="col-md-4 control-label">VAT ID</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" v-model="registerForm.vat_id" lazy>
+        <input type="text" class="form-control" v-model.lazy="registerForm.vat_id">
 
         <span class="help-block" v-show="registerForm.errors.has('vat_id')">
             @{{ registerForm.errors.get('vat_id') }}

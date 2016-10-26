@@ -238,7 +238,11 @@ trait ManagesAvailablePlans
      */
     public static function plans()
     {
-        return collect(static::$plans);
+        return collect(static::$plans)->map(function ($plan) {
+            $plan->type = 'user';
+
+            return $plan;
+        });
     }
 
     /**
@@ -304,7 +308,11 @@ trait ManagesAvailablePlans
      */
     public static function teamPlans()
     {
-        return collect(static::$teamPlans);
+        return collect(static::$teamPlans)->map(function ($plan) {
+            $plan->type = 'team';
+
+            return $plan;
+        });
     }
 
     /**
@@ -325,6 +333,16 @@ trait ManagesAvailablePlans
     public static function activeTeamPlanIdList()
     {
         return implode(',', static::activeTeamPlanIds());
+    }
+
+    /**
+     * Determine if the application has team plans only.
+     *
+     * @return bool
+     */
+    public static function onlyTeamPlans()
+    {
+        return static::plans()->isEmpty() && ! static::teamPlans()->isEmpty();
     }
 
     /**

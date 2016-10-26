@@ -57,5 +57,7 @@ class CouponController extends Controller
         if ($coupon = $this->coupons->forBillable($user)) {
             return response()->json($coupon->toArray());
         }
+
+        abort(204);
     }
 }

@@ -41,7 +41,7 @@ trait Billable
     {
         $subscription = $this->subscription($subscription);
 
-        if ($subscription) {
+        if ($subscription && $subscription->valid()) {
             return $this->availablePlans()->first(function ($value) use ($subscription) {
                 return $value->id === $subscription->provider_plan;
             });

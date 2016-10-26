@@ -19,19 +19,21 @@ module.exports = {
         };
     },
 
+    
+    /**
+     * The component has been created by Vue.
+     */
+    created() {
+        var self = this;
 
-    events: {
-        /**
-         * Handle this component becoming the active tab.
-         */
-        sparkHashChanged: function (hash) {
-            if (hash == 'metrics' && this.yearlyRecurringRevenue === 0) {
-                this.getRevenue();
-                this.getPlans();
-                this.getTrialUsers();
-                this.getPerformanceIndicators();
+        Bus.$on('sparkHashChanged', function (hash, parameters) {
+            if (hash == 'metrics' && self.yearlyRecurringRevenue === 0) {
+                self.getRevenue();
+                self.getPlans();
+                self.getTrialUsers();
+                self.getPerformanceIndicators();
             }
-        }
+        });
     },
 
 
@@ -66,7 +68,7 @@ module.exports = {
         getTrialUsers() {
             this.$http.get('/spark/kiosk/performance-indicators/trialing')
                 .then(response => {
-                    this.genericTrialUsers = response.data;
+                    this.genericTrialUsers = parseInt(response.data);
                 });
         },
 
@@ -144,7 +146,7 @@ module.exports = {
          */
         drawCurrencyChart(id, days, dataGatherer) {
             return this.drawChart(id, days, dataGatherer, value =>
-                Vue.filter('currency')(value.value, Spark.currencySymbol)
+                Vue.filter('currency')(value.value)
             );
         },
 

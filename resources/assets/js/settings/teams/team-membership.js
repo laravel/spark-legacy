@@ -15,17 +15,13 @@ module.exports = {
      * The component has been created by Vue.
      */
     created() {
+        var self = this;
+
         this.getInvitations();
-    },
 
-
-    events: {
-        /**
-         * Update the team's invitations.
-         */
-        updateInvitations() {
-            this.getInvitations();
-        }
+        this.$on('updateInvitations', function () {
+            self.getInvitations();
+        });
     },
 
 
@@ -34,7 +30,7 @@ module.exports = {
          * Get all of the invitations for the team.
          */
         getInvitations() {
-            this.$http.get(`/settings/teams/${this.team.id}/invitations`)
+            this.$http.get(`/settings/${Spark.pluralTeamString}/${this.team.id}/invitations`)
                 .then(response => {
                     this.invitations = response.data;
                 });

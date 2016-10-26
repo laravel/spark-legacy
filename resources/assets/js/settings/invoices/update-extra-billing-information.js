@@ -16,7 +16,7 @@ module.exports = {
     /**
      * Prepare the component.
      */
-    ready() {
+    mounted() {
         this.form.information = this.billable.extra_billing_information;
     },
 
@@ -39,7 +39,7 @@ module.exports = {
         urlForUpdate() {
             return this.billingUser
                             ? '/settings/extra-billing-information'
-                            : `/settings/teams/${this.team.id}/extra-billing-information`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/extra-billing-information`;
         }
     }
 };

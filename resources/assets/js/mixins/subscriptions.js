@@ -32,8 +32,8 @@ module.exports = {
              // for both updating subscriptions plus resuming any cancelled subscriptions.
             this.$http.put(this.urlForPlanUpdate, {"plan": plan.id})
                 .then(() => {
-                    this.$dispatch('updateUser');
-                    this.$dispatch('updateTeam');
+                    Bus.$emit('updateUser');
+                    Bus.$emit('updateTeam');
                 })
                 .catch(response => {
                     this.planForm.errors.set(response.data);
@@ -169,7 +169,7 @@ module.exports = {
         urlForPlanUpdate() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/teams/${this.team.id}/subscription`;
+                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         }
     }
 };

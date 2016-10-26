@@ -13,13 +13,13 @@
                         <!-- Invoice Date -->
                         <td>
                             <div class="btn-table-align">
-                                <strong>@{{ invoice.date | date }}</strong>
+                                <strong>@{{ invoice.created_at | date }}</strong>
                             </div>
                         </td>
 
                         <!-- Invoice Total -->
                         <td>
-                            <div class="btn-table-align">@{{ invoice.total | currency spark.currencySymbol }}</div>
+                            <div class="btn-table-align">@{{ invoice.total | currency }}</div>
                         </td>
 
                         <!-- Invoice Download Button -->
