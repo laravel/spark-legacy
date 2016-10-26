@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.0.0
+
+- Update to Vue 2.0
+
 ## Version 2.0.4
 
 - Revert Vue Resource upgrade.
