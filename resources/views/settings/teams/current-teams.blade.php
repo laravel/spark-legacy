@@ -58,12 +58,14 @@
                                 </button>
                             </td>
 
-                            <!-- Delete Button -->
-                            <td>
-                                <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </td>
+                            @if (Spark::createsAdditionalTeams())
+                                <!-- Delete Button -->
+                                <td>
+                                    <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </td>
+                            @endif
                         </tr>
                     </tbody>
                 </table>
