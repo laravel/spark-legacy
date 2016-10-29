@@ -57,6 +57,6 @@ class Announcement extends Model
      */
     public function getParsedBodyAttribute()
     {
-        return (new Parsedown)->text($this->attributes['body']);
+        return (new Parsedown)->text(htmlspecialchars($this->attributes['body']));
     }
 }
