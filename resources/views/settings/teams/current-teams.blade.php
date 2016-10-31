@@ -30,7 +30,7 @@
                             <!-- Owner Name -->
                             <td>
                                 <div class="btn-table-align">
-                                    <span v-if="user.name == team.owner.name">
+                                    <span v-if="user.id == team.owner.id">
                                         You
                                     </span>
 
