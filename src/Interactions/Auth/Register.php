@@ -42,7 +42,7 @@ class Register implements Contract
     {
         $user = Spark::interact(CreateUserContract::class, [$request]);
 
-        if (Spark::usesTeams() && Spark::onlyTeamPlans()) {
+        if (Spark::usesTeams()) {
             Spark::interact(self::class.'@configureTeamForNewUser', [$request, $user]);
         }
 
@@ -64,7 +64,7 @@ class Register implements Contract
             self::$team = $invitation->team;
 
             $invitation->delete();
-        } else {
+        } elseif (Spark::onlyTeamPlans()) {
             self::$team = Spark::interact(CreateTeam::class, [
                 $user, ['name' => $request->team, 'slug' => $request->team_slug]
             ]);
