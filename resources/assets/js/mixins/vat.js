@@ -6,7 +6,7 @@ module.exports = {
         collectsVat(country) {
             return Spark.collectsEuropeanVat ? _.contains([
                 'BE', 'BG', 'CZ', 'DK', 'DE',
-                'EE', 'IE', 'EL', 'ES', 'FR',
+                'EE', 'IE', 'GR', 'ES', 'FR',
                 'HR', 'IT', 'CY', 'LV', 'LT',
                 'LU', 'HU', 'MT', 'NL', 'AT',
                 'PL', 'PT', 'RO', 'SI', 'SK',
