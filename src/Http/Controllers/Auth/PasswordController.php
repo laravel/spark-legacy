@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark\Http\Controllers\Auth;
 
+use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Laravel\Spark\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
@@ -23,6 +24,8 @@ class PasswordController extends Controller
         $this->middleware('guest');
 
         $this->middleware('throttle:3,1')->only('sendResetLinkEmail', 'reset');
+
+        $this->redirectTo = Spark::afterLoginRedirect();
     }
 
     /**
