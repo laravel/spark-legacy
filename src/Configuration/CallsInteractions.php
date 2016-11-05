@@ -33,9 +33,10 @@ trait CallsInteractions
      *
      * @param  string  $interaction
      * @param  array  $parameters
+     * @param  string  $original
      * @return mixed
      */
-    public static function interact($interaction, array $parameters = [])
+    public static function interact($interaction, array $parameters = [], $original = null)
     {
         if (! Str::contains($interaction, '@')) {
             $interaction = $interaction.'@handle';
@@ -44,16 +45,27 @@ trait CallsInteractions
         list($class, $method) = explode('@', $interaction);
 
         if (isset(static::$interactions[$interaction])) {
-            return static::callSwappedInteraction($interaction, $parameters, $class);
+            return static::callSwappedInteraction($interaction, $parameters, $class, $interaction);
         }
 
         $base = class_basename($class);
 
         if (isset(static::$interactions[$base.'@'.$method])) {
-            return static::callSwappedInteraction($base.'@'.$method, $parameters, $class);
+            return static::callSwappedInteraction($base.'@'.$method, $parameters, $class, $interaction);
         }
 
-        return call_user_func_array([app($class), $method], $parameters);
+        $instance = app($class);
+
+        // If an original interaction is available, we will create an instance of that
+        // interaction and make it available as a class property in the user defined
+        // class. That way developers may call other methods in the original class.
+        if ($original) {
+            list($originalClass) = explode('@', $original);
+
+            $instance->originalInteraction = app($originalClass);
+        }
+
+        return call_user_func_array([$instance, $method], $parameters);
     }
 
     /**
@@ -61,12 +73,13 @@ trait CallsInteractions
      *
      * @param  string  $interaction
      * @param  array  $parameters
+     * @param  string  $original
      * @return mixed
      */
-    protected static function callSwappedInteraction($interaction, array $parameters, $class)
+    protected static function callSwappedInteraction($interaction, array $parameters, $class, $original)
     {
         if (is_string(static::$interactions[$interaction])) {
-            return static::interact(static::$interactions[$interaction], $parameters);
+            return static::interact(static::$interactions[$interaction], $parameters, $original);
         }
 
         $instance = app($class);
