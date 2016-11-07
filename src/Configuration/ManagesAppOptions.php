@@ -33,6 +33,13 @@ trait ManagesAppOptions
     public static $teamString = 'team';
 
     /**
+     * Minimum length a user given password can be.
+     *
+     * @var string
+     */
+    public static $minimumPasswordLength = 6;
+
+    /**
      * Where to redirect users after authentication.
      *
      * @return string
@@ -135,5 +142,25 @@ trait ManagesAppOptions
     public static function referToTeamAs($string)
     {
         static::$teamString = $string;
+    }
+
+    /**
+     * Minimum length a user given password can be.
+     *
+     * @return string
+     */
+    public static function minimumPasswordLength()
+    {
+        return static::$minimumPasswordLength;
+    }
+
+    /**
+     * Set the minimum length a password can be.
+     *
+     * @return void
+     */
+    public static function acceptPasswordsNotLessThan($length)
+    {
+        static::$minimumPasswordLength = $length;
     }
 }

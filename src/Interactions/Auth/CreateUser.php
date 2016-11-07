@@ -57,7 +57,7 @@ class CreateUser implements Contract
         return [
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|confirmed|min:'.Spark::minimumPasswordLength(),
             'vat_id' => 'max:50|vat_id',
             'terms' => 'required|accepted',
         ];

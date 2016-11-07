@@ -2,6 +2,7 @@
 
 namespace Laravel\Spark\Http\Controllers\Settings\Security;
 
+use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Spark\Http\Controllers\Controller;
@@ -28,7 +29,7 @@ class PasswordController extends Controller
     {
         $this->validate($request, [
             'current_password' => 'required',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|confirmed|min:'.Spark::minimumPasswordLength(),
         ]);
 
         if (! Hash::check($request->current_password, $request->user()->password)) {
