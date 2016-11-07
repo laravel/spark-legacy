@@ -145,22 +145,19 @@ trait ManagesAppOptions
     }
 
     /**
-     * Minimum length a user given password can be.
+     * Get or set the minimum length a user given password can be.
      *
+     * @param  string|null  $length
      * @return string
      */
-    public static function minimumPasswordLength()
+    public static function minimumPasswordLength($length = null)
     {
-        return static::$minimumPasswordLength;
-    }
+        if (is_null($length)) {
+            return static::$minimumPasswordLength;
+        } else {
+            static::$minimumPasswordLength = $length;
 
-    /**
-     * Set the minimum length a password can be.
-     *
-     * @return void
-     */
-    public static function acceptPasswordsNotLessThan($length)
-    {
-        static::$minimumPasswordLength = $length;
+            return new static;
+        }
     }
 }
