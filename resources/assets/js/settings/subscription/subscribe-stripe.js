@@ -48,7 +48,7 @@ module.exports = {
          * Watch for changes on the entire billing address.
          */
         'currentBillingAddress': function (value) {
-            if ( ! Spark.collectsEuropeanVat) {
+            if (!Spark.collectsEuropeanVat) {
                 return;
             }
 
@@ -85,6 +85,13 @@ module.exports = {
             this.form.vat_id = this.billable.vat_id;
         },
 
+        /**
+         * Determine if the user has subscribed to the given plan before.
+         */
+        hasSubscription(plan) {
+            return !!_.where(this.billable.subscriptions, {provider_plan: plan.id}).length
+        },
+
 
         /**
          * Mark the given plan as selected.
@@ -104,9 +111,9 @@ module.exports = {
 
             this.form.startProcessing();
 
-             // Here we will build out the payload to send to Stripe to obtain a card token so
-             // we can create the actual subscription. We will build out this data that has
-             // this credit card number, CVC, etc. and exchange it for a secure token ID.
+            // Here we will build out the payload to send to Stripe to obtain a card token so
+            // we can create the actual subscription. We will build out this data that has
+            // this credit card number, CVC, etc. and exchange it for a secure token ID.
             const payload = {
                 name: this.cardForm.name,
                 number: this.cardForm.number,
@@ -121,14 +128,16 @@ module.exports = {
                 address_country: this.form.country
             };
 
-             // Next, we will send the payload to Stripe and handle the response. If we have a
-             // valid token we can send that to the server and use the token to create this
-             // subscription on the back-end. Otherwise, we will show the error messages.
+            // Next, we will send the payload to Stripe and handle the response. If we have a
+            // valid token we can send that to the server and use the token to create this
+            // subscription on the back-end. Otherwise, we will show the error messages.
             Stripe.card.createToken(payload, (status, response) => {
                 if (response.error) {
-                    this.cardForm.errors.set({number: [
-                        response.error.message
-                    ]})
+                    this.cardForm.errors.set({
+                        number: [
+                            response.error.message
+                        ]
+                    })
 
                     this.form.busy = false;
                 } else {
@@ -185,8 +194,8 @@ module.exports = {
          */
         urlForNewSubscription() {
             return this.billingUser
-                            ? '/settings/subscription'
-                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
+                ? '/settings/subscription'
+                : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
         },
 
 
@@ -197,12 +206,12 @@ module.exports = {
          */
         currentBillingAddress() {
             return this.form.address +
-                   this.form.address_line_2 +
-                   this.form.city +
-                   this.form.state +
-                   this.form.zip +
-                   this.form.country +
-                   this.form.vat_id;
+                this.form.address_line_2 +
+                this.form.city +
+                this.form.state +
+                this.form.zip +
+                this.form.country +
+                this.form.vat_id;
         }
     }
 };

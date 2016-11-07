@@ -75,7 +75,7 @@
 
                     <!-- Trial Days -->
                     <td>
-                        <div class="btn-table-align" v-if="plan.trialDays">
+                        <div class="btn-table-align" v-if="plan.trialDays && ! hasSubscription(plan)">
                             @{{ plan.trialDays}} Day Trial
                         </div>
                     </td>
