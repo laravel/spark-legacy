@@ -63,6 +63,16 @@ trait ManagesBillingProviders
     }
 
     /**
+     * Determine if the application requires a card up front.
+     *
+     * @return bool
+     */
+    public static function needsCardUpFront()
+    {
+        return static::$cardUpFront;
+    }
+
+    /**
      * Determine if a plan change should be prorated.
      *
      * @return bool
@@ -73,7 +83,7 @@ trait ManagesBillingProviders
     }
 
     /**
-     * Indicate that a plan change should not be prorated.
+     * Indicate that plan changes should not be prorated.
      *
      * @return static
      */
@@ -82,16 +92,6 @@ trait ManagesBillingProviders
         static::$prorate = false;
 
         return new static;
-    }
-
-    /**
-     * Determine if the application requires a card up front.
-     *
-     * @return bool
-     */
-    public static function needsCardUpFront()
-    {
-        return static::$cardUpFront;
     }
 
     /**
