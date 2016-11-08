@@ -59,7 +59,7 @@ trait Billable
      * @param  string|null  $plan
      * @return bool
      */
-    public function hasSubscribed($subscription = 'default', $plan = null)
+    public function hasEverSubscribedTo($subscription = 'default', $plan = null)
     {
         if (is_null($subscription = $this->subscription($subscription))) {
             return false;

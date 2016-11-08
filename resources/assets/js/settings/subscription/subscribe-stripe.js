@@ -87,14 +87,6 @@ module.exports = {
 
 
         /**
-         * Determine if the user has subscribed to the given plan before.
-         */
-        hasSubscribed(plan) {
-            return !!_.where(this.billable.subscriptions, {provider_plan: plan.id}).length
-        },
-
-
-        /**
          * Mark the given plan as selected.
          */
         selectPlan(plan) {
@@ -157,6 +149,14 @@ module.exports = {
                     Bus.$emit('updateUser');
                     Bus.$emit('updateTeam');
                 });
+        },
+
+
+        /**
+         * Determine if the user has subscribed to the given plan before.
+         */
+        hasSubscribed(plan) {
+            return !!_.where(this.billable.subscriptions, {provider_plan: plan.id}).length
         },
 
 
