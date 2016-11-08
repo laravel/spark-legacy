@@ -1,5 +1,14 @@
 # Change Log
 
+## Version 3.0.2
+
+- Support for disabling plan change prorating.
+- Properly handle trials on subscription page if user has never subscribed before.
+
+## Version 3.0.1
+
+- Various Bug Fixes
+
 ## Version 3.0.0
 
 - Update to Vue 2.0
