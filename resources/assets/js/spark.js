@@ -108,7 +108,7 @@ module.exports = {
             }, 240000);
 
             setInterval(() => {
-                if (this.lastRefreshedApiTokenAt.diff(moment(), 'minutes') >= 5) {
+                if (moment().diff(this.lastRefreshedApiTokenAt, 'minutes') >= 5) {
                     this.refreshApiToken();
                 }
             }, 5000);
