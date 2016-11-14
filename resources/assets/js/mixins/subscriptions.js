@@ -36,7 +36,7 @@ module.exports = {
                     Bus.$emit('updateTeam');
                 })
                 .catch(response => {
-                    this.planForm.errors.set({plan: ["Subscription update failed!"]});
+                    this.planForm.errors.set({plan: ["We were unable to update your subscription. Please contact customer support."]});
                 })
                 .finally(() => {
                     this.selectingPlan = null;
