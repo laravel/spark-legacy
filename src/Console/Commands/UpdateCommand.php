@@ -26,18 +26,27 @@ class UpdateCommand extends Command
     protected $description = 'Update the Spark installation';
 
     /**
+     * The major version number of the current Spark installation.
+     *
+     * @var string
+     */
+    protected $sparkMajorVersion;
+
+    /**
      * Execute the console command.
      *
      * @return mixed
      */
     public function handle()
     {
+        $this->sparkMajorVersion = explode('.', Spark::$version)[0];
+
         if ($this->onLatestRelease()) {
             return $this->info('You are already running the latest release of Spark.');
         }
 
         $downloadPath = (new Updating\DownloadRelease($this))->download(
-            $release = $this->latestSparkRelease()
+            $release = $this->latestSparkRelease($this->sparkMajorVersion)
         );
 
         $updaters = collect([
@@ -60,6 +69,6 @@ class UpdateCommand extends Command
      */
     protected function onLatestRelease()
     {
-        return version_compare(Spark::$version, $this->latestSparkRelease(), '>=');
+        return version_compare(Spark::$version, $this->latestSparkRelease($this->sparkMajorVersion), '>=');
     }
 }
