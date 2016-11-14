@@ -27,7 +27,7 @@ module.exports = {
 
             this.planForm.errors.forget();
 
-             // Here we will send the request to the server to update the subscription plan and
+            // Here we will send the request to the server to update the subscription plan and
              // update the user and team once the request is complete. This method gets used
              // for both updating subscriptions plus resuming any cancelled subscriptions.
             this.$http.put(this.urlForPlanUpdate, {"plan": plan.id})
@@ -36,7 +36,7 @@ module.exports = {
                     Bus.$emit('updateTeam');
                 })
                 .catch(response => {
-                    this.planForm.errors.set(response.data);
+                    this.planForm.errors.set({plan: ["Subscription update failed!"]});
                 })
                 .finally(() => {
                     this.selectingPlan = null;
