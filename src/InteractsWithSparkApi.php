@@ -2,8 +2,8 @@
 
 namespace Laravel\Spark;
 
-use GuzzleHttp\Client as HttpClient;
 use Illuminate\Support\Str;
+use GuzzleHttp\Client as HttpClient;
 
 trait InteractsWithSparkApi
 {
