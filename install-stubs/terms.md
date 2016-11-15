@@ -1,3 +1,3 @@
 Your terms of service.
-  
-To edit these terms, simply edit the `terms.md` file found in the root of your project.
+
+Simply edit this file to define the terms of service for your application.
