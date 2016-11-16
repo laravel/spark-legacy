@@ -11,10 +11,6 @@ module.exports = {
                 .then(function() {
                     this.$parent.$emit('updateInvitations');
                 });
-
-            this.invitations = _.reject(
-                this.invitations, i => i.id === invitation.id
-            );
         }
     }
 };
