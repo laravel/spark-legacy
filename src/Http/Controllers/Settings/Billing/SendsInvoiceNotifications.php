@@ -43,6 +43,11 @@ trait SendsInvoiceNotifications
      */
     protected function buildInvoiceMessage($message, $billable, $invoice, array $invoiceData)
     {
+        $localInvoice = $billable->user()->localInvoices()
+                            ->where('provider_id', $invoice->id)->firstOrFail();
+
+        $invoiceData['id'] = $localInvoice->id;
+
         $message->to($billable->email, $billable->name)
                 ->subject($invoiceData['product'].' Invoice')
                 ->attachData($invoice->pdf($invoiceData), 'invoice.pdf');
