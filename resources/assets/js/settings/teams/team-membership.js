@@ -1,5 +1,5 @@
 module.exports = {
-    props: ['user', 'team'],
+    props: ['user', 'team', 'billableType'],
 
     /**
      * The component's data.

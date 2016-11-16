@@ -1,4 +1,4 @@
-<spark-team-membership :user="user" :team="team" inline-template>
+<spark-team-membership :user="user" :team="team" :billable-type="billableType" inline-template>
     <div>
         @if (Auth::user()->ownsTeam($team))
             <!-- Send Invitation -->
