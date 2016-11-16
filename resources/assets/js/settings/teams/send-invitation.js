@@ -20,12 +20,12 @@ module.exports = {
          * Get the active subscription instance.
          */
         activeSubscription() {
-            if ( ! this.$parent.billable) {
+            if ( ! this.$parent.$parent.billable) {
                 return;
             }
 
             const subscription = _.find(
-                this.$parent.billable.subscriptions,
+                this.$parent.$parent.billable.subscriptions,
                 subscription => subscription.name == 'default'
             );
 
