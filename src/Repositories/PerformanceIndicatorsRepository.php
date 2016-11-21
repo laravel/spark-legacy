@@ -100,6 +100,13 @@ class PerformanceIndicatorsRepository implements Contract
      */
     public function subscribers(Plan $plan)
     {
+        if ($plan->price === 0) {
+            return DB::table($plan instanceof TeamPlan ? 'teams' : 'users')
+                                ->whereNull('current_billing_plan')
+                                ->where('trial_ends_at', '<', Carbon::now()->toDateTimeString())
+                                ->count();
+        }
+
         return DB::table($plan instanceof TeamPlan ? 'team_subscriptions' : 'subscriptions')
                             ->where($this->planColumn(), $plan->id)
                             ->where(function ($query) {
