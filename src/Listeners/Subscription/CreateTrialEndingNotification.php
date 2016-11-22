@@ -43,6 +43,7 @@ class CreateTrialEndingNotification
             'body' => 'Your trial period will expire on '.$event->user->trial_ends_at->format('F jS').'.',
             'action_text' => 'Subscribe',
             'action_url' => '/settings#/subscription',
+            'event' => 'UserRegistered',
         ]);
     }
 }

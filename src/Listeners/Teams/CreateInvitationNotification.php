@@ -38,6 +38,7 @@ class CreateInvitationNotification
             'body' => 'You have been invited to join the '.$event->team->name.' team!',
             'action_text' => 'View Invitations',
             'action_url' => '/settings#/teams',
+            'event' => 'UserInvitedToTeam',
         ]);
     }
 }

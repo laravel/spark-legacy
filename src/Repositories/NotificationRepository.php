@@ -57,6 +57,7 @@ class NotificationRepository implements NotificationRepositoryContract
             'body' => $data['body'],
             'action_text' => array_get($data, 'action_text'),
             'action_url' => array_get($data, 'action_url'),
+            'event' => $data['event'] ? $data['event'] : null,
         ]);
 
         event(new NotificationCreated($notification));

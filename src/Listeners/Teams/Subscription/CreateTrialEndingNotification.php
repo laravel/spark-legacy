@@ -43,6 +43,7 @@ class CreateTrialEndingNotification
             'body' => "The ".$event->team->name." team's trial period will expire on ".$event->team->trial_ends_at->format('F jS').'.',
             'action_text' => 'Subscribe',
             'action_url' => '/settings/teams/'.$event->team->id.'#/subscription',
+            'event' => 'TeamRegistered',
         ]);
     }
 }
