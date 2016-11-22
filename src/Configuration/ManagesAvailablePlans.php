@@ -55,6 +55,13 @@ trait ManagesAvailablePlans
      * @var array
      */
     public static $teamPlans = [];
+    
+     /**
+     * Indicates if we should force team membership.
+     *
+     * @var bool
+     */
+    public static $forceTeamMembership = false;
 
     /**
      * Indicates that the application will bill customers.
@@ -336,13 +343,25 @@ trait ManagesAvailablePlans
     }
 
     /**
-     * Determine if the application has team plans only.
+     * Determine if the application has team plans and we want to force team membership.
      *
      * @return bool
      */
     public static function onlyTeamPlans()
     {
-        return static::plans()->isEmpty() && ! static::teamPlans()->isEmpty();
+        return static::$forceTeamMembership && ! static::teamPlans()->isEmpty();
+    }
+    
+    /**
+     * Sets whether we force team membership.
+     *
+     * @return void
+     */
+    public static function forceTeamMembership()
+    {
+        static::$forceTeamMembership = true;
+
+        return new static;
     }
 
     /**
