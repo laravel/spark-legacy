@@ -30,7 +30,7 @@ class UpdateTeamPhoto implements Contract
     /**
      * {@inheritdoc}
      */
-    public function validator($user, array $data)
+    public function validator($team, array $data)
     {
         return Validator::make($data, [
             'photo' => 'required|image|max:4000',

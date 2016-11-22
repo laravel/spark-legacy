@@ -7,14 +7,14 @@ interface UpdateTeamPhoto
     /**
      * Get a validator instance for the given data.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  \Laravel\Spark\Team  $team
      * @param  array  $data
      * @return \Illuminate\Validation\Validator
      */
-    public function validator($user, array $data);
+    public function validator($team, array $data);
 
     /**
-     * Update the user's profile photo.
+     * Update the teams's photo.
      *
      * @param  \Laravel\Spark\Team  $team
      * @param  array  $data
