@@ -101,10 +101,7 @@ class PerformanceIndicatorsRepository implements Contract
     public function subscribers(Plan $plan)
     {
         if ($plan->price === 0) {
-            return DB::table($plan instanceof TeamPlan ? 'teams' : 'users')
-                                ->whereNull('current_billing_plan')
-                                ->where('trial_ends_at', '<', Carbon::now()->toDateTimeString())
-                                ->count();
+            return $this->freePlanSubscribers($plan);
         }
 
         return DB::table($plan instanceof TeamPlan ? 'team_subscriptions' : 'subscriptions')
@@ -114,6 +111,20 @@ class PerformanceIndicatorsRepository implements Contract
                                       ->orWhere('trial_ends_at', '<=', Carbon::now());
                             })
                             ->whereNull('ends_at')
+                            ->count();
+    }
+
+    /**
+     * Get the subscriber count for the given free plan.
+     *
+     * @param  \Laravel\Spark\Plan  $plan
+     * @return int
+     */
+    public function freePlanSubscribers($plan)
+    {
+        return DB::table($plan instanceof TeamPlan ? 'teams' : 'users')
+                            ->whereNull('current_billing_plan')
+                            ->where('trial_ends_at', '<', Carbon::now())
                             ->count();
     }
 
