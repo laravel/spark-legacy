@@ -12,7 +12,7 @@
             <div class="modal-body">
                 <ul class="plan-feature-list p-b-none m-b-none">
                     <li v-for="feature in detailingPlan.features">
-                        @{{ feature }}
+                        @{{{ feature }}}
                     </li>
                 </ul>
             </div>
