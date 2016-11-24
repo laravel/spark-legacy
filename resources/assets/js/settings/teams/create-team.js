@@ -66,8 +66,8 @@ module.exports = {
             var ownedTeams = _.filter(this.$parent.teams, {owner_id: this.$parent.billable.id});
 
             return this.activePlan
-                ? this.activePlan.attributes.teams - ownedTeams.length
-                : 0;
+                    ? this.activePlan.attributes.teams - ownedTeams.length
+                    : 0;
         },
 
 
