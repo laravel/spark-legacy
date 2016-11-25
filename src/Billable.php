@@ -67,7 +67,7 @@ trait Billable
      */
     public function localInvoices()
     {
-        return $this->hasMany(LocalInvoice::class)->orderBy('id', 'desc');
+        return $this->hasMany(LocalInvoice::class, 'team_id')->orderBy('id', 'desc');
     }
 
     /**
