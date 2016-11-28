@@ -36,7 +36,14 @@
                                 <!-- Users Link -->
                                 <li role="presentation">
                                     <a href="#users" aria-controls="users" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-user"></i>Users
+                                        <i class="fa fa-fw fa-btn fa-users"></i>Users
+                                    </a>
+                                </li>
+
+                                <!-- Users Creating Link -->
+                                <li role="presentation">
+                                    <a href="#create-user" aria-controls="create-user" role="tab" data-toggle="tab">
+                                        <i class="fa fa-fw fa-btn fa-user"></i>Create User
                                     </a>
                                 </li>
                             </ul>
@@ -61,6 +68,11 @@
                     <!-- User Management -->
                     <div role="tabpanel" class="tab-pane" id="users">
                         @include('spark::kiosk.users')
+                    </div>
+
+                    <!-- User Creation -->
+                    <div role="tabpanel" class="tab-pane" id="create-user">
+                        @include('spark::kiosk.create-users')
                     </div>
                 </div>
             </div>

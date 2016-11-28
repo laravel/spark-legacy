@@ -182,6 +182,7 @@ class SparkServiceProvider extends ServiceProvider
             'Contracts\Http\Requests\Settings\Subscription\CreateSubscriptionRequest' => 'Http\Requests\Settings\Subscription\CreateStripeSubscriptionRequest',
             'Contracts\Http\Requests\Settings\Teams\Subscription\CreateSubscriptionRequest' => 'Http\Requests\Settings\Teams\Subscription\CreateStripeSubscriptionRequest',
             'Contracts\Http\Requests\Settings\PaymentMethod\UpdatePaymentMethodRequest' => 'Http\Requests\Settings\PaymentMethod\UpdateStripePaymentMethodRequest',
+            'Contracts\Http\Requests\Kiosk\CreateUserRequest' => 'Http\Requests\Kiosk\CreateUserRequest',
             'Contracts\Repositories\AnnouncementRepository' => 'Repositories\AnnouncementRepository',
             'Contracts\Repositories\CouponRepository' => 'Repositories\StripeCouponRepository',
             'Contracts\Repositories\NotificationRepository' => 'Repositories\NotificationRepository',
