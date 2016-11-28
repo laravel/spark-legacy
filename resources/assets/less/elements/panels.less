@@ -1,3 +1,57 @@
+.panel-default {
+    .panel-footer {
+        background: #f5f5f5;
+        &:hover {
+            background: darken(#f5f5f5, 15%);
+        }
+    }
+}
+
+.panel-primary {
+    .panel-footer {
+        background: #337ab7;
+        &:hover {
+            background: darken(@brand-primary, 15%);
+        }
+    }
+}
+
+.panel-success {
+    .panel-footer {
+        background: #5cb85c;
+        &:hover {
+            background: darken(@brand-success, 15%);
+        }
+    }
+}
+
+.panel-info {
+    .panel-footer {
+        background: #5bc0de;
+        &:hover {
+            background: darken(@brand-info, 15%);
+        }
+    }
+}
+
+.panel-warning {
+    .panel-footer {
+        background: #f0ad4e;
+        &:hover {
+            background: darken(@brand-warning, 15%);
+        }
+    }
+}
+
+.panel-danger {
+    .panel-footer {
+        background: #d9534f;
+        &:hover {
+            background: darken(@brand-danger, 15%);
+        }
+    }
+}
+
 .panel {
     overflow: hidden;
 }
@@ -15,4 +69,36 @@
 	.panel-body, .panel-header {
 		padding: 0;
 	}
+}
+
+button.panel-footer,
+a.panel-footer {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    width: 100%;
+    display:block;
+
+    margin-bottom: 0;
+    font-weight: 300;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:focus {
+        outline-color: transparent;
+        outline-style: none;
+    }
 }

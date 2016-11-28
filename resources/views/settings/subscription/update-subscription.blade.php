@@ -59,63 +59,57 @@
                 </p>
             @endif
 
-            <table class="table table-borderless m-b-none">
-                <thead></thead>
-                <tbody>
-                    <tr v-for="plan in plansForActiveInterval">
-                        <!-- Plan Name -->
-                        <td>
-                            <div class="btn-table-align" @click="showPlanDetails(plan)">
-                                <span style="cursor: pointer;">
-                                    <strong>@{{ plan.name }}</strong>
-                                </span>
+            <div class="row">
+                <div v-for="plan in plansForActiveInterval">
+
+                    <div class="col-xs-10 col-sm-6 col-xs-offset-1 col-sm-offset-0 ">
+
+                        <div class="panel" :class="{'panel-default' : ! isActivePlan(plan), 'panel-success' : isActivePlan(plan)}">
+                            <div class="panel-body">
+                                <div class="text-center">
+                                    <h4 class="text-uppercase">
+                                        <strong>@{{ plan.name }}</strong>
+                                    </h4>
+                                </div>
+
+                                <ul>
+                                    <li v-for="feature in plan.features">
+                                        @{{ feature }}
+                                    </li>
+                                </ul>
+
+                                <div class="text-center">
+                                    <div v-if="plan.trialDays">
+                                        @{{ plan.trialDays}} Day Trial
+                                    </div>
+
+                                    <span class="text-muted" v-if="plan.price == 0">
+                                        Free
+                                    </span>
+
+                                    <span class="text-muted" v-else>
+                                        @{{ priceWithTax(plan) | currency spark.currencySymbol }} / @{{ plan.interval | capitalize }}
+                                    </span>
+                                </div>
                             </div>
-                        </td>
 
-                        <!-- Plan Features Button -->
-                        <td>
-                            <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                <i class="fa fa-btn fa-star-o"></i>Plan Features
-                            </button>
-                        </td>
-
-                        <!-- Plan Price -->
-                        <td>
-                            <div class="btn-table-align">
-                                <span v-if="plan.price == 0">
-                                    Free
-                                </span>
-
-                                <span v-else>
-                                    @{{ priceWithTax(plan) | currency spark.currencySymbol }} / @{{ plan.interval | capitalize }}
-                                </span>
-                            </div>
-                        </td>
-
-                        <!-- Plan Select Button -->
-                        <td class="text-right">
-                            <button class="btn btn-primary btn-plan" v-if="isActivePlan(plan)" disabled>
-                                <i class="fa fa-btn fa-check"></i>Current Plan
+                            <button class="panel-footer" v-if="isActivePlan(plan)" disabled>
+                                <i class="fa fa-btn fa-check"></i> Current Plan
                             </button>
 
-                            <button class="btn btn-primary-outline btn-plan"
-                                    v-if=" ! isActivePlan(plan) && selectingPlan !== plan"
-                                    @click="confirmPlanUpdate(plan)"
-                                    :disabled="selectingPlan">
-
-                                Switch
+                            <button class="panel-footer" v-if="!isActivePlan(plan) && selectingPlan !== plan" @click="confirmPlanUpdate(plan)" :disabled="selectingPlan">
+                                Change Plan
                             </button>
 
-                            <button class="btn btn-primary btn-plan"
-                                    v-if="selectingPlan && selectingPlan === plan"
-                                    disabled>
-
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
+                            <button class="panel-footer" v-if="selectingPlan && selectingPlan === plan">
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
                             </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 
