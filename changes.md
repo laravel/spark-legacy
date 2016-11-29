@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.0.4
+
+- Various bug fixes.
+
 ## Version 3.0.3
 
 - The `spark:update` command now only updates to the latest version in your major version series.
