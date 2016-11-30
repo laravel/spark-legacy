@@ -121,6 +121,10 @@ class SparkServiceProvider extends ServiceProvider
         $this->publishes([
             SPARK_PATH.'/resources/assets/less' => resource_path('assets/less/spark'),
         ], 'spark-less');
+
+        $this->publishes([
+            SPARK_PATH.'/resources/assets/sass' => resource_path('assets/sass/spark'),
+        ], 'spark-sass');
     }
 
     /**
@@ -134,6 +138,7 @@ class SparkServiceProvider extends ServiceProvider
             SPARK_PATH.'/resources/views' => resource_path('views/vendor/spark'),
             SPARK_PATH.'/resources/assets/js' => resource_path('assets/js/spark'),
             SPARK_PATH.'/resources/assets/less' => resource_path('assets/less/spark'),
+            SPARK_PATH.'/resources/assets/sass' => resource_path('assets/sass/spark'),
         ], 'spark-full');
     }
 
