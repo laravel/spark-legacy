@@ -43,7 +43,7 @@ trait SendsInvoiceNotifications
      */
     protected function buildInvoiceMessage($message, $billable, $invoice, array $invoiceData)
     {
-        $localInvoice = $billable->user()->localInvoices()
+        $localInvoice = $billable->localInvoices()
                             ->where('provider_id', $invoice->id)->firstOrFail();
 
         $invoiceData['id'] = $localInvoice->id;
