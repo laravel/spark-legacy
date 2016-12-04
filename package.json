@@ -1,7 +1,8 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "gulp-concat": "~2.6"
   },
   "dependencies": {
     "bootstrap": "^3.0.0",
