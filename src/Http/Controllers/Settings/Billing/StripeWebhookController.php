@@ -85,9 +85,7 @@ class StripeWebhookController extends WebhookController
             return $this->teamSubscriptionDeleted($payload);
         }
 
-        event(new SubscriptionCancelled(
-            $this->getUserByStripeId($payload['data']['object']['customer']))
-        );
+        event(new SubscriptionCancelled($user));
 
         return new Response('Webhook Handled', 200);
     }
