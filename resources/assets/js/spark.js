@@ -48,6 +48,10 @@ module.exports = {
             self.getUser();
         });
 
+        Bus.$on('reloadUserData', function() {
+            self.loadDataForAuthenticatedUser();
+        });
+
         Bus.$on('updateTeams', function () {
             self.getTeams();
         });
