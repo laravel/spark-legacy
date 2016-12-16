@@ -48,7 +48,7 @@ module.exports = {
             self.getUser();
         });
 
-        Bus.$on('reloadUserData', function() {
+        Bus.$on('updateUserData', function() {
             self.loadDataForAuthenticatedUser();
         });
 
