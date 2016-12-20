@@ -84,23 +84,17 @@
                                 </a>
                             </li>
 
+                            <li class="divider"></li>
+
                             @if (Spark::usesTeams() && (Spark::createsAdditionalTeams() || Spark::showsTeamSwitcher()))
                                 <!-- Team Settings -->
                                 @include('spark::nav.teams')
                             @endif
 
-                            <li class="divider"></li>
-
-                            <!-- Support -->
-                            <li class="dropdown-header">Support</li>
-
-                            <li>
-                                <a @click.prevent="showSupportForm" style="cursor: pointer;">
-                                    <i class="fa fa-fw fa-btn fa-paper-plane"></i>Email Us
-                                </a>
-                            </li>
-
-                            <li class="divider"></li>
+                            @if (Spark::hasSupportAddress())
+                                <!-- Support -->
+                                @include('spark::nav.support')
+                            @endif
 
                             <!-- Logout -->
                             <li>
