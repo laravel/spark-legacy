@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.0.5
+
+- Various bug fixes.
+
 ## Version 3.0.4
 
 - Various bug fixes.
