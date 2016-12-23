@@ -53,18 +53,18 @@ module.exports = {
          * Select the appropriate default plan for registration.
          */
         selectAppropriateDefaultPlan() {
-            if (this.monthlyPlans.length == 0 && this.yearlyPlans.length > 0) {
-                this.showYearlyPlans();
-            }
-
-            if (this.query.plan && ! this.selectPlanById(this.query.plan)) {
-                this.selectPlanByName(this.query.plan)
+            if (this.query.plan) {
+                this.selectPlanById(this.query.plan) || this.selectPlanByName(this.query.plan);
             } else if (this.query.invitation) {
                 this.selectFreePlan();
             } else if (this.paidPlansForActiveInterval.length > 0) {
                 this.selectPlan(this.paidPlansForActiveInterval[0]);
             } else {
                 this.selectFreePlan();
+            }
+
+            if (this.shouldShowYearlyPlans()) {
+                this.showYearlyPlans();
             }
         },
 
@@ -125,5 +125,14 @@ module.exports = {
 
             this.registerForm.plan = plan.id;
         },
+
+
+        /**
+         * Determine if we should show the yearly plans.
+         */
+        shouldShowYearlyPlans(){
+            return (this.monthlyPlans.length == 0 && this.yearlyPlans.length > 0) ||
+                this.selectedPlan.interval == 'yearly'
+        }
     }
 };
