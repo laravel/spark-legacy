@@ -27,8 +27,8 @@ module.exports = {
                     var plans = response.data;
 
                     this.plans = _.where(plans, {type: "user"}).length > 0
-                        ? _.where(plans, {type: "user"})
-                        : _.where(plans, {type: "team"});
+                                    ? _.where(plans, {type: "user"})
+                                    : _.where(plans, {type: "team"});
 
                     this.selectAppropriateDefaultPlan();
                 });
