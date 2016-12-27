@@ -79,7 +79,7 @@ class SparkNotification
     }
 
     /**
-     * Set the message body.
+     * Set the message author.
      *
      * @param  SparkUser  $from
      * @return $this
