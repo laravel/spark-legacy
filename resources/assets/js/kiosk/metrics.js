@@ -176,9 +176,11 @@ module.exports = {
                 options.scaleLabel = scaleLabelFormatter;
             }
 
-            var chart = new Chart(
-                document.getElementById(id).getContext('2d')
-            ).Line(data, options);
+            var chart = new Chart(document.getElementById(id).getContext('2d'), {
+                type: 'line',
+                data: data,
+                options: options
+            });
         },
 
 
