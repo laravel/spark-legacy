@@ -34,7 +34,7 @@ class CreateTrialEndingNotification
      */
     public function handle(TeamCreated $event)
     {
-        if (! Spark::teamTrialDays() or $event->team->trial_ends_at === null) {
+        if (! Spark::teamTrialDays() || ! $event->team->trial_ends_at) {
             return;
         }
 
