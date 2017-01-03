@@ -37,8 +37,8 @@ class BraintreeLocalInvoiceRepository implements Contract
 
         return $billable->localInvoices()->create([
             'provider_id' => $invoice->id,
-            'total' => $invoice->rawTotal() - ($invoice->rawTotal() * $billable->taxPercentage()),
-            'tax' => $invoice->rawTotal() * $billable->taxPercentage(),
+            'total' => $invoice->rawTotal(),
+            'tax' => $invoice->rawTotal() * $billable->taxPercentage() / 100,
             'card_country' => null,
             'billing_state' => null,
             'billing_zip' => null,
