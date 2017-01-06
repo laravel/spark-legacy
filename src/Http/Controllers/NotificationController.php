@@ -3,6 +3,7 @@
 namespace Laravel\Spark\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Laravel\Spark\Notification;
 use Laravel\Spark\Contracts\Repositories\NotificationRepository;
 use Laravel\Spark\Contracts\Repositories\AnnouncementRepository;
 
@@ -60,6 +61,6 @@ class NotificationController extends Controller
      */
     public function markAsRead(Request $request)
     {
-        $request->user()->notifications()->whereIn('id', $request->notifications)->update(['read' => 1]);
+        Notification::whereIn('id', $request->notifications)->whereUserId($request->user()->id)->update(['read' => 1]);
     }
 }
