@@ -224,7 +224,7 @@ module.exports = {
                 type: 'success',
                 showConfirmButton: false,
                 timer: 2000
-            });
+            }).then( function (e) {}, function ( e ) { } );
         }
     },
 
