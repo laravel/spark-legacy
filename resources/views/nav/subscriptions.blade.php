@@ -1,4 +1,4 @@
-@if (Auth::user()->onTrial())
+@if (!Spark::onlyTeamPlans() && Auth::user()->onTrial())
     <!-- Trial Reminder -->
     <li class="dropdown-header">Trial</li>
 
