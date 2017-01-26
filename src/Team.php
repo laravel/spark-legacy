@@ -48,7 +48,7 @@ class Team extends Model
      */
     protected $casts = [
         'owner_id' => 'int',
-        'trial_ends_at' => 'date',
+        'trial_ends_at' => 'datetime',
     ];
 
     /**
