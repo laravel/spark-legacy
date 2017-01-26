@@ -24,6 +24,6 @@ elixir(function(mix) {
                 ]
             }
         })
-        .copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js/sweetalert.min.js')
-        .copy('node_modules/sweetalert/dist/sweetalert.css', 'public/css/sweetalert.css');
+        .copy('node_modules/sweetalert2/dist/sweetalert2.min.js', 'public/js/sweetalert.min.js')
+        .copy('node_modules/sweetalert2/dist/sweetalert2.css', 'public/css/sweetalert.css');
 });
