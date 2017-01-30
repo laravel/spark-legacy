@@ -40,7 +40,7 @@ module.exports = {
         return new Promise((resolve, reject) => {
             form.startProcessing();
 
-            Vue.http[method](uri, JSON.parse(JSON.stringify(form)))
+            axios[method](uri, JSON.parse(JSON.stringify(form)))
                 .then(response => {
                     form.finishProcessing();
 
