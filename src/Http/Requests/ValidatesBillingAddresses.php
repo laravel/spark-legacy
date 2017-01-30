@@ -16,7 +16,7 @@ trait ValidatesBillingAddresses
     {
         $this->mergeCardCountryIntoRequest();
 
-        $validator->mergeRules([
+        $validator->addRules([
             'address' => 'required|max:255',
             'address_line_2' => 'max:255',
             'city' => 'required|max:255',
