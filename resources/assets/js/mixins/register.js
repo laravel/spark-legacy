@@ -22,7 +22,7 @@ module.exports = {
                 return;
             }
 
-            this.$http.get('/spark/plans')
+            axios.get('/spark/plans')
                 .then(function(response) {
                     var plans = response.data;
 
@@ -39,7 +39,7 @@ module.exports = {
          * Get the invitation specified in the query string.
          */
         getInvitation() {
-            this.$http.get(`/invitations/${this.query.invitation}`)
+            axios.get(`/invitations/${this.query.invitation}`)
                 .then(function(response) {
                     this.invitation = response.data;
                 })

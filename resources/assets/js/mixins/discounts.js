@@ -19,7 +19,7 @@ module.exports = {
 
             this.loadingCurrentDiscount = true;
 
-            this.$http.get(`/coupon/user/${user.id}`)
+            axios.get(`/coupon/user/${user.id}`)
                 .then(response => {
                     if (response.status == 200) {
                         this.currentDiscount = response.data;
@@ -38,7 +38,7 @@ module.exports = {
 
             this.loadingCurrentDiscount = true;
 
-            this.$http.get(`/coupon/${Spark.teamString}/${team.id}`)
+            axios.get(`/coupon/${Spark.teamString}/${team.id}`)
                 .then(response => {
                     if (response.status == 200) {
                         this.currentDiscount = response.data;

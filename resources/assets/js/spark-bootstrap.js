@@ -2,6 +2,7 @@
  * Load various JavaScript modules that assist Spark.
  */
 window.URI = require('urijs');
+window.axios = require('axios');
 window._ = require('underscore');
 window.moment = require('moment');
 window.Promise = require('promise');
@@ -45,3 +46,12 @@ require('bootstrap/dist/js/npm');
 if ($('#spark-app').length > 0) {
     require('vue-bootstrap');
 }
+
+/**
+ * We'll load the axios HTTP library which allows us to easily issue requests
+ * to our Laravel back-end. This library automatically handles sending the
+ * CSRF token as a header based on the value of the "XSRF" token cookie.
+ */
+window.axios.defaults.headers.common = {
+    'X-Requested-With': 'XMLHttpRequest'
+};

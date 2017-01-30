@@ -9,13 +9,6 @@ if (window.Vue === undefined) {
     window.Bus = new Vue();
 }
 
-require('vue-resource');
-
-/**
- * Load Vue HTTP Interceptors.
- */
-Vue.http.interceptors.push(require('./interceptors'));
-
 /**
  * Load Vue Global Mixin.
  */

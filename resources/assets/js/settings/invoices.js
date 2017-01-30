@@ -24,7 +24,7 @@ module.exports = {
 		 * Get the user's billing invoices
 		 */
 		getInvoices() {
-			this.$http.get(this.urlForInvoices)
+			axios.get(this.urlForInvoices)
 				.then(response => {
 					this.invoices = _.filter(response.data, invoice => {
 						return invoice.total != '$0.00';

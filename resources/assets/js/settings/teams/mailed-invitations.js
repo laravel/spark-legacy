@@ -7,7 +7,7 @@ module.exports = {
          * Cancel the sent invitation.
          */
         cancel(invitation) {
-            this.$http.delete(`/settings/invitations/${invitation.id}`)
+            axios.delete(`/settings/invitations/${invitation.id}`)
                 .then(function() {
                     this.$parent.$emit('updateInvitations');
                 });

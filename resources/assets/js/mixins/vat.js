@@ -19,7 +19,7 @@ module.exports = {
          * Refresh the tax rate using the given form input.
          */
         refreshTaxRate(form) {
-            this.$http.post('/tax-rate', JSON.stringify(form))
+            axios.post('/tax-rate', JSON.stringify(form))
                 .then(response => {
                     this.taxRate = response.data.rate;
                 });

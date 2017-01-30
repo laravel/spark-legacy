@@ -142,7 +142,7 @@ module.exports = {
          * Get all the plans defined in the application.
          */
         getPlans() {
-            this.$http.get('/spark/plans')
+            axios.get('/spark/plans')
                 .then(response => {
                     this.plans = response.data;
                 });

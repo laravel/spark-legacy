@@ -36,7 +36,7 @@ module.exports = {
          * Get the current API tokens for the user.
          */
         getTokens() {
-            this.$http.get('/settings/api/tokens')
+            axios.get('/settings/api/tokens')
                     .then(function(response) {
                         this.tokens = response.data;
                     });
@@ -47,7 +47,7 @@ module.exports = {
          * Get all of the available token abilities.
          */
         getAvailableAbilities() {
-            this.$http.get('/settings/api/token/abilities')
+            axios.get('/settings/api/token/abilities')
                 .then(function(response) {
                     this.availableAbilities = response.data;
                 });

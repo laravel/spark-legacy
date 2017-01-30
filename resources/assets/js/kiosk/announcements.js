@@ -43,7 +43,7 @@ module.exports = {
          * Get all of the announcements.
          */
         getAnnouncements() {
-            this.$http.get('/spark/kiosk/announcements')
+            axios.get('/spark/kiosk/announcements')
                 .then(response => {
                     this.announcements = response.data;
                 });

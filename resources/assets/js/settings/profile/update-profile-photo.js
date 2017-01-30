@@ -25,7 +25,7 @@ module.exports = {
             // We need to gather a fresh FormData instance with the profile photo appended to
             // the data so we can POST it up to the server. This will allow us to do async
             // uploads of the profile photos. We will update the user after this action.
-            this.$http.post('/settings/photo', this.gatherFormData())
+            axios.post('/settings/photo', this.gatherFormData())
                 .then(
                     () => {
                         Bus.$emit('updateUser');

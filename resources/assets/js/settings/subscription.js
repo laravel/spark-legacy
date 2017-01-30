@@ -39,7 +39,7 @@ module.exports = {
          * Get the active plans for the application.
          */
         getPlans() {
-            this.$http.get('/spark/plans')
+            axios.get('/spark/plans')
                 .then(response => {
                     this.plans = this.billingUser
                                     ? _.where(response.data, {type: "user"})

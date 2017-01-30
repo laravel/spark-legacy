@@ -42,7 +42,7 @@ module.exports = {
          * Get the revenue information for the application.
          */
         getRevenue() {
-            this.$http.get('/spark/kiosk/performance-indicators/revenue')
+            axios.get('/spark/kiosk/performance-indicators/revenue')
                 .then(response => {
                     this.yearlyRecurringRevenue = response.data.yearlyRecurringRevenue;
                     this.monthlyRecurringRevenue = response.data.monthlyRecurringRevenue;
@@ -55,7 +55,7 @@ module.exports = {
          * Get the subscriber information for the application.
          */
         getPlans() {
-            this.$http.get('/spark/kiosk/performance-indicators/plans')
+            axios.get('/spark/kiosk/performance-indicators/plans')
                 .then(response => {
                     this.plans = response.data;
                 });
@@ -66,7 +66,7 @@ module.exports = {
          * Get the number of users that are on a generic trial.
          */
         getTrialUsers() {
-            this.$http.get('/spark/kiosk/performance-indicators/trialing')
+            axios.get('/spark/kiosk/performance-indicators/trialing')
                 .then(response => {
                     this.genericTrialUsers = parseInt(response.data);
                 });
@@ -77,7 +77,7 @@ module.exports = {
          * Get the performance indicators for the application.
          */
         getPerformanceIndicators() {
-            this.$http.get('/spark/kiosk/performance-indicators')
+            axios.get('/spark/kiosk/performance-indicators')
                 .then(response => {
                     this.indicators = response.data.indicators;
                     this.lastMonthsIndicators = response.data.last_month;

@@ -22,7 +22,7 @@ module.exports = {
          * Get the pending invitations for the user.
          */
         getPendingInvitations() {
-            this.$http.get('/settings/invitations/pending')
+            axios.get('/settings/invitations/pending')
                 .then(response => {
                     this.invitations = response.data;
                 });
@@ -33,7 +33,7 @@ module.exports = {
          * Accept the given invitation.
          */
         accept(invitation) {
-            this.$http.post(`/settings/invitations/${invitation.id}/accept`)
+            axios.post(`/settings/invitations/${invitation.id}/accept`)
                 .then(() => {
                     Bus.$emit('updateTeams');
 
@@ -48,7 +48,7 @@ module.exports = {
          * Reject the given invitation.
          */
         reject(invitation) {
-            this.$http.post(`/settings/invitations/${invitation.id}/reject`)
+            axios.post(`/settings/invitations/${invitation.id}/reject`)
                 .then(() => {
                     this.getPendingInvitations();
                 });
