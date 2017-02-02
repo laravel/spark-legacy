@@ -15,7 +15,7 @@
     <!-- CSS -->
     <link href="/css/sweetalert.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
-
+    @stack('styles')
     <!-- Scripts -->
     @yield('scripts', '')
 
@@ -49,5 +49,6 @@
     <!-- JavaScript -->
     <script src="/js/app.js"></script>
     <script src="/js/sweetalert.min.js"></script>
+    @stack('scripts')
 </body>
 </html>
