@@ -23,7 +23,7 @@ module.exports = {
             }
 
             axios.get('/spark/plans')
-                .then(function(response) {
+                .then(response => {
                     var plans = response.data;
 
                     this.plans = _.where(plans, {type: "user"}).length > 0
@@ -40,10 +40,10 @@ module.exports = {
          */
         getInvitation() {
             axios.get(`/invitations/${this.query.invitation}`)
-                .then(function(response) {
+                .then(response => {
                     this.invitation = response.data;
                 })
-                .catch(function(response) {
+                .catch(response => {
                     this.invalidInvitation = true;
                 });
         },

@@ -8,7 +8,7 @@ module.exports = {
          */
         cancel(invitation) {
             axios.delete(`/settings/invitations/${invitation.id}`)
-                .then(function() {
+                .then(() => {
                     this.$parent.$emit('updateInvitations');
                 });
         }
