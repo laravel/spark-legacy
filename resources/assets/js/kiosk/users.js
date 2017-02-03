@@ -69,7 +69,7 @@ module.exports = {
             this.searching = true;
             this.noSearchResults = false;
 
-            axios.post('/spark/kiosk/users/search', JSON.stringify(this.searchForm))
+            axios.post('/spark/kiosk/users/search', this.searchForm)
                 .then(response => {
                     this.searchResults = response.data;
                     this.noSearchResults = this.searchResults.length === 0;
