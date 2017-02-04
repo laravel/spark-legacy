@@ -56,7 +56,7 @@ module.exports = {
          */
         getPlans() {
             axios.get('/spark/plans')
-                .then(function(response) {
+                .then(response => {
                     this.plans = response.data;
                 });
         },
