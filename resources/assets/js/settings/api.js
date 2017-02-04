@@ -24,7 +24,7 @@ module.exports = {
      */
     created() {
         var self = this;
-        
+
         this.$on('updateTokens', function(){
             self.getTokens();
         });
@@ -37,9 +37,7 @@ module.exports = {
          */
         getTokens() {
             axios.get('/settings/api/tokens')
-                    .then(function(response) {
-                        this.tokens = response.data;
-                    });
+                .then(response => this.tokens = response.data);
         },
 
 
@@ -48,9 +46,7 @@ module.exports = {
          */
         getAvailableAbilities() {
             axios.get('/settings/api/token/abilities')
-                .then(function(response) {
-                    this.availableAbilities = response.data;
-                });
+                .then(response => this.availableAbilities = response.data);
         }
     }
 };
