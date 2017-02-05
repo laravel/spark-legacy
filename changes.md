@@ -1,5 +1,17 @@
 # Change Log
 
+## Version 4.0.2
+
+- Various bug fixes.
+
+## Version 4.0.1
+
+- Fix bug with several JavaScript HTTP calls.
+
+## Version 4.0.0
+
+- Compatibility with Laravel 5.4 / Laravel Mix.
+
 ## Version 3.0.5
 
 - Various bug fixes.
