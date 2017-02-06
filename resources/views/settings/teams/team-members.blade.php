@@ -34,14 +34,14 @@
                             </td>
 
                             <!-- Role -->
-                            <td v-if="roles.length > 1">
+                            <td v-if="roles.length > 0">
                                 <div class="btn-table-align">
                                     @{{ teamMemberRole(member) }}
                                 </div>
                             </td>
 
                             <!-- Edit Button -->
-                            <td v-if="roles.length > 1">
+                            <td v-if="roles.length > 0">
                                 <button class="btn btn-primary"
                                     @click="editTeamMember(member)"
                                     v-if="canEditTeamMember(member)">
