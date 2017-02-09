@@ -53,5 +53,28 @@ if ($('#spark-app').length > 0) {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 window.axios.defaults.headers.common = {
-    'X-Requested-With': 'XMLHttpRequest'
+    'X-Requested-With': 'XMLHttpRequest',
+    'X-CSRF-TOKEN': Spark.csrfToken
 };
+
+/**
+ * Intercept the incoming responses.
+ *
+ * Handle any unexpected HTTP errors and pop up modals, etc.
+ */
+window.axios.interceptors.response.use(function (response) {
+    return response;
+}, function (error) {
+    switch (error.response.status) {
+        case 401:
+            window.axios.get('/logout');
+            $('#modal-session-expired').modal('show');
+            break;
+
+        case 402:
+            window.location = '/settings#/subscription';
+            break;
+    }
+
+    return Promise.reject(error);
+});
