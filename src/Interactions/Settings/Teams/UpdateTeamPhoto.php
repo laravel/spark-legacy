@@ -58,6 +58,10 @@ class UpdateTeamPhoto implements Contract
         $team->forceFill([
             'photo_url' => $disk->url($path),
         ])->save();
+
+        if (preg_match('/profiles\/(.*)$/', $team->photo_url, $matches)) {
+            $disk->delete('profiles/'.$matches[1]);
+        }
     }
 
     /**
