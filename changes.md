@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 4.0.4
+
+- Various bug fixes.
+
+## Version 4.0.0
+
+- Compatibility with Laravel 5.4.
+
 ## Version 3.0.5
 
 - Various bug fixes.
