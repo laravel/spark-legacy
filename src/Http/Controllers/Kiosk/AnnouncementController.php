@@ -56,9 +56,9 @@ class AnnouncementController extends Controller
             'action_url' => 'required_with:action_text',
         ]);
 
-        event(new AnnouncementCreated($this->announcements->create(
+        $this->announcements->create(
             $request->user(), $request->all()
-        )));
+        );
     }
 
     /**
