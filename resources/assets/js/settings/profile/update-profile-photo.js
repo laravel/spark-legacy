@@ -20,22 +20,24 @@ module.exports = {
 
             var self = this;
 
-            this.form.startProcessing();
+            if(this.$refs.photo.files[0]) {
+                this.form.startProcessing();
 
-            // We need to gather a fresh FormData instance with the profile photo appended to
-            // the data so we can POST it up to the server. This will allow us to do async
-            // uploads of the profile photos. We will update the user after this action.
-            axios.post('/settings/photo', this.gatherFormData())
-                .then(
-                    () => {
-                        Bus.$emit('updateUser');
+                // We need to gather a fresh FormData instance with the profile photo appended to
+                // the data so we can POST it up to the server. This will allow us to do async
+                // uploads of the profile photos. We will update the user after this action.
+                axios.post('/settings/photo', this.gatherFormData())
+                    .then(
+                        () => {
+                            Bus.$emit('updateUser');
 
-                        self.form.finishProcessing();
-                    },
-                    (error) => {
-                        self.form.setErrors(error.data.responseJSON);
-                    }
-                );
+                            self.form.finishProcessing();
+                        },
+                        (error) => {
+                            self.form.setErrors(error.data.responseJSON);
+                        }
+                    );
+            }
         },
 
 
