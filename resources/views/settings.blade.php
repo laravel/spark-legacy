@@ -32,9 +32,16 @@
                                 <!-- Teams Link -->
                                 @if (Spark::usesTeams())
                                     <li role="presentation">
-                                        <a href="#{{str_plural(Spark::teamString())}}" aria-controls="teams" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-users"></i>{{ ucfirst(str_plural(Spark::teamString())) }}
-                                        </a>
+                                        @if (Spark::createsAdditionalTeams())
+                                            <a href="#{{str_plural(Spark::teamString())}}" aria-controls="teams" role="tab" data-toggle="tab">
+                                                <i class="fa fa-fw fa-btn fa-users"></i>{{ ucfirst(str_plural(Spark::teamString())) }}
+                                            </a>
+                                        @else
+                                            <a href="/settings/{{str_plural(Spark::teamString())}}/{{ Auth::user()->current_team_id }}" aria-controls="teams">
+                                                <i class="fa fa-fw fa-btn fa-users"></i>{{ ucfirst(Spark::teamString()) }} Settings
+                                            </a>
+                                        @endif
+
                                     </li>
                                 @endif
 

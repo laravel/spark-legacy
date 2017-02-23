@@ -3,9 +3,15 @@
     <li class="dropdown-header">Trial</li>
 
     <li>
-        <a href="/settings#/subscription">
-            <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscribe
-        </a>
+        @if (Spark::createsAdditionalTeams())
+            <a href="/settings#/subscription">
+                <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscribe
+            </a>
+        @else
+            <a href="/settings/{{str_plural(Spark::teamString())}}/{{ Auth::user()->current_team_id }}#/subscription" aria-controls="teams">
+                <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscribe
+            </a>
+        @endif
     </li>
 
     <li class="divider"></li>
