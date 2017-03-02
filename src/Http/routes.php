@@ -40,9 +40,6 @@ $router->group(['middleware' => 'web'], function ($router) {
         $router->get('/settings/'.$pluralTeamString.'/roles', 'Settings\Teams\TeamMemberRoleController@all');
         $router->get('/settings/'.$pluralTeamString.'/{team}', 'Settings\Teams\DashboardController@show')->name('settings.team');
 
-        $router->get('/'.$pluralTeamString.'', 'TeamController@all');
-        $router->get('/'.$pluralTeamString.'/current', 'TeamController@current');
-        $router->get('/'.$pluralTeamString.'/{team_id}', 'TeamController@show');
         $router->post('/settings/'.$pluralTeamString, 'Settings\Teams\TeamController@store');
         $router->post('/settings/'.$pluralTeamString.'/{team}/photo', 'Settings\Teams\TeamPhotoController@update');
         $router->put('/settings/'.$pluralTeamString.'/{team}/name', 'Settings\Teams\TeamNameController@update');
@@ -59,7 +56,6 @@ $router->group(['middleware' => 'web'], function ($router) {
         $router->put('/settings/'.$pluralTeamString.'/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@update');
         $router->delete('/settings/'.$pluralTeamString.'/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@destroy');
         $router->delete('/settings/'.$pluralTeamString.'/{team}', 'Settings\Teams\TeamController@destroy');
-        $router->get('/'.$pluralTeamString.'/{team}/switch', 'TeamController@switchCurrentTeam');
 
         // Billing
 
