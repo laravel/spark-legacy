@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.6
+
+- Update `cross-env` compatibility.
+
 ## Version 4.0.4
 
 - Various bug fixes.
