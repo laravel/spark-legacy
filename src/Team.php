@@ -104,7 +104,7 @@ class Team extends Model
      */
     public function subscriptions()
     {
-        return $this->hasMany(TeamSubscription::class)->orderBy('created_at', 'desc');
+        return $this->hasMany(TeamSubscription::class, 'team_id')->orderBy('created_at', 'desc');
     }
 
     /**
