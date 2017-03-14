@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.8
+
+- Fix broken VAT calculation.
+
 ## Version 4.0.7
 
 - Fix additional `cross-env` bug.
