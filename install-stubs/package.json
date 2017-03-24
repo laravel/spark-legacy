@@ -11,7 +11,7 @@
     "jquery": "^2.1.4",
     "js-cookie": "^2.1.0",
     "cross-env": "^3.2.3",
-    "laravel-mix": "^0.5.0",
+    "laravel-mix": "0.*",
     "moment": "^2.10.6",
     "promise": "^7.1.1",
     "sweetalert": "^1.1.3",
