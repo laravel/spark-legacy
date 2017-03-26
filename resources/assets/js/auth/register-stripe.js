@@ -200,7 +200,7 @@ module.exports = {
          * After obtaining the Stripe token, send the registration to Spark.
          */
         sendRegistration() {
-            Spark.post('/register', this.registerForm)
+            Spark.post(window.document.location.href, this.registerForm)
                 .then(response => {
                     window.location = response.redirect;
                 });
