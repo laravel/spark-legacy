@@ -59,8 +59,8 @@ return [
     
     'billing.discount' => 'Discount',
     'billing.coupon-invalid' => 'Whoops! This coupon code is invalid.',
-    'billing.coupon-discount-applied' => 'The coupon\'s :discount discount will be applied to your subscription!',
-    'billing.invitation-found' => 'We found your invitation to the :name :team!',
+    'billing.coupon-discount-applied' => 'The coupon\'s {{ discount }} discount will be applied to your subscription!',
+    'billing.invitation-found' => 'We found your invitation to the {{ invitation.team.name }} :team!',
     'billing.invitation-invalid' => 'Whoops! This invitation code is invalid.',
     
     'billing.subscription' => 'Subscription',
@@ -69,7 +69,7 @@ return [
     'billing.free' => 'Free',
     'billing.subscription-prices-excluding-vat' => 'All subscription plan prices are excluding applicable VAT.',
     'billing.plan-features' => 'Plan Features',
-    'billing.days-trial' => ':days Day Trial',
+    'billing.days-trial' => '{{ plan.trialDays }} Day Trial',
     'billing.selected' => 'Selected',
     'billing.select' => 'Select',
     'billing.tax' => 'Tax',

@@ -92,7 +92,7 @@
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="terms" v-model="registerForm.terms">
-                        {{ __('spark::app.billing.accept-the-terms, ['terms' => '<a href="/terms" target="_blank">'.__('spark::app.billing.terms-of-service').'</a>']) }}
+                        {!! __('spark::app.billing.accept-the-terms', ['terms' => '<a href="/terms" target="_blank">'.__('spark::app.billing.terms-of-service').'</a>']) !!}
                     </label>
 
                     <span class="help-block" v-show="registerForm.errors.has('terms')">

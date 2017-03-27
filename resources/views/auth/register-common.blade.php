@@ -5,7 +5,7 @@
             <div class="panel-heading">{{ __('spark::app.billing.discount') }}</div>
 
             <div class="panel-body">
-                {{ __('spark::app.billing.coupon-discount-applied', ['discount' => '{{ discount }}']) }}
+                {{ __('spark::app.billing.coupon-discount-applied') }}
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
 <div class="row" v-if="invitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success">
-            {{ __('spark::app.billing.invitation-found', ['Name' => '{{ invitation.team.name }}', 'Team' => Spark::teamString()]) }}
+            {{ __('spark::app.billing.invitation-found', ['Team' => Spark::teamString()]) }}
         </div>
     </div>
 </div>
@@ -120,7 +120,7 @@
                             <!-- Trial Days -->
                             <td>
                                 <div class="btn-table-align" v-if="plan.trialDays">
-                                    {{ __('spark::app.billing.days-trial', ['days' => '{{ plan.trialDays}}']) }}
+                                    {{ __('spark::app.billing.days-trial') }}
                                 </div>
                             </td>
 
