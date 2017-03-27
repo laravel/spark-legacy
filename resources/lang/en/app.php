@@ -5,13 +5,15 @@ return [
     // General
     'general.close' => 'Close',
     'general.send' => 'Send',
-    
     'general.subject' => 'Subject',
     'general.message' => 'Message',
+    'general.toggle-navigation' => 'Toggle Navigation',
     
     'general.whoops' => 'Whoops!',
     'general.something-went-wrong' => 'Something went wrong!',
     
+    'general.support' => 'Support',
+    'general.email-us' => 'Email Us',
     'general.notifications' => 'Notifications',
     'general.announcements' => 'Announcements',
     'general.loading-notifications' => 'Loading Notifications',
@@ -38,6 +40,9 @@ return [
     'auth.authentication-token' => 'Authentication Token',
     'auth.verify' => 'Verify',
     'auth.lost-device' => 'Lost Your Device?',
+    'auth.settings' => 'Settings',
+    'auth.your-settings' => 'Your Settings',
+    'auth.logout' => 'Logout',
     'auth.emergency-token-warning' => 'After logging in via your emergency token, two-factor authentication will be
     disabled for your account. If you would like to maintain two-factor
     authentication security, you should re-enable it after logging in.',
@@ -45,6 +50,7 @@ return [
     'auth.team-name' => ':Team Name',
     'auth.team-slug' => ':Team Slug',
     'auth.team-slug-description' => 'This slug is used to identify your team in URLs.',
+    'auth.create-team' => 'Create :Team',
 
     'auth.session-expired' => 'Session Expired',
     'auth.session-has-expired-relogin' => 'Your session has expired. Please login again to continue.',
@@ -80,12 +86,15 @@ return [
     'billing.invitation-found' => 'We found your invitation to the {{ invitation.team.name }} :team!',
     'billing.invitation-invalid' => 'Whoops! This invitation code is invalid.',
     
+    'billing.subscribe' => 'Subscribe',
     'billing.subscription' => 'Subscription',
     'billing.monthly' => 'Monthly',
     'billing.yearly' => 'Yearly',
     'billing.free' => 'Free',
     'billing.subscription-prices-excluding-vat' => 'All subscription plan prices are excluding applicable VAT.',
     'billing.plan-features' => 'Plan Features',
+    'billing.trial' => 'Trial',
+    'billing.team-trial' => ':Team Trial',
     'billing.days-trial' => '{{ plan.trialDays }} Day Trial',
     'billing.selected' => 'Selected',
     'billing.select' => 'Select',
@@ -94,5 +103,11 @@ return [
     
     'billing.trouble-validating-card' => 'We had trouble validating your card. It\'s possible your card provider is preventing
     us from charging the card. Please contact your card provider or customer support.',
+    
+    // Kiosk
+    'kiosk.kiosk' => 'Kiosk',
+    'kiosk.developer' => 'Developer',
+    'kiosk.impersonation' => 'Impersonation',
+    'kiosk.back-to-account' => 'Back To My Account',
     
 ];

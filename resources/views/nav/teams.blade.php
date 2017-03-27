@@ -5,7 +5,7 @@
 @if (Spark::createsAdditionalTeams())
     <li>
         <a href="/settings#/{{str_plural(Spark::teamString())}}">
-            <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ ucfirst(Spark::teamString()) }}
+            <i class="fa fa-fw fa-btn fa-plus"></i>{{ __('spark::app.auth.create-team', ['team' => Spark::teamString()]) }}
         </a>
     </li>
 @endif
