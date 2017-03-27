@@ -43,6 +43,8 @@ return [
     'auth.settings' => 'Settings',
     'auth.your-settings' => 'Your Settings',
     'auth.logout' => 'Logout',
+    'auth.security' => 'Security',
+    'auth.api' => 'API',
     'auth.emergency-token-warning' => 'After logging in via your emergency token, two-factor authentication will be
     disabled for your account. If you would like to maintain two-factor
     authentication security, you should re-enable it after logging in.',
@@ -55,6 +57,9 @@ return [
     'auth.session-expired' => 'Session Expired',
     'auth.session-has-expired-relogin' => 'Your session has expired. Please login again to continue.',
     'auth.go-to-login' => 'Go To Login',
+    
+    'auth.wheres-your-team' => 'Where\'s Your :Team?',
+    'auth.missing-team-create-settings' => 'It looks like you\'re not part of any :team! You can create one in your :settings.',
     
     // Billing
     'billing.billing' => 'Billing',
@@ -88,6 +93,8 @@ return [
     
     'billing.subscribe' => 'Subscribe',
     'billing.subscription' => 'Subscription',
+    'billing.payment-method' => 'Payment Method',
+    'billing.invoices' => 'Invoices',
     'billing.monthly' => 'Monthly',
     'billing.yearly' => 'Yearly',
     'billing.free' => 'Free',
@@ -109,5 +116,8 @@ return [
     'kiosk.developer' => 'Developer',
     'kiosk.impersonation' => 'Impersonation',
     'kiosk.back-to-account' => 'Back To My Account',
+    'kiosk.metrics' => 'Metrics',
+    'kiosk.users' => 'Users',
+    
     
 ];

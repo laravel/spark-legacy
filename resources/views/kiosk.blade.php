@@ -13,7 +13,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default panel-flush">
                     <div class="panel-heading">
-                        Kiosk
+                        {{ __('spark::app.kiosk.kiosk') }}
                     </div>
 
                     <div class="panel-body">
@@ -22,21 +22,21 @@
                                 <!-- Announcements Link -->
                                 <li role="presentation" class="active">
                                     <a href="#announcements" aria-controls="announcements" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-bullhorn"></i>Announcements
+                                        <i class="fa fa-fw fa-btn fa-bullhorn"></i>{{ __('spark::app.general.announcements') }}
                                     </a>
                                 </li>
 
                                 <!-- Metrics Link -->
                                 <li role="presentation">
                                     <a href="#metrics" aria-controls="metrics" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-bar-chart"></i>Metrics
+                                        <i class="fa fa-fw fa-btn fa-bar-chart"></i>{{ __('spark::app.kiosk.metrics') }}
                                     </a>
                                 </li>
 
                                 <!-- Users Link -->
                                 <li role="presentation">
                                     <a href="#users" aria-controls="users" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-user"></i>Users
+                                        <i class="fa fa-fw fa-btn fa-user"></i>{{ __('spark::app.kiosk.users') }}
                                     </a>
                                 </li>
                             </ul>
