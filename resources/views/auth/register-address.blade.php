@@ -1,6 +1,6 @@
 <!-- Address -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('address')}">
-    <label class="col-md-4 control-label">Address</label>
+    <label class="col-md-4 control-label">{{ __('spark::app.billing.address') }}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="registerForm.address" lazy>
@@ -13,7 +13,7 @@
 
 <!-- Address Line 2 -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('address_line_2')}">
-    <label class="col-md-4 control-label">Address Line 2</label>
+    <label class="col-md-4 control-label">{{ __('spark::app.billing.address2') }}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="registerForm.address_line_2" lazy>
@@ -26,7 +26,7 @@
 
 <!-- City -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('city')}">
-    <label class="col-md-4 control-label">City</label>
+    <label class="col-md-4 control-label">{{ __('spark::app.billing.city') }}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model.lazy="registerForm.city">
@@ -39,11 +39,11 @@
 
 <!-- State & ZIP Code -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('state')}">
-    <label class="col-md-4 control-label">State & ZIP / Postal Code</label>
+    <label class="col-md-4 control-label">{{ __('spark::app.billing.state-zip-postal') }}</label>
 
     <!-- State -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="State" v-model.lazy="registerForm.state">
+        <input type="text" class="form-control" placeholder="{{ __('spark::app.billing.state') }}" v-model.lazy="registerForm.state">
 
         <span class="help-block" v-show="registerForm.errors.has('state')">
             @{{ registerForm.errors.get('state') }}
@@ -52,7 +52,7 @@
 
     <!-- Zip Code -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="Postal Code" v-model.lazy="registerForm.zip">
+        <input type="text" class="form-control" placeholder="{{ __('spark::app.billing.postal') }}" v-model.lazy="registerForm.zip">
 
         <span class="help-block" v-show="registerForm.errors.has('zip')">
             @{{ registerForm.errors.get('zip') }}
@@ -62,7 +62,7 @@
 
 <!-- Country -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('country')}">
-    <label class="col-md-4 control-label">Country</label>
+    <label class="col-md-4 control-label">{{ __('spark::app.billing.country') }}</label>
 
     <div class="col-sm-6">
         <select class="form-control" v-model.lazy="registerForm.country">
@@ -79,7 +79,7 @@
 
 <!-- European VAT ID -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('vat_id')}" v-if="countryCollectsVat">
-    <label class="col-md-4 control-label">VAT ID</label>
+    <label class="col-md-4 control-label">{{ __('spark::app.billing.vat-id') }}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model.lazy="registerForm.vat_id">

@@ -2,7 +2,7 @@
     @if (Spark::usesTeams() && Spark::onlyTeamPlans())
         <!-- Team Name -->
         <div class="form-group" :class="{'has-error': registerForm.errors.has('team')}" v-if=" ! invitation">
-            <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
+            <label class="col-md-4 control-label">{{ __('spark::app.auth.team-name', ['team' => Spark::teamString()]) }}</label>
 
             <div class="col-md-6">
                 <input type="name" class="form-control" name="team" v-model="registerForm.team" autofocus>
@@ -16,13 +16,13 @@
         @if (Spark::teamsIdentifiedByPath())
             <!-- Team Slug (Only Shown When Using Paths For Teams) -->
             <div class="form-group" :class="{'has-error': registerForm.errors.has('team_slug')}" v-if=" ! invitation">
-                <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
+                <label class="col-md-4 control-label">{{ __('spark::app.auth.team-slug', ['team' => Spark::teamString()]) }}</label>
 
                 <div class="col-md-6">
                     <input type="name" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
 
                     <p class="help-block" v-show=" ! registerForm.errors.has('team_slug')">
-                        This slug is used to identify your team in URLs.
+                        {{ __('spark::app.auth.team-slug-description') }}
                     </p>
 
                     <span class="help-block" v-show="registerForm.errors.has('team_slug')">
@@ -35,7 +35,7 @@
 
     <!-- Name -->
     <div class="form-group" :class="{'has-error': registerForm.errors.has('name')}">
-        <label class="col-md-4 control-label">Name</label>
+        <label class="col-md-4 control-label">{{ __('spark::app.auth.name') }}</label>
 
         <div class="col-md-6">
             <input type="name" class="form-control" name="name" v-model="registerForm.name" autofocus>
@@ -48,7 +48,7 @@
 
     <!-- E-Mail Address -->
     <div class="form-group" :class="{'has-error': registerForm.errors.has('email')}">
-        <label class="col-md-4 control-label">E-Mail Address</label>
+        <label class="col-md-4 control-label">{{ __('spark::app.auth.email') }}</label>
 
         <div class="col-md-6">
             <input type="email" class="form-control" name="email" v-model="registerForm.email">
@@ -61,7 +61,7 @@
 
     <!-- Password -->
     <div class="form-group" :class="{'has-error': registerForm.errors.has('password')}">
-        <label class="col-md-4 control-label">Password</label>
+        <label class="col-md-4 control-label">{{ __('spark::app.auth.password') }}</label>
 
         <div class="col-md-6">
             <input type="password" class="form-control" name="password" v-model="registerForm.password">
@@ -74,7 +74,7 @@
 
     <!-- Password Confirmation -->
     <div class="form-group" :class="{'has-error': registerForm.errors.has('password_confirmation')}">
-        <label class="col-md-4 control-label">Confirm Password</label>
+        <label class="col-md-4 control-label">{{ __('spark::app.auth.confirm-password') }}</label>
 
         <div class="col-md-6">
             <input type="password" class="form-control" name="password_confirmation" v-model="registerForm.password_confirmation">
@@ -92,7 +92,7 @@
                 <div class="checkbox">
                     <label>
                         <input type="checkbox" name="terms" v-model="registerForm.terms">
-                        I Accept The <a href="/terms" target="_blank">Terms Of Service</a>
+                        {{ __('spark::app.billing.accept-the-terms, ['terms' => '<a href="/terms" target="_blank">'.__('spark::app.billing.terms-of-service').'</a>']) }}
                     </label>
 
                     <span class="help-block" v-show="registerForm.errors.has('terms')">
@@ -106,11 +106,11 @@
             <div class="col-md-6 col-md-offset-4">
                 <button class="btn btn-primary" @click.prevent="register" :disabled="registerForm.busy">
                     <span v-if="registerForm.busy">
-                        <i class="fa fa-btn fa-spinner fa-spin"></i>Registering
+                        <i class="fa fa-btn fa-spinner fa-spin"></i>{{ __('spark::app.auth.registering') }}
                     </span>
 
                     <span v-else>
-                        <i class="fa fa-btn fa-check-circle"></i>Register
+                        <i class="fa fa-btn fa-check-circle"></i>{{ __('spark::app.auth.register') }}
                     </span>
                 </button>
             </div>
