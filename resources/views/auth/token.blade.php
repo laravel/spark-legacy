@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Two-Factor Authentication</div>
+                <div class="panel-heading">@lang('Two-Factor Authentication')</div>
 
                 <div class="panel-body">
                     @include('spark::shared.errors')
@@ -15,7 +15,7 @@
 
                         <!-- Token -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Authentication Token</label>
+                            <label class="col-md-4 control-label">@lang('Authentication Token')</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="token" autofocus>
@@ -26,11 +26,11 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Verify
+                                    @lang('Verify')
                                 </button>
 
                                 <a class="btn btn-link" href="{{ url('login-via-emergency-token') }}">
-                                    Lost Your Device?
+                                    @lang('Lost Your Device?')
                                 </a>
                             </div>
                         </div>

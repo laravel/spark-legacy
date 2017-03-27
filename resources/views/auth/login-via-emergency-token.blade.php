@@ -5,16 +5,14 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login Via Emergency Token</div>
+                <div class="panel-heading">@lang('Login Via Emergency Token')</div>
 
                 <div class="panel-body">
                     @include('spark::shared.errors')
 
                     <!-- Warning Message -->
                     <div class="alert alert-warning">
-                        After logging in via your emergency token, two-factor authentication will be
-                        disabled for your account. If you would like to maintain two-factor
-                        authentication security, you should re-enable it after logging in.
+                        @lang('After logging in via your emergency token, two-factor authentication will be disabled for your account. If you would like to maintain two-factor authentication security, you should re-enable it after logging in.')
                     </div>
 
                     <form class="form-horizontal" role="form" method="POST" action="/login-via-emergency-token">
@@ -22,7 +20,7 @@
 
                         <!-- Emergency Token -->
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Emergency Token</label>
+                            <label class="col-md-4 control-label">@lang('Emergency Token')</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="token" autofocus>
@@ -33,7 +31,7 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
+                                    <i class="fa fa-btn fa-sign-in"></i>@lang('Login')
                                 </button>
                             </div>
                         </div>
