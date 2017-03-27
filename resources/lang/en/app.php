@@ -3,8 +3,20 @@
 return [
     
     // General
+    'general.close' => 'Close',
+    'general.send' => 'Send',
+    
+    'general.subject' => 'Subject',
+    'general.message' => 'Message',
+    
     'general.whoops' => 'Whoops!',
     'general.something-went-wrong' => 'Something went wrong!',
+    
+    'general.notifications' => 'Notifications',
+    'general.announcements' => 'Announcements',
+    'general.loading-notifications' => 'Loading Notifications',
+    'general.no-notifications' => 'We don\'t have anything to show you right now! But when we do,
+    we\'ll be sure to let you know. Talk to you soon!',
     
     // Auth
     'auth.name' => 'Name',
@@ -26,14 +38,17 @@ return [
     'auth.authentication-token' => 'Authentication Token',
     'auth.verify' => 'Verify',
     'auth.lost-device' => 'Lost Your Device?',
+    'auth.emergency-token-warning' => 'After logging in via your emergency token, two-factor authentication will be
+    disabled for your account. If you would like to maintain two-factor
+    authentication security, you should re-enable it after logging in.',
     
     'auth.team-name' => ':Team Name',
     'auth.team-slug' => ':Team Slug',
     'auth.team-slug-description' => 'This slug is used to identify your team in URLs.',
-    
-    'auth.emergency-token-warning' => 'After logging in via your emergency token, two-factor authentication will be
-    disabled for your account. If you would like to maintain two-factor
-    authentication security, you should re-enable it after logging in.',
+
+    'auth.session-expired' => 'Session Expired',
+    'auth.session-has-expired-relogin' => 'Your session has expired. Please login again to continue.',
+    'auth.go-to-login' => 'Go To Login',
     
     // Billing
     'billing.billing' => 'Billing',

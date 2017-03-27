@@ -4,19 +4,19 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">
-                    Session Expired
+                    {{ __('spark::app.auth.session-expired') }}
                 </h4>
             </div>
 
             <div class="modal-body">
-                Your session has expired. Please login again to continue.
+                {{ __('spark::app.auth.session-has-expired-relogin') }}
             </div>
 
             <!-- Modal Actions -->
             <div class="modal-footer">
                 <a href="/login">
                     <button type="button" class="btn btn-default">
-                        <i class="fa fa-btn fa-sign-in"></i>Go To Login
+                        <i class="fa fa-btn fa-sign-in"></i>{{ __('spark::app.auth.go-to-login') }}
                     </button>
                 </a>
             </div>
