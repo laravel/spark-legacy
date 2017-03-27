@@ -3,6 +3,8 @@
 return [
     
     // General
+    'general.whoops' => 'Whoops!',
+    'general.something-went-wrong' => 'Something went wrong!',
     
     // Auth
     'auth.name' => 'Name',

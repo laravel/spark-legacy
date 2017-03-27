@@ -1,6 +1,6 @@
 @if (count($errors) > 0)
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> Something went wrong!
+        <strong>{{ __('spark::app.general.whoops') }}</strong> {{ __('spark::app.general.something-went-wrong') }}
         <br><br>
         <ul>
             @foreach ($errors->all() as $error)
