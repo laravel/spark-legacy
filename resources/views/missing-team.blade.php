@@ -8,7 +8,7 @@
                 <div class="panel-heading">{{ __('spark::app.auth.wheres-your-team', ['team' => Spark::teamString()]) }}</div>
 
                 <div class="panel-body">
-                    {{ __('spark::app.auth.missing-team-create-settings', ['team' => Spark::teamString(), 'settings' => '<a href="/settings#/{{ str_plural(Spark::teamString()) }}">'.__('spark::app.auth.settings).'</a>']) }}
+                    {!! __('spark::app.auth.missing-team-create-settings', ['team' => Spark::teamString(), 'settings' => '<a href="/settings#/'.str_plural(Spark::teamString()).'">'.__('spark::app.auth.settings').'</a>']) !!}
                 </div>
             </div>
         </div>
