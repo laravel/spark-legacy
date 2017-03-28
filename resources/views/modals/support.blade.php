@@ -7,7 +7,7 @@
                     <!-- From -->
                     <div class="form-group" :class="{'has-error': supportForm.errors.has('from')}">
                         <div class="col-md-12">
-                            <input id="support-from" type="text" class="form-control" v-model="supportForm.from" placeholder="Your Email Address">
+                            <input id="support-from" type="text" class="form-control" v-model="supportForm.from" placeholder="@lang('Your Email Address')">
 
                             <span class="help-block" v-show="supportForm.errors.has('from')">
                                 @{{ supportForm.errors.get('from') }}
@@ -18,7 +18,7 @@
                     <!-- Subject -->
                     <div class="form-group" :class="{'has-error': supportForm.errors.has('subject')}">
                         <div class="col-md-12">
-                            <input id="support-subject" type="text" class="form-control" v-model="supportForm.subject" placeholder="Subject">
+                            <input id="support-subject" type="text" class="form-control" v-model="supportForm.subject" placeholder="@lang('Subject')">
 
                             <span class="help-block" v-show="supportForm.errors.has('subject')">
                                 @{{ supportForm.errors.get('subject') }}
@@ -29,7 +29,7 @@
                     <!-- Message -->
                     <div class="form-group m-b-none" :class="{'has-error': supportForm.errors.has('message')}">
                         <div class="col-md-12">
-                            <textarea class="form-control" rows="7" v-model="supportForm.message" placeholder="Message"></textarea>
+                            <textarea class="form-control" rows="7" v-model="supportForm.message" placeholder="@lang('Message')"></textarea>
 
                             <span class="help-block" v-show="supportForm.errors.has('message')">
                                 @{{ supportForm.errors.get('message') }}
@@ -42,7 +42,7 @@
             <!-- Modal Actions -->
             <div class="modal-footer border-none">
                 <button type="button" class="btn btn-primary" @click.prevent="sendSupportRequest" :disabled="supportForm.busy">
-                    <i class="fa fa-btn fa-paper-plane"></i>Send
+                    <i class="fa fa-btn fa-paper-plane"></i>@lang('Send')
                 </button>
             </div>
         </div>
