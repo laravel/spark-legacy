@@ -6,7 +6,7 @@
                 @click="confirmCancellation"
                 :disabled="form.busy">
 
-                Cancel Subscription
+                @lang('Cancel Subscription')
                 </button>
             </div>
         </div>
@@ -19,25 +19,25 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Cancel Subscription
+                            @lang('Cancel Subscription')
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to cancel your subscription?
+                        @lang('Are you sure you want to cancel your subscription?')
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
                         <button type="button" class="btn btn-danger" @click="cancel" :disabled="form.busy">
                         <span v-if="form.busy">
-                            <i class="fa fa-btn fa-spinner fa-spin"></i>Cancelling
+                            <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Cancelling')
                         </span>
 
                         <span v-else>
-                            Yes, Cancel
+                            @lang('Yes, Cancel')
                         </span>
                         </button>
                     </div>

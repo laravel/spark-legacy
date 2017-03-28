@@ -1,6 +1,6 @@
 <!-- Address -->
 <div class="form-group" :class="{'has-error': form.errors.has('address')}">
-    <label class="col-md-4 control-label">Address</label>
+    <label class="col-md-4 control-label">@lang('Address')</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="form.address">
@@ -13,7 +13,7 @@
 
 <!-- Address Line 2 -->
 <div class="form-group" :class="{'has-error': form.errors.has('address_line_2')}">
-    <label class="col-md-4 control-label">Address Line 2</label>
+    <label class="col-md-4 control-label">@lang('Address Line 2')</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="form.address_line_2">
@@ -26,7 +26,7 @@
 
 <!-- City -->
 <div class="form-group" :class="{'has-error': form.errors.has('city')}">
-    <label class="col-md-4 control-label">City</label>
+    <label class="col-md-4 control-label">@lang('City')</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="form.city">
@@ -39,11 +39,11 @@
 
 <!-- State & ZIP Code -->
 <div class="form-group" :class="{'has-error': form.errors.has('state')}">
-    <label class="col-md-4 control-label">State & ZIP / Postal Code</label>
+    <label class="col-md-4 control-label">@lang('State & ZIP / Postal Code')</label>
 
     <!-- State -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" v-model="form.state" placeholder="State">
+        <input type="text" class="form-control" v-model="form.state" placeholder="@lang('State')">
 
         <span class="help-block" v-show="form.errors.has('state')">
             @{{ form.errors.get('state') }}
@@ -52,7 +52,7 @@
 
     <!-- Zip Code -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" v-model="form.zip" placeholder="Postal Code">
+        <input type="text" class="form-control" v-model="form.zip" placeholder="@lang('Postal Code')">
 
         <span class="help-block" v-show="form.errors.has('zip')">
             @{{ form.errors.get('zip') }}
@@ -62,7 +62,7 @@
 
 <!-- Country -->
 <div class="form-group" :class="{'has-error': form.errors.has('country')}">
-    <label class="col-md-4 control-label">Country</label>
+    <label class="col-md-4 control-label">@lang('Country')</label>
 
     <div class="col-sm-6">
         <select class="form-control" v-model="form.country">

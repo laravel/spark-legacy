@@ -1,18 +1,16 @@
 <spark-update-extra-billing-information :user="user" :team="team" :billable-type="billableType" inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Extra Billing Information</div>
+        <div class="panel-heading">@lang('Extra Billing Information')</div>
 
         <div class="panel-body">
             <!-- Information Message -->
             <div class="alert alert-info">
-                This information will appear on all of your receipts, and is a great place to add your full
-                business name, VAT number, or address of record. Do not include any confidential or
-                financial information such as credit card numbers.
+                @lang('This information will appear on all of your receipts, and is a great place to add your full business name, VAT number, or address of record. Do not include any confidential or financial information such as credit card numbers.')
             </div>
 
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your billing information has been updated!
+                @lang('Your billing information has been updated!')
             </div>
 
             <!-- Extra Billing Information -->
@@ -31,7 +29,7 @@
                 <div class="form-group m-b-none">
                     <div class="col-md-offset-4 col-md-8 text-right">
                         <button type="submit" class="btn btn-primary" @click.prevent="update" :disabled="form.busy">
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>

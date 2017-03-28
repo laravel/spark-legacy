@@ -7,13 +7,12 @@
 
         <!-- Billing Information -->
         <div class="panel panel-default" v-show="selectedPlan">
-            <div class="panel-heading"><i class="fa fa-btn fa-credit-card"></i>Billing Information</div>
+            <div class="panel-heading"><i class="fa fa-btn fa-credit-card"></i>@lang('Billing Information')</div>
 
             <div class="panel-body">
                 <!-- Generic 500 Level Error Message / Stripe Threw Exception -->
                 <div class="alert alert-danger" v-if="form.errors.has('form')">
-                    We had trouble validating your card. It's possible your card provider is preventing
-                    us from charging the card. Please contact your card provider or customer support.
+                    @lang('We had trouble validating your card. It\'s possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.')
                 </div>
 
                 <form class="form-horizontal" role="form">
@@ -25,11 +24,11 @@
                         <div class="col-sm-6">
                             <button type="submit" class="btn btn-primary" :disabled="form.busy">
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Subscribing
+                                <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Subscribing')
                             </span>
 
                             <span v-else>
-                                Subscribe
+                                @lang('Subscribe')
                             </span>
                             </button>
                         </div>

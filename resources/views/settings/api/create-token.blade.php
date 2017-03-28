@@ -2,14 +2,14 @@
     <div>
         <div class="panel panel-default">
             <div class="panel-heading">
-                Create API Token
+                @lang('Create API Token')
             </div>
 
             <div class="panel-body">
                 <form class="form-horizontal" role="form">
                     <!-- Token Name -->
                     <div class="form-group" :class="{'has-error': form.errors.has('name')}">
-                        <label class="col-md-4 control-label">Token Name</label>
+                        <label class="col-md-4 control-label">@lang('Token Name')</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="name" v-model="form.name">
@@ -26,18 +26,18 @@
 
                         <div class="col-md-6">
                             <button class="btn btn-default" @click.prevent="assignAllAbilities" v-if=" ! allAbilitiesAssigned">
-                                <i class="fa fa-btn fa-check"></i>Assign All Abilities
+                                <i class="fa fa-btn fa-check"></i>@lang('Assign All Abilities')
                             </button>
 
                             <button class="btn btn-default" @click.prevent="removeAllAbilities" v-if="allAbilitiesAssigned">
-                                <i class="fa fa-btn fa-times"></i>Remove All Abilities
+                                <i class="fa fa-btn fa-times"></i>@lang('Remove All Abilities')
                             </button>
                         </div>
                     </div>
 
                     <!-- Token Abilities -->
                     <div class="form-group" :class="{'has-error': form.errors.has('abilities')}" v-if="availableAbilities.length > 0">
-                        <label class="col-md-4 control-label">Token Can</label>
+                        <label class="col-md-4 control-label">@lang('Token Can')</label>
 
                         <div class="col-md-6">
                             <div v-for="ability in availableAbilities">
@@ -65,7 +65,7 @@
                                     @click.prevent="create"
                                     :disabled="form.busy">
 
-                                Create
+                                @lang('Create')
                             </button>
                         </div>
                     </div>
@@ -81,15 +81,13 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            API Token
+                            @lang('API Token')
                         </h4>
                     </div>
 
                     <div class="modal-body">
                         <div class="alert alert-warning">
-                            Here is your new API token. <strong>This is the only time the token will ever
-                            be displayed, so be sure not to lose it!</strong> You may revoke the token
-                            at any time from your API settings.
+                            @lang('Here is your new API token. <strong>This is the only time the token will ever be displayed, so be sure not to lose it!</strong> You may revoke the token at any time from your API settings.')
                         </div>
 
                         <textarea id="api-token" class="form-control"
@@ -100,10 +98,10 @@
                     <!-- Modal Actions -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" @click="selectToken">
-                        <span v-if="copyCommandSupported">Copy To Clipboard</span>
-                        <span v-else>Select All</span>
+                        <span v-if="copyCommandSupported">@lang('Copy To Clipboard')</span>
+                        <span v-else>@lang('Select All')</span>
                         </button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
                     </div>
                 </div>
             </div>

@@ -17,7 +17,7 @@
                 <div class="panel panel-default panel-flush">
                     <div class="panel-heading">
                         <span v-if="team">
-                            @{{ team.name }} {{ ucfirst(Spark::teamString()) }} Settings
+                            @lang(':Name :Team Settings', ['name' => '@{{ team.name }}', 'team' => Spark::teamString()])
                         </span>
                     </div>
 
@@ -28,7 +28,7 @@
                                 @if (Auth::user()->ownsTeam($team))
                                     <li role="presentation" class="active">
                                         <a href="#owner" aria-controls="owner" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-edit"></i>{{ ucfirst(Spark::teamString()) }} Profile
+                                            <i class="fa fa-fw fa-btn fa-edit"></i>@lang(':Team Profile', ['team' => Spark::teamString()])
                                         </a>
                                     </li>
                                 @endif
@@ -40,7 +40,7 @@
                                 <li role="presentation" class="active">
                                 @endif
                                     <a href="#membership" aria-controls="membership" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-users"></i>Membership
+                                        <i class="fa fa-fw fa-btn fa-users"></i>@lang('Membership')
                                     </a>
                                 </li>
 
@@ -48,13 +48,13 @@
                                 @if (Spark::createsAdditionalTeams())
                                     <li role="presentation">
                                         <a href="/settings#/{{str_plural(Spark::teamString())}}">
-                                            <i class="fa fa-fw fa-btn fa-arrow-left"></i>View All {{ ucfirst(str_plural(Spark::teamString())) }}
+                                            <i class="fa fa-fw fa-btn fa-arrow-left"></i>@lang('View All :Teams', ['teams' => str_plural(Spark::teamString())])
                                         </a>
                                     </li>
                                 @else
                                     <li role="presentation">
                                         <a href="/settings">
-                                            <i class="fa fa-fw fa-btn fa-arrow-left"></i>Your Settings
+                                            <i class="fa fa-fw fa-btn fa-arrow-left"></i>@lang('Your Settings')
                                         </a>
                                     </li>
                                 @endif
@@ -67,7 +67,7 @@
                 @if (Spark::canBillTeams() && Auth::user()->ownsTeam($team))
                     <div class="panel panel-default panel-flush">
                         <div class="panel-heading">
-                            {{ ucfirst(Spark::teamString()) }} Billing
+                            @lang(':Team Billing', ['team' => Spark::teamString()])
                         </div>
 
                         <div class="panel-body">
@@ -77,7 +77,7 @@
                                         <!-- Subscription Link -->
                                         <li role="presentation">
                                             <a href="#subscription" aria-controls="subscription" role="tab" data-toggle="tab">
-                                                <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscription
+                                                <i class="fa fa-fw fa-btn fa-shopping-bag"></i>@lang('Subscription')
                                             </a>
                                         </li>
                                     @endif
@@ -85,14 +85,14 @@
                                     <!-- Payment Method Link -->
                                     <li role="presentation">
                                         <a href="#payment-method" aria-controls="payment-method" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-credit-card"></i>Payment Method
+                                            <i class="fa fa-fw fa-btn fa-credit-card"></i>@lang('Payment Method')
                                         </a>
                                     </li>
 
                                     <!-- Invoices Link -->
                                     <li role="presentation">
                                         <a href="#invoices" aria-controls="invoices" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-history"></i>Invoices
+                                            <i class="fa fa-fw fa-btn fa-history"></i>@lang('Invoices')
                                         </a>
                                     </li>
                                 </ul>

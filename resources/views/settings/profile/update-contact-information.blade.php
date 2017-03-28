@@ -1,17 +1,17 @@
 <spark-update-contact-information :user="user" inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Contact Information</div>
+        <div class="panel-heading">@lang('Contact Information')</div>
 
         <div class="panel-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your contact information has been updated!
+                @lang('Your contact information has been updated!')
             </div>
 
             <form class="form-horizontal" role="form">
                 <!-- Name -->
                 <div class="form-group" :class="{'has-error': form.errors.has('name')}">
-                    <label class="col-md-4 control-label">Name</label>
+                    <label class="col-md-4 control-label">@lang('Name')</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="name" v-model="form.name">
@@ -24,7 +24,7 @@
 
                 <!-- E-Mail Address -->
                 <div class="form-group" :class="{'has-error': form.errors.has('email')}">
-                    <label class="col-md-4 control-label">E-Mail Address</label>
+                    <label class="col-md-4 control-label">@lang('E-Mail Address')</label>
 
                     <div class="col-md-6">
                         <input type="email" class="form-control" name="email" v-model="form.email">
@@ -42,7 +42,7 @@
                                 @click.prevent="update"
                                 :disabled="form.busy">
 
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>

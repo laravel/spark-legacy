@@ -2,11 +2,13 @@
     <div>
         <!-- Current Discount -->
         <div class="panel panel-success" v-if="currentDiscount">
-            <div class="panel-heading">Current Discount</div>
+            <div class="panel-heading">@lang('Current Discount')</div>
 
             <div class="panel-body">
-                You currently receive a discount of @{{ formattedDiscount(currentDiscount) }}
-                for @{{ formattedDiscountDuration(currentDiscount) }}.
+                @lang('You currently receive a discount of :discount for :duration.' [
+                    'discount' => '@{{ formattedDiscount(currentDiscount) }}',
+                    'duration' => '@{{ formattedDiscountDuration(currentDiscount) }}'
+                ])
             </div>
         </div>
 

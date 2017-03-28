@@ -7,8 +7,8 @@
                 <table class="table table-borderless m-b-none">
                     <thead>
                         <th></th>
-                        <th>Name</th>
-                        <th>Owner</th>
+                        <th>@lang('Name')</th>
+                        <th>@lang('Owner')</th>
                         <th></th>
                         <th></th>
                     </thead>
@@ -31,7 +31,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="user.id == team.owner.id">
-                                        You
+                                        @lang('You')
                                     </span>
 
                                     <span v-else>
@@ -80,20 +80,20 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Leave {{ ucfirst(Spark::teamString()) }} (@{{ leavingTeam.name }})
+                            @lang('Leave :Team', ['team' => Spark::teamString()]) (@{{ leavingTeam.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to leave this {{ Spark::teamString() }}?
+                        @lang('Are you sure you want to leave this :team?', ['team' => Spark::teamString()])
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
                         <button type="button" class="btn btn-warning" @click="leaveTeam" :disabled="leaveTeamForm.busy">
-                            Yes, Leave
+                            @lang('Yes, Leave')
                         </button>
                     </div>
                 </div>
@@ -108,26 +108,27 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Delete {{ ucfirst(Spark::teamString()) }} (@{{ deletingTeam.name }})
+                            @lang('Delete :Team', ['team' => Spark::teamString()]) (@{{ deletingTeam.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this {{ Spark::teamString() }}? If you choose to delete the {{ Spark::teamString() }}, all of the
-                        {{ Spark::teamString() }}'s data will be permanently deleted.
+                        @lang('Are you sure you want to delete this :team? If you choose to delete the :team, all of the :team\'s data will be permanently deleted.', [
+                            'team' => Spark::teamString()
+                        ])
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteTeam" :disabled="deleteTeamForm.busy">
                             <span v-if="deleteTeamForm.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Deleting
+                                <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Deleting')
                             </span>
 
                             <span v-else>
-                                Yes, Delete
+                                @lang('Yes, Delete')
                             </span>
                         </button>
                     </div>

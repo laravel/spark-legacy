@@ -4,7 +4,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                Resume Subscription
+                @lang('Resume Subscription')
             </div>
 
             <!-- Interval Selector Button Group -->
@@ -15,7 +15,7 @@
                             @click="showMonthlyPlans"
                             :class="{'active': showingMonthlyPlans}">
 
-                        Monthly
+                        @lang('Monthly')
                     </button>
 
                     <!-- Yearly Plans -->
@@ -23,7 +23,7 @@
                             @click="showYearlyPlans"
                             :class="{'active': showingYearlyPlans}">
 
-                        Yearly
+                        @lang('Yearly')
                     </button>
                 </div>
             </div>
@@ -39,20 +39,21 @@
 
             <!-- Cancellation Information -->
             <div class="p-b-lg">
-                You have cancelled your subscription to the
-                <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
+                @lang('You have cancelled your subscription to the :plan plan.', [
+                    'plan' => '<strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong>'
+                ])
             </div>
 
             <div class="p-b-lg">
-                The benefits of your subscription will continue until your current billing period ends on
-                <strong>@{{ activeSubscription.ends_at | date }}</strong>. You may resume your subscription at no
-                extra cost until the end of the billing period.
+                @lang('The benefits of your subscription will continue until your current billing period ends on :date. You may resume your subscription at no extra cost until the end of the billing period.', [
+                    'date' => '<strong>@{{ activeSubscription.ends_at | date }}</strong>'
+                ])
             </div>
 
             <!-- European VAT Notice -->
             @if (Spark::collectsEuropeanVat())
                 <p class="p-b-lg">
-                    All subscription plan prices include applicable VAT.
+                    @lang('All subscription plan prices include applicable VAT.')
                 </p>
             @endif
 
@@ -72,7 +73,7 @@
                         <!-- Plan Features Button -->
                         <td>
                             <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                <i class="fa fa-btn fa-star-o"></i>@lang('Plan Features')
                             </button>
                         </td>
 
@@ -91,15 +92,15 @@
                                     :disabled="selectingPlan">
 
                                 <span v-if="selectingPlan === plan">
-                                    <i class="fa fa-btn fa-spinner fa-spin"></i>Resuming
+                                    <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Resuming')
                                 </span>
 
                                 <span v-if="! isActivePlan(plan) && selectingPlan !== plan">
-                                    Switch
+                                    @lang('Switch')
                                 </span>
 
                                 <span v-if="isActivePlan(plan) && selectingPlan !== plan">
-                                    Resume
+                                    @lang('Resume')
                                 </span>
                             </button>
                         </td>
