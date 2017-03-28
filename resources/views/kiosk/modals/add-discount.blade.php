@@ -7,33 +7,32 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Add Discount (@{{ discountingUser.name }})
+                            @lang('Add Discount') (@{{ discountingUser.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
                         <!-- Current Discount -->
                         <div class="alert alert-success" v-if="currentDiscount">
-                            This user has a discount of @{{ formattedDiscount(currentDiscount) }}
-                            for @{{ formattedDiscountDuration(currentDiscount) }}.
+                            @lang('This user has a discount of :discount for :duration.', ['discount' => '@{{ formattedDiscount(currentDiscount) }}', 'duration' => '@{{ formattedDiscountDuration(currentDiscount) }}'])
                         </div>
 
                         <!-- Add Discount Form -->
                         <form class="form-horizontal" role="form">
                             <!-- Discount Type -->
                             <div class="form-group" :class="{'has-error': form.errors.has('type')}">
-                                <label class="col-sm-4 control-label">Discount Type</label>
+                                <label class="col-sm-4 control-label">@lang('Discount Type')</label>
 
                                 <div class="col-sm-6">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="amount" v-model="form.type">&nbsp;&nbsp;Amount
+                                            <input type="radio" value="amount" v-model="form.type">&nbsp;&nbsp;@lang('Amount')
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="percent" v-model="form.type">&nbsp;&nbsp;Percentage
+                                            <input type="radio" value="percent" v-model="form.type">&nbsp;&nbsp;@lang('Percentage')
                                         </label>
                                     </div>
 
@@ -46,9 +45,9 @@
                             <!-- Discount Value -->
                             <div class="form-group" :class="{'has-error': form.errors.has('value')}">
                                 <label class="col-md-4 control-label">
-                                    <span v-if="form.type == 'percent'">Percentage</span>
+                                    <span v-if="form.type == 'percent'">@lang('Percentage')</span>
 
-                                    <span v-if="form.type == 'amount'">Amount</span>
+                                    <span v-if="form.type == 'amount'">@lang('Amount')</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -62,24 +61,24 @@
 
                             <!-- Discount Duration -->
                             <div class="form-group" :class="{'has-error': form.errors.has('duration')}">
-                                <label class="col-sm-4 control-label">Discount Duration</label>
+                                <label class="col-sm-4 control-label">@lang('Discount Duration')</label>
 
                                 <div class="col-sm-6">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="once" v-model="form.duration">&nbsp;&nbsp;Once
+                                            <input type="radio" value="once" v-model="form.duration">&nbsp;&nbsp;@lang('Once')
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="forever" v-model="form.duration">&nbsp;&nbsp;Forever
+                                            <input type="radio" value="forever" v-model="form.duration">&nbsp;&nbsp;@lang('Forever')
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="repeating" v-model="form.duration">&nbsp;&nbsp;Multiple Months
+                                            <input type="radio" value="repeating" v-model="form.duration">&nbsp;&nbsp;@lang('Multiple Months')
                                         </label>
                                     </div>
 
@@ -92,7 +91,7 @@
                             <!-- Duration Months -->
                             <div class="form-group" :class="{'has-error': form.errors.has('months')}" v-if="form.duration == 'repeating'">
                                 <label class="col-md-4 control-label">
-                                    Months
+                                    @lang('Months')
                                 </label>
 
                                 <div class="col-md-6">
@@ -108,15 +107,15 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Cancel')</button>
 
                         <button type="button" class="btn btn-primary" @click="applyDiscount" :disabled="form.busy">
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Applying
+                                <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Applying')
                             </span>
 
                             <span v-else>
-                                Apply Discount
+                                @lang('Apply Discount')
                             </span>
                         </button>
                     </div>

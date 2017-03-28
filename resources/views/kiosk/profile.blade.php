@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <i class="fa fa-btn fa-spinner fa-spin"></i>Loading
+                        <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Loading')
                     </div>
                 </div>
             </div>
@@ -53,17 +53,17 @@
                                 <div class="col-md-9">
                                     <!-- Email Address -->
                                     <p>
-                                        <strong>Email Address:</strong> <a :href="'mailto:'+profile.email">@{{ profile.email }}</a>
+                                        <strong>@lang('E-Mail Address'):</strong> <a :href="'mailto:'+profile.email">@{{ profile.email }}</a>
                                     </p>
 
                                     <!-- Joined Date -->
                                     <p>
-                                        <strong>Joined:</strong> @{{ profile.created_at | datetime }}
+                                        <strong>@lang('Joined'):</strong> @{{ profile.created_at | datetime }}
                                     </p>
 
                                     <!-- Subscription -->
                                     <p>
-                                        <strong>Subscription:</strong>
+                                        <strong>@lang('Subscription'):</strong>
 
                                         <span v-if="activePlan(profile)">
                                             <a :href="customerUrlOnBillingProvider(profile)" target="_blank">
@@ -72,13 +72,13 @@
                                         </span>
 
                                         <span v-else>
-                                            None
+                                            @lang('None')
                                         </span>
                                     </p>
 
                                     <!-- Total Revenue -->
                                     <p>
-                                        <strong>Total Revenue:</strong> @{{ revenue | currency(spark.currencySymbol) }}
+                                        <strong>@lang('Total Revenue'):</strong> @{{ revenue | currency(spark.currencySymbol) }}
                                     </p>
                                 </div>
                             </div>
@@ -99,8 +99,8 @@
                             <table class="table table-borderless m-b-none">
                                 <thead>
                                     <th></th>
-                                    <th>Name</th>
-                                    <th>Subscription</th>
+                                    <th>@lang('Name')</th>
+                                    <th>@lang('Subscription')</th>
                                 </thead>
 
                                 <tbody>
@@ -127,7 +127,7 @@
                                                 </span>
 
                                                 <span v-else>
-                                                    None
+                                                    @lang('None')
                                                 </span>
                                             </div>
                                         </td>
