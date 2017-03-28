@@ -62,7 +62,7 @@
 
 <!-- Country -->
 <div class="form-group" :class="{'has-error': registerForm.errors.has('country')}">
-    <label class="col-md-4 control-label">@trans('Country')</label>
+    <label class="col-md-4 control-label">@lang('Country')</label>
 
     <div class="col-sm-6">
         <select class="form-control" v-model.lazy="registerForm.country">

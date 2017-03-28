@@ -15,14 +15,21 @@
     "VAT ID": "VAT ID",
     "Coupon Code": "Coupon Code",
     
+    "Create :Team": "Create :Team",
+    ":Team Trial": ":Team Trial",
     ":Team Name": ":Team Name",
     ":Team Slug": ":Team Slug",
     "This slug is used to identify your team in URLs.": "This slug is used to identify your team in URLs.",
     
     "Selected": "Selected",
     "Select": "Select",
+    "Toggle Navigation": "Toggle Navigation",
+    "Back To My Account": "Back To My Account",
+    "Support": "Support",
+    "Email Us": "Email Us",
     
     "Login": "Login",
+    "Logout": "Logout",
     "Profile": "Profile",
     "Registering": "Registering",
     "Register": "Register",
@@ -48,12 +55,14 @@
     "Cardholder's Name": "Cardholder's Name",
     "Expiration": "Expiration",
     "Security Code": "Security Code",
+    "Subscribe": "Subscribe",
     "Subscription": "Subscription",
     "Plan Features": "Plan Features",
     ":days Day Trial": ":days Day Trial",
     "Terms Of Service": "Terms Of Service",
     "I Accept The :terms": "I Accept The :terms",
     "Tax": "Tax",
+    "Trial": "Trial",
     "Total Price Including Tax": "Total Price Including Tax",
     "All subscription plan prices are excluding applicable VAT.": "All subscription plan prices are excluding applicable VAT.",
     
@@ -62,6 +71,13 @@
     
     "Whoops! This invitation code is invalid.": "Whoops! This invitation code is invalid.",
     "We found your invitation to the :name :team!": "We found your invitation to the :name :team!",
+    
+    "Kiosk": "Kiosk",
+    "Impersonation": "Impersonation",
+    "Developer": "Developer",
+    
+    "Settings": "Settings",
+    "Your Settings": "Your Settings",
     
     "We had trouble validating your card. It's possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.": "We had trouble validating your card. It's possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.",
     "After logging in via your emergency token, two-factor authentication will be disabled for your account. If you would like to maintain two-factor authentication security, you should re-enable it after logging in.": "After logging in via your emergency token, two-factor authentication will be disabled for your account. If you would like to maintain two-factor authentication security, you should re-enable it after logging in."
