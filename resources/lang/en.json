@@ -20,6 +20,8 @@
     ":Team Name": ":Team Name",
     ":Team Slug": ":Team Slug",
     "This slug is used to identify your team in URLs.": "This slug is used to identify your team in URLs.",
+    "Where's Your :Team?": "Where's Your :Team?",
+    "It looks like you're not part of any :teams! You can create one in your :settings.": "It looks like you're not part of any :teams! You can create one in your :settings.",
     
     "Selected": "Selected",
     "Select": "Select",
@@ -27,6 +29,8 @@
     "Back To My Account": "Back To My Account",
     "Support": "Support",
     "Email Us": "Email Us",
+    
+    "Announcements": "Announcements",
     
     "Login": "Login",
     "Logout": "Logout",
@@ -57,14 +61,19 @@
     "Security Code": "Security Code",
     "Subscribe": "Subscribe",
     "Subscription": "Subscription",
+    "Payment Method": "Payment Method",
     "Plan Features": "Plan Features",
     ":days Day Trial": ":days Day Trial",
     "Terms Of Service": "Terms Of Service",
     "I Accept The :terms": "I Accept The :terms",
+    "Invoices": "Invoices",
     "Tax": "Tax",
     "Trial": "Trial",
     "Total Price Including Tax": "Total Price Including Tax",
     "All subscription plan prices are excluding applicable VAT.": "All subscription plan prices are excluding applicable VAT.",
+    
+    "Whoops!": "Whoops!",
+    "Something went wrong!": "Something went wrong!",
     
     "Whoops! This coupon code is invalid.": "Whoops! This coupon code is invalid.",
     "The coupon's :discount discount will be applied to your subscription!": "The coupon's :discount discount will be applied to your subscription!",
@@ -75,9 +84,13 @@
     "Kiosk": "Kiosk",
     "Impersonation": "Impersonation",
     "Developer": "Developer",
+    "Metrics": "Metrics",
+    "Users": "Users",
     
     "Settings": "Settings",
     "Your Settings": "Your Settings",
+    "Security": "Security",
+    "API": "API",
     
     "We had trouble validating your card. It's possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.": "We had trouble validating your card. It's possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.",
     "After logging in via your emergency token, two-factor authentication will be disabled for your account. If you would like to maintain two-factor authentication security, you should re-enable it after logging in.": "After logging in via your emergency token, two-factor authentication will be disabled for your account. If you would like to maintain two-factor authentication security, you should re-enable it after logging in."

@@ -16,7 +16,7 @@
             <div class="col-md-4">
                 <div class="panel panel-default panel-flush">
                     <div class="panel-heading">
-                        Settings
+                        @lang('Settings')
                     </div>
 
                     <div class="panel-body">
@@ -25,7 +25,7 @@
                                 <!-- Profile Link -->
                                 <li role="presentation">
                                     <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-edit"></i>Profile
+                                        <i class="fa fa-fw fa-btn fa-edit"></i>@lang('Profile')
                                     </a>
                                 </li>
 
@@ -41,7 +41,7 @@
                                 <!-- Security Link -->
                                 <li role="presentation">
                                     <a href="#security" aria-controls="security" role="tab" data-toggle="tab">
-                                        <i class="fa fa-fw fa-btn fa-lock"></i>Security
+                                        <i class="fa fa-fw fa-btn fa-lock"></i>@lang('Security')
                                     </a>
                                 </li>
 
@@ -49,7 +49,7 @@
                                 @if (Spark::usesApi())
                                     <li role="presentation">
                                         <a href="#api" aria-controls="api" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-cubes"></i>API
+                                            <i class="fa fa-fw fa-btn fa-cubes"></i>@lang('API')
                                         </a>
                                     </li>
                                 @endif
@@ -62,7 +62,7 @@
                 @if (Spark::canBillCustomers())
                     <div class="panel panel-default panel-flush">
                         <div class="panel-heading">
-                            Billing
+                            @lang('Billing')
                         </div>
 
                         <div class="panel-body">
@@ -72,7 +72,7 @@
                                         <!-- Subscription Link -->
                                         <li role="presentation">
                                             <a href="#subscription" aria-controls="subscription" role="tab" data-toggle="tab">
-                                                <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscription
+                                                <i class="fa fa-fw fa-btn fa-shopping-bag"></i>@lang('Subscription')
                                             </a>
                                         </li>
                                     @endif
@@ -80,14 +80,14 @@
                                     <!-- Payment Method Link -->
                                     <li role="presentation">
                                         <a href="#payment-method" aria-controls="payment-method" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-credit-card"></i>Payment Method
+                                            <i class="fa fa-fw fa-btn fa-credit-card"></i>@lang('Payment Method')
                                         </a>
                                     </li>
 
                                     <!-- Invoices Link -->
                                     <li role="presentation">
                                         <a href="#invoices" aria-controls="invoices" role="tab" data-toggle="tab">
-                                            <i class="fa fa-fw fa-btn fa-history"></i>Invoices
+                                            <i class="fa fa-fw fa-btn fa-history"></i>@lang('Invoices')
                                         </a>
                                     </li>
                                 </ul>
