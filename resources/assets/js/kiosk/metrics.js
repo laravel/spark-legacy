@@ -155,7 +155,7 @@ module.exports = {
          * Draw a chart with the given parameters.
          */
         drawChart(id, days, dataGatherer, scaleLabelFormatter) {
-            var dataset = this.baseChartDataSet;
+            var dataset = JSON.parse(JSON.stringify(this.baseChartDataSet));
 
             dataset.data = _.map(_.last(this.indicators, days), dataGatherer);
 
