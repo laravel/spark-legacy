@@ -24,7 +24,7 @@
                 <div class="panel-heading">@lang('Search Results')</div>
 
                 <div class="panel-body">
-                    <i class="fa fa-btn fa-spinner fa-spin"></i>@('Searching')
+                    <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Searching')
                 </div>
             </div>
 
