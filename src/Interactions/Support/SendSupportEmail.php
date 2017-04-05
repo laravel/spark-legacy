@@ -36,7 +36,7 @@ class SendSupportEmail implements Contract
 
         Mail::raw($data['message'], function ($m) use ($data) {
             $m->to(Spark::supportAddress())->subject('Support Request: '.$data['subject']);
-
+            $m->from($data['from']);
             $m->replyTo($data['from']);
         });
     }
