@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.10
+
+- Update Vue dependencies.
+
 ## Version 4.0.9
 
 - Fix Mix version.
