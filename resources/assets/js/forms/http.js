@@ -47,8 +47,7 @@ module.exports = {
                     resolve(response.data);
                 })
                 .catch(errors => {
-                    form.errors.set(errors.response.data);
-                    form.busy = false;
+                    form.setErrors(errors.response.data);
 
                     reject(errors.data);
                 });
