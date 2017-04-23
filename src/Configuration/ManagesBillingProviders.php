@@ -79,7 +79,7 @@ trait ManagesBillingProviders
      */
     public static function prorates()
     {
-        return static::$cardUpFront;
+        return static::$prorate;
     }
 
     /**
