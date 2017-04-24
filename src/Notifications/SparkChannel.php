@@ -37,7 +37,7 @@ class SparkChannel
     public function send($notifiable, Notification $notification)
     {
         if (method_exists($notifiable, 'routeNotificationForSpark')) {
-            $notifiable = $notifiable->routeNotificationForSpark() ?? $notifiable;
+            $notifiable = $notifiable->routeNotificationForSpark() ? $notifiable->routeNotificationForSpark() : $notifiable;
         }
         
         $users = $notifiable instanceof Team ? $notifiable->users : [$notifiable];
