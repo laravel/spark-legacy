@@ -49,7 +49,7 @@ module.exports = {
                 .catch(errors => {
                     form.setErrors(errors.response.data);
 
-                    reject(errors.data);
+                    reject(errors.response.data);
                 });
         });
     }
