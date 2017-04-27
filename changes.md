@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.11
+
+- Various bug fixes.
+
 ## Version 4.0.10
 
 - Update Vue dependencies.
