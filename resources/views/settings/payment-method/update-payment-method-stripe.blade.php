@@ -3,7 +3,7 @@
         <!-- Update Payment Method Heading -->
         <div class="panel-heading">
             <div class="pull-left">
-                Update Payment Method
+                @lang('Update Payment Method')
             </div>
 
             <div class="pull-right">
@@ -19,28 +19,27 @@
         <div class="panel-body">
             <!-- Card Update Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your card has been updated.
+                @lang('Your card has been updated.')
             </div>
 
             <!-- Generic 500 Level Error Message / Stripe Threw Exception -->
             <div class="alert alert-danger" v-if="form.errors.has('form')">
-                We had trouble updating your card. It's possible your card provider is preventing
-                us from charging the card. Please contact your card provider or customer support.
+                @lang('We had trouble updating your card. It\'s possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.')
             </div>
 
             <form class="form-horizontal" role="form">
                 <!-- Billing Address Fields -->
                 @if (Spark::collectsBillingAddress())
-                    <h2><i class="fa fa-btn fa-map-marker"></i>Billing Address</h2>
+                    <h2><i class="fa fa-btn fa-map-marker"></i>@lang('Billing Address')</h2>
 
                     @include('spark::settings.payment-method.update-payment-method-address')
 
-                    <h2><i class="fa fa-btn fa-credit-card"></i>Credit Card</h2>
+                    <h2><i class="fa fa-btn fa-credit-card"></i>@lang('Credit Card')</h2>
                 @endif
 
                 <!-- Cardholder's Name -->
                 <div class="form-group">
-                    <label for="name" class="col-md-4 control-label">Cardholder's Name</label>
+                    <label for="name" class="col-md-4 control-label">@lang('Cardholder\'s Name')</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" v-model="cardForm.name">
@@ -49,7 +48,7 @@
 
                 <!-- Card Number -->
                 <div class="form-group" :class="{'has-error': cardForm.errors.has('number')}">
-                    <label for="number" class="col-md-4 control-label">Card Number</label>
+                    <label for="number" class="col-md-4 control-label">@lang('Card Number')</label>
 
                     <div class="col-md-6">
                         <input type="text"
@@ -66,7 +65,7 @@
 
                 <!-- Security Code -->
                 <div class="form-group">
-                    <label for="cvc" class="col-md-4 control-label">Security Code</label>
+                    <label for="cvc" class="col-md-4 control-label">@lang('Security Code')</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" data-stripe="cvc" v-model="cardForm.cvc">
@@ -75,7 +74,7 @@
 
                 <!-- Expiration Information -->
                 <div class="form-group">
-                    <label class="col-md-4 control-label">Expiration</label>
+                    <label class="col-md-4 control-label">@lang('Expiration')</label>
 
                     <div class="col-md-6">
                         <div class="row">
@@ -96,7 +95,7 @@
 
                 <!-- Zip Code -->
                 <div class="form-group" v-if=" ! spark.collectsBillingAddress">
-                    <label for="zip" class="col-md-4 control-label">ZIP / Postal Code</label>
+                    <label for="zip" class="col-md-4 control-label">@lang('ZIP / Postal Code)</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" v-model="form.zip">
@@ -108,11 +107,11 @@
                     <div class="col-md-6 col-md-offset-4">
                         <button type="submit" class="btn btn-primary" @click.prevent="update" :disabled="form.busy">
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
+                                <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Updating')
                             </span>
 
                             <span v-else>
-                                Update
+                                @lang('Update')
                             </span>
                         </button>
                     </div>

@@ -1,18 +1,18 @@
 <spark-create-team inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Create {{ucfirst(Spark::teamString())}}</div>
+        <div class="panel-heading">@lang('Create :Team', ['team' => Spark::teamString()])</div>
 
         <div class="panel-body">
             <form class="form-horizontal" role="form" v-if="canCreateMoreTeams">
                 <!-- Name -->
                 <div class="form-group" :class="{'has-error': form.errors.has('name')}">
-                    <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
+                    <label class="col-md-4 control-label">@lang(':Team Name', ['team' => Spark::teamString()])</label>
 
                     <div class="col-md-6">
                         <input type="text" id="create-team-name" class="form-control" name="name" v-model="form.name">
 
                         <span class="help-block" v-if="hasTeamLimit">
-                            You currently have @{{ remainingTeams }} {{ str_plural(Spark::teamString()) }} remaining.
+                            @lang('You currently have :amount :teams remaining.', ['amount' => '@{{ remainingTeams }}', 'teams' => str_plural(Spark::teamString())])
                         </span>
 
                         <span class="help-block" v-show="form.errors.has('name')">
@@ -24,13 +24,13 @@
                 @if (Spark::teamsIdentifiedByPath())
                 <!-- Slug (Only Shown When Using Paths For Teams) -->
                 <div class="form-group" :class="{'has-error': form.errors.has('slug')}">
-                    <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
+                    <label class="col-md-4 control-label">@lang(':Team Slug', ['team' => Spark::teamString()])</label>
 
                     <div class="col-md-6">
                         <input type="text" id="create-team-slug" class="form-control" name="slug" v-model="form.slug">
 
                         <p class="help-block" v-show=" ! form.errors.has('slug')">
-                            This slug is used to identify your team in URLs.
+                            @lang('This slug is used to identify your team in URLs.')
                         </p>
 
                         <span class="help-block" v-show="form.errors.has('slug')">
@@ -47,7 +47,7 @@
                                 @click.prevent="create"
                                 :disabled="form.busy">
 
-                            Create
+                            @lang('Create')
                         </button>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
 
             <div v-else>
                 <span class="text-danger">
-                    Your current plan doesn't allow you to create more teams, please <a href="{{ url('/settings#/subscription') }}">upgrade your subscription</a>.
+                    @lang('Your current plan doesn\'t allow you to create more teams, please :upgrade.', ['upgrade' => '<a href="'.url('/settings#/subscription').'">'.__('upgrade your subscription').'</a>'])
                 </span>
             </div>
         </div>

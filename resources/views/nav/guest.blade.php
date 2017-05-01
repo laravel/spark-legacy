@@ -4,7 +4,7 @@
             <!-- Collapsed Hamburger -->
             <div class="hamburger">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spark-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="sr-only">@lang('Toggle Navigation')</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -23,8 +23,8 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login" class="navbar-link">Login</a></li>
-                <li><a href="/register" class="navbar-link">Register</a></li>
+                <li><a href="/login" class="navbar-link">@lang('Login')</a></li>
+                <li><a href="/register" class="navbar-link">@lang('Register')</a></li>
             </ul>
         </div>
     </div>

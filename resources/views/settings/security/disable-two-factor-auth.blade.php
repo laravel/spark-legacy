@@ -3,11 +3,11 @@
         <div class="panel-body">
             <button class="btn btn-danger-outline" @click="disable" :disabled="form.busy">
                 <span v-if="form.busy">
-                    <i class="fa fa-btn fa-spinner fa-spin"></i>Disabling
+                    <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Disabling')
                 </span>
 
                 <span v-else>
-                    Disable Two-Factor Authentication
+                    @lang('Disable Two-Factor Authentication')
                 </span>
             </button>
         </div>

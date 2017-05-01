@@ -3,7 +3,7 @@
         <!-- Update Payment Method Heading -->
         <div class="panel-heading">
             <div class="pull-left">
-                Update Payment Method
+                @lang('Update Payment Method')
             </div>
 
             <div class="pull-right">
@@ -26,13 +26,12 @@
         <div class="panel-body">
             <!-- Payment Method Update Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your payment method has been updated.
+                @lang('Your payment method has been updated.')
             </div>
 
             <!-- Generic 500 Level Error Message / Braintree Threw Exception -->
             <div class="alert alert-danger" v-if="form.errors.has('form')">
-                We had trouble updating your payment method. It's possible your payment provider is preventing
-                us from charging the payment method. Please contact your payment provider or customer support.
+                @lang('We had trouble updating your payment method. It\'s possible your payment provider is preventing us from charging the payment method. Please contact your payment provider or customer support.')
             </div>
 
             <form class="form-horizontal" role="form">
@@ -44,11 +43,11 @@
                     <div class="col-md-6">
                         <button type="submit" class="btn btn-primary" :disabled="form.busy">
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
+                                <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Updating')
                             </span>
 
                             <span v-else>
-                                Update
+                                @lang('Update')
                             </span>
                         </button>
                     </div>

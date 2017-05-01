@@ -2,13 +2,13 @@
     <div>
         <div>
             <div class="panel panel-default" v-if="tokens.length > 0">
-                <div class="panel-heading">API Tokens</div>
+                <div class="panel-heading">@lang('API Tokens')</div>
 
                 <div class="panel-body">
                     <table class="table table-borderless m-b-none">
                         <thead>
-                            <th>Name</th>
-                            <th>Last Used</th>
+                            <th>@lang('Name')</th>
+                            <th>@lang('Last Used')</th>
                             <th></th>
                             <th></th>
                         </thead>
@@ -30,7 +30,7 @@
                                         </span>
 
                                         <span v-else>
-                                            Never
+                                            @lang('Never')
                                         </span>
                                     </div>
                                 </td>
@@ -63,7 +63,7 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Edit Token (@{{ updatingToken.name }})
+                            @lang('Edit Token') (@{{ updatingToken.name }})
                         </h4>
                     </div>
 
@@ -72,7 +72,7 @@
                         <form class="form-horizontal" role="form">
                             <!-- Token Name -->
                             <div class="form-group" :class="{'has-error': updateTokenForm.errors.has('name')}">
-                                <label class="col-md-4 control-label">Token Name</label>
+                                <label class="col-md-4 control-label">@lang('Token Name')</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name" v-model="updateTokenForm.name">
@@ -85,7 +85,7 @@
 
                             <!-- Token Abilities -->
                             <div class="form-group" :class="{'has-error': updateTokenForm.errors.has('abilities')}" v-if="availableAbilities.length > 0">
-                                <label class="col-md-4 control-label">Token Can</label>
+                                <label class="col-md-4 control-label">@lang('Token Can')</label>
 
                                 <div class="col-md-6">
                                     <div v-for="ability in availableAbilities">
@@ -110,10 +110,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
 
                         <button type="button" class="btn btn-primary" @click="updateToken" :disabled="updateTokenForm.busy">
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>
@@ -128,21 +128,20 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Delete Token (@{{ deletingToken.name }})
+                            @lang('Delete Token') (@{{ deletingToken.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this token? If deleted, API requests that attempt to
-                        authenticate using this token will no longer be accepted.
+                        @lang('Are you sure you want to delete this token? If deleted, API requests that attempt to authenticate using this token will no longer be accepted.')
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteToken" :disabled="deleteTokenForm.busy">
-                            Yes, Delete
+                            @lang('Yes, Delete')
                         </button>
                     </div>
                 </div>

@@ -1,19 +1,17 @@
 <spark-kiosk-announcements inline-template>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">Create Announcement</div>
+            <div class="panel-heading">@lang('Create Announcement')</div>
 
             <div class="panel-body">
                 <div class="alert alert-info">
-                    Announcements you create here will be sent to the "Product Announcements" section of
-                    the notifications modal window, informing your users about new features and improvements
-                    to your application.
+                    @lang('Announcements you create here will be sent to the "Product Announcements" section of the notifications modal window, informing your users about new features and improvements to your application.')
                 </div>
 
                 <form class="form-horizontal" role="form">
                     <!-- Announcement -->
                     <div class="form-group" :class="{'has-error': createForm.errors.has('body')}">
-                        <label class="col-md-4 control-label">Announcement</label>
+                        <label class="col-md-4 control-label">@lang('Announcement')</label>
 
                         <div class="col-md-6">
                             <textarea class="form-control" name="announcement" rows="7" v-model="createForm.body" style="font-family: monospace;">
@@ -27,7 +25,7 @@
 
                     <!-- Action Text -->
                     <div class="form-group" :class="{'has-error': createForm.errors.has('action_text')}">
-                        <label class="col-md-4 control-label">Action Button Text</label>
+                        <label class="col-md-4 control-label">@lang('Action Button Text')</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="action_text" v-model="createForm.action_text">
@@ -40,7 +38,7 @@
 
                     <!-- Action URL -->
                     <div class="form-group" :class="{'has-error': createForm.errors.has('action_url')}">
-                        <label class="col-md-4 control-label">Action Button URL</label>
+                        <label class="col-md-4 control-label">@lang('Action Button URL')</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="action_url" v-model="createForm.action_url">
@@ -58,7 +56,7 @@
                                     @click.prevent="create"
                                     :disabled="createForm.busy">
 
-                                Create
+                                @lang('Create')
                             </button>
                         </div>
                     </div>
@@ -68,13 +66,13 @@
 
         <!-- Recent Announcements List -->
         <div class="panel panel-default" v-if="announcements.length > 0">
-            <div class="panel-heading">Recent Announcements</div>
+            <div class="panel-heading">@lang('Recent Announcements')</div>
 
             <div class="panel-body">
                 <table class="table table-borderless m-b-none">
                     <thead>
                         <th></th>
-                        <th>Date</th>
+                        <th>@lang('Date')</th>
                         <th></th>
                         <th></th>
                     </thead>
@@ -120,7 +118,7 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Update Announcement
+                            @lang('Update Announcement')
                         </h4>
                     </div>
 
@@ -129,7 +127,7 @@
                         <form class="form-horizontal" role="form">
                             <!-- Announcement -->
                             <div class="form-group" :class="{'has-error': updateForm.errors.has('body')}">
-                                <label class="col-md-4 control-label">Announcement</label>
+                                <label class="col-md-4 control-label">@lang('Announcement')</label>
 
                                 <div class="col-md-6">
                                     <textarea class="form-control" rows="7" v-model="updateForm.body" style="font-family: monospace;">
@@ -143,7 +141,7 @@
 
                             <!-- Action Text -->
                             <div class="form-group" :class="{'has-error': updateForm.errors.has('action_text')}">
-                                <label class="col-md-4 control-label">Action Button Text</label>
+                                <label class="col-md-4 control-label">@lang('Action Button Text')</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="action_text" v-model="updateForm.action_text">
@@ -156,7 +154,7 @@
 
                             <!-- Action URL -->
                             <div class="form-group" :class="{'has-error': updateForm.errors.has('action_url')}">
-                                <label class="col-md-4 control-label">Action Button URL</label>
+                                <label class="col-md-4 control-label">@lang('Action Button URL')</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="action_url" v-model="updateForm.action_url">
@@ -171,10 +169,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
 
                         <button type="button" class="btn btn-primary" @click="update" :disabled="updateForm.busy">
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>
@@ -189,20 +187,20 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Delete Announcement
+                            @lang('Delete Announcement')
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this announcement?
+                        @lang('Are you sure you want to delete this announcement?')
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteAnnouncement" :disabled="deleteForm.busy">
-                            Yes, Delete
+                            @lang('Yes, Delete')
                         </button>
                     </div>
                 </div>

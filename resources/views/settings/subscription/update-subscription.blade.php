@@ -4,7 +4,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                    Update Subscription
+                    @lang('Update Subscription')
                 </div>
 
                 <!-- Interval Selector Button Group -->
@@ -15,7 +15,7 @@
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
-                            Monthly
+                            @lang('Monthly')
                         </button>
 
                         <!-- Yearly Plans -->
@@ -23,7 +23,7 @@
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
-                            Yearly
+                            @lang('Yearly')
                         </button>
                     </div>
                 </div>
@@ -39,23 +39,19 @@
 
                 <!-- Current Subscription (Active) -->
                 <div class="p-b-lg" v-if="activePlan.active">
-                    You are currently subscribed to the
-                    <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
+                    @lang('You are currently subscribed to the :plan plan.', ['plan' => '<strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong>'])
                 </div>
 
                 <!-- Current Subscription (Archived) -->
                 <div class="alert alert-warning m-b-lg" v-if=" ! activePlan.active">
-                    You are currently subscribed to the
-                    <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
-                    This plan has been discontinued, but you may continue your subscription to this plan as long as you wish.
-                    If you cancel your subscription and later want to begin a new subscription, you will need to choose
-                    from one of the active plans listed below.
+                    @lang('You are currently subscribed to the :plan plan.', ['plan' => '<strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong>'])
+                    @lang('This plan has been discontinued, but you may continue your subscription to this plan as long as you wish. If you cancel your subscription and later want to begin a new subscription, you will need to choose from one of the active plans listed below.')
                 </div>
 
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
                     <p class="p-b-lg">
-                        All subscription plan prices include applicable VAT.
+                        @lang('All subscription plan prices include applicable VAT.')
                     </p>
                 @endif
 
@@ -75,7 +71,7 @@
                             <!-- Plan Features Button -->
                             <td>
                                 <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                    <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                    <i class="fa fa-btn fa-star-o"></i>@lang('Plan Features')
                                 </button>
                             </td>
 
@@ -83,7 +79,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="plan.price == 0">
-                                        Free
+                                        @lang('Free')
                                     </span>
 
                                     <span v-else>
@@ -95,7 +91,7 @@
                             <!-- Plan Select Button -->
                             <td class="text-right">
                                 <button class="btn btn-primary btn-plan" v-if="isActivePlan(plan)" disabled>
-                                    <i class="fa fa-btn fa-check"></i>Current Plan
+                                    <i class="fa fa-btn fa-check"></i>@lang('Current Plan')
                                 </button>
 
                                 <button class="btn btn-primary-outline btn-plan"
@@ -103,14 +99,14 @@
                                         @click="confirmPlanUpdate(plan)"
                                         :disabled="selectingPlan">
 
-                                    Switch
+                                    @lang('Switch')
                                 </button>
 
                                 <button class="btn btn-primary btn-plan"
                                         v-if="selectingPlan && selectingPlan === plan"
                                         disabled>
 
-                                    <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
+                                    <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Updating')
                                 </button>
                             </td>
                         </tr>
@@ -126,23 +122,24 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">
-                            Update Subscription
+                            @lang('Update Subscription')
                         </h4>
                     </div>
 
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <p>
-                            Are you sure you want to switch to the
-                            <strong>@{{ confirmingPlan.name }} (@{{ confirmingPlan.interval | capitalize }})</strong> plan?
+                            @lang('Are you sure you want to switch to the :plan plan?', [
+                                'plan' => '<strong>@{{ confirmingPlan.name }} (@{{ confirmingPlan.interval | capitalize }})</strong>'
+                            ])
                         </p>
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
-                        <button type="button" class="btn btn-primary" @click="approvePlanUpdate">Yes, I'm Sure</button>
+                        <button type="button" class="btn btn-primary" @click="approvePlanUpdate">@lang('Yes, I\'m Sure')</button>
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
                     :invoices="invoices" :billable-type="billableType" inline-template>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Invoices</div>
+        <div class="panel-heading">@lang('Invoices')</div>
 
         <div class="panel-body">
             <table class="table table-borderless m-b-none">
@@ -26,7 +26,7 @@
                         <td class="text-right">
                             <a :href="downloadUrlFor(invoice)">
                                 <button class="btn btn-default">
-                                    <i class="fa fa-btn fa-file-pdf-o"></i>Download PDF
+                                    <i class="fa fa-btn fa-file-pdf-o"></i>@lang('Download PDF')
                                 </button>
                             </a>
                         </td>

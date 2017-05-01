@@ -1,17 +1,17 @@
 <spark-update-password inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Update Password</div>
+        <div class="panel-heading">@lang('Update Password')</div>
 
         <div class="panel-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your password has been updated!
+                @lang('Your password has been updated!')
             </div>
 
             <form class="form-horizontal" role="form">
                 <!-- Current Password -->
                 <div class="form-group" :class="{'has-error': form.errors.has('current_password')}">
-                    <label class="col-md-4 control-label">Current Password</label>
+                    <label class="col-md-4 control-label">@lang('Current Password')</label>
 
                     <div class="col-md-6">
                         <input type="password" class="form-control" name="current_password" v-model="form.current_password">
@@ -24,7 +24,7 @@
 
                 <!-- New Password -->
                 <div class="form-group" :class="{'has-error': form.errors.has('password')}">
-                    <label class="col-md-4 control-label">Password</label>
+                    <label class="col-md-4 control-label">@lang('Password')</label>
 
                     <div class="col-md-6">
                         <input type="password" class="form-control" name="password" v-model="form.password">
@@ -37,7 +37,7 @@
 
                 <!-- New Password Confirmation -->
                 <div class="form-group" :class="{'has-error': form.errors.has('password_confirmation')}">
-                    <label class="col-md-4 control-label">Confirm Password</label>
+                    <label class="col-md-4 control-label">@lang('Confirm Password')</label>
 
                     <div class="col-md-6">
                         <input type="password" class="form-control" name="password_confirmation" v-model="form.password_confirmation">
@@ -55,7 +55,7 @@
                                 @click.prevent="update"
                                 :disabled="form.busy">
 
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>

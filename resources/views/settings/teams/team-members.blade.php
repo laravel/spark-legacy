@@ -1,14 +1,14 @@
 <spark-team-members :user="user" :team="team" inline-template>
     <div>
         <div class="panel panel-default">
-            <div class="panel-heading">{{ ucfirst(Spark::teamString()) }} Members (@{{ team.users.length }})</div>
+            <div class="panel-heading">@lang(':Team Members', ['team' => Spark::teamString()]) (@{{ team.users.length }})</div>
 
             <div class="panel-body">
                 <table class="table table-borderless m-b-none">
                     <thead>
                         <th></th>
-                        <th>Name</th>
-                        <th v-if="roles.length > 1">Role</th>
+                        <th>@lang('Name')</th>
+                        <th v-if="roles.length > 1">@lang('Role')</th>
                         <th v-if="roles.length > 1"><!-- Edit Team Member Button --></th>
                         <th></th>
                     </thead>
@@ -24,7 +24,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="member.id === user.id">
-                                        You
+                                        @lang('You')
                                     </span>
 
                                     <span v-else>
@@ -73,7 +73,7 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Edit {{ ucfirst(Spark::teamString()) }} Member (@{{ updatingTeamMember.name }})
+                            @lang('Edit :Team Member', ['team' => Spark::teamString()]) (@{{ updatingTeamMember.name }})
                         </h4>
                     </div>
 
@@ -81,7 +81,7 @@
                         <!-- Update Team Member Form -->
                         <form class="form-horizontal" role="form">
                             <div class="form-group" :class="{'has-error': updateTeamMemberForm.errors.has('role')}">
-                                <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Member Role</label>
+                                <label class="col-md-4 control-label">@lang(':Team Member Role', ['team' => Spark::teamString()])</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control" v-model="updateTeamMemberForm.role">
@@ -100,10 +100,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('Close')</button>
 
                         <button type="button" class="btn btn-primary" @click="update" :disabled="updateTeamMemberForm.busy">
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>
@@ -118,20 +118,20 @@
                         <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
                         <h4 class="modal-title">
-                            Remove {{ ucfirst(Spark::teamString()) }} Member (@{{ deletingTeamMember.name }})
+                            @lang('Remove :Team Member', ['team' => Spark::teamString()]) (@{{ deletingTeamMember.name }})
                         </h4>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to remove this {{ ucfirst(Spark::teamString()) }} member?
+                        @lang('Are you sure you want to remove this :team member?', ['team' => Spark::teamString()])
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">@lang('No, Go Back')</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteMember" :disabled="deleteTeamMemberForm.busy">
-                            Yes, Remove
+                            @lang('Yes, Remove')
                         </button>
                     </div>
                 </div>

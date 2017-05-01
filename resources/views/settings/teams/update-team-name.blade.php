@@ -1,17 +1,17 @@
 <spark-update-team-name :user="user" :team="team" inline-template>
     <div class="panel panel-default">
-        <div class="panel-heading">Update {{ ucfirst(Spark::teamString()) }} Name</div>
+        <div class="panel-heading">@lang('Update :Team Name', ['team' => Spark::teamString()])</div>
 
         <div class="panel-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your {{ Spark::teamString() }} name has been updated!
+                @lang('Your :team name has been updated!', ['team' => Spark::teamString()])
             </div>
 
             <form class="form-horizontal" role="form">
                 <!-- Name -->
                 <div class="form-group" :class="{'has-error': form.errors.has('name')}">
-                    <label class="col-md-4 control-label">Name</label>
+                    <label class="col-md-4 control-label">@lang('Name')</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="name" v-model="form.name">
@@ -29,7 +29,7 @@
                                 @click.prevent="update"
                                 :disabled="form.busy">
 
-                            Update
+                            @lang('Update')
                         </button>
                     </div>
                 </div>

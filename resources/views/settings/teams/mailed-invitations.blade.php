@@ -1,12 +1,12 @@
 <spark-mailed-invitations :invitations="invitations" inline-template>
     <div>
         <div class="panel panel-default" v-if="invitations.length > 0">
-            <div class="panel-heading">Mailed Invitations</div>
+            <div class="panel-heading">@lang('Mailed Invitations')</div>
 
             <div class="panel-body">
                 <table class="table table-borderless m-b-none">
                     <thead>
-                        <th>E-Mail Address</th>
+                        <th>@lang('E-Mail Address')</th>
                         <th></th>
                     </thead>
 

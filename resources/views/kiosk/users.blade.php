@@ -10,7 +10,7 @@
                             <div class="col-md-12">
                                 <input type="text" id="kiosk-users-search" class="form-control"
                                         name="search"
-                                        placeholder="Search By Name Or E-Mail Address..."
+                                        placeholder="@lang('Search By Name Or E-Mail Address...')"
                                         v-model="searchForm.query"
                                         @keyup.enter="search">
                             </div>
@@ -21,32 +21,32 @@
 
             <!-- Searching -->
             <div class="panel panel-default" v-if="searching">
-                <div class="panel-heading">Search Results</div>
+                <div class="panel-heading">@lang('Search Results')</div>
 
                 <div class="panel-body">
-                    <i class="fa fa-btn fa-spinner fa-spin"></i>Searching
+                    <i class="fa fa-btn fa-spinner fa-spin"></i>@lang('Searching')
                 </div>
             </div>
 
             <!-- No Search Results -->
             <div class="panel panel-warning" v-if=" ! searching && noSearchResults">
-                <div class="panel-heading">Search Results</div>
+                <div class="panel-heading">@lang('Search Results')</div>
 
                 <div class="panel-body">
-                    No users matched the given criteria.
+                    @lang('No users matched the given criteria.')
                 </div>
             </div>
 
             <!-- User Search Results -->
             <div class="panel panel-default" v-if=" ! searching && searchResults.length > 0">
-                <div class="panel-heading">Search Results</div>
+                <div class="panel-heading">@lang('Search Results')</div>
 
                 <div class="panel-body">
                     <table class="table table-borderless m-b-none">
                         <thead>
                             <th></th>
-                            <th>Name</th>
-                            <th>E-Mail Address</th>
+                            <th>@lang('Name')</th>
+                            <th>@lang('E-Mail Address')</th>
                             <th></th>
                         </thead>
 

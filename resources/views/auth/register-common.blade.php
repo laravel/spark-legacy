@@ -2,10 +2,10 @@
 <div class="row" v-if="coupon">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-success">
-            <div class="panel-heading">Discount</div>
+            <div class="panel-heading">@lang('Discount')</div>
 
             <div class="panel-body">
-                The coupon's @{{ discount }} discount will be applied to your subscription!
+                @lang('The coupon\'s :discount discount will be applied to your subscription!', ['discount' => '@{{ discount }}'])
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
 <div class="row" v-if="invalidCoupon">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-danger">
-            Whoops! This coupon code is invalid.
+            @lang('Whoops! This coupon code is invalid.')
         </div>
     </div>
 </div>
@@ -24,7 +24,7 @@
 <div class="row" v-if="invitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success">
-            We found your invitation to the <strong>@{{ invitation.team.name }}</strong> {{ Spark::teamString() }}!
+            @lang('We found your invitation to the :name :team!', ['name' => '<strong>@{{ invitation.team.name }}</strong>', 'team' => Spark::teamString()])
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="row" v-if="invalidInvitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-danger">
-            Whoops! This invitation code is invalid.
+            @lang('Whoops! This invitation code is invalid.')
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                    Subscription
+                    @lang('Subscription')
                 </div>
 
                 <!-- Interval Selector Button Group -->
@@ -55,7 +55,7 @@
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
-                            Monthly
+                            @lang('Monthly')
                         </button>
 
                         <!-- Yearly Plans -->
@@ -63,7 +63,7 @@
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
-                            Yearly
+                            @lang('Yearly')
                         </button>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
                     <p class="p-b-md">
-                        All subscription plan prices are excluding applicable VAT.
+                        @lang('All subscription plan prices are excluding applicable VAT.')
                     </p>
                 @endif
 
@@ -100,7 +100,7 @@
                             <!-- Plan Features Button -->
                             <td>
                                 <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                    <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                    <i class="fa fa-btn fa-star-o"></i>@lang('Plan Features')
                                 </button>
                             </td>
 
@@ -108,7 +108,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="plan.price == 0">
-                                        Free
+                                        @lang('Free')
                                     </span>
 
                                     <span v-else>
@@ -120,18 +120,18 @@
                             <!-- Trial Days -->
                             <td>
                                 <div class="btn-table-align" v-if="plan.trialDays">
-                                    @{{ plan.trialDays}} Day Trial
+                                    @lang(':days Day Trial', ['days' => '@{{ plan.trialDays}}'])
                                 </div>
                             </td>
 
                             <!-- Plan Select Button -->
                             <td class="text-right">
                                 <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
-                                    <i class="fa fa-btn fa-check"></i>Selected
+                                    <i class="fa fa-btn fa-check"></i>@lang('Selected')
                                 </button>
 
                                 <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
-                                    Select
+                                    @lang('Select')
                                 </button>
                             </td>
                         </tr>
@@ -148,11 +148,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <span v-if="paidPlans.length > 0">
-                    Profile
+                    @lang('Profile')
                 </span>
 
                 <span v-else>
-                    Register
+                    @lang('Register')
                 </span>
             </div>
 
