@@ -13,7 +13,7 @@
                 <!-- Collapsed Hamburger -->
                 <div class="hamburger">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#spark-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="sr-only">{{ __('spark::app.general.toggle-navigation') }}</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
@@ -54,12 +54,12 @@
                         <ul class="dropdown-menu" role="menu">
                             <!-- Impersonation -->
                             @if (session('spark:impersonator'))
-                                <li class="dropdown-header">Impersonation</li>
+                                <li class="dropdown-header">{{ __('spark::app.kiosk.impersonation') }}</li>
 
                                 <!-- Stop Impersonating -->
                                 <li>
                                     <a href="/spark/kiosk/users/stop-impersonating">
-                                        <i class="fa fa-fw fa-btn fa-user-secret"></i>Back To My Account
+                                        <i class="fa fa-fw fa-btn fa-user-secret"></i>{{ __('spark::app.kiosk.back-to-account') }}
                                     </a>
                                 </li>
 
@@ -75,12 +75,12 @@
                             @include('spark::nav.subscriptions')
 
                             <!-- Settings -->
-                            <li class="dropdown-header">Settings</li>
+                            <li class="dropdown-header">{{ __('spark::app.auth.settings') }}</li>
 
                             <!-- Your Settings -->
                             <li>
                                 <a href="/settings">
-                                    <i class="fa fa-fw fa-btn fa-cog"></i>Your Settings
+                                    <i class="fa fa-fw fa-btn fa-cog"></i>{{ __('spark::app.auth.your-settings') }}
                                 </a>
                             </li>
 
@@ -99,7 +99,7 @@
                             <!-- Logout -->
                             <li>
                                 <a href="/logout">
-                                    <i class="fa fa-fw fa-btn fa-sign-out"></i>Logout
+                                    <i class="fa fa-fw fa-btn fa-sign-out"></i>{{ __('spark::app.auth.logout') }}
                                 </a>
                             </li>
                         </ul>

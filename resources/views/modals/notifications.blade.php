@@ -11,11 +11,11 @@
                     <div class="modal-header text-center">
                         <div class="btn-group">
                             <button class="btn btn-default" :class="{'active': showingNotifications}" @click="showNotifications" style="width: 50%;">
-                                Notifications
+                                {{ __('spark::app.general.notifications') }}
                             </button>
 
                             <button class="btn btn-default" :class="{'active': showingAnnouncements}" @click="showAnnouncements" style="width: 50%;">
-                                Announcements <i class="fa fa-circle text-danger p-l-xs" v-if="hasUnreadAnnouncements"></i>
+                                {{ __('spark::app.general.announcements') }} <i class="fa fa-circle text-danger p-l-xs" v-if="hasUnreadAnnouncements"></i>
                             </button>
                         </div>
                     </div>
@@ -23,13 +23,12 @@
                     <div class="modal-body">
                         <!-- Informational Messages -->
                         <div class="notification-container" v-if="loadingNotifications">
-                            <i class="fa fa-btn fa-spinner fa-spin"></i>Loading Notifications
+                            <i class="fa fa-btn fa-spinner fa-spin"></i>{{ __('spark::app.general.loading-notifications') }}
                         </div>
 
                         <div class="notification-container" v-if=" ! loadingNotifications && activeNotifications.length == 0">
                             <div class="alert alert-warning m-b-none">
-                                We don't have anything to show you right now! But when we do,
-                                we'll be sure to let you know. Talk to you soon!
+                                {{ __('spark::app.general.no-notifications') }}
                             </div>
                         </div>
 
@@ -109,7 +108,7 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{ __('spark::app.general.close') }}</button>
                     </div>
                 </div>
             </div>

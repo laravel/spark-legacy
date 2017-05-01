@@ -2,10 +2,10 @@
 <div class="row" v-if="coupon">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-success">
-            <div class="panel-heading">Discount</div>
+            <div class="panel-heading">{{ __('spark::app.billing.discount') }}</div>
 
             <div class="panel-body">
-                The coupon's @{{ discount }} discount will be applied to your subscription!
+                {{ __('spark::app.billing.coupon-discount-applied') }}
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
 <div class="row" v-if="invalidCoupon">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-danger">
-            Whoops! This coupon code is invalid.
+            {{ __('spark::app.billing.coupon-invalid') }}
         </div>
     </div>
 </div>
@@ -24,7 +24,7 @@
 <div class="row" v-if="invitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success">
-            We found your invitation to the <strong>@{{ invitation.team.name }}</strong> {{ Spark::teamString() }}!
+            {{ __('spark::app.billing.invitation-found', ['Team' => Spark::teamString()]) }}
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="row" v-if="invalidInvitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-danger">
-            Whoops! This invitation code is invalid.
+            {{ __('spark::app.billing.invitation-invalid') }}
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                    Subscription
+                    {{ __('spark::app.billing.subscription') }}
                 </div>
 
                 <!-- Interval Selector Button Group -->
@@ -55,7 +55,7 @@
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
-                            Monthly
+                            {{ __('spark::app.billing.monthly') }}
                         </button>
 
                         <!-- Yearly Plans -->
@@ -63,7 +63,7 @@
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
-                            Yearly
+                            {{ __('spark::app.billing.yearly') }}
                         </button>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
                     <p class="p-b-md">
-                        All subscription plan prices are excluding applicable VAT.
+                        {{ __('spark::app.billing.subscription-prices-excluding-vat') }}
                     </p>
                 @endif
 
@@ -100,7 +100,7 @@
                             <!-- Plan Features Button -->
                             <td>
                                 <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                    <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                    <i class="fa fa-btn fa-star-o"></i>{{ __('spark::app.billing.plan-features') }}
                                 </button>
                             </td>
 
@@ -108,7 +108,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="plan.price == 0">
-                                        Free
+                                        {{ __('spark::app.billing.free') }}
                                     </span>
 
                                     <span v-else>
@@ -120,18 +120,18 @@
                             <!-- Trial Days -->
                             <td>
                                 <div class="btn-table-align" v-if="plan.trialDays">
-                                    @{{ plan.trialDays}} Day Trial
+                                    {{ __('spark::app.billing.days-trial') }}
                                 </div>
                             </td>
 
                             <!-- Plan Select Button -->
                             <td class="text-right">
                                 <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
-                                    <i class="fa fa-btn fa-check"></i>Selected
+                                    <i class="fa fa-btn fa-check"></i>{{ __('spark::app.billing.selected') }}
                                 </button>
 
                                 <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
-                                    Select
+                                    {{ __('spark::app.billing.select') }}
                                 </button>
                             </td>
                         </tr>
@@ -148,11 +148,11 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <span v-if="paidPlans.length > 0">
-                    Profile
+                    {{ __('spark::app.auth.profile') }}
                 </span>
 
                 <span v-else>
-                    Register
+                    {{ __('spark::app.auth.register') }}
                 </span>
             </div>
 
