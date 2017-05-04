@@ -200,10 +200,15 @@ module.exports = {
          * After obtaining the Stripe token, send the registration to Spark.
          */
         sendRegistration() {
-            Spark.post('/register', this.registerForm)
-                .then(response => {
-                    window.location = response.redirect;
-                });
+            var self = this;
+            axios.post('/register', self.registerForm)
+                    .then(function (response) {
+                      window.location = response.data.redirect;
+                    })
+                    .catch(function (error) {
+                      self.registerForm.errors.set(error.response.data);
+                      self.registerForm.busy = false;
+                    });
         }
     },
 
