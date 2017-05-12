@@ -101,8 +101,8 @@ trait Billable
 
         $vatCalculator->setBusinessCountryCode(Spark::homeCountry());
 
-        return $vatCalculator->getTaxRateForCountry(
-            $this->card_country, ! empty($this->vat_id)
+        return $vatCalculator->getTaxRateForLocation(
+            $this->card_country, $this->billing_zip, ! empty($this->vat_id)
         ) * 100;
     }
 }
