@@ -101,8 +101,14 @@ trait Billable
 
         $vatCalculator->setBusinessCountryCode(Spark::homeCountry());
 
+        try {
+            $isValidVAT = $vatCalculator->isValidVATNumber($this->vat_id);
+        } catch(\Mpociot\VatCalculator\Exceptions\VATCheckUnavailableException $e) {
+            $isValidVAT = false;
+        }
+
         return $vatCalculator->getTaxRateForLocation(
-            $this->card_country, $this->billing_zip, ! empty($this->vat_id)
+            $this->card_country, $this->billing_zip, $isValidVAT
         ) * 100;
     }
 }
