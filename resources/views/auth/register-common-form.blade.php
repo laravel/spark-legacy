@@ -22,7 +22,7 @@
                     <input type="name" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
 
                     <p class="help-block" v-show=" ! registerForm.errors.has('team_slug')">
-                        This slug is used to identify your team in URLs.
+                        This slug is used to identify your {{ Spark::teamString() }} in URLs.
                     </p>
 
                     <span class="help-block" v-show="registerForm.errors.has('team_slug')">
