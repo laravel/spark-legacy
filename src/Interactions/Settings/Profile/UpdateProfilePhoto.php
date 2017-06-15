@@ -54,16 +54,14 @@ class UpdateProfilePhoto implements Contract
         $disk->put(
             $path, $this->formatImage($file)
         );
-
-        $oldPhotoUrl = $user->photo_url;
+        
+        if (preg_match('/profiles\/(.*)$/', $user->photo_url, $matches)) {
+            $disk->delete('profiles/'.$matches[1]);
+        }
         
         $user->forceFill([
             'photo_url' => $disk->url($path),
         ])->save();
-
-        if (preg_match('/profiles\/(.*)$/', $oldPhotoUrl, $matches)) {
-            $disk->delete('profiles/'.$matches[1]);
-        }
     }
 
     /**
