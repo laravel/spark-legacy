@@ -46,7 +46,7 @@ trait ManagesAppOptions
      */
     public static function afterLoginRedirect()
     {
-        return static::$afterLoginRedirectTo;
+        return value(static::$afterLoginRedirectTo);
     }
 
     /**
