@@ -1,4 +1,8 @@
-Hi {{ explode(' ', $billable->name)[0] }}!
+@if ($billable instanceof Laravel\Spark\Team)
+    Hi {{ $billable->name }}!
+@else
+    Hi {{ explode(' ', $billable->name)[0] }}!
+@endif
 
 <br><br>
 
