@@ -80,15 +80,17 @@ class PerformanceIndicatorsController extends Controller
     }
 
     /**
-     * Get the number of users who are on a generic trial.
+     * Get the number of users or teams who are on a generic trial.
      *
      * @return Response
      */
-    public function trialUsers()
+    public function trials()
     {
-        return Spark::user()
-                        ->where('trial_ends_at', '>=', Carbon::now())
-                        ->whereDoesntHave('subscriptions')
-                        ->count();
+        $model = Spark::teamTrialDays() ? Spark::team() : Spark::user();
+
+        return $model
+                ->where('trial_ends_at', '>=', Carbon::now())
+                ->whereDoesntHave('subscriptions')
+                ->count();
     }
 }
