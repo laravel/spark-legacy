@@ -150,7 +150,7 @@ $router->group(['middleware' => 'web'], function ($router) {
     $router->get('/spark/kiosk/performance-indicators', 'Kiosk\PerformanceIndicatorsController@all');
     $router->get('/spark/kiosk/performance-indicators/revenue', 'Kiosk\PerformanceIndicatorsController@revenue');
     $router->get('/spark/kiosk/performance-indicators/plans', 'Kiosk\PerformanceIndicatorsController@subscribers');
-    $router->get('/spark/kiosk/performance-indicators/trialing', 'Kiosk\PerformanceIndicatorsController@trialUsers');
+    $router->get('/spark/kiosk/performance-indicators/trialing', 'Kiosk\PerformanceIndicatorsController@trials');
 
     // Kiosk User Profiles...
     $router->get('/spark/kiosk/users/{id}/profile', 'Kiosk\ProfileController@show');
