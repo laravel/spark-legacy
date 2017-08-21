@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 4.0.13
+
+- Various bug fixes.
+
 ## Version 4.0.12
 
 - Various bug fixes.
