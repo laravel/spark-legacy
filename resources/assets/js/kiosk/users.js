@@ -55,8 +55,8 @@ module.exports = {
          * Get all of the available subscription plans.
          */
         getPlans() {
-            this.$http.get('/spark/plans')
-                .then(function(response) {
+            axios.get('/spark/plans')
+                .then(response => {
                     this.plans = response.data;
                 });
         },
@@ -69,7 +69,7 @@ module.exports = {
             this.searching = true;
             this.noSearchResults = false;
 
-            this.$http.post('/spark/kiosk/users/search', JSON.stringify(this.searchForm))
+            axios.post('/spark/kiosk/users/search', this.searchForm)
                 .then(response => {
                     this.searchResults = response.data;
                     this.noSearchResults = this.searchResults.length === 0;

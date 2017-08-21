@@ -1,5 +1,70 @@
 # Change Log
 
+## Version 4.0.13
+
+- Various bug fixes.
+
+## Version 4.0.12
+
+- Various bug fixes.
+
+## Version 4.0.11
+
+- Various bug fixes.
+
+## Version 4.0.10
+
+- Update Vue dependencies.
+
+## Version 4.0.9
+
+- Fix Mix version.
+
+## Version 4.0.8
+
+- Fix broken VAT calculation.
+
+## Version 4.0.7
+
+- Fix additional `cross-env` bug.
+
+## Version 4.0.6
+
+- Update `cross-env` compatibility.
+
+## Version 4.0.4
+
+- Various bug fixes.
+
+## Version 4.0.0
+
+- Compatibility with Laravel 5.4.
+
+## Version 3.0.5
+
+- Various bug fixes.
+
+## Version 3.0.4
+
+- Various bug fixes.
+
+## Version 3.0.3
+
+- The `spark:update` command now only updates to the latest version in your major version series.
+
+## Version 3.0.2
+
+- Support for disabling plan change prorating.
+- Properly handle trials on subscription page if user has never subscribed before.
+
+## Version 3.0.1
+
+- Various Bug Fixes
+
+## Version 3.0.0
+
+- Update to Vue 2.0
+
 ## Version 2.0.4
 
 - Revert Vue Resource upgrade.

@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Spark\Interactions\Settings\Profile;
+namespace Laravel\Spark\Interactions\Settings\Teams;
 
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use Laravel\Spark\Contracts\Interactions\Settings\Profile\UpdateProfilePhoto as Contract;
+use Laravel\Spark\Contracts\Interactions\Settings\Teams\UpdateTeamPhoto as Contract;
 
-class UpdateProfilePhoto implements Contract
+class UpdateTeamPhoto implements Contract
 {
     /**
      * The image manager instance.
@@ -30,7 +30,7 @@ class UpdateProfilePhoto implements Contract
     /**
      * {@inheritdoc}
      */
-    public function validator($user, array $data)
+    public function validator($team, array $data)
     {
         return Validator::make($data, [
             'photo' => 'required|image|max:4000',
@@ -40,7 +40,7 @@ class UpdateProfilePhoto implements Contract
     /**
      * {@inheritdoc}
      */
-    public function handle($user, array $data)
+    public function handle($team, array $data)
     {
         $file = $data['photo'];
 
@@ -55,9 +55,9 @@ class UpdateProfilePhoto implements Contract
             $path, $this->formatImage($file)
         );
 
-        $oldPhotoUrl = $user->photo_url;
-        
-        $user->forceFill([
+        $oldPhotoUrl = $team->photo_url;
+
+        $team->forceFill([
             'photo_url' => $disk->url($path),
         ])->save();
 

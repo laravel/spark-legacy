@@ -48,7 +48,7 @@ class Team extends Model
      */
     protected $casts = [
         'owner_id' => 'int',
-        'trial_ends_at' => 'date',
+        'trial_ends_at' => 'datetime',
     ];
 
     /**
@@ -104,7 +104,7 @@ class Team extends Model
      */
     public function subscriptions()
     {
-        return $this->hasMany(TeamSubscription::class)->orderBy('created_at', 'desc');
+        return $this->hasMany(TeamSubscription::class, 'team_id')->orderBy('created_at', 'desc');
     }
 
     /**

@@ -48,6 +48,10 @@ module.exports = {
             self.getUser();
         });
 
+        Bus.$on('updateUserData', function() {
+            self.loadDataForAuthenticatedUser();
+        });
+
         Bus.$on('updateTeams', function () {
             self.getTeams();
         });
@@ -108,7 +112,7 @@ module.exports = {
             }, 240000);
 
             setInterval(() => {
-                if (this.lastRefreshedApiTokenAt.diff(moment(), 'minutes') >= 5) {
+                if (moment().diff(this.lastRefreshedApiTokenAt, 'minutes') >= 5) {
                     this.refreshApiToken();
                 }
             }, 5000);
@@ -121,7 +125,7 @@ module.exports = {
         refreshApiToken() {
             this.lastRefreshedApiTokenAt = moment();
 
-            this.$http.put('/spark/token');
+            axios.put('/spark/token');
         },
 
 
@@ -129,7 +133,7 @@ module.exports = {
          * Get the current user of the application.
          */
         getUser() {
-            this.$http.get('/user/current')
+            axios.get('/user/current')
                 .then(response => {
                     this.user = response.data;
                 });
@@ -140,7 +144,7 @@ module.exports = {
          * Get the current team list.
          */
         getTeams() {
-            this.$http.get('/'+Spark.pluralTeamString)
+            axios.get('/'+Spark.pluralTeamString)
                 .then(response => {
                     this.teams = response.data;
                 });
@@ -151,7 +155,7 @@ module.exports = {
          * Get the current team.
          */
         getCurrentTeam() {
-            this.$http.get(`/${Spark.pluralTeamString}/current`)
+            axios.get(`/${Spark.pluralTeamString}/current`)
                 .then(response => {
                     this.currentTeam = response.data;
                 })
@@ -167,7 +171,7 @@ module.exports = {
         getNotifications() {
             this.loadingNotifications = true;
 
-            this.$http.get('/notifications/recent')
+            axios.get('/notifications/recent')
                 .then(response => {
                     this.notifications = response.data;
 
@@ -184,7 +188,7 @@ module.exports = {
                 return;
             }
 
-            this.$http.put('/notifications/read', {
+            axios.put('/notifications/read', {
                 notifications: _.pluck(this.notifications.notifications, 'id')
             });
 

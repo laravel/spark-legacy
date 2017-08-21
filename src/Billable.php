@@ -53,6 +53,22 @@ trait Billable
     }
 
     /**
+     * Determine if the Stripe model has subscribed before.
+     *
+     * @param  string  $subscription
+     * @param  string|null  $plan
+     * @return bool
+     */
+    public function hasEverSubscribedTo($subscription = 'default', $plan = null)
+    {
+        if (is_null($subscription = $this->subscription($subscription))) {
+            return false;
+        }
+
+        return $plan ? $subscription->provider_plan == $plan : true;
+    }
+
+    /**
      * Get the available billing plans for the given entity.
      *
      * @return \Illuminate\Support\Collection

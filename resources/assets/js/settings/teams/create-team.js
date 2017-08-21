@@ -63,8 +63,10 @@ module.exports = {
          * Get the remaining teams in the active plan.
          */
         remainingTeams() {
+            var ownedTeams = _.filter(this.$parent.teams, {owner_id: this.$parent.billable.id});
+
             return this.activePlan
-                    ? this.activePlan.attributes.teams - this.$parent.teams.length
+                    ? this.activePlan.attributes.teams - ownedTeams.length
                     : 0;
         },
 
@@ -76,6 +78,7 @@ module.exports = {
             if (! this.hasTeamLimit) {
                 return true;
             }
+
             return this.remainingTeams > 0;
         }
     },
@@ -139,7 +142,7 @@ module.exports = {
          * Get all the plans defined in the application.
          */
         getPlans() {
-            this.$http.get('/spark/plans')
+            axios.get('/spark/plans')
                 .then(response => {
                     this.plans = response.data;
                 });

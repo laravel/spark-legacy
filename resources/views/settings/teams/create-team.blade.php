@@ -12,7 +12,7 @@
                         <input type="text" id="create-team-name" class="form-control" name="name" v-model="form.name">
 
                         <span class="help-block" v-if="hasTeamLimit">
-                            You currently have @{{ remainingTeams }} teams remaining.
+                            You currently have @{{ remainingTeams }} {{ str_plural(Spark::teamString()) }} remaining.
                         </span>
 
                         <span class="help-block" v-show="form.errors.has('name')">

@@ -1,5 +1,3 @@
-<li class="divider"></li>
-
 <!-- Teams -->
 <li class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</li>
 
@@ -26,3 +24,5 @@
         </a>
     </li>
 @endif
+
+<li class="divider"></li>

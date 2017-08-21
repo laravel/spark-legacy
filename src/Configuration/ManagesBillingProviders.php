@@ -14,6 +14,13 @@ trait ManagesBillingProviders
     public static $cardUpFront = true;
 
     /**
+     * Indicates if a plan change should be prorated.
+     *
+     * @var bool
+     */
+    public static $prorate = true;
+
+    /**
      * Indicates the service the application uses for billing.
      *
      * @var bool
@@ -63,6 +70,28 @@ trait ManagesBillingProviders
     public static function needsCardUpFront()
     {
         return static::$cardUpFront;
+    }
+
+    /**
+     * Determine if a plan change should be prorated.
+     *
+     * @return bool
+     */
+    public static function prorates()
+    {
+        return static::$prorate;
+    }
+
+    /**
+     * Indicate that plan changes should not be prorated.
+     *
+     * @return static
+     */
+    public static function noProrate()
+    {
+        static::$prorate = false;
+
+        return new static;
     }
 
     /**
@@ -146,7 +175,7 @@ trait ManagesBillingProviders
      *
      * @param  bool  $value
      * @return static
-     * 
+     *
      * @throws \Exception
      */
     public static function collectBillingAddress($value = true)

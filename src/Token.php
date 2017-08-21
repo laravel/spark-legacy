@@ -46,8 +46,8 @@ class Token extends Model
     protected $casts = [
         'metadata' => 'array',
         'transient' => 'boolean',
-        'last_used_at' => 'date',
-        'expires_at' => 'date',
+        'last_used_at' => 'datetime',
+        'expires_at' => 'datetime',
     ];
 
     /**

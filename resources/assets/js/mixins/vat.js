@@ -6,7 +6,7 @@ module.exports = {
         collectsVat(country) {
             return Spark.collectsEuropeanVat ? _.contains([
                 'BE', 'BG', 'CZ', 'DK', 'DE',
-                'EE', 'IE', 'EL', 'ES', 'FR',
+                'EE', 'IE', 'GR', 'ES', 'FR',
                 'HR', 'IT', 'CY', 'LV', 'LT',
                 'LU', 'HU', 'MT', 'NL', 'AT',
                 'PL', 'PT', 'RO', 'SI', 'SK',
@@ -19,7 +19,7 @@ module.exports = {
          * Refresh the tax rate using the given form input.
          */
         refreshTaxRate(form) {
-            this.$http.post('/tax-rate', JSON.stringify(form))
+            axios.post('/tax-rate', JSON.parse(JSON.stringify(form)))
                 .then(response => {
                     this.taxRate = response.data.rate;
                 });
@@ -27,7 +27,7 @@ module.exports = {
 
 
         /**
-         * Get the tax acmount for the selected plan.
+         * Get the tax amount for the selected plan.
          */
         taxAmount(plan) {
             return plan.price * (this.taxRate / 100);

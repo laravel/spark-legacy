@@ -30,7 +30,7 @@
                             <!-- Owner Name -->
                             <td>
                                 <div class="btn-table-align">
-                                    <span v-if="user.name == team.owner.name">
+                                    <span v-if="user.id == team.owner.id">
                                         You
                                     </span>
 
@@ -58,12 +58,14 @@
                                 </button>
                             </td>
 
-                            <!-- Delete Button -->
-                            <td>
-                                <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
-                                    <i class="fa fa-times"></i>
-                                </button>
-                            </td>
+                            @if (Spark::createsAdditionalTeams())
+                                <!-- Delete Button -->
+                                <td>
+                                    <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                </td>
+                            @endif
                         </tr>
                     </tbody>
                 </table>

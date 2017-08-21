@@ -100,7 +100,7 @@ module.exports = {
          * Get the coupon specified in the query string.
          */
         getCoupon() {
-            this.$http.get('/coupon/' + this.query.coupon)
+            axios.get('/coupon/' + this.query.coupon)
                 .then(response => {
                     this.coupon = response.data;
                 })

@@ -34,7 +34,7 @@ module.exports = {
          * Get the available team member roles.
          */
         getRoles() {
-            this.$http.get(`/settings/${Spark.pluralTeamString}/roles`)
+            axios.get(`/settings/${Spark.pluralTeamString}/roles`)
                 .then(response => {
                     this.roles = response.data;
                 });

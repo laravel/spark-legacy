@@ -1,5 +1,5 @@
 module.exports = {
-    props: ['user', 'team'],
+    props: ['user', 'team', 'billableType'],
 
     /**
      * The component's data.
@@ -20,12 +20,12 @@ module.exports = {
          * Get the active subscription instance.
          */
         activeSubscription() {
-            if ( ! this.$parent.billable) {
+            if ( ! this.billable) {
                 return;
             }
 
             const subscription = _.find(
-                this.$parent.billable.subscriptions,
+                this.billable.subscriptions,
                 subscription => subscription.name == 'default'
             );
 
@@ -107,7 +107,7 @@ module.exports = {
          * Get all the plans defined in the application.
          */
         getPlans() {
-            this.$http.get('/spark/plans')
+            axios.get('/spark/plans')
                 .then(response => {
                     this.plans = response.data;
                 });

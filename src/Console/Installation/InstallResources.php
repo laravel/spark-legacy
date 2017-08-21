@@ -40,7 +40,7 @@ class InstallResources
 
         $files = [
             SPARK_STUB_PATH.'/terms.md' => base_path('terms.md'),
-            SPARK_STUB_PATH.'/gulpfile.js' => base_path('gulpfile.js'),
+            SPARK_STUB_PATH.'/webpack.mix.js' => base_path('webpack.mix.js'),
             SPARK_STUB_PATH.'/package.json' => base_path('package.json'),
             SPARK_STUB_PATH.'/resources/assets/less/app.less' => resource_path('assets/less/app.less'),
             SPARK_STUB_PATH.'/resources/lang/en/validation.php' => resource_path('lang/en/validation.php'),

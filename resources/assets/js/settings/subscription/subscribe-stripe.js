@@ -153,6 +153,14 @@ module.exports = {
 
 
         /**
+         * Determine if the user has subscribed to the given plan before.
+         */
+        hasSubscribed(plan) {
+            return !!_.where(this.billable.subscriptions, {provider_plan: plan.id}).length
+        },
+
+
+        /**
          * Show the plan details for the given plan.
          *
          * We'll ask the parent subscription component to display it.

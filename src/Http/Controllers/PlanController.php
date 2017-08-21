@@ -13,6 +13,6 @@ class PlanController extends Controller
      */
     public function all()
     {
-        return response()->json(Spark::plans()->merge(Spark::teamPlans()));
+        return response()->json(Spark::allPlans());
     }
 }

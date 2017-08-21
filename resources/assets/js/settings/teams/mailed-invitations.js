@@ -7,14 +7,10 @@ module.exports = {
          * Cancel the sent invitation.
          */
         cancel(invitation) {
-            this.$http.delete(`/settings/invitations/${invitation.id}`)
-                .then(function() {
+            axios.delete(`/settings/invitations/${invitation.id}`)
+                .then(() => {
                     this.$parent.$emit('updateInvitations');
                 });
-
-            this.invitations = _.reject(
-                this.invitations, i => i.id === invitation.id
-            );
         }
     }
 };

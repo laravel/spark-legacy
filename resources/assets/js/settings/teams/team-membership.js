@@ -1,5 +1,5 @@
 module.exports = {
-    props: ['user', 'team'],
+    props: ['user', 'team', 'billableType'],
 
     /**
      * The component's data.
@@ -30,7 +30,7 @@ module.exports = {
          * Get all of the invitations for the team.
          */
         getInvitations() {
-            this.$http.get(`/settings/${Spark.pluralTeamString}/${this.team.id}/invitations`)
+            axios.get(`/settings/${Spark.pluralTeamString}/${this.team.id}/invitations`)
                 .then(response => {
                     this.invitations = response.data;
                 });

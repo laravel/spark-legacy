@@ -119,7 +119,7 @@ module.exports = {
          * Attempt to guess the user's country.
          */
         guessCountry() {
-            this.$http.get('/geocode/country')
+            axios.get('/geocode/country')
                 .then(response => {
                     if (response.data != 'ZZ') {
                         this.registerForm.country = response.data;
@@ -138,7 +138,7 @@ module.exports = {
          * Get the coupon specified in the query string.
          */
         getCoupon() {
-            this.$http.get('/coupon/' + this.query.coupon)
+            axios.get('/coupon/' + this.query.coupon)
                 .then(response => {
                     this.coupon = response.data;
                 })

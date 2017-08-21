@@ -30,13 +30,17 @@ module.exports = {
              // Here we will send the request to the server to update the subscription plan and
              // update the user and team once the request is complete. This method gets used
              // for both updating subscriptions plus resuming any cancelled subscriptions.
-            this.$http.put(this.urlForPlanUpdate, {"plan": plan.id})
+            axios.put(this.urlForPlanUpdate, {"plan": plan.id})
                 .then(() => {
                     Bus.$emit('updateUser');
                     Bus.$emit('updateTeam');
                 })
-                .catch(response => {
-                    this.planForm.errors.set(response.data);
+                .catch(errors => {
+                    if (errors.response.status == 422) {
+                        this.planForm.errors.set(errors.response.data);
+                    } else {
+                        this.planForm.errors.set({plan: ["We were unable to update your subscription. Please contact customer support."]});
+                    }
                 })
                 .finally(() => {
                     this.selectingPlan = null;

@@ -194,7 +194,7 @@ class Plan implements JsonSerializable
     /**
      * Indicate that the plan should be archived.
      *
-     * @return bool
+     * @return $this
      */
     public function archived()
     {

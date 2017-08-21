@@ -63,10 +63,14 @@
                 </div>
             </div>
 
-            <!-- Total Trial Users -->
+            <!-- Total Trials -->
             <div class="col-md-6">
                 <div class="panel panel-info">
-                    <div class="panel-heading text-center">Users Currently Trialing</div>
+                    @if(Spark::teamTrialDays())
+                        <div class="panel-heading text-center">Teams Currently Trialing</div>
+                    @else
+                        <div class="panel-heading text-center">Users Currently Trialing</div>
+                    @endif
 
                     <div class="panel-body text-center">
                         <span style="font-size: 24px;">

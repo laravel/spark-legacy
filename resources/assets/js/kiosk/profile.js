@@ -40,7 +40,7 @@ module.exports = {
         getUserProfile(id) {
             this.loading = true;
 
-            this.$http.get('/spark/kiosk/users/' + id + '/profile')
+            axios.get('/spark/kiosk/users/' + id + '/profile')
                 .then(response => {
                     this.profile = response.data.user;
                     this.revenue = response.data.revenue;

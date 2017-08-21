@@ -37,7 +37,7 @@ module.exports = {
          * Update the last read announcements timestamp.
          */
         updateLastReadAnnouncementsTimestamp() {
-            this.$http.put('/user/last-read-announcements-at')
+            axios.put('/user/last-read-announcements-at')
                 .then(() => {
                     Bus.$emit('updateUser');
                 });

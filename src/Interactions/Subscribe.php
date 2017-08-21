@@ -19,7 +19,7 @@ class Subscribe implements Contract
         // Here we will check if we need to skip trial or set trial days on the subscription
         // when creating it on the provider. By default, we will skip the trial when this
         // interaction isn't from registration since they have already usually trialed.
-        if (! $fromRegistration) {
+        if (! $fromRegistration && $user->hasEverSubscribedTo('default', $plan->id)) {
             $subscription->skipTrial();
         } elseif ($plan->trialDays > 0) {
             $subscription->trialDays($plan->trialDays);

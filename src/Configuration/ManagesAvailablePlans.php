@@ -352,7 +352,7 @@ trait ManagesAvailablePlans
      */
     public static function allPlans()
     {
-        return collect(array_merge(static::$plans, static::$teamPlans));
+        return static::plans()->merge(static::teamPlans());
     }
 
     /**

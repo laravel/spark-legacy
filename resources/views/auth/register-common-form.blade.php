@@ -5,7 +5,7 @@
             <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
 
             <div class="col-md-6">
-                <input type="name" class="form-control" name="team" v-model="registerForm.team" autofocus>
+                <input type="text" class="form-control" name="team" v-model="registerForm.team" autofocus>
 
                 <span class="help-block" v-show="registerForm.errors.has('team')">
                     @{{ registerForm.errors.get('team') }}
@@ -19,10 +19,10 @@
                 <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
 
                 <div class="col-md-6">
-                    <input type="name" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
+                    <input type="text" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
 
                     <p class="help-block" v-show=" ! registerForm.errors.has('team_slug')">
-                        This slug is used to identify your team in URLs.
+                        This slug is used to identify your {{ Spark::teamString() }} in URLs.
                     </p>
 
                     <span class="help-block" v-show="registerForm.errors.has('team_slug')">
@@ -38,7 +38,7 @@
         <label class="col-md-4 control-label">Name</label>
 
         <div class="col-md-6">
-            <input type="name" class="form-control" name="name" v-model="registerForm.name" autofocus>
+            <input type="text" class="form-control" name="name" v-model="registerForm.name" autofocus>
 
             <span class="help-block" v-show="registerForm.errors.has('name')">
                 @{{ registerForm.errors.get('name') }}

@@ -54,9 +54,13 @@ class PlanController extends Controller
         if ($plan->price === 0) {
             return $this->destroy($request);
         } else {
-            $request->user()
-                    ->subscription()
-                    ->swap($request->plan);
+            $subscription = $request->user()->subscription();
+
+            if (Spark::prorates()) {
+                $subscription->swap($request->plan);
+            } else {
+                $subscription->noProrate()->swap($request->plan);
+            }
         }
 
         event(new SubscriptionUpdated(
