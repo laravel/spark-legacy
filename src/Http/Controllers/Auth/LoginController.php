@@ -42,7 +42,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if ($request->has('remember')) {
+        if ($request->filled('remember')) {
             $request->session()->put('spark:auth-remember', $request->remember);
         }
 
