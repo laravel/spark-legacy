@@ -23,11 +23,7 @@ class Controller extends BaseController
      */
     public function interaction(Request $request, $interaction, array $parameters)
     {
-        $validator = Spark::interact($interaction.'@validator', $parameters);
-
-        if ($validator->fails()) {
-            $this->throwValidationException($request, $validator);
-        }
+        Spark::interact($interaction.'@validator', $parameters)->validate();
 
         return Spark::interact($interaction, $parameters);
     }

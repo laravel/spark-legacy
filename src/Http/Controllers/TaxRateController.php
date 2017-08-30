@@ -15,7 +15,7 @@ class TaxRateController extends Controller
      */
     public function calculate(Request $request)
     {
-        if (! $request->has('city', 'state', 'zip', 'country')) {
+        if (! $request->filled('city', 'state', 'zip', 'country')) {
             return response()->json(['rate' => 0]);
         }
 

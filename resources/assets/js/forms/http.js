@@ -47,7 +47,7 @@ module.exports = {
                     resolve(response.data);
                 })
                 .catch(errors => {
-                    form.setErrors(errors.response.data);
+                    form.setErrors(errors.response.data.errors);
 
                     reject(errors.response.data);
                 });

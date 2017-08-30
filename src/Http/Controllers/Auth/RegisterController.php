@@ -35,7 +35,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm(Request $request)
     {
-        if (Spark::promotion() && ! $request->has('coupon')) {
+        if (Spark::promotion() && ! $request->filled('coupon')) {
             // If the application is running a site-wide promotion, we will redirect the user
             // to a register URL that contains the promotional coupon ID, which will force
             // all new registrations to use this coupon when creating the subscriptions.

@@ -37,7 +37,7 @@ module.exports = {
                         self.form.finishProcessing();
                     },
                     (error) => {
-                        self.form.setErrors(error.response.data);
+                        self.form.setErrors(error.response.data.errors);
                     }
                 );
         },
