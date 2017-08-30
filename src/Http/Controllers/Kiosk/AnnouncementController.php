@@ -5,7 +5,6 @@ namespace Laravel\Spark\Http\Controllers\Kiosk;
 use Illuminate\Http\Request;
 use Laravel\Spark\Announcement;
 use Laravel\Spark\Http\Controllers\Controller;
-use Laravel\Spark\Events\Kiosk\AnnouncementCreated;
 use Laravel\Spark\Contracts\Repositories\AnnouncementRepository;
 
 class AnnouncementController extends Controller
@@ -55,9 +54,9 @@ class AnnouncementController extends Controller
             'action_url' => 'required_with:action_text',
         ]);
 
-        event(new AnnouncementCreated($this->announcements->create(
+        $this->announcements->create(
             $request->user(), $request->all()
-        )));
+        );
     }
 
     /**
