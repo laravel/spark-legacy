@@ -50,8 +50,8 @@ window.SparkFormErrors = function () {
      * Set the raw errors for the collection.
      */
     this.set = function (errors) {
-        if (typeof errors === 'object') {
-            this.errors = errors;
+        if (errors.errors && (typeof errors.errors === 'object')){
+            this.errors = errors.errors;
         } else {
             this.errors = {'form': ['Something went wrong. Please try again or contact customer support.']};
         }
