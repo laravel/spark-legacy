@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 5.0.1
+
+- Fix version property.
+
 ## Version 5.0.0
 
 - Laravel 5.5 support.
