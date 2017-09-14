@@ -64,7 +64,6 @@
             font-weight: 600;
             padding: 15px;
             text-transform: uppercase;
-            width: 100px;
         }
     </style>
 </head>
@@ -73,15 +72,21 @@
         <nav class="links">
             <a href="/login" style="margin-right: 15px;">
                 <button>
-                    Login
+                    @if(auth()->check())
+                        Dashboard
+                    @else
+                        Login
+                    @endif
                 </button>
             </a>
 
-            <a href="/register">
-                <button>
-                    Register
-                </button>
-            </a>
+            @if(!auth()->check())
+                <a href="/register">
+                    <button>
+                        Register
+                    </button>
+                </a>
+            @endif
         </nav>
 
         <div class="flex-fill flex-center">
