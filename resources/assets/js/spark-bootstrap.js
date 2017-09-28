@@ -58,6 +58,14 @@ window.axios.defaults.headers.common = {
 };
 
 /**
+ * If the XSRF-TOKEN cookie is set, we will pass it along as a header for
+ * any API requests we make.
+ */
+if (Cookies.get('XSRF-TOKEN') !== undefined) {
+    window.axios.defaults.headers.common['X-XSRF-TOKEN'] = Cookies.get('XSRF-TOKEN');
+}
+
+/**
  * Intercept the incoming responses.
  *
  * Handle any unexpected HTTP errors and pop up modals, etc.
