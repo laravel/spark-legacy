@@ -219,11 +219,11 @@ module.exports = {
          */
         showSupportRequestSuccessMessage() {
             swal({
-                title: 'Got It!',
-                text: 'We have received your message and will respond soon!',
-                type: 'success',
-                showConfirmButton: false,
-                timer: 2000
+                title : 'Got It!',
+                text  : 'We have received your message and will respond soon!',
+                icon  : 'success',
+                button: false,
+                timer : 2000
             });
         }
     },
