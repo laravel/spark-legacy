@@ -37,7 +37,7 @@ module.exports = {
                 })
                 .catch(errors => {
                     if (errors.response.status == 422) {
-                        this.planForm.errors.set(errors.response.data);
+                        this.planForm.errors.set(errors.response.data.errors);
                     } else {
                         this.planForm.errors.set({plan: ["We were unable to update your subscription. Please contact customer support."]});
                     }
