@@ -40,9 +40,13 @@ class TwoFactorAuthController extends Controller
         } catch (Exception $e) {
             app(ExceptionHandler::class)->report($e);
 
-            return response()->json(['errors' => ['phone' => [
-                'We were not able to enable two-factor authentication for this phone number.'
-            ]]], 422);
+            return response()->json([
+                'errors' => [
+                    'phone' => [
+                        'We were not able to enable two-factor authentication for this phone number.'
+                    ]
+                ]
+            ], 422);
         }
     }
 
