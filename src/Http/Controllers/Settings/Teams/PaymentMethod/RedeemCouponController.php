@@ -50,9 +50,13 @@ class RedeemCouponController extends Controller
         // valid coupons can not get redeemed by an existing user if this coupon is
         // running as a promotion for brand new registrations to the application.
         if (! $this->coupons->canBeRedeemed($request->coupon)) {
-            return response()->json(['errors' => ['coupon' => [
-                'This coupon code is invalid.'
-            ]]], 422);
+            return response()->json([
+                'errors' => [
+                    'coupon' => [
+                        'This coupon code is invalid.'
+                    ]
+                ]
+            ], 422);
         }
 
         Spark::interact(RedeemCoupon::class, [
