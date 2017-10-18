@@ -71,7 +71,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="panel-body spark-row-list">
+            <div class="panel-body spark-row-list table-responsive">
                 <!-- Plan Error Message - In General Will Never Be Shown -->
                 <div class="alert alert-danger" v-if="registerForm.errors.has('plan')">
                     @{{ registerForm.errors.get('plan') }}
