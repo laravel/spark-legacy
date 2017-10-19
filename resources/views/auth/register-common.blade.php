@@ -84,59 +84,61 @@
                     </p>
                 @endif
 
-                <table class="table table-borderless m-b-none">
-                    <thead></thead>
-                    <tbody>
-                        <tr v-for="plan in plansForActiveInterval">
-                            <!-- Plan Name -->
-                            <td>
-                                <div class="btn-table-align" @click="showPlanDetails(plan)">
-                                    <span style="cursor: pointer;">
-                                        <strong>@{{ plan.name }}</strong>
-                                    </span>
-                                </div>
-                            </td>
-
-                            <!-- Plan Features Button -->
-                            <td>
-                                <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                    <i class="fa fa-btn fa-star-o"></i>Plan Features
-                                </button>
-                            </td>
-
-                            <!-- Plan Price -->
-                            <td>
-                                <div class="btn-table-align">
-                                    <span v-if="plan.price == 0">
-                                        Free
-                                    </span>
-
-                                    <span v-else>
-                                        @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
-                                    </span>
-                                </div>
-                            </td>
-
-                            <!-- Trial Days -->
-                            <td>
-                                <div class="btn-table-align" v-if="plan.trialDays">
-                                    @{{ plan.trialDays}} Day Trial
-                                </div>
-                            </td>
-
-                            <!-- Plan Select Button -->
-                            <td class="text-right">
-                                <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
-                                    <i class="fa fa-btn fa-check"></i>Selected
-                                </button>
-
-                                <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
-                                    Select
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-borderless m-b-none">
+                        <thead></thead>
+                        <tbody>
+                            <tr v-for="plan in plansForActiveInterval">
+                                <!-- Plan Name -->
+                                <td>
+                                    <div class="btn-table-align" @click="showPlanDetails(plan)">
+                                        <span style="cursor: pointer;">
+                                            <strong>@{{ plan.name }}</strong>
+                                        </span>
+                                    </div>
+                                </td>
+    
+                                <!-- Plan Features Button -->
+                                <td>
+                                    <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
+                                        <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                    </button>
+                                </td>
+    
+                                <!-- Plan Price -->
+                                <td>
+                                    <div class="btn-table-align">
+                                        <span v-if="plan.price == 0">
+                                            Free
+                                        </span>
+    
+                                        <span v-else>
+                                            @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
+                                        </span>
+                                    </div>
+                                </td>
+    
+                                <!-- Trial Days -->
+                                <td>
+                                    <div class="btn-table-align" v-if="plan.trialDays">
+                                        @{{ plan.trialDays}} Day Trial
+                                    </div>
+                                </td>
+    
+                                <!-- Plan Select Button -->
+                                <td class="text-right">
+                                    <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
+                                        <i class="fa fa-btn fa-check"></i>Selected
+                                    </button>
+    
+                                    <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
