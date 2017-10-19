@@ -71,7 +71,7 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="panel-body spark-row-list table-responsive">
+            <div class="panel-body spark-row-list">
                 <!-- Plan Error Message - In General Will Never Be Shown -->
                 <div class="alert alert-danger" v-if="registerForm.errors.has('plan')">
                     @{{ registerForm.errors.get('plan') }}
@@ -84,9 +84,10 @@
                     </p>
                 @endif
 
-                <table class="table table-borderless m-b-none">
-                    <thead></thead>
-                    <tbody>
+                <div class="table-responsive">
+                    <table class="table table-borderless m-b-none">
+                        <thead></thead>
+                        <tbody>
                         <tr v-for="plan in plansForActiveInterval">
                             <!-- Plan Name -->
                             <td>
@@ -135,41 +136,42 @@
                                 </button>
                             </td>
                         </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                    <div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- Basic Profile -->
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <!-- Basic Profile -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
                 <span v-if="paidPlans.length > 0">
                     Profile
                 </span>
 
-                <span v-else>
+                        <span v-else>
                     Register
                 </span>
-            </div>
+                    </div>
 
-            <div class="panel-body">
-                <!-- Generic Error Message -->
-                <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
-                    @{{ registerForm.errors.get('form') }}
+                    <div class="panel-body">
+                        <!-- Generic Error Message -->
+                        <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
+                            @{{ registerForm.errors.get('form') }}
+                        </div>
+
+                        <!-- Invitation Code Error -->
+                        <div class="alert alert-danger" v-if="registerForm.errors.has('invitation')">
+                            @{{ registerForm.errors.get('invitation') }}
+                        </div>
+
+                        <!-- Registration Form -->
+                        @include('spark::auth.register-common-form')
+                    </div>
                 </div>
-
-                <!-- Invitation Code Error -->
-                <div class="alert alert-danger" v-if="registerForm.errors.has('invitation')">
-                    @{{ registerForm.errors.get('invitation') }}
-                </div>
-
-                <!-- Registration Form -->
-                @include('spark::auth.register-common-form')
             </div>
         </div>
-    </div>
-</div>
