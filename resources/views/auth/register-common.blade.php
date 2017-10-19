@@ -88,54 +88,54 @@
                     <table class="table table-borderless m-b-none">
                         <thead></thead>
                         <tbody>
-                        <tr v-for="plan in plansForActiveInterval">
-                            <!-- Plan Name -->
-                            <td>
-                                <div class="btn-table-align" @click="showPlanDetails(plan)">
-                                    <span style="cursor: pointer;">
-                                        <strong>@{{ plan.name }}</strong>
-                                    </span>
-                                </div>
-                            </td>
-
-                            <!-- Plan Features Button -->
-                            <td>
-                                <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                    <i class="fa fa-btn fa-star-o"></i>Plan Features
-                                </button>
-                            </td>
-
-                            <!-- Plan Price -->
-                            <td>
-                                <div class="btn-table-align">
-                                    <span v-if="plan.price == 0">
-                                        Free
-                                    </span>
-
-                                    <span v-else>
-                                        @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
-                                    </span>
-                                </div>
-                            </td>
-
-                            <!-- Trial Days -->
-                            <td>
-                                <div class="btn-table-align" v-if="plan.trialDays">
-                                    @{{ plan.trialDays}} Day Trial
-                                </div>
-                            </td>
-
-                            <!-- Plan Select Button -->
-                            <td class="text-right">
-                                <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
-                                    <i class="fa fa-btn fa-check"></i>Selected
-                                </button>
-
-                                <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
-                                    Select
-                                </button>
-                            </td>
-                        </tr>
+                            <tr v-for="plan in plansForActiveInterval">
+                                <!-- Plan Name -->
+                                <td>
+                                    <div class="btn-table-align" @click="showPlanDetails(plan)">
+                                        <span style="cursor: pointer;">
+                                            <strong>@{{ plan.name }}</strong>
+                                        </span>
+                                    </div>
+                                </td>
+    
+                                <!-- Plan Features Button -->
+                                <td>
+                                    <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
+                                        <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                    </button>
+                                </td>
+    
+                                <!-- Plan Price -->
+                                <td>
+                                    <div class="btn-table-align">
+                                        <span v-if="plan.price == 0">
+                                            Free
+                                        </span>
+    
+                                        <span v-else>
+                                            @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
+                                        </span>
+                                    </div>
+                                </td>
+    
+                                <!-- Trial Days -->
+                                <td>
+                                    <div class="btn-table-align" v-if="plan.trialDays">
+                                        @{{ plan.trialDays}} Day Trial
+                                    </div>
+                                </td>
+    
+                                <!-- Plan Select Button -->
+                                <td class="text-right">
+                                    <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
+                                        <i class="fa fa-btn fa-check"></i>Selected
+                                    </button>
+    
+                                    <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
+                                        Select
+                                    </button>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                     <div>
@@ -144,34 +144,34 @@
             </div>
         </div>
 
-        <!-- Basic Profile -->
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                <span v-if="paidPlans.length > 0">
-                    Profile
-                </span>
+<!-- Basic Profile -->
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+        <span v-if="paidPlans.length > 0">
+            Profile
+        </span>
 
-                        <span v-else>
-                    Register
-                </span>
-                    </div>
+                <span v-else>
+            Register
+        </span>
+            </div>
 
-                    <div class="panel-body">
-                        <!-- Generic Error Message -->
-                        <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
-                            @{{ registerForm.errors.get('form') }}
-                        </div>
-
-                        <!-- Invitation Code Error -->
-                        <div class="alert alert-danger" v-if="registerForm.errors.has('invitation')">
-                            @{{ registerForm.errors.get('invitation') }}
-                        </div>
-
-                        <!-- Registration Form -->
-                        @include('spark::auth.register-common-form')
-                    </div>
+            <div class="panel-body">
+                <!-- Generic Error Message -->
+                <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
+                    @{{ registerForm.errors.get('form') }}
                 </div>
+
+                <!-- Invitation Code Error -->
+                <div class="alert alert-danger" v-if="registerForm.errors.has('invitation')">
+                    @{{ registerForm.errors.get('invitation') }}
+                </div>
+
+                <!-- Registration Form -->
+                @include('spark::auth.register-common-form')
             </div>
         </div>
+    </div>
+</div>
