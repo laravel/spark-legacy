@@ -149,13 +149,13 @@
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
             <div class="panel-heading">
-        <span v-if="paidPlans.length > 0">
-            Profile
-        </span>
+                <span v-if="paidPlans.length > 0">
+                    Profile
+                </span>
 
                 <span v-else>
-            Register
-        </span>
+                    Register
+                </span>
             </div>
 
             <div class="panel-body">
