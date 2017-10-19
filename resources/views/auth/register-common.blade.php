@@ -142,6 +142,7 @@
             </div>
         </div>
     </div>
+</div>
 
 <!-- Basic Profile -->
 <div class="row">
