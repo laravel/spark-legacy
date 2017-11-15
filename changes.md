@@ -234,4 +234,3 @@
 - Automatically calculate VAT for customers when applicable.
 - Display tax amount and total price with tax on check-out situations.
 - Clean up Vue fragment components.
-
