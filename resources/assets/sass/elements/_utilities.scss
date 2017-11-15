@@ -1,0 +1,70 @@
+.valign-middle {
+  vertical-align: middle !important;
+}
+
+.nowrap {
+  white-space: nowrap !important;
+}
+
+// Width Utilities
+// -------------------------------------------------------------------------- */
+.h-37 {
+  height: 37px;
+}
+
+.h-90 {
+  height: 90px;
+}
+
+.w-90 {
+  width: 5.625rem;
+}
+
+.w-80\% {
+  @include media-breakpoint-up(md) {
+    width: 80%;
+  }
+}
+
+.w-84\% {
+  @include media-breakpoint-up(md) {
+    width: 84%;
+  }
+}
+
+.w-auto {
+  width: auto;
+}
+
+.max-w-49\% {
+  max-width: 49%;
+}
+
+// Misc Utilities
+// -------------------------------------------------------------------------- */
+.reveal .reveal-target {
+  opacity: 0;
+}
+
+.reveal:hover .reveal-target {
+  opacity: 1;
+}
+
+// Cursor
+// -------------------------------------------------------------------------- */
+.pointer {
+  cursor: pointer;
+}
+.no-pointer {
+  cursor: default;
+}
+
+// Flex
+// -------------------------------------------------------------------------- */
+.flex-1 {
+  flex: 1;
+}
+
+.no-shrink {
+  flex-shrink: 0;
+}

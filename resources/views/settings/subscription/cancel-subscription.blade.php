@@ -1,8 +1,8 @@
 <spark-cancel-subscription :user="user" :team="team" :billable-type="billableType" inline-template>
     <div>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <button class="btn btn-danger-outline"
+        <div class="card card-default">
+            <div class="card-body">
+                <button class="btn btn-outline-danger"
                 @click="confirmCancellation"
                 :disabled="form.busy">
 
@@ -12,15 +12,13 @@
         </div>
 
         <!-- Confirm Cancellation Modal -->
-        <div class="modal fade" id="modal-confirm-cancellation" tabindex="-1" role="dialog">
+        <div class="modal" id="modal-confirm-cancellation" tabindex="-1" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Cancel Subscription
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">
@@ -33,7 +31,7 @@
 
                         <button type="button" class="btn btn-danger" @click="cancel" :disabled="form.busy">
                         <span v-if="form.busy">
-                            <i class="fa fa-btn fa-spinner fa-spin"></i>Cancelling
+                            <i class="fa fa-btn fa-spinner fa-spin"></i> Cancelling
                         </span>
 
                         <span v-else>

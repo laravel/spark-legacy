@@ -44,7 +44,7 @@ module.exports = {
         assignDefaultAbilities() {
             var defaults = _.filter(this.availableAbilities, a => a.default);
 
-            this.form.abilities = _.pluck(defaults, 'value');
+            this.form.abilities = _.map(defaults, 'value');
         },
 
 
@@ -54,7 +54,7 @@ module.exports = {
         assignAllAbilities() {
             this.allAbilitiesAssigned = true;
 
-            this.form.abilities = _.pluck(this.availableAbilities, 'value');
+            this.form.abilities = _.map(this.availableAbilities, 'value');
         },
 
 

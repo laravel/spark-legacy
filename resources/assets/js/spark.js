@@ -189,7 +189,7 @@ module.exports = {
             }
 
             axios.put('/notifications/read', {
-                notifications: _.pluck(this.notifications.notifications, 'id')
+                notifications: _.map(this.notifications.notifications, 'id')
             });
 
             _.each(this.notifications.notifications, notification => {
@@ -231,22 +231,44 @@ module.exports = {
 
     computed: {
         /**
-         * Determine if the user has any unread notifications.
+         * The number of unread announcements.
          */
-        hasUnreadAnnouncements() {
+        unreadAnnouncementsCount() {
             if (this.notifications && this.user) {
                 if (this.notifications.announcements.length && ! this.user.last_read_announcements_at) {
-                    return true;
+                    return this.notifications.announcements.length;
                 }
 
                 return _.filter(this.notifications.announcements, announcement => {
                     return moment.utc(this.user.last_read_announcements_at).isBefore(
                         moment.utc(announcement.created_at)
                     );
-                }).length > 0;
+                }).length;
             }
 
-            return false;
+            return 0;
+        },
+
+
+        /**
+         * The number of unread notifications.
+         */
+        unreadNotificationsCount() {
+            if (this.notifications) {
+                return _.filter(this.notifications.notifications, notification => {
+                    return ! notification.read;
+                });
+            }
+
+            return 0;
+        },
+
+
+        /**
+         * Determine if the user has any unread notifications.
+         */
+        hasUnreadAnnouncements() {
+            return this.unreadAnnouncementsCount > 0;
         },
 
 
@@ -254,13 +276,7 @@ module.exports = {
          * Determine if the user has any unread notifications.
          */
         hasUnreadNotifications() {
-            if (this.notifications) {
-                return _.filter(this.notifications.notifications, notification => {
-                    return ! notification.read;
-                }).length > 0;
-            }
-
-            return false;
+            return this.unreadNotificationsCount > 0;
         }
     }
 };

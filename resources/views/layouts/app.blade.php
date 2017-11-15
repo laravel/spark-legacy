@@ -26,7 +26,7 @@
         )); ?>;
     </script>
 </head>
-<body class="with-navbar">
+<body>
     <div id="spark-app" v-cloak>
         <!-- Navigation -->
         @if (Auth::check())
@@ -36,7 +36,9 @@
         @endif
 
         <!-- Main Content -->
-        @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
 
         <!-- Application Level Modals -->
         @if (Auth::check())

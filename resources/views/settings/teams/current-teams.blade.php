@@ -1,23 +1,22 @@
 <spark-current-teams :user="user" :teams="teams" inline-template>
     <div>
-        <div class="panel panel-default">
-            <div class="panel-heading">Current {{ ucfirst(str_plural(Spark::teamString())) }}</div>
+        <div class="card card-default">
+            <div class="card-header">Current {{ ucfirst(str_plural(Spark::teamString())) }}</div>
 
-            <div class="panel-body">
-                <table class="table table-borderless m-b-none">
+            <div class="table-responsive">
+                <table class="table table-valign-middle mb-0">
                     <thead>
-                        <th></th>
+                        <th class="th-fit"></th>
                         <th>Name</th>
                         <th>Owner</th>
-                        <th></th>
-                        <th></th>
+                        <th>&nbsp;</th>
                     </thead>
 
                     <tbody>
-                        <tr v-for="team in teams">
+                        <tr class="reveal" v-for="team in teams">
                             <!-- Photo -->
                             <td>
-                                <img :src="team.photo_url" class="spark-team-photo">
+                                <img :src="team.photo_url" class="spark-profile-photo">
                             </td>
 
                             <!-- Team Name -->
@@ -41,31 +40,27 @@
                             </td>
 
                             <!-- Edit Button -->
-                            <td>
-                                <a :href="'/settings/{{str_plural(Spark::teamString())}}/'+team.id">
-                                    <button class="btn btn-primary">
-                                        <i class="fa fa-cog"></i>
-                                    </button>
-                                </a>
-                            </td>
+                            <td class="td-fit">
+                                <div class="reveal-target text-right">
+                                    <a :href="'/settings/{{str_plural(Spark::teamString())}}/'+team.id">
+                                        <button class="btn btn-primary">
+                                            <i class="fa fa-cog"></i>
+                                        </button>
+                                    </a>
 
-                            <!-- Leave Button -->
-                            <td>
-                                <button class="btn btn-warning" @click="approveLeavingTeam(team)"
-                                    data-toggle="tooltip" title="Leave Team"
-                                    v-if="user.id !== team.owner_id">
-                                    <i class="fa fa-sign-out"></i>
-                                </button>
-                            </td>
-
-                            @if (Spark::createsAdditionalTeams())
-                                <!-- Delete Button -->
-                                <td>
-                                    <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
-                                        <i class="fa fa-times"></i>
+                                    <button class="btn btn-warning" @click="approveLeavingTeam(team)"
+                                            data-toggle="tooltip" title="Leave Team"
+                                            v-if="user.id !== team.owner_id">
+                                        <i class="fa fa-sign-out"></i>
                                     </button>
-                                </td>
-                            @endif
+
+                                    @if (Spark::createsAdditionalTeams())
+                                        <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
+                                            <i class="fa fa-times"></i>
+                                        </button>
+                                    @endif
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -73,15 +68,13 @@
         </div>
 
         <!-- Leave Team Modal -->
-        <div class="modal fade" id="modal-leave-team" tabindex="-1" role="dialog">
+        <div class="modal" id="modal-leave-team" tabindex="-1" role="dialog">
             <div class="modal-dialog" v-if="leavingTeam">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Leave {{ ucfirst(Spark::teamString()) }} (@{{ leavingTeam.name }})
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">
@@ -101,15 +94,13 @@
         </div>
 
         <!-- Delete Team Modal -->
-        <div class="modal fade" id="modal-delete-team" tabindex="-1" role="dialog">
+        <div class="modal" id="modal-delete-team" tabindex="-1" role="dialog">
             <div class="modal-dialog" v-if="deletingTeam">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Delete {{ ucfirst(Spark::teamString()) }} (@{{ deletingTeam.name }})
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">

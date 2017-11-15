@@ -3,10 +3,11 @@
  */
 window.URI = require('urijs');
 window.axios = require('axios');
-window._ = require('underscore');
+window._ = require('lodash');
 window.moment = require('moment');
 window.Promise = require('promise');
 window.Cookies = require('js-cookie');
+window.Popper = require('popper.js').default;
 
 /*
  * Define Moment locales
@@ -38,7 +39,7 @@ if (window.$ === undefined || window.jQuery === undefined) {
     window.$ = window.jQuery = require('jquery');
 }
 
-require('bootstrap/dist/js/npm');
+require('bootstrap');
 
 /**
  * Load Vue if this application is using Vue as its framework.

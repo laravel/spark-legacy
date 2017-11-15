@@ -1,7 +1,7 @@
 <spark-update-payment-method-braintree :user="user" :team="team" :billable-type="billableType" inline-template>
-    <div class="panel panel-default">
+    <div class="card card-default">
         <!-- Update Payment Method Heading -->
-        <div class="panel-heading">
+        <div class="card-header">
             <div class="pull-left">
                 Update Payment Method
             </div>
@@ -23,7 +23,7 @@
             <div class="clearfix"></div>
         </div>
 
-        <div class="panel-body">
+        <div class="card-body">
             <!-- Payment Method Update Success Message -->
             <div class="alert alert-success" v-if="form.successful">
                 Your payment method has been updated.
@@ -35,23 +35,21 @@
                 us from charging the payment method. Please contact your payment provider or customer support.
             </div>
 
-            <form class="form-horizontal" role="form">
+            <form role="form">
                 <!-- Braintree Container -->
                 <div id="braintree-payment-method-container" class="m-b-md"></div>
 
                 <!-- Update Button -->
-                <div class="form-group m-b-none p-b-none">
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary" :disabled="form.busy">
-                            <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
-                            </span>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" :disabled="form.busy">
+                        <span v-if="form.busy">
+                            <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
+                        </span>
 
-                            <span v-else>
-                                Update
-                            </span>
-                        </button>
-                    </div>
+                        <span v-else>
+                            Update
+                        </span>
+                    </button>
                 </div>
             </form>
         </div>

@@ -1,10 +1,10 @@
 <spark-pending-invitations inline-template>
     <div>
-        <div class="panel panel-default" v-if="invitations.length > 0">
-            <div class="panel-heading">Pending Invitations</div>
+        <div class="card card-default" v-if="invitations.length > 0">
+            <div class="card-header">Pending Invitations</div>
 
-            <div class="panel-body">
-                <table class="table table-borderless m-b-none">
+            <div class="table-responsive">
+                <table class="table table-valign-middle mb-0">
                     <thead>
                         <th>{{ ucfirst(Spark::teamString()) }}</th>
                         <th></th>

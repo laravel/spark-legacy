@@ -1,53 +1,49 @@
 <spark-kiosk-users :user="user" inline-template>
     <div>
         <div v-show=" ! showingUserProfile">
-            <!-- Search Field Panel -->
-            <div class="panel panel-default panel-flush" style="border: 0;">
-                <div class="panel-body">
-                    <form class="form-horizontal p-b-none" role="form" @submit.prevent>
+            <!-- Search Field card -->
+            <div class="card card-default" style="border: 0;">
+                <div class="card-body">
+                    <form role="form" @submit.prevent>
                         <!-- Search Field -->
-                        <div class="form-group m-b-none">
-                            <div class="col-md-12">
-                                <input type="text" id="kiosk-users-search" class="form-control"
-                                        name="search"
-                                        placeholder="Search By Name Or E-Mail Address..."
-                                        v-model="searchForm.query"
-                                        @keyup.enter="search">
-                            </div>
-                        </div>
+                        <input type="text" id="kiosk-users-search" class="form-control"
+                                name="search"
+                                placeholder="Search By Name Or E-Mail Address..."
+                                v-model="searchForm.query"
+                                @keyup.enter="search">
                     </form>
                 </div>
             </div>
 
             <!-- Searching -->
-            <div class="panel panel-default" v-if="searching">
-                <div class="panel-heading">Search Results</div>
+            <div class="card card-default" v-if="searching">
+                <div class="card-header">Search Results</div>
 
-                <div class="panel-body">
-                    <i class="fa fa-btn fa-spinner fa-spin"></i>Searching
+                <div class="card-body">
+                    <i class="fa fa-btn fa-spinner fa-spin"></i> Searching
                 </div>
             </div>
 
             <!-- No Search Results -->
-            <div class="panel panel-warning" v-if=" ! searching && noSearchResults">
-                <div class="panel-heading">Search Results</div>
+            <div class="card card-default" v-if=" ! searching && noSearchResults">
+                <div class="card-header">Search Results</div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     No users matched the given criteria.
                 </div>
             </div>
 
             <!-- User Search Results -->
-            <div class="panel panel-default" v-if=" ! searching && searchResults.length > 0">
-                <div class="panel-heading">Search Results</div>
+            <div class="card card-default" v-if=" ! searching && searchResults.length > 0">
+                <div class="card-header">Search Results</div>
 
-                <div class="panel-body">
-                    <table class="table table-borderless m-b-none">
+                <div class="table-responsive">
+                    <table class="table table-valign-middle mb-0">
                         <thead>
                             <th></th>
                             <th>Name</th>
                             <th>E-Mail Address</th>
-                            <th></th>
+                            <th class="th-fit"></th>
                         </thead>
 
                         <tbody>

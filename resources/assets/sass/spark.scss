@@ -1,0 +1,62 @@
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import 'custom';
+
+// Vue Cloak
+[v-cloak] {
+  display: none;
+}
+
+.profile-photo-preview {
+  display: inline-block;
+  background-position: center;
+  background-size: cover;
+  vertical-align: middle;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+pre {
+  display: block;
+  padding: 10.5px;
+  margin: 0 0 11px;
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #333333;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.invalid-feedback{
+  display: block;
+}
+
+.plan-feature-list{
+  list-style: none;
+}
+
+.plan-feature-list li {
+  line-height: 35px;
+}
+
+.spark-profile-photo-xs {
+  border-radius: 50%;
+  height: 20px;
+  width: 20px;
+}
+
+.spark-profile-photo {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+.spark-profile-photo-xl {
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+}

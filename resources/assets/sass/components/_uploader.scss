@@ -1,0 +1,27 @@
+.spark-uploader {
+  position: relative;
+  cursor: pointer !important;
+  border-radius: 5px;
+
+  &:active {
+    box-shadow: 0 0 0 0.2rem rgba(66, 162, 220, 0.25);
+  }
+}
+
+.spark-uploader-control {
+  position: absolute;
+  top: 0;
+  // right: 0;
+  bottom: 0;
+  // left: 0;
+  max-width: 100%;
+  opacity: 0;
+  z-index: 99;
+}
+
+.image-placeholder {
+  background: #d8d8d8;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 99px;
+}

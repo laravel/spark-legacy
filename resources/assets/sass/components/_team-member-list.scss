@@ -1,0 +1,32 @@
+.team-member {
+  padding-top: 1rem;
+  padding-right: 1.25rem;
+  padding-left: 1.25rem;
+  padding-bottom: 1rem;
+  height: 3.8125rem;
+  border: 1px solid transparent;
+  border-top: 1px solid #cddadf;
+  border-bottom: 1px solid #cddadf;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -1px;
+}
+
+.team-member:hover {
+  background-color: $white;
+  border-radius: 6px;
+  border: transparent;
+  border: 1px solid #cddadf;
+  box-shadow: 0 1px 2px #dde4e7;
+}
+
+.team-member-title {
+  font-size: 1rem;
+  color: #374450;
+}
+
+.team-member-subtitle {
+  font-size: 0.875rem;
+  color: #6f808e;
+}

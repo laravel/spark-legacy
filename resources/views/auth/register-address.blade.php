@@ -1,51 +1,51 @@
 <!-- Address -->
-<div class="form-group" :class="{'has-error': registerForm.errors.has('address')}">
-    <label class="col-md-4 control-label">Address</label>
+<div class="form-group row">
+    <label class="col-md-4 col-form-label text-md-right">Address</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" v-model="registerForm.address" lazy>
+        <input type="text" class="form-control" v-model="registerForm.address" lazy :class="{'is-invalid': registerForm.errors.has('address')}">
 
-        <span class="help-block" v-show="registerForm.errors.has('address')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('address')">
             @{{ registerForm.errors.get('address') }}
         </span>
     </div>
 </div>
 
 <!-- Address Line 2 -->
-<div class="form-group" :class="{'has-error': registerForm.errors.has('address_line_2')}">
-    <label class="col-md-4 control-label">Address Line 2</label>
+<div class="form-group row">
+    <label class="col-md-4 col-form-label text-md-right">Address Line 2</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" v-model="registerForm.address_line_2" lazy>
+        <input type="text" class="form-control" v-model="registerForm.address_line_2" lazy :class="{'is-invalid': registerForm.errors.has('address_line_2')}">
 
-        <span class="help-block" v-show="registerForm.errors.has('address_line_2')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('address_line_2')">
             @{{ registerForm.errors.get('address_line_2') }}
         </span>
     </div>
 </div>
 
 <!-- City -->
-<div class="form-group" :class="{'has-error': registerForm.errors.has('city')}">
-    <label class="col-md-4 control-label">City</label>
+<div class="form-group row">
+    <label class="col-md-4 col-form-label text-md-right">City</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" v-model.lazy="registerForm.city">
+        <input type="text" class="form-control" v-model.lazy="registerForm.city" :class="{'is-invalid': registerForm.errors.has('city')}">
 
-        <span class="help-block" v-show="registerForm.errors.has('city')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('city')">
             @{{ registerForm.errors.get('city') }}
         </span>
     </div>
 </div>
 
 <!-- State & ZIP Code -->
-<div class="form-group" :class="{'has-error': registerForm.errors.has('state')}">
-    <label class="col-md-4 control-label">State & ZIP / Postal Code</label>
+<div class="form-group row">
+    <label class="col-md-4 col-form-label text-md-right">State & ZIP / Postal Code</label>
 
     <!-- State -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="State" v-model.lazy="registerForm.state">
+        <input type="text" class="form-control" placeholder="State" v-model.lazy="registerForm.state" :class="{'is-invalid': registerForm.errors.has('state')}">
 
-        <span class="help-block" v-show="registerForm.errors.has('state')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('state')">
             @{{ registerForm.errors.get('state') }}
         </span>
     </div>
@@ -54,37 +54,37 @@
     <div class="col-sm-3">
         <input type="text" class="form-control" placeholder="Postal Code" v-model.lazy="registerForm.zip">
 
-        <span class="help-block" v-show="registerForm.errors.has('zip')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('zip')">
             @{{ registerForm.errors.get('zip') }}
         </span>
     </div>
 </div>
 
 <!-- Country -->
-<div class="form-group" :class="{'has-error': registerForm.errors.has('country')}">
-    <label class="col-md-4 control-label">Country</label>
+<div class="form-group row">
+    <label class="col-md-4 col-form-label text-md-right">Country</label>
 
     <div class="col-sm-6">
-        <select class="form-control" v-model.lazy="registerForm.country">
+        <select class="form-control" v-model.lazy="registerForm.country" :class="{'is-invalid': registerForm.errors.has('country')}">
             @foreach (app(Laravel\Spark\Repositories\Geography\CountryRepository::class)->all() as $key => $country)
                 <option value="{{ $key }}">{{ $country }}</option>
             @endforeach
         </select>
 
-        <span class="help-block" v-show="registerForm.errors.has('country')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('country')">
             @{{ registerForm.errors.get('country') }}
         </span>
     </div>
 </div>
 
 <!-- European VAT ID -->
-<div class="form-group" :class="{'has-error': registerForm.errors.has('vat_id')}" v-if="countryCollectsVat">
-    <label class="col-md-4 control-label">VAT ID</label>
+<div class="form-group row" v-if="countryCollectsVat">
+    <label class="col-md-4 col-form-label text-md-right">VAT ID</label>
 
     <div class="col-sm-6">
-        <input type="text" class="form-control" v-model.lazy="registerForm.vat_id">
+        <input type="text" class="form-control" v-model.lazy="registerForm.vat_id" :class="{'is-invalid': registerForm.errors.has('vat_id')}">
 
-        <span class="help-block" v-show="registerForm.errors.has('vat_id')">
+        <span class="invalid-feedback" v-show="registerForm.errors.has('vat_id')">
             @{{ registerForm.errors.get('vat_id') }}
         </span>
     </div>

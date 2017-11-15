@@ -1,0 +1,65 @@
+// Cards
+// -------------------------------------------------------------------------- */
+.card{
+  margin-bottom: 2rem;
+}
+
+.card-default {
+  background-color: #f5f8f9;
+  box-shadow: 0 2px 3px rgba($black, 0.16);
+  border-radius: 5px;
+  .card-header {
+    background-color: $white;
+    padding: 1rem 1.25rem;
+  }
+  .card-footer {
+    background-color: transparent;
+    border-top: 1px solid #cddadf;
+  }
+}
+
+.card-header:first-child {
+  border-radius: 5px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 300;
+  color: #252d34;
+}
+
+.card-flush {
+  padding: 0.875rem 1.25rem;
+}
+
+.card-full {
+  width: 80%;
+}
+
+// Intro Cards
+// -------------------------------------------------------------------------- */
+.intro {
+  text-align: center;
+  // display: flex;
+  // align-items: center;
+  // align-content: center;
+  // justify-content: center;
+}
+
+.intro-img {
+  margin-bottom: 1.5rem;
+}
+
+.intro-headline {
+  color: #424c55;
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+.intro-copy {
+  color: #424c55;
+}
+
+.intro-btn {
+  margin-top: 1.5rem;
+}

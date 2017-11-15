@@ -1,10 +1,8 @@
-<li class="dropdown-header">Support</li>
+<h6 class="dropdown-header">Support</h6>
 
 <!-- Support -->
-<li>
-    <a @click.prevent="showSupportForm" style="cursor: pointer;">
-        <i class="fa fa-fw fa-btn fa-paper-plane"></i>Email Us
-    </a>
-</li>
+<a class="dropdown-item" @click.prevent="showSupportForm" style="cursor: pointer;">
+    <i class="fa fa-fw fa-btn fa-paper-plane"></i>Email Us
+</a>
 
-<li class="divider"></li>
+<div class="dropdown-divider"></div>

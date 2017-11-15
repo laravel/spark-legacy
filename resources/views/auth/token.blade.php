@@ -2,20 +2,20 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Two-Factor Authentication</div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">Two-Factor Authentication</div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     @include('spark::shared.errors')
 
-                    <form class="form-horizontal" role="form" method="POST" action="/login/token">
+                    <form role="form" method="POST" action="/login/token">
                         {{ csrf_field() }}
 
                         <!-- Token -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Authentication Token</label>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Authentication Token</label>
 
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="token" autofocus>
@@ -23,8 +23,8 @@
                         </div>
 
                         <!-- Verify Button -->
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Verify
                                 </button>

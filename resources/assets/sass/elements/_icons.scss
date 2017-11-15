@@ -1,0 +1,22 @@
+// Icons
+// -------------------------------------------------------------------------- */
+.icon-20 {
+  width: 20px;
+  height: 20px;
+}
+
+.fill-gray {
+  fill: #95a2ae;
+}
+
+.radio-select {
+  display: inline-block;
+  background-image: url('../../img/radio-select-default.svg');
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+}
+
+.radio-select-selected {
+  background-image: url('../../img/radio-select-is-selected.svg');
+}

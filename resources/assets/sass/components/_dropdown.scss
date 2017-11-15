@@ -1,0 +1,38 @@
+// Dropdown
+// -------------------------------------------------------------------------- */
+.dropdown-toggle::after {
+  @include media-breakpoint-up(md) {
+    margin-left: 0.625rem;
+  }
+}
+
+.dropdown-toggle-image {
+  height: 35px;
+  width: 35px;
+  border-radius: 100%;
+  margin-right: 0;
+
+  @include media-breakpoint-up(md) {
+    margin-right: 0.625rem;
+  }
+}
+
+.spark-dropdown-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #3d454b;
+}
+
+.notification-pill {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 99px;
+  width: 4.4375rem;
+  height: 2.125rem;
+  background-color: #edf0f1;
+  color: #405263;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}

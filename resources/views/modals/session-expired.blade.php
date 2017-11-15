@@ -1,5 +1,5 @@
 <!-- Session Expired Modal -->
-<div class="modal fade" id="modal-session-expired" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+<div class="modal" id="modal-session-expired" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,7 +16,7 @@
             <div class="modal-footer">
                 <a href="/login">
                     <button type="button" class="btn btn-default">
-                        <i class="fa fa-btn fa-sign-in"></i>Go To Login
+                        <i class="fa fa-btn fa-sign-in"></i> Go To Login
                     </button>
                 </a>
             </div>

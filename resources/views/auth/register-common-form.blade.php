@@ -1,13 +1,13 @@
-<form class="form-horizontal" role="form">
+<form role="form">
     @if (Spark::usesTeams() && Spark::onlyTeamPlans())
         <!-- Team Name -->
-        <div class="form-group" :class="{'has-error': registerForm.errors.has('team')}" v-if=" ! invitation">
-            <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Name</label>
+        <div class="form-group row" v-if=" ! invitation">
+            <label class="col-md-4 col-form-label text-md-right">{{ ucfirst(Spark::teamString()) }} Name</label>
 
             <div class="col-md-6">
-                <input type="text" class="form-control" name="team" v-model="registerForm.team" autofocus>
+                <input type="text" class="form-control" name="team" v-model="registerForm.team" :class="{'is-invalid': registerForm.errors.has('team')}" autofocus>
 
-                <span class="help-block" v-show="registerForm.errors.has('team')">
+                <span class="invalid-feedback" v-show="registerForm.errors.has('team')">
                     @{{ registerForm.errors.get('team') }}
                 </span>
             </div>
@@ -15,17 +15,17 @@
 
         @if (Spark::teamsIdentifiedByPath())
             <!-- Team Slug (Only Shown When Using Paths For Teams) -->
-            <div class="form-group" :class="{'has-error': registerForm.errors.has('team_slug')}" v-if=" ! invitation">
-                <label class="col-md-4 control-label">{{ ucfirst(Spark::teamString()) }} Slug</label>
+            <div class="form-group row" v-if=" ! invitation">
+                <label class="col-md-4 col-form-label text-md-right">{{ ucfirst(Spark::teamString()) }} Slug</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="team_slug" v-model="registerForm.team_slug" autofocus>
+                    <input type="text" class="form-control" name="team_slug" v-model="registerForm.team_slug" :class="{'is-invalid': registerForm.errors.has('team_slug')}" autofocus>
 
-                    <p class="help-block" v-show=" ! registerForm.errors.has('team_slug')">
+                    <small class="form-text text-muted" v-show="! registerForm.errors.has('team_slug')">
                         This slug is used to identify your {{ Spark::teamString() }} in URLs.
-                    </p>
+                    </small>
 
-                    <span class="help-block" v-show="registerForm.errors.has('team_slug')">
+                    <span class="invalid-feedback" v-show="registerForm.errors.has('team_slug')">
                         @{{ registerForm.errors.get('team_slug') }}
                     </span>
                 </div>
@@ -34,52 +34,52 @@
     @endif
 
     <!-- Name -->
-    <div class="form-group" :class="{'has-error': registerForm.errors.has('name')}">
-        <label class="col-md-4 control-label">Name</label>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label text-md-right">Name</label>
 
         <div class="col-md-6">
-            <input type="text" class="form-control" name="name" v-model="registerForm.name" autofocus>
+            <input type="text" class="form-control" name="name" v-model="registerForm.name" :class="{'is-invalid': registerForm.errors.has('name')}" autofocus>
 
-            <span class="help-block" v-show="registerForm.errors.has('name')">
+            <span class="invalid-feedback" v-show="registerForm.errors.has('name')">
                 @{{ registerForm.errors.get('name') }}
             </span>
         </div>
     </div>
 
     <!-- E-Mail Address -->
-    <div class="form-group" :class="{'has-error': registerForm.errors.has('email')}">
-        <label class="col-md-4 control-label">E-Mail Address</label>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
         <div class="col-md-6">
-            <input type="email" class="form-control" name="email" v-model="registerForm.email">
+            <input type="email" class="form-control" name="email" v-model="registerForm.email" :class="{'is-invalid': registerForm.errors.has('email')}">
 
-            <span class="help-block" v-show="registerForm.errors.has('email')">
+            <span class="invalid-feedback" v-show="registerForm.errors.has('email')">
                 @{{ registerForm.errors.get('email') }}
             </span>
         </div>
     </div>
 
     <!-- Password -->
-    <div class="form-group" :class="{'has-error': registerForm.errors.has('password')}">
-        <label class="col-md-4 control-label">Password</label>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label text-md-right">Password</label>
 
         <div class="col-md-6">
-            <input type="password" class="form-control" name="password" v-model="registerForm.password">
+            <input type="password" class="form-control" name="password" v-model="registerForm.password" :class="{'is-invalid': registerForm.errors.has('password')}">
 
-            <span class="help-block" v-show="registerForm.errors.has('password')">
+            <span class="invalid-feedback" v-show="registerForm.errors.has('password')">
                 @{{ registerForm.errors.get('password') }}
             </span>
         </div>
     </div>
 
     <!-- Password Confirmation -->
-    <div class="form-group" :class="{'has-error': registerForm.errors.has('password_confirmation')}">
-        <label class="col-md-4 control-label">Confirm Password</label>
+    <div class="form-group row">
+        <label class="col-md-4 col-form-label text-md-right">Confirm Password</label>
 
         <div class="col-md-6">
-            <input type="password" class="form-control" name="password_confirmation" v-model="registerForm.password_confirmation">
+            <input type="password" class="form-control" name="password_confirmation" v-model="registerForm.password_confirmation" :class="{'is-invalid': registerForm.errors.has('password_confirmation')}">
 
-            <span class="help-block" v-show="registerForm.errors.has('password_confirmation')">
+            <span class="invalid-feedback" v-show="registerForm.errors.has('password_confirmation')">
                 @{{ registerForm.errors.get('password_confirmation') }}
             </span>
         </div>
@@ -87,30 +87,30 @@
 
     <!-- Terms And Conditions -->
     <div v-if=" ! selectedPlan || selectedPlan.price == 0">
-        <div class="form-group" :class="{'has-error': registerForm.errors.has('terms')}">
-            <div class="col-md-6 col-md-offset-4">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="terms" v-model="registerForm.terms">
+        <div class="form-group row" :class="{'is-invalid': registerForm.errors.has('terms')}">
+            <div class="col-md-6 offset-md-4">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="checkbox" name="terms" class="form-check-input" v-model="registerForm.terms">
                         I Accept The <a href="/terms" target="_blank">Terms Of Service</a>
                     </label>
 
-                    <span class="help-block" v-show="registerForm.errors.has('terms')">
-                        @{{ registerForm.errors.get('terms') }}
+                    <span class="text-danger" v-show="registerForm.errors.has('terms')">
+                        <strong>@{{ registerForm.errors.get('terms') }}</strong>
                     </span>
                 </div>
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-6 col-md-offset-4">
+        <div class="form-group row">
+            <div class="col-md-6 offset-md-4">
                 <button class="btn btn-primary" @click.prevent="register" :disabled="registerForm.busy">
                     <span v-if="registerForm.busy">
-                        <i class="fa fa-btn fa-spinner fa-spin"></i>Registering
+                        <i class="fa fa-btn fa-spinner fa-spin"></i> Registering
                     </span>
 
                     <span v-else>
-                        <i class="fa fa-btn fa-check-circle"></i>Register
+                        <i class="fa fa-btn fa-check-circle"></i> Register
                     </span>
                 </button>
             </div>

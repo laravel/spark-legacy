@@ -1,17 +1,17 @@
 <spark-update-subscription :user="user" :team="team"
                 :plans="plans" :billable-type="billableType" inline-template>
     <div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
+        <div class="card card-default">
+            <div class="card-header">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
                     Update Subscription
                 </div>
 
                 <!-- Interval Selector Button Group -->
                 <div class="pull-right">
-                    <div class="btn-group" v-if="hasMonthlyAndYearlyPlans">
+                    <div class="btn-group btn-group-sm" v-if="hasMonthlyAndYearlyPlans">
                         <!-- Monthly Plans -->
-                        <button type="button" class="btn btn-default"
+                        <button type="button" class="btn btn-light"
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
@@ -19,7 +19,7 @@
                         </button>
 
                         <!-- Yearly Plans -->
-                        <button type="button" class="btn btn-default"
+                        <button type="button" class="btn btn-light"
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
@@ -31,20 +31,20 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="panel-body table-responsive">
+            <div class="table-responsive">
                 <!-- Plan Error Message - In General Will Never Be Shown -->
-                <div class="alert alert-danger" v-if="planForm.errors.has('plan')">
+                <div class="alert alert-danger m-4" v-if="planForm.errors.has('plan')">
                     @{{ planForm.errors.get('plan') }}
                 </div>
 
                 <!-- Current Subscription (Active) -->
-                <div class="p-b-lg" v-if="activePlan.active">
+                <div class="m-4" v-if="activePlan.active">
                     You are currently subscribed to the
                     <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
                 </div>
 
                 <!-- Current Subscription (Archived) -->
-                <div class="alert alert-warning m-b-lg" v-if=" ! activePlan.active">
+                <div class="alert alert-warning m-4" v-if=" ! activePlan.active">
                     You are currently subscribed to the
                     <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
                     This plan has been discontinued, but you may continue your subscription to this plan as long as you wish.
@@ -54,28 +54,28 @@
 
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
-                    <p class="p-b-lg">
+                    <p class="m-4">
                         All subscription plan prices include applicable VAT.
                     </p>
                 @endif
 
-                <table class="table table-borderless m-b-none">
+                <table class="table table-responsive-sm table-valign-middle mb-0 ">
                     <thead></thead>
                     <tbody>
                         <tr v-for="plan in plansForActiveInterval">
                             <!-- Plan Name -->
                             <td>
-                                <div class="btn-table-align" @click="showPlanDetails(plan)">
-                                    <span style="cursor: pointer;">
-                                        <strong>@{{ plan.name }}</strong>
-                                    </span>
+                                <div class="d-flex align-items-center">
+                                    <i class="radio-select mr-2" @click="!isActivePlan(plan) ? confirmPlanUpdate(plan) : 0"
+                                    :class="{'radio-select-selected': isActivePlan(plan), invisible: selectingPlan}"></i>
+                                    @{{ plan.name }}
                                 </div>
                             </td>
 
                             <!-- Plan Features Button -->
                             <td>
-                                <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                    <i class="fa fa-btn fa-star-o"></i>Plan Features
+                                <button class="btn btn-default" @click="showPlanDetails(plan)">
+                                    Features
                                 </button>
                             </td>
 
@@ -87,31 +87,16 @@
                                     </span>
 
                                     <span v-else>
-                                        @{{ priceWithTax(plan) | currency }} / @{{ plan.interval | capitalize }}
+                                        <strong class="table-plan-price">@{{ priceWithTax(plan) | currency }}</strong> / @{{ plan.interval | capitalize }}
                                     </span>
                                 </div>
                             </td>
 
                             <!-- Plan Select Button -->
                             <td class="text-right">
-                                <button class="btn btn-primary btn-plan" v-if="isActivePlan(plan)" disabled>
-                                    <i class="fa fa-btn fa-check"></i>Current Plan
-                                </button>
-
-                                <button class="btn btn-primary-outline btn-plan"
-                                        v-if=" ! isActivePlan(plan) && selectingPlan !== plan"
-                                        @click="confirmPlanUpdate(plan)"
-                                        :disabled="selectingPlan">
-
-                                    Switch
-                                </button>
-
-                                <button class="btn btn-primary btn-plan"
-                                        v-if="selectingPlan && selectingPlan === plan"
-                                        disabled>
-
-                                    <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
-                                </button>
+                                <span v-if="selectingPlan && selectingPlan === plan">
+                                    <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
+                                </span>
                             </td>
                         </tr>
                     </tbody>
@@ -120,14 +105,14 @@
         </div>
 
         <!-- Confirm Plan Update Modal -->
-        <div class="modal fade" id="modal-confirm-plan-update" tabindex="-2" role="dialog">
+        <div class="modal" id="modal-confirm-plan-update" tabindex="-2" role="dialog">
             <div class="modal-dialog">
                 <div class="modal-content" v-if="confirmingPlan">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Update Subscription
-                        </h4>
+                        </h5>
                     </div>
 
                     <!-- Modal Body -->

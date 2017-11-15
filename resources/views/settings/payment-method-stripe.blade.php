@@ -1,10 +1,10 @@
 <spark-payment-method-stripe :user="user" :team="team" :billable-type="billableType" inline-template>
     <div>
         <!-- Current Discount -->
-        <div class="panel panel-success" v-if="currentDiscount">
-            <div class="panel-heading">Current Discount</div>
+        <div class="card card-success" v-if="currentDiscount">
+            <div class="card-header">Current Discount</div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 You currently receive a discount of @{{ formattedDiscount(currentDiscount) }}
                 for @{{ formattedDiscountDuration(currentDiscount) }}.
             </div>

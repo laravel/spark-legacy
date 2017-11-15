@@ -42,8 +42,8 @@ module.exports = {
             axios.get('/spark/plans')
                 .then(response => {
                     this.plans = this.billingUser
-                                    ? _.where(response.data, {type: "user"})
-                                    : _.where(response.data, {type: "team"});
+                                    ? _.filter(response.data, {type: "user"})
+                                    : _.filter(response.data, {type: "team"});
                 });
         }
     }

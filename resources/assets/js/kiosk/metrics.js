@@ -157,13 +157,13 @@ module.exports = {
         drawChart(id, days, dataGatherer, scaleLabelFormatter) {
             var dataset = JSON.parse(JSON.stringify(this.baseChartDataSet));
 
-            dataset.data = _.map(_.last(this.indicators, days), dataGatherer);
+            dataset.data = _.map(_.takeRight(this.indicators, days), dataGatherer);
 
              // Here we will build out the dataset for the chart. This will contain the dates and data
              // points for the chart. Each chart on the Kiosk only gets one dataset so we only need
              // to add it a single element to this array here. But, charts could have more later.
             var data = {
-                labels: _.last(this.availableChartDates, days),
+                labels: _.takeRight(this.availableChartDates, days),
                 datasets: [dataset]
             };
 
@@ -175,7 +175,7 @@ module.exports = {
             if (arguments.length === 4) {
                 options.scaleLabel = scaleLabelFormatter;
             }
-
+            
             var chart = new Chart(document.getElementById(id).getContext('2d'), {
                 type: 'line',
                 data: data,
@@ -205,7 +205,7 @@ module.exports = {
             }
 
             return this.percentChange(
-                _.last(this.indicators).monthly_recurring_revenue,
+                _.takeRight(this.indicators).monthly_recurring_revenue,
                 this.lastMonthsIndicators.monthly_recurring_revenue
             );
         },
@@ -220,7 +220,7 @@ module.exports = {
             }
 
             return this.percentChange(
-                _.last(this.indicators).monthly_recurring_revenue,
+                _.takeRight(this.indicators).monthly_recurring_revenue,
                 this.lastYearsIndicators.monthly_recurring_revenue
             );
         },
@@ -235,7 +235,7 @@ module.exports = {
             }
 
             return this.percentChange(
-                _.last(this.indicators).yearly_recurring_revenue,
+                _.takeRight(this.indicators).yearly_recurring_revenue,
                 this.lastMonthsIndicators.yearly_recurring_revenue
             );
         },
@@ -250,7 +250,7 @@ module.exports = {
             }
 ;
             return this.percentChange(
-                _.last(this.indicators).yearly_recurring_revenue,
+                _.takeRight(this.indicators).yearly_recurring_revenue,
                 this.lastYearsIndicators.yearly_recurring_revenue
             );
         },

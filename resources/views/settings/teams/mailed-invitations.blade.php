@@ -1,17 +1,17 @@
 <spark-mailed-invitations :invitations="invitations" inline-template>
     <div>
-        <div class="panel panel-default" v-if="invitations.length > 0">
-            <div class="panel-heading">Mailed Invitations</div>
+        <div class="card card-default" v-if="invitations.length > 0">
+            <div class="card-header">Mailed Invitations</div>
 
-            <div class="panel-body">
-                <table class="table table-borderless m-b-none">
+            <div class="table-responsive">
+                <table class="table table-valign-middle mb-0">
                     <thead>
                         <th>E-Mail Address</th>
-                        <th></th>
+                        <th class="th-fit">&nbsp;</th>
                     </thead>
 
                     <tbody>
-                        <tr v-for="invitation in invitations">
+                        <tr class="reveal" v-for="invitation in invitations">
                             <!-- E-Mail Address -->
                             <td>
                                 <div class="btn-table-align">
@@ -20,10 +20,14 @@
                             </td>
 
                             <!-- Delete Button -->
-                            <td>
-                                <button class="btn btn-danger-outline" @click="cancel(invitation)">
-                                    <i class="fa fa-times"></i>
-                                </button>
+                            <td class="td-fit">
+                                <div class="reveal-target text-right ">
+                                    <button class="btn-reset" @click="cancel(invitation)">
+                                    <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
+                                        <path fill="#95A2AE " d="M4 2l2-2h4l2 2h4v2H0V2h4zM1 6h14l-1 14H2L1 6zm5 2v10h1V8H6zm3 0v10h1V8H9z " />
+                                    </svg>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>

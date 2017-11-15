@@ -1,39 +1,25 @@
 <spark-update-team-photo :user="user" :team="team" inline-template>
-    <div>
-        <div class="panel panel-default">
-            <div class="panel-heading">{{ ucfirst(Spark::teamString()) }} Photo</div>
+    <div class="card card-default" v-if="user">
+        <div class="card-header">{{ ucfirst(Spark::teamString()) }} Photo</div>
 
-            <div class="panel-body">
-                <div class="alert alert-danger" v-if="form.errors.has('photo')">
-                    @{{ form.errors.get('photo') }}
-                </div>
-
-                <form class="form-horizontal" role="form">
-                    <!-- Photo Preview-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">&nbsp;</label>
-
-                        <div class="col-md-6">
-                            <span role="img" class="team-photo-preview"
-                                :style="previewStyle">
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Update Button -->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">&nbsp;</label>
-
-                        <div class="col-md-6">
-                            <label type="button" class="btn btn-primary btn-upload" :disabled="form.busy">
-                                <span>Select New Photo</span>
-
-                                <input ref="photo" type="file" class="form-control" name="photo" @change="update">
-                            </label>
-                        </div>
-                    </div>
-                </form>
+        <div class="card-body">
+            <div class="alert alert-danger" v-if="form.errors.has('photo')">
+                @{{ form.errors.get('photo') }}
             </div>
+
+            <form role="form">
+                <div class="form-group row justify-content-center">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="image-placeholder mr-4">
+                            <span role="img" class="profile-photo-preview" :style="previewStyle"></span>
+                        </div>
+                        <div class="spark-uploader mr-4">
+                            <input ref="photo" type="file" class="spark-uploader-control" name="photo" @change="update" :disabled="form.busy">
+                            <div class="btn btn-outline-dark">Update Photo</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </spark-update-team-photo>

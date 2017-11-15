@@ -156,7 +156,7 @@ module.exports = {
          * Determine if the user has subscribed to the given plan before.
          */
         hasSubscribed(plan) {
-            return !!_.where(this.billable.subscriptions, {provider_plan: plan.id}).length
+            return !!_.filter(this.billable.subscriptions, {provider_plan: plan.id}).length
         },
 
 

@@ -1,0 +1,70 @@
+// Custom Navbar
+// -------------------------------------------------------------------------- */
+.navbar-spark {
+  background-color: $white;
+  box-shadow: 0 2px 4px rgba($black, 0.04);
+}
+
+// Nav
+// -------------------------------------------------------------------------- */
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  padding-right: 0;
+  padding-bottom: 5px;
+  padding-left: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #3d454b;
+
+  svg {
+    fill: currentColor;
+    margin-right: 15px;
+    color: #95a2ae;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    font-weight: 600;
+    color: #4aa2e2;
+    svg {
+      fill: #4aa2e2;
+    }
+  }
+
+  &.active {
+    font-weight: 600;
+    color: #4aa2e2;
+    svg {
+      fill: #4aa2e2;
+    }
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #3d454b;
+}
+
+.nav-heading {
+  background-color: transparent;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #8e9dab;
+  letter-spacing: 1px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  margin-bottom: 10px;
+}
+
+.spark-nav-profile-photo {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+
+// .navbar-toggler-icon {
+//   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)");
+// }

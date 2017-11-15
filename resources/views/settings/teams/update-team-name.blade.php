@@ -1,30 +1,30 @@
 <spark-update-team-name :user="user" :team="team" inline-template>
-    <div class="panel panel-default">
-        <div class="panel-heading">Update {{ ucfirst(Spark::teamString()) }} Name</div>
+    <div class="card card-default">
+        <div class="card-header">Update {{ ucfirst(Spark::teamString()) }} Name</div>
 
-        <div class="panel-body">
+        <div class="card-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
                 Your {{ Spark::teamString() }} name has been updated!
             </div>
 
-            <form class="form-horizontal" role="form">
+            <form role="form">
                 <!-- Name -->
-                <div class="form-group" :class="{'has-error': form.errors.has('name')}">
-                    <label class="col-md-4 control-label">Name</label>
+                <div class="form-group row">
+                    <label class="col-md-4 control-label text-md-right">Name</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="name" v-model="form.name">
+                        <input type="text" class="form-control" name="name" v-model="form.name" :class="{'is-invalid': form.errors.has('name')}">
 
-                        <span class="help-block" v-show="form.errors.has('name')">
+                        <span class="invalid-feedback" v-show="form.errors.has('name')">
                             @{{ form.errors.get('name') }}
                         </span>
                     </div>
                 </div>
 
                 <!-- Update Button -->
-                <div class="form-group">
-                    <div class="col-md-offset-4 col-md-6">
+                <div class="form-group row">
+                    <div class="offset-md-4 col-md-6">
                         <button type="submit" class="btn btn-primary"
                                 @click.prevent="update"
                                 :disabled="form.busy">

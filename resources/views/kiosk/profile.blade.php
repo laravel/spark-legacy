@@ -3,9 +3,9 @@
         <!-- Loading Indicator -->
         <div class="row" v-if="loading">
             <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-body">
-                        <i class="fa fa-btn fa-spinner fa-spin"></i>Loading
+                <div class="card card-default">
+                    <div class="card-body">
+                        <i class="fa fa-btn fa-spinner fa-spin"></i> Loading
                     </div>
                 </div>
             </div>
@@ -15,35 +15,15 @@
         <div v-if=" ! loading && profile">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <!-- User Name -->
-                            <div class="pull-left">
-                                <div class="btn-table-align">
-                                    <i class="fa fa-btn fa-times" style="cursor: pointer;" @click="showSearch"></i>
-                                    @{{ profile.name }}
-                                </div>
+                    <div class="card card-default">
+                        <div class="card-header">
+                            <div class="btn-table-align">
+                                <i class="fa fa-btn fa-times" style="cursor: pointer;" @click="showSearch"></i>
+                                @{{ profile.name }}
                             </div>
-
-                            <!-- Profile Actions -->
-                            <div class="pull-right" style="padding-top: 2px;">
-                                <div class="btn-group" role="group">
-                                    <!-- Apply Discount -->
-                                    <button class="btn btn-default" v-if="spark.usesStripe && profile.stripe_id" @click="addDiscount(profile)">
-                                        <i class="fa fa-gift"></i>
-                                    </button>
-
-                                    <!-- Impersonate Button -->
-                                    <button class="btn btn-default" @click="impersonate(profile)" :disabled="user.id === profile.id">
-                                        <i class="fa fa-user-secret"></i>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="clearfix"></div>
                         </div>
 
-                        <div class="panel-body">
+                        <div class="card-body">
                             <div class="row">
                                 <!-- Profile Photo -->
                                 <div class="col-md-3 text-center">
@@ -83,6 +63,16 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="card-footer card-flush text-right">
+                            <button class="btn btn-primary btn-sm" v-if="spark.usesStripe && profile.stripe_id" @click="addDiscount(profile)">
+                                Apply Discount
+                            </button>
+
+                            <button class="btn btn-default btn-sm" @click="impersonate(profile)" :disabled="user.id === profile.id">
+                                Impersonate
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,12 +80,12 @@
             <!-- Teams -->
             <div class="row" v-if="spark.usesTeams && profile.owned_teams.length > 0">
                 <div class="col-md-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+                    <div class="card card-default">
+                        <div class="card-header">
                             {{ ucfirst(str_plural(Spark::teamString())) }}
                         </div>
 
-                        <div class="panel-body">
+                        <div class="card-body">
                             <table class="table table-borderless m-b-none">
                                 <thead>
                                     <th></th>

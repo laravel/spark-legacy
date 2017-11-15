@@ -5,28 +5,28 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
+            <div class="card card-default">
+                <div class="card-header">Reset Password</div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
+                    <form role="form" method="POST" action="{{ url('/password/email') }}">
                         {!! csrf_field() !!}
 
                         <!-- E-Mail Address -->
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
+                        <div class="form-group row{{ $errors->has('email') ? ' is-invalid' : '' }}">
+                            <label class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ old('email') }}" autofocus>
 
                                 @if ($errors->has('email'))
-                                    <span class="help-block">
+                                    <span class="invalid-feedback">
                                         {{ $errors->first('email') }}
                                     </span>
                                 @endif
@@ -34,8 +34,8 @@
                         </div>
 
                         <!-- Send Password Reset Link Button -->
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fa fa-btn fa-envelope"></i>Send Password Reset Link
                                 </button>

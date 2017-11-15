@@ -1,30 +1,37 @@
 <spark-tokens :tokens="tokens" :available-abilities="availableAbilities" inline-template>
     <div>
         <div>
-            <div class="panel panel-default" v-if="tokens.length > 0">
-                <div class="panel-heading">API Tokens</div>
+            <div class="card card-default" v-if="tokens.length > 0">
+                <div class="card-header">API Tokens</div>
 
-                <div class="panel-body">
-                    <table class="table table-borderless m-b-none">
+                <div class="table-responsive">
+                    <table class="table table-valign-middle mb-0">
                         <thead>
                             <th>Name</th>
+                            <th>Created</th>
                             <th>Last Used</th>
-                            <th></th>
-                            <th></th>
+                            <th>&nbsp;</th>
                         </thead>
 
                         <tbody>
-                            <tr v-for="token in tokens">
-                                <!-- Name -->
-                                <td>
-                                    <div class="btn-table-align">
-                                        @{{ token.name }}
-                                    </div>
-                                </td>
+                        <tr class="reveal" v-for="token in tokens">
+                            <!-- Name -->
+                            <td>
+                                <div class="btn-table-align">
+                                    @{{ token.name }}
+                                </div>
+                            </td>
 
-                                <!-- Last Used At -->
-                                <td>
-                                    <div class="btn-table-align">
+                            <!-- Created At -->
+                            <td>
+                                <div class="btn-table-align">
+                                    @{{ token.created_at | datetime }}
+                                </div>
+                            </td>
+
+                            <!-- Last Used At -->
+                            <td>
+                                <div class="btn-table-align">
                                         <span v-if="token.last_used_at">
                                             @{{ token.last_used_at | datetime }}
                                         </span>
@@ -32,23 +39,26 @@
                                         <span v-else>
                                             Never
                                         </span>
-                                    </div>
-                                </td>
+                                </div>
+                            </td>
 
-                                <!-- Edit Button -->
-                                <td>
-                                    <button class="btn btn-primary" @click="editToken(token)">
-                                        <i class="fa fa-pencil"></i>
+                            <!-- Edit Button -->
+                            <td class="td-fit">
+                                <div class="reveal-target text-right ">
+                                    <button class="btn-reset" @click="editToken(token)">
+                                        <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
+                                            <path fill="#95A2AE" d="M12.3 3.7L0 16v4h4L16.3 7.7l-4-4zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/>
+                                        </svg>
                                     </button>
-                                </td>
 
-                                <!-- Delete Button -->
-                                <td>
-                                    <button class="btn btn-danger-outline" @click="approveTokenDelete(token)">
-                                        <i class="fa fa-times"></i>
+                                    <button class="btn-reset" @click="approveTokenDelete(token)">
+                                        <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
+                                            <path fill="#95A2AE " d="M4 2l2-2h4l2 2h4v2H0V2h4zM1 6h14l-1 14H2L1 6zm5 2v10h1V8H6zm3 0v10h1V8H9z " />
+                                        </svg>
                                     </button>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -56,51 +66,49 @@
         </div>
 
         <!-- Update Token Modal -->
-        <div class="modal fade" id="modal-update-token" tabindex="-1" role="dialog">
-            <div class="modal-dialog" v-if="updatingToken">
+        <div class="modal" id="modal-update-token" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-md" v-if="updatingToken">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Edit Token (@{{ updatingToken.name }})
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">
                         <!-- Update Token Form -->
-                        <form class="form-horizontal" role="form">
+                        <form role="form">
                             <!-- Token Name -->
-                            <div class="form-group" :class="{'has-error': updateTokenForm.errors.has('name')}">
-                                <label class="col-md-4 control-label">Token Name</label>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label">Token Name</label>
 
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="name" v-model="updateTokenForm.name">
+                                    <input type="text" class="form-control" name="name" v-model="updateTokenForm.name" :class="{'is-invalid': updateTokenForm.errors.has('name')}">
 
-                                    <span class="help-block" v-show="updateTokenForm.errors.has('name')">
+                                    <span class="invalid-feedback" v-show="updateTokenForm.errors.has('name')">
                                         @{{ updateTokenForm.errors.get('name') }}
                                     </span>
                                 </div>
                             </div>
 
                             <!-- Token Abilities -->
-                            <div class="form-group" :class="{'has-error': updateTokenForm.errors.has('abilities')}" v-if="availableAbilities.length > 0">
-                                <label class="col-md-4 control-label">Token Can</label>
+                            <div class="form-group row" v-if="availableAbilities.length > 0">
+                                <label class="col-md-4 col-form-label">Token Can</label>
 
                                 <div class="col-md-6">
                                     <div v-for="ability in availableAbilities">
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox"
-                                                    @click="toggleAbility(ability.value)"
-                                                    :checked="abilityIsAssigned(ability.value)">
+                                                @click="toggleAbility(ability.value)"
+                                                :checked="abilityIsAssigned(ability.value)">
 
-                                                    @{{ ability.name }}
+                                                @{{ ability.name }}
                                             </label>
                                         </div>
                                     </div>
 
-                                    <span class="help-block" v-show="updateTokenForm.errors.has('abilities')">
+                                    <span class="invalid-feedback" v-show="updateTokenForm.errors.has('abilities')">
                                         @{{ updateTokenForm.errors.get('abilities') }}
                                     </span>
                                 </div>
@@ -113,7 +121,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
                         <button type="button" class="btn btn-primary" @click="updateToken" :disabled="updateTokenForm.busy">
-                            Update
+                        Update
                         </button>
                     </div>
                 </div>
@@ -121,15 +129,13 @@
         </div>
 
         <!-- Delete Token Modal -->
-        <div class="modal fade" id="modal-delete-token" tabindex="-1" role="dialog">
+        <div class="modal" id="modal-delete-token" tabindex="-1" role="dialog">
             <div class="modal-dialog" v-if="deletingToken">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Delete Token (@{{ deletingToken.name }})
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">
@@ -142,7 +148,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteToken" :disabled="deleteTokenForm.busy">
-                            Yes, Delete
+                        Yes, Delete
                         </button>
                     </div>
                 </div>

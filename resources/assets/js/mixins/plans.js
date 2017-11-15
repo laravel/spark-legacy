@@ -97,8 +97,8 @@ module.exports = {
          * Determine if both monthly and yearly plans are available.
          */
         hasMonthlyAndYearlyPaidPlans() {
-            return _.where(this.paidPlans, {interval: 'monthly'}).length > 0 &&
-                   _.where(this.paidPlans, {interval: 'yearly'}).length > 0;
+            return _.filter(this.paidPlans, {interval: 'monthly'}).length > 0 &&
+                   _.filter(this.paidPlans, {interval: 'yearly'}).length > 0;
         },
 
 
@@ -113,8 +113,8 @@ module.exports = {
          * Determine if both monthly and yearly plans are available.
          */
         onlyHasYearlyPaidPlans() {
-            return _.where(this.paidPlans, {interval: 'monthly'}).length == 0 &&
-                   _.where(this.paidPlans, {interval: 'yearly'}).length > 0;
+            return _.filter(this.paidPlans, {interval: 'monthly'}).length == 0 &&
+                   _.filter(this.paidPlans, {interval: 'yearly'}).length > 0;
         },
 
 

@@ -1,14 +1,14 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card card-default">
+    <div class="card-header">
         <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
             Subscribe
         </div>
 
         <!-- Interval Selector Button Group -->
         <div class="pull-right">
-            <div class="btn-group" v-if="hasMonthlyAndYearlyPaidPlans">
+            <div class="btn-group btn-group-sm" role="group" v-if="hasMonthlyAndYearlyPaidPlans">
                 <!-- Monthly Plans -->
-                <button type="button" class="btn btn-default"
+                <button type="button" class="btn btn-light"
                         @click="showMonthlyPlans"
                         :class="{'active': showingMonthlyPlans}">
 
@@ -16,7 +16,7 @@
                 </button>
 
                 <!-- Yearly Plans -->
-                <button type="button" class="btn btn-default"
+                <button type="button" class="btn btn-light"
                         @click="showYearlyPlans"
                         :class="{'active': showingYearlyPlans}">
 
@@ -28,74 +28,51 @@
         <div class="clearfix"></div>
     </div>
 
-    <div class="panel-body table-responsive">
-        <!-- Subscription Notice -->
-        <div class="p-b-lg">
-            You are not subscribed to a plan. Choose from the plans below to get started.
-        </div>
-
+    <div class="table-responsive">
         <!-- European VAT Notice -->
         @if (Spark::collectsEuropeanVat())
-            <p class="p-b-lg">
+            <p class="m-4">
                 All subscription plan prices are excluding applicable VAT.
             </p>
         @endif
 
         <!-- Plan Error Message -->
-        <div class="alert alert-danger" v-if="form.errors.has('plan')">
+        <div class="alert alert-danger m-4" v-if="form.errors.has('plan')">
             @{{ form.errors.get('plan') }}
         </div>
 
-        <table class="table table-borderless m-b-none">
+        <table class="table table-responsive-sm table-valign-middle mb-0 ">
             <thead></thead>
             <tbody>
                 <tr v-for="plan in paidPlansForActiveInterval">
                     <!-- Plan Name -->
                     <td>
-                        <div class="btn-table-align" @click="showPlanDetails(plan)">
-                            <span style="cursor: pointer;">
-                                <strong>@{{ plan.name }}</strong>
-                            </span>
+                        <div class="d-flex align-items-center">
+                            <i class="radio-select mr-2" @click="selectPlan(plan)"
+                               :class="{'radio-select-selected': selectedPlan == plan, invisible: form.busy}"></i>
+                            @{{ plan.name }}
                         </div>
                     </td>
 
                     <!-- Plan Features Button -->
                     <td>
-                        <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                            <i class="fa fa-btn fa-star-o"></i>Plan Features
+                        <button class="btn btn-default" @click="showPlanDetails(plan)">
+                            Features
                         </button>
                     </td>
 
                     <!-- Plan Price -->
                     <td>
-                        <div class="btn-table-align">
-                            @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
+                        <span class="table-plan-text">
+                            <strong class="table-plan-price">@{{ plan.price | currency }}</strong> / @{{ plan.interval | capitalize }}
                         </div>
                     </td>
 
                     <!-- Trial Days -->
-                    <td>
-                        <div class="btn-table-align" v-if="plan.trialDays && ! hasSubscribed(plan)">
+                    <td class="table-plan-price table-plane-text text-right">
+                        <span v-if="plan.trialDays && ! hasSubscribed(plan)">
                             @{{ plan.trialDays}} Day Trial
-                        </div>
-                    </td>
-
-                    <!-- Plan Select Button -->
-                    <td class="text-right">
-                        <button class="btn btn-primary-outline btn-plan"
-                                v-if="selectedPlan !== plan"
-                                @click="selectPlan(plan)"
-                                :disabled="form.busy">
-
-                            Select
-                        </button>
-
-                        <button class="btn btn-primary btn-plan"
-                                v-if="selectedPlan === plan"
-                                disabled>
-
-                            <i class="fa fa-btn fa-check"></i>Selected
-                        </button>
+                        </span>
                     </td>
                 </tr>
             </tbody>

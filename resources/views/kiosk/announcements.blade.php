@@ -1,59 +1,59 @@
 <spark-kiosk-announcements inline-template>
     <div>
-        <div class="panel panel-default">
-            <div class="panel-heading">Create Announcement</div>
+        <div class="card card-default">
+            <div class="card-header">Create Announcement</div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 <div class="alert alert-info">
                     Announcements you create here will be sent to the "Product Announcements" section of
                     the notifications modal window, informing your users about new features and improvements
                     to your application.
                 </div>
 
-                <form class="form-horizontal" role="form">
+                <form role="form">
                     <!-- Announcement -->
-                    <div class="form-group" :class="{'has-error': createForm.errors.has('body')}">
-                        <label class="col-md-4 control-label">Announcement</label>
+                    <div class="form-group row" :class="{'is-invalid': createForm.errors.has('body')}">
+                        <label class="col-md-4 col-form-label text-md-right">Announcement</label>
 
                         <div class="col-md-6">
                             <textarea class="form-control" name="announcement" rows="7" v-model="createForm.body" style="font-family: monospace;">
                             </textarea>
 
-                            <span class="help-block" v-show="createForm.errors.has('body')">
+                            <span class="invalid-feedback" v-show="createForm.errors.has('body')">
                                 @{{ createForm.errors.get('body') }}
                             </span>
                         </div>
                     </div>
 
                     <!-- Action Text -->
-                    <div class="form-group" :class="{'has-error': createForm.errors.has('action_text')}">
-                        <label class="col-md-4 control-label">Action Button Text</label>
+                    <div class="form-group row" :class="{'is-invalid': createForm.errors.has('action_text')}">
+                        <label class="col-md-4 col-form-label text-md-right">Action Button Text</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="action_text" v-model="createForm.action_text">
 
-                            <span class="help-block" v-show="createForm.errors.has('action_text')">
+                            <span class="invalid-feedback" v-show="createForm.errors.has('action_text')">
                                 @{{ createForm.errors.get('action_text') }}
                             </span>
                         </div>
                     </div>
 
                     <!-- Action URL -->
-                    <div class="form-group" :class="{'has-error': createForm.errors.has('action_url')}">
-                        <label class="col-md-4 control-label">Action Button URL</label>
+                    <div class="form-group row" :class="{'is-invalid': createForm.errors.has('action_url')}">
+                        <label class="col-md-4 col-form-label text-md-right">Action Button URL</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="action_url" v-model="createForm.action_url">
 
-                            <span class="help-block" v-show="createForm.errors.has('action_url')">
+                            <span class="invalid-feedback" v-show="createForm.errors.has('action_url')">
                                 @{{ createForm.errors.get('action_url') }}
                             </span>
                         </div>
                     </div>
 
                     <!-- Create Button -->
-                    <div class="form-group">
-                        <div class="col-md-offset-4 col-md-6">
+                    <div class="form-group row">
+                        <div class="offset-md-4 col-md-6">
                             <button type="submit" class="btn btn-primary"
                                     @click.prevent="create"
                                     :disabled="createForm.busy">
@@ -67,20 +67,20 @@
         </div>
 
         <!-- Recent Announcements List -->
-        <div class="panel panel-default" v-if="announcements.length > 0">
-            <div class="panel-heading">Recent Announcements</div>
+        <div class="card card-default" v-if="announcements.length > 0">
+            <div class="card-header">Recent Announcements</div>
 
-            <div class="panel-body">
-                <table class="table table-borderless m-b-none">
+            <div class="table-responsive">
+                <table class="table table-valign-middle mb-0">
                     <thead>
-                        <th></th>
+                        <th class="th-fit"></th>
                         <th>Date</th>
-                        <th></th>
-                        <th></th>
+                        <th>Body</th>
+                        <th>&nbsp;</th>
                     </thead>
 
                     <tbody>
-                        <tr v-for="announcement in announcements">
+                        <tr class="reveal" v-for="announcement in announcements">
                             <!-- Photo -->
                             <td>
                                 <img :src="announcement.creator.photo_url" class="spark-profile-photo">
@@ -93,18 +93,28 @@
                                 </div>
                             </td>
 
-                            <!-- Edit Button -->
+                            <!-- Body -->
                             <td>
-                                <button class="btn btn-primary" @click="editAnnouncement(announcement)">
-                                    <i class="fa fa-pencil"></i>
-                                </button>
+                                <div class="btn-table-align">
+                                    @{{ _.truncate(announcement.body, {length: 45}) }}
+                                </div>
                             </td>
 
-                            <!-- Delete Button -->
-                            <td>
-                                <button class="btn btn-danger-outline" @click="approveAnnouncementDelete(announcement)">
-                                    <i class="fa fa-times"></i>
-                                </button>
+                            <!-- Edit Button -->
+                            <td class="td-fit">
+                                <div class="reveal-target text-right">
+                                    <button class="btn-reset" @click="editAnnouncement(announcement)">
+                                        <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
+                                            <path fill="#95A2AE" d="M12.3 3.7L0 16v4h4L16.3 7.7l-4-4zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/>
+                                        </svg>
+                                    </button>
+
+                                    <button class="btn-reset" @click="approveAnnouncementDelete(announcement)">
+                                        <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
+                                            <path fill="#95A2AE " d="M4 2l2-2h4l2 2h4v2H0V2h4zM1 6h14l-1 14H2L1 6zm5 2v10h1V8H6zm3 0v10h1V8H9z " />
+                                        </svg>
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
@@ -113,55 +123,53 @@
         </div>
 
         <!-- Edit Announcement Modal -->
-        <div class="modal fade" id="modal-update-announcement" tabindex="-1" role="dialog">
+        <div class="modal" id="modal-update-announcement" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" v-if="updatingAnnouncement">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Update Announcement
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">
                         <!-- Update Announcement -->
-                        <form class="form-horizontal" role="form">
+                        <form role="form">
                             <!-- Announcement -->
-                            <div class="form-group" :class="{'has-error': updateForm.errors.has('body')}">
-                                <label class="col-md-4 control-label">Announcement</label>
+                            <div class="form-group row" :class="{'is-invalid': updateForm.errors.has('body')}">
+                                <label class="col-md-4 col-form-label text-md-right">Announcement</label>
 
                                 <div class="col-md-6">
                                     <textarea class="form-control" rows="7" v-model="updateForm.body" style="font-family: monospace;">
                                     </textarea>
 
-                                    <span class="help-block" v-show="updateForm.errors.has('body')">
+                                    <span class="invalid-feedback" v-show="updateForm.errors.has('body')">
                                         @{{ updateForm.errors.get('body') }}
                                     </span>
                                 </div>
                             </div>
 
                             <!-- Action Text -->
-                            <div class="form-group" :class="{'has-error': updateForm.errors.has('action_text')}">
-                                <label class="col-md-4 control-label">Action Button Text</label>
+                            <div class="form-group row" :class="{'is-invalid': updateForm.errors.has('action_text')}">
+                                <label class="col-md-4 col-form-label text-md-right">Action Button Text</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="action_text" v-model="updateForm.action_text">
 
-                                    <span class="help-block" v-show="updateForm.errors.has('action_text')">
+                                    <span class="invalid-feedback" v-show="updateForm.errors.has('action_text')">
                                         @{{ updateForm.errors.get('action_text') }}
                                     </span>
                                 </div>
                             </div>
 
                             <!-- Action URL -->
-                            <div class="form-group" :class="{'has-error': updateForm.errors.has('action_url')}">
-                                <label class="col-md-4 control-label">Action Button URL</label>
+                            <div class="form-group row" :class="{'is-invalid': updateForm.errors.has('action_url')}">
+                                <label class="col-md-4 col-form-label text-md-right">Action Button URL</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="action_url" v-model="updateForm.action_url">
 
-                                    <span class="help-block" v-show="updateForm.errors.has('action_url')">
+                                    <span class="invalid-feedback" v-show="updateForm.errors.has('action_url')">
                                         @{{ updateForm.errors.get('action_url') }}
                                     </span>
                                 </div>
@@ -182,15 +190,13 @@
         </div>
 
         <!-- Delete Announcement Modal -->
-        <div class="modal fade" id="modal-delete-announcement" tabindex="-1" role="dialog">
+        <div class="modal" id="modal-delete-announcement" tabindex="-1" role="dialog">
             <div class="modal-dialog" v-if="deletingAnnouncement">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                        <h4 class="modal-title">
+                        <h5 class="modal-title">
                             Delete Announcement
-                        </h4>
+                        </h5>
                     </div>
 
                     <div class="modal-body">

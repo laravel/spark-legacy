@@ -10,11 +10,11 @@
                 <div class="modal-content">
                     <div class="modal-header text-center">
                         <div class="btn-group">
-                            <button class="btn btn-default" :class="{'active': showingNotifications}" @click="showNotifications" style="width: 50%;">
+                            <button class="btn btn-light" :class="{'active': showingNotifications}" @click="showNotifications" style="width: 50%;">
                                 Notifications
                             </button>
 
-                            <button class="btn btn-default" :class="{'active': showingAnnouncements}" @click="showAnnouncements" style="width: 50%;">
+                            <button class="btn btn-light" :class="{'active': showingAnnouncements}" @click="showAnnouncements" style="width: 50%;">
                                 Announcements <i class="fa fa-circle text-danger p-l-xs" v-if="hasUnreadAnnouncements"></i>
                             </button>
                         </div>

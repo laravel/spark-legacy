@@ -1,10 +1,10 @@
 <!-- Coupon -->
 <div class="row" v-if="coupon">
     <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-success">
-            <div class="panel-heading">Discount</div>
+        <div class="card card-success">
+            <div class="card-header">Discount</div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 The coupon's @{{ discount }} discount will be applied to your subscription!
             </div>
         </div>
@@ -39,19 +39,19 @@
 </div>
 
 <!-- Plan Selection -->
-<div class="row" v-if="paidPlans.length > 0">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+<div class="row justify-content-center" v-if="paidPlans.length > 0">
+    <div class="col-md-8">
+        <div class="card card-default">
+            <div class="card-header">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
                     Subscription
                 </div>
 
                 <!-- Interval Selector Button Group -->
                 <div class="pull-right">
-                    <div class="btn-group" v-if="hasMonthlyAndYearlyPlans" style="padding-top: 2px;">
+                    <div class="btn-group btn-group-sm" v-if="hasMonthlyAndYearlyPlans" style="padding-top: 2px;">
                         <!-- Monthly Plans -->
-                        <button type="button" class="btn btn-default"
+                        <button type="button" class="btn btn-light"
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
@@ -59,7 +59,7 @@
                         </button>
 
                         <!-- Yearly Plans -->
-                        <button type="button" class="btn btn-default"
+                        <button type="button" class="btn btn-light"
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
@@ -71,84 +71,69 @@
                 <div class="clearfix"></div>
             </div>
 
-            <div class="panel-body spark-row-list">
+            <div class="table-responsive">
                 <!-- Plan Error Message - In General Will Never Be Shown -->
-                <div class="alert alert-danger" v-if="registerForm.errors.has('plan')">
+                <div class="alert alert-danger m-4" v-if="registerForm.errors.has('plan')">
                     @{{ registerForm.errors.get('plan') }}
                 </div>
 
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
-                    <p class="p-b-md">
+                    <p class="m-4">
                         All subscription plan prices are excluding applicable VAT.
                     </p>
                 @endif
 
-                <div class="table-responsive">
-                    <table class="table table-borderless m-b-none">
-                        <thead></thead>
-                        <tbody>
-                            <tr v-for="plan in plansForActiveInterval">
-                                <!-- Plan Name -->
-                                <td>
-                                    <div class="btn-table-align" @click="showPlanDetails(plan)">
-                                        <span style="cursor: pointer;">
-                                            <strong>@{{ plan.name }}</strong>
-                                        </span>
-                                    </div>
-                                </td>
-    
-                                <!-- Plan Features Button -->
-                                <td>
-                                    <button class="btn btn-default m-l-sm" @click="showPlanDetails(plan)">
-                                        <i class="fa fa-btn fa-star-o"></i>Plan Features
-                                    </button>
-                                </td>
-    
-                                <!-- Plan Price -->
-                                <td>
-                                    <div class="btn-table-align">
-                                        <span v-if="plan.price == 0">
-                                            Free
-                                        </span>
-    
-                                        <span v-else>
-                                            @{{ plan.price | currency }} / @{{ plan.interval | capitalize }}
-                                        </span>
-                                    </div>
-                                </td>
-    
-                                <!-- Trial Days -->
-                                <td>
-                                    <div class="btn-table-align" v-if="plan.trialDays">
-                                        @{{ plan.trialDays}} Day Trial
-                                    </div>
-                                </td>
-    
-                                <!-- Plan Select Button -->
-                                <td class="text-right">
-                                    <button class="btn btn-primary btn-plan" v-if="isSelected(plan)" disabled>
-                                        <i class="fa fa-btn fa-check"></i>Selected
-                                    </button>
-    
-                                    <button class="btn btn-primary-outline btn-plan" @click="selectPlan(plan)" v-else>
-                                        Select
-                                    </button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <table class="table table-responsive-sm table-valign-middle mb-0 ">
+                    <thead></thead>
+                    <tbody>
+                        <tr v-for="plan in plansForActiveInterval">
+                            <!-- Plan Name -->
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <i class="radio-select mr-2" @click="selectPlan(plan)"
+                                    :class="{'radio-select-selected': isSelected(plan)}"></i>
+                                    @{{ plan.name }}
+                                </div>
+                            </td>
+
+                            <!-- Plan Features Button -->
+                            <td>
+                                <button class="btn btn-default" @click="showPlanDetails(plan)">
+                                Features
+                                </button>
+                            </td>
+
+                            <!-- Plan Price -->
+                            <td>
+                                <span v-if="plan.price == 0" class="table-plan-text">
+                                    Free
+                                </span>
+
+                                <span v-else class="table-plan-text">
+                                    <strong class="table-plan-price">@{{ plan.price | currency }}</strong> / @{{ plan.interval | capitalize }}
+                                </span>
+                            </td>
+
+                            <!-- Trial Days -->
+                            <td class="table-plan-price table-plane-text text-right">
+                                <span v-if="plan.trialDays && ! hasSubscribed(plan)">
+                                    @{{ plan.trialDays}} Day Trial
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Basic Profile -->
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-            <div class="panel-heading">
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card card-default">
+            <div class="card-header">
                 <span v-if="paidPlans.length > 0">
                     Profile
                 </span>
@@ -158,7 +143,7 @@
                 </span>
             </div>
 
-            <div class="panel-body">
+            <div class="card-body">
                 <!-- Generic Error Message -->
                 <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
                     @{{ registerForm.errors.get('form') }}

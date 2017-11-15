@@ -2,12 +2,12 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login Via Emergency Token</div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-default">
+                <div class="card-header">Login Via Emergency Token</div>
 
-                <div class="panel-body">
+                <div class="card-body">
                     @include('spark::shared.errors')
 
                     <!-- Warning Message -->
@@ -17,12 +17,12 @@
                         authentication security, you should re-enable it after logging in.
                     </div>
 
-                    <form class="form-horizontal" role="form" method="POST" action="/login-via-emergency-token">
+                    <form role="form" method="POST" action="/login-via-emergency-token">
                         {{ csrf_field() }}
 
                         <!-- Emergency Token -->
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Emergency Token</label>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">Emergency Token</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="token" autofocus>
@@ -30,10 +30,10 @@
                         </div>
 
                         <!-- Emergency Token Login Button -->
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                        <div class="form-group row">
+                            <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
+                                    Login
                                 </button>
                             </div>
                         </div>

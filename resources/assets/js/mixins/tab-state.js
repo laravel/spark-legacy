@@ -77,7 +77,7 @@ module.exports = {
          * Remove the active class from the tabs.
          */
         removeActiveClassFromTabs() {
-            $(`${this.pushStateSelector} li`).removeClass('active');
+            $(`${this.pushStateSelector} a`).removeClass('active');
         },
 
 

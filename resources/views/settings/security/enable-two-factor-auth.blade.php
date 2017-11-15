@@ -1,8 +1,8 @@
 <spark-enable-two-factor-auth :user="user" inline-template>
-    <div class="panel panel-default">
-        <div class="panel-heading">Two-Factor Authentication</div>
+    <div class="card card-default">
+        <div class="card-header">Two-Factor Authentication</div>
 
-        <div class="panel-body">
+        <div class="card-body">
             <!-- Information Message -->
             <div class="alert alert-info">
                 In order to use two-factor authentication, you <strong>must</strong> install the
@@ -10,42 +10,42 @@
                 on your smartphone. Authy is available for iOS and Android.
             </div>
 
-            <form class="form-horizontal" role="form">
+            <form role="form">
                 <!-- Country Code -->
-                <div class="form-group" :class="{'has-error': form.errors.has('country_code')}">
+                <div class="form-group row">
                     <label class="col-md-4 control-label">Country Code</label>
 
                     <div class="col-md-6">
-                        <input type="number" class="form-control" name="country_code" v-model="form.country_code">
+                        <input type="number" class="form-control" name="country_code" v-model="form.country_code" :class="{'is-invalid': form.errors.has('country_code')}">
 
-                        <span class="help-block" v-show="form.errors.has('country_code')">
+                        <span class="invalid-feedback" v-show="form.errors.has('country_code')">
                             @{{ form.errors.get('country_code') }}
                         </span>
                     </div>
                 </div>
 
                 <!-- Phone Number -->
-                <div class="form-group" :class="{'has-error': form.errors.has('phone')}">
+                <div class="form-group row">
                     <label class="col-md-4 control-label">Phone Number</label>
 
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" name="phone" v-model="form.phone">
+                        <input type="tel" class="form-control" name="phone" v-model="form.phone" :class="{'is-invalid': form.errors.has('phone')}">
 
-                        <span class="help-block" v-show="form.errors.has('phone')">
+                        <span class="invalid-feedback" v-show="form.errors.has('phone')">
                             @{{ form.errors.get('phone') }}
                         </span>
                     </div>
                 </div>
 
                 <!-- Enable Button -->
-                <div class="form-group">
-                    <div class="col-md-offset-4 col-md-6">
+                <div class="form-group row">
+                    <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary"
                                 @click.prevent="enable"
                                 :disabled="form.busy">
 
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Enabling
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> Enabling
                             </span>
 
                             <span v-else>

@@ -2,14 +2,20 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-warning">
-                <div class="panel-heading">Where's Your {{ ucfirst(Spark::teamString()) }}?</div>
-
-                <div class="panel-body">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="intro">
+                <div class="intro-img">
+                    <img src="{{asset('/img/create-team.svg')}}" class="h-90">
+                </div>
+                <h2 class="intro-headline">
+                    Where's Your {{ ucfirst(Spark::teamString()) }}?
+                </h2>
+                <p class="intro-copy">
                     It looks like you're not part of any {{ Spark::teamString() }}! You can create one in your
-                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}">settings</a>.
+                </p>
+                <div class="intro-btn">
+                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}" class="btn btn-outline-dark">Create Team</a>
                 </div>
             </div>
         </div>

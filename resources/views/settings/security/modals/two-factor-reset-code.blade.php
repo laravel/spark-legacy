@@ -1,12 +1,10 @@
-<div class="modal fade" id="modal-show-two-factor-reset-code" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
+<div class="modal" id="modal-show-two-factor-reset-code" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button " class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                <h4 class="modal-title">
+                <h5 class="modal-title">
                     Two-Factor Authentication Reset Code
-                </h4>
+                </h5>
             </div>
 
             <div class="modal-body">

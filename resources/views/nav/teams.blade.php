@@ -1,28 +1,24 @@
 <!-- Teams -->
-<li class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</li>
+<h6 class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</h6>
 
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())
-    <li>
-        <a href="/settings#/{{str_plural(Spark::teamString())}}">
-            <i class="fa fa-fw fa-btn fa-plus"></i>Create {{ ucfirst(Spark::teamString()) }}
-        </a>
-    </li>
+    <a class="dropdown-item" href="/settings#/{{str_plural(Spark::teamString())}}">
+        Create {{ ucfirst(Spark::teamString()) }}
+    </a>
 @endif
 
 <!-- Switch Current Team -->
 @if (Spark::showsTeamSwitcher())
-    <li v-for="team in teams">
-        <a :href="'/{{ str_plural(Spark::teamString()) }}/'+ team.id +'/switch'">
-            <span v-if="user.current_team_id == team.id">
-                <i class="fa fa-fw fa-btn fa-check text-success"></i>@{{ team.name }}
-            </span>
+    <a class="dropdown-item" v-for="team in teams" :href="'/{{ str_plural(Spark::teamString()) }}/'+ team.id +'/switch'">
+        <span v-if="user.current_team_id == team.id">
+            <i class="fa fa-fw fa-btn fa-check text-success"></i> @{{ team.name }}
+        </span>
 
-            <span v-else>
-                <img :src="team.photo_url" class="spark-team-photo-xs"><i class="fa fa-btn"></i>@{{ team.name }}
-            </span>
-        </a>
-    </li>
+        <span v-else>
+            <img :src="team.photo_url" class="spark-profile-photo-xs"><i class="fa fa-btn"></i> @{{ team.name }}
+        </span>
+    </a>
 @endif
 
-<li class="divider"></li>
+<div class="dropdown-divider"></div>

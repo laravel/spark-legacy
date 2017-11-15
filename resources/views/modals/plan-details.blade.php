@@ -1,16 +1,16 @@
-<div class="modal fade" id="modal-plan-details" tabindex="-1" role="dialog">
+<div class="modal" id="modal-plan-details" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content" v-if="detailingPlan">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">
+                <h5 class="modal-title">
                     @{{ detailingPlan.name }}
-                </h4>
+                </h5>
             </div>
 
             <!-- Modal Body -->
             <div class="modal-body">
-                <ul class="plan-feature-list p-b-none m-b-none">
+                <ul class="plan-feature-list p-0 m-0">
                     <li v-for="feature in detailingPlan.features">
                         @{{ feature }}
                     </li>

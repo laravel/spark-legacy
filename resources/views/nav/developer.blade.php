@@ -1,10 +1,8 @@
-<li class="dropdown-header">Developer</li>
+<h6 class="dropdown-header">Developer</h6>
 
 <!-- Kiosk -->
-<li>
-    <a href="/spark/kiosk">
-        <i class="fa fa-fw fa-btn fa-fort-awesome"></i>Kiosk
-    </a>
-</li>
+<a class="dropdown-item" href="/spark/kiosk">
+    <i class="fa fa-fw fa-btn fa-fort-awesome"></i>Kiosk
+</a>
 
-<li class="divider"></li>
+<div class="dropdown-divider"></div>

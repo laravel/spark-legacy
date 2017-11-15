@@ -1,8 +1,15 @@
 module.exports = {
     props: [
         'user', 'teams', 'currentTeam',
-        'hasUnreadNotifications', 'hasUnreadAnnouncements'
+        'unreadAnnouncementsCount', 'unreadNotificationsCount'
     ],
+
+
+    computed:{
+        notificationsCount(){
+            return this.unreadAnnouncementsCount + this.unreadNotificationsCount;
+        }
+    },
 
 
     methods: {
