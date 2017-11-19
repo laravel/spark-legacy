@@ -11,6 +11,9 @@
                         <th>Owner</th>
                         <th></th>
                         <th></th>
+                        @if (Spark::createsAdditionalTeams())
+ +                          <th></th>
+ +                      @endif
                     </thead>
 
                     <tbody>
