@@ -4,7 +4,7 @@
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())
     <a class="dropdown-item" href="/settings#/{{str_plural(Spark::teamString())}}">
-        Create {{ ucfirst(Spark::teamString()) }}
+        <i class="fa fa-fw fa-btn fa-plus-circle"></i> Create {{ ucfirst(Spark::teamString()) }}
     </a>
 @endif
 

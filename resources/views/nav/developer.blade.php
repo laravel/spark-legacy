@@ -2,7 +2,7 @@
 
 <!-- Kiosk -->
 <a class="dropdown-item" href="/spark/kiosk">
-    <i class="fa fa-fw fa-btn fa-fort-awesome"></i>Kiosk
+    <i class="fa fa-fw fa-btn fa-fort-awesome"></i> Kiosk
 </a>
 
 <div class="dropdown-divider"></div>
