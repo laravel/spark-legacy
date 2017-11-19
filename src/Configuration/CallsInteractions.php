@@ -109,7 +109,18 @@ trait CallsInteractions
     {
         return static::swap('CreateUser@handle', $callback);
     }
-
+    
+    /**
+     * Register a callback to create new teams.
+     *
+     * @param  mixed  $callback
+     * @return void
+     */
+    public static function createTeamsWith($callback)
+    {
+        return static::swap('CreateTeam@handle', $callback);
+    }
+    
     /**
      * Set a callback to be used to check plan eligibility.
      *
