@@ -9,8 +9,9 @@
 
                 <div class="panel-body">
                     It looks like you're not part of any {{ Spark::teamString() }}!
+
                     @if (Spark::createsAdditionalTeams()) 
-                        You can create one in your <a href="/settings#/{{ str_plural(Spark::teamString()) }}">settings</a>.
+                        You can create a team in your <a href="/settings#/{{ str_plural(Spark::teamString()) }}">settings</a>.
                     @endif
                 </div>
             </div>
