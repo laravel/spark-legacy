@@ -12,8 +12,8 @@
                         <th></th>
                         <th></th>
                         @if (Spark::createsAdditionalTeams())
- +                          <th></th>
- +                      @endif
+                            <th></th>
+                        @endif
                     </thead>
 
                     <tbody>
