@@ -257,7 +257,7 @@ module.exports = {
             if (this.notifications) {
                 return _.filter(this.notifications.notifications, notification => {
                     return ! notification.read;
-                });
+                }).length;
             }
 
             return 0;
