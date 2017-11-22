@@ -15,7 +15,7 @@
                     It looks like you're not part of any {{ Spark::teamString() }}!
                 </p>
                 <div class="intro-btn">
-                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}" class="btn btn-outline-dark">Create {{ Spark::teamString() }}</a>
+                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}" class="btn btn-outline-dark">Create {{ ucwords(Spark::teamString()) }}</a>
                 </div>
             </div>
         </div>
