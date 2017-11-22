@@ -55,7 +55,7 @@ class MailedInvitationController extends Controller
      */
     public function store(CreateInvitationRequest $request, $team)
     {
-        Spark::interact(SendInvitation::class, [$team, $request->email]);
+        Spark::interact(SendInvitation::class, [$team, $request->email, $request->role]);
     }
 
     /**

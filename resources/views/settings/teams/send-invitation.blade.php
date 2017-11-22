@@ -23,6 +23,22 @@
                         </span>
                     </div>
                 </div>
+                
+                <!-- Role -->
+                <div class="form-group" :class="{'has-error': form.errors.has('role')}" v-if="roles.length > 0">
+                    <label class="col-md-4 control-label">Role</label>
+
+                    <div class="col-md-6">
+                        <select class="form-control" v-model="form.role">
+                            <option v-for="role in roles" :value="role.value">
+                                @{{ role.text }}
+                            </option>
+                        </select>
+                        <span class="help-block" v-show="form.errors.has('role')">
+                            @{{ form.errors.get('role') }}
+                        </span>
+                    </div>
+                </div>
 
                 <!-- Send Invitation Button -->
                 <div class="form-group">

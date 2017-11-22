@@ -59,7 +59,7 @@ class Register implements Contract
     public function configureTeamForNewUser(RegisterRequest $request, $user)
     {
         if ($invitation = $request->invitation()) {
-            Spark::interact(AddTeamMember::class, [$invitation->team, $user]);
+            Spark::interact(AddTeamMember::class, [$invitation->team, $user, $invitation->role]);
 
             self::$team = $invitation->team;
 

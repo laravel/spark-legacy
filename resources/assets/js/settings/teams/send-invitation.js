@@ -8,8 +8,11 @@ module.exports = {
         return {
             plans: [],
 
+            roles: [],
+
             form: new SparkForm({
-                email: ''
+                email: '',
+                role: Spark.defaultRole
             })
         };
     },
@@ -87,6 +90,8 @@ module.exports = {
      */
     created() {
         this.getPlans();
+
+        this.getRoles();
     },
 
 
@@ -98,6 +103,7 @@ module.exports = {
             Spark.post(`/settings/${Spark.pluralTeamString}/${this.team.id}/invitations`, this.form)
                 .then(() => {
                     this.form.email = '';
+                    this.form.role = Spark.defaultRole;
 
                     this.$parent.$emit('updateInvitations');
                 });
@@ -112,5 +118,15 @@ module.exports = {
                     this.plans = response.data;
                 });
         }
+
+        /**
+         * Get the available member roles.
+         */
+        getRoles() {
+            axios.get(`/settings/${Spark.pluralTeamString}/roles`)
+                .then(response => {
+                    this.roles = response.data;
+                });
+        },
     }
 };
