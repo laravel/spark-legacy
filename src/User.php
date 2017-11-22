@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Billable, HasApiTokens, RoutesNotifications, CanJoinTeams;
+    use Billable, HasApiTokens, RoutesNotifications;
 
     /**
      * Get the profile photo URL attribute.
