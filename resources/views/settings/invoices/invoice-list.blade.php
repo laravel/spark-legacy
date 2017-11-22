@@ -24,7 +24,7 @@
                     <td class="text-right">
                         <a :href="downloadUrlFor(invoice)">
                             <button class="btn btn-default">
-                                <i class="fa fa-btn fa-file-pdf-o"></i>Download PDF
+                                <i class="fa fa-btn fa-file-pdf-o"></i> Download PDF
                             </button>
                         </a>
                     </td>

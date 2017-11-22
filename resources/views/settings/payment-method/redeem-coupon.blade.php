@@ -29,7 +29,7 @@
                                 :disabled="form.busy">
 
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Redeeming
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> Redeeming
                             </span>
 
                             <span v-else>

@@ -114,7 +114,7 @@
 
                         <button type="button" class="btn btn-danger" @click="deleteTeam" :disabled="deleteTeamForm.busy">
                             <span v-if="deleteTeamForm.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i>Deleting
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> Deleting
                             </span>
 
                             <span v-else>

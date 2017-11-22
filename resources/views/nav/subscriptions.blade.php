@@ -3,7 +3,7 @@
     <h6 class="dropdown-header">Trial</h6>
 
     <a class="dropdown-item" href="/settings#/subscription">
-        <i class="fa fa-fw fa-btn fa-shopping-bag"></i>Subscribe
+        <i class="fa fa-fw fa-btn fa-shopping-bag"></i> Subscribe
     </a>
 
     <div class="dropdown-divider"></div>
