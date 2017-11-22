@@ -14,12 +14,14 @@ class SendInvitation implements Contract
     /**
      * {@inheritdoc}
      */
-    public function handle($team, $email)
+    public function handle($team, $email, $role)
     {
         $invitedUser = Spark::user()->where('email', $email)->first();
 
+        $role = array_key_exists($role, Spark::roles()) ? $role : Spark::defaultRole();
+
         $this->emailInvitation(
-            $invitation = $this->createInvitation($team, $email, $invitedUser)
+            $invitation = $this->createInvitation($team, $email, $invitedUser, $role)
         );
 
         if ($invitedUser) {
@@ -47,14 +49,16 @@ class SendInvitation implements Contract
      *
      * @param  \Laravel\Spark\Team  $team
      * @param  string  $email
+     * @param  string  $role
      * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $invitedUser
      * @return Invitation
      */
-    protected function createInvitation($team, $email, $invitedUser)
+    protected function createInvitation($team, $email, $invitedUser, $role)
     {
         return $team->invitations()->create([
             'id' => Uuid::uuid4(),
             'user_id' => $invitedUser ? $invitedUser->id : null,
+            'role' => $role,
             'email' => $email,
             'token' => str_random(40),
         ]);
