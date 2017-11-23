@@ -1,17 +1,16 @@
 @if ($billable instanceof Laravel\Spark\Team)
-    Hi {{ $billable->name }}!
+    {{__('Hi :name', ['name' => $billable->name])}}
 @else
-    Hi {{ explode(' ', $billable->name)[0] }}!
+    {{__('Hi :name', ['name' => explode(' ', $billable->name)[0]])}}
 @endif
 
 <br><br>
 
-Thanks for your continued support. We've attached a copy of your invoice for your records.
-Please let us know if you have any questions or concerns!
+{{__('Thanks for your continued support. We\'ve attached a copy of your invoice for your records. Please let us know if you have any questions or concerns!')}}
 
 <br><br>
 
-Thanks!
+{{__('Thanks!')}}
 
 <br>
 

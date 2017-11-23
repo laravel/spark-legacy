@@ -4,7 +4,7 @@
         <div class="card card-default">
             <div class="card-header">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                    Update Subscription
+                    {{__('Update Subscription')}}
                 </div>
 
                 <!-- Interval Selector Button Group -->
@@ -15,7 +15,7 @@
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
-                            Monthly
+                            {{__('Monthly')}}
                         </button>
 
                         <!-- Yearly Plans -->
@@ -23,7 +23,7 @@
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
-                            Yearly
+                            {{__('Yearly')}}
                         </button>
                     </div>
                 </div>
@@ -39,23 +39,19 @@
 
                 <!-- Current Subscription (Active) -->
                 <div class="m-4" v-if="activePlan.active">
-                    You are currently subscribed to the
-                    <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
+                    <?php echo __('You are currently subscribed to the :planName plan.', ['planName' => '{{ activePlan.name }} ({{ activePlan.interval | capitalize }})']); ?>
                 </div>
 
                 <!-- Current Subscription (Archived) -->
                 <div class="alert alert-warning m-4" v-if=" ! activePlan.active">
-                    You are currently subscribed to the
-                    <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
-                    This plan has been discontinued, but you may continue your subscription to this plan as long as you wish.
-                    If you cancel your subscription and later want to begin a new subscription, you will need to choose
-                    from one of the active plans listed below.
+                    <?php echo __('You are currently subscribed to the :planName plan.', ['planName' => '{{ activePlan.name }} ({{ activePlan.interval | capitalize }})']); ?>
+                    {{__('This plan has been discontinued, but you may continue your subscription to this plan as long as you wish. If you cancel your subscription and later want to begin a new subscription, you will need to choose from one of the active plans listed below.')}}
                 </div>
 
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
                     <p class="m-4">
-                        All subscription plan prices include applicable VAT.
+                        {{__('All subscription plan prices include applicable VAT.')}}
                     </p>
                 @endif
 
@@ -75,7 +71,7 @@
                             <!-- Plan Features Button -->
                             <td>
                                 <button class="btn btn-default" @click="showPlanDetails(plan)">
-                                    Features
+                                    {{__('Features')}}
                                 </button>
                             </td>
 
@@ -83,7 +79,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="plan.price == 0">
-                                        Free
+                                        {{__('Free')}}
                                     </span>
 
                                     <span v-else>
@@ -95,7 +91,7 @@
                             <!-- Plan Select Button -->
                             <td class="text-right">
                                 <span v-if="selectingPlan && selectingPlan === plan">
-                                    <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
+                                    <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Updating')}}
                                 </span>
                             </td>
                         </tr>
@@ -111,23 +107,22 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Update Subscription
+                            {{__('Update Subscription')}}
                         </h5>
                     </div>
 
                     <!-- Modal Body -->
                     <div class="modal-body">
                         <p>
-                            Are you sure you want to switch to the
-                            <strong>@{{ confirmingPlan.name }} (@{{ confirmingPlan.interval | capitalize }})</strong> plan?
+                            <?php echo __('Are you sure you want to switch to the :planName plan?', ['planName' => '<strong>{{ confirmingPlan.name }} ({{ confirmingPlan.interval | capitalize }})</strong>']) ?>
                         </p>
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('No, Go Back')}}</button>
 
-                        <button type="button" class="btn btn-primary" @click="approvePlanUpdate">Yes, I'm Sure</button>
+                        <button type="button" class="btn btn-primary" @click="approvePlanUpdate">{{__('Yes, I\'m Sure')}}</button>
                     </div>
                 </div>
             </div>

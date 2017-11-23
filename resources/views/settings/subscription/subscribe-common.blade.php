@@ -1,7 +1,7 @@
 <div class="card card-default">
     <div class="card-header">
         <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-            Subscribe
+            {{__('Subscribe')}}
         </div>
 
         <!-- Interval Selector Button Group -->
@@ -12,7 +12,7 @@
                         @click="showMonthlyPlans"
                         :class="{'active': showingMonthlyPlans}">
 
-                    Monthly
+                    {{__('Monthly')}}
                 </button>
 
                 <!-- Yearly Plans -->
@@ -20,7 +20,7 @@
                         @click="showYearlyPlans"
                         :class="{'active': showingYearlyPlans}">
 
-                    Yearly
+                    {{__('Yearly')}}
                 </button>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <!-- European VAT Notice -->
         @if (Spark::collectsEuropeanVat())
             <p class="m-4">
-                All subscription plan prices are excluding applicable VAT.
+                {{__('All subscription plan prices are excluding applicable VAT.')}}
             </p>
         @endif
 
@@ -57,7 +57,7 @@
                     <!-- Plan Features Button -->
                     <td>
                         <button class="btn btn-default" @click="showPlanDetails(plan)">
-                            Features
+                            {{__('Features')}}
                         </button>
                     </td>
 
@@ -71,7 +71,7 @@
                     <!-- Trial Days -->
                     <td class="table-plan-price table-plane-text text-right">
                         <span v-if="plan.trialDays && ! hasSubscribed(plan)">
-                            @{{ plan.trialDays}} Day Trial
+                            @{{ plan.trialDays}} {{__('Day Trial')}}
                         </span>
                     </td>
                 </tr>

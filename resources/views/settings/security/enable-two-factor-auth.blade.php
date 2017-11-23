@@ -1,19 +1,17 @@
 <spark-enable-two-factor-auth :user="user" inline-template>
     <div class="card card-default">
-        <div class="card-header">Two-Factor Authentication</div>
+        <div class="card-header">{{__('Two-Factor Authentication')}}</div>
 
         <div class="card-body">
             <!-- Information Message -->
             <div class="alert alert-info">
-                In order to use two-factor authentication, you <strong>must</strong> install the
-                <strong><a href="https://authy.com" target="_blank">Authy</a></strong> application
-                on your smartphone. Authy is available for iOS and Android.
+                {{__('In order to use two-factor authentication, you must install the :authyLink application on your smartphone. Authy is available for iOS and Android.', ['authyLink' => '<strong><a href="https://authy.com" target="_blank">Authy</a></strong>'])}}
             </div>
 
             <form role="form">
                 <!-- Country Code -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label">Country Code</label>
+                    <label class="col-md-4 control-label">{{__('Country Code')}}</label>
 
                     <div class="col-md-6">
                         <input type="number" class="form-control" name="country_code" v-model="form.country_code" :class="{'is-invalid': form.errors.has('country_code')}">
@@ -26,7 +24,7 @@
 
                 <!-- Phone Number -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label">Phone Number</label>
+                    <label class="col-md-4 control-label">{{__('Phone Number')}}</label>
 
                     <div class="col-md-6">
                         <input type="tel" class="form-control" name="phone" v-model="form.phone" :class="{'is-invalid': form.errors.has('phone')}">
@@ -45,11 +43,11 @@
                                 :disabled="form.busy">
 
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Enabling
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Enabling')}}
                             </span>
 
                             <span v-else>
-                                Enable
+                                {{__('Enable')}}
                             </span>
                         </button>
                     </div>

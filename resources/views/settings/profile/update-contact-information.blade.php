@@ -1,17 +1,17 @@
 <spark-update-contact-information :user="user" inline-template>
     <div class="card card-default">
-        <div class="card-header">Contact Information</div>
+        <div class="card-header">{{__('Contact Information')}}</div>
 
         <div class="card-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your contact information has been updated!
+                {{__('Your contact information has been updated!')}}
             </div>
 
             <form role="form">
                 <!-- Name -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Name</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Name')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="name" v-model="form.name" :class="{'is-invalid': form.errors.has('name')}">
@@ -24,7 +24,7 @@
 
                 <!-- E-Mail Address -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('E-Mail Address')}}</label>
 
                     <div class="col-md-6">
                         <input type="email" class="form-control" name="email" v-model="form.email" :class="{'is-invalid': form.errors.has('email')}">
@@ -42,7 +42,7 @@
                                 @click.prevent="update"
                                 :disabled="form.busy">
 
-                            Update
+                            {{__('Update')}}
                         </button>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
         <!-- Update Payment Method Heading -->
         <div class="card-header">
             <div class="pull-left">
-                Update Payment Method
+                {{__('Update Payment Method')}}
             </div>
 
             <div class="pull-right">
@@ -19,13 +19,12 @@
         <div class="card-body">
             <!-- Card Update Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your card has been updated.
+                {{__('Your card has been updated.')}}
             </div>
 
             <!-- Generic 500 Level Error Message / Stripe Threw Exception -->
             <div class="alert alert-danger" v-if="form.errors.has('form')">
-                We had trouble updating your card. It's possible your card provider is preventing
-                us from charging the card. Please contact your card provider or customer support.
+                {{__('We had trouble updating your card. It\'s possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.')}}
             </div>
 
             <form role="form">
@@ -36,7 +35,7 @@
 
                 <!-- Cardholder's Name -->
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-md-right">Cardholder's Name</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Cardholder\'s Name')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" v-model="cardForm.name">
@@ -45,7 +44,7 @@
 
                 <!-- Card Number -->
                 <div class="form-group row">
-                    <label for="number" class="col-md-4 col-form-label text-md-right">Card Number</label>
+                    <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Card Number')}}</label>
 
                     <div class="col-md-6">
                         <input type="text"
@@ -63,7 +62,7 @@
 
                 <!-- Security Code -->
                 <div class="form-group row">
-                    <label for="cvc" class="col-md-4 col-form-label text-md-right">Security Code</label>
+                    <label for="cvc" class="col-md-4 col-form-label text-md-right">{{__('Security Code')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" data-stripe="cvc" v-model="cardForm.cvc">
@@ -72,7 +71,7 @@
 
                 <!-- Expiration Information -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Expiration</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Expiration')}}</label>
 
                     <div class="col-md-6">
                         <div class="row">
@@ -93,7 +92,7 @@
 
                 <!-- Zip Code -->
                 <div class="form-group row" v-if=" ! spark.collectsBillingAddress">
-                    <label for="zip" class="col-md-4 col-form-label text-md-right">ZIP / Postal Code</label>
+                    <label for="zip" class="col-md-4 col-form-label text-md-right">{{__('ZIP / Postal Code')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" v-model="form.zip">
@@ -105,11 +104,11 @@
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary" @click.prevent="update" :disabled="form.busy">
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Updating')}}
                             </span>
 
                             <span v-else>
-                                Update
+                                {{__('Update')}}
                             </span>
                         </button>
                     </div>

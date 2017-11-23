@@ -2,14 +2,14 @@
     <div>
         <div>
             <div class="card card-default" v-if="tokens.length > 0">
-                <div class="card-header">API Tokens</div>
+                <div class="card-header">{{__('API Tokens')}}</div>
 
                 <div class="table-responsive">
                     <table class="table table-valign-middle mb-0">
                         <thead>
-                            <th>Name</th>
-                            <th>Created</th>
-                            <th>Last Used</th>
+                            <th>{{__('Name')}}</th>
+                            <th>{{__('Created')}}</th>
+                            <th>{{__('Last Used')}}</th>
                             <th>&nbsp;</th>
                         </thead>
 
@@ -37,7 +37,7 @@
                                         </span>
 
                                         <span v-else>
-                                            Never
+                                            {{__('Never')}}
                                         </span>
                                 </div>
                             </td>
@@ -71,7 +71,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Edit Token (@{{ updatingToken.name }})
+                            {{__('Edit Token')}} (@{{ updatingToken.name }})
                         </h5>
                     </div>
 
@@ -80,7 +80,7 @@
                         <form role="form">
                             <!-- Token Name -->
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label">Token Name</label>
+                                <label class="col-md-4 col-form-label">{{__('Token Name')}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name" v-model="updateTokenForm.name" :class="{'is-invalid': updateTokenForm.errors.has('name')}">
@@ -93,7 +93,7 @@
 
                             <!-- Token Abilities -->
                             <div class="form-group row" v-if="availableAbilities.length > 0">
-                                <label class="col-md-4 col-form-label">Token Can</label>
+                                <label class="col-md-4 col-form-label">{{__('Token Can')}}</label>
 
                                 <div class="col-md-6">
                                     <div v-for="ability in availableAbilities">
@@ -118,10 +118,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
 
                         <button type="button" class="btn btn-primary" @click="updateToken" :disabled="updateTokenForm.busy">
-                        Update
+                        {{__('Update')}}
                         </button>
                     </div>
                 </div>
@@ -134,21 +134,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Delete Token (@{{ deletingToken.name }})
+                            {{__('Delete Token')}} (@{{ deletingToken.name }})
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this token? If deleted, API requests that attempt to
-                        authenticate using this token will no longer be accepted.
+                        {{__('Are you sure you want to delete this token? If deleted, API requests that attempt to authenticate using this token will no longer be accepted.')}}
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('No, Go Back')}}</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteToken" :disabled="deleteTokenForm.busy">
-                        Yes, Delete
+                        {{__('Yes, Delete')}}
                         </button>
                     </div>
                 </div>

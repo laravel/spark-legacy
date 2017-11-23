@@ -1,16 +1,16 @@
 <spark-redeem-coupon :user="user" :team="team" :billable-type="billableType" inline-template>
     <div class="card card-default">
-        <div class="card-header">Redeem Coupon</div>
+        <div class="card-header">{{__('Redeem Coupon')}}</div>
 
         <div class="card-body">
             <div class="alert alert-success" v-if="form.successful">
-                Coupon accepted! The discount will be applied to your next invoice.
+                {{__('Coupon accepted! The discount will be applied to your next invoice.')}}
             </div>
 
             <form role="form">
                 <!-- Coupon Code -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Coupon Code</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Coupon Code')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="coupon" v-model="form.coupon" :class="{'is-invalid': form.errors.has('coupon')}">
@@ -29,11 +29,11 @@
                                 :disabled="form.busy">
 
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Redeeming
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Redeeming')}}
                             </span>
 
                             <span v-else>
-                                Redeem
+                                {{__('Redeem')}}
                             </span>
                         </button>
                     </div>

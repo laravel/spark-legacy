@@ -1,18 +1,16 @@
 <spark-update-extra-billing-information :user="user" :team="team" :billable-type="billableType" inline-template>
     <div class="card card-default">
-        <div class="card-header">Extra Billing Information</div>
+        <div class="card-header">{{__('Extra Billing Information')}}</div>
 
         <div class="card-body">
             <!-- Information Message -->
             <div class="alert alert-info">
-                This information will appear on all of your receipts, and is a great place to add your full
-                business name, VAT number, or address of record. Do not include any confidential or
-                financial information such as credit card numbers.
+                {{__('This information will appear on all of your receipts, and is a great place to add your full business name, VAT number, or address of record. Do not include any confidential or financial information such as credit card numbers.')}}
             </div>
 
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your billing information has been updated!
+                {{__('Your billing information has been updated!')}}
             </div>
 
             <!-- Extra Billing Information -->
@@ -31,7 +29,7 @@
                 <div class="form-group row mb-0">
                     <div class="offset-md-4 col-md-8 text-right">
                         <button type="submit" class="btn btn-primary" @click.prevent="update" :disabled="form.busy">
-                            Update
+                            {{__('Update')}}
                         </button>
                     </div>
                 </div>

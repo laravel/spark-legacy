@@ -1,17 +1,17 @@
 <spark-update-password inline-template>
     <div class="card card-default">
-        <div class="card-header">Update Password</div>
+        <div class="card-header">{{__('Update Password')}}</div>
 
         <div class="card-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your password has been updated!
+                {{__('Your password has been updated!')}}
             </div>
 
             <form role="form">
                 <!-- Current Password -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Current Password</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Current Password')}}</label>
 
                     <div class="col-md-6">
                         <input type="password" class="form-control" name="current_password" v-model="form.current_password" :class="{'is-invalid': form.errors.has('current_password')}">
@@ -24,7 +24,7 @@
 
                 <!-- New Password -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Password</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Password')}}</label>
 
                     <div class="col-md-6">
                         <input type="password" class="form-control" name="password" v-model="form.password" :class="{'is-invalid': form.errors.has('password')}">
@@ -37,7 +37,7 @@
 
                 <!-- New Password Confirmation -->
                 <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Confirm Password')}}</label>
 
                     <div class="col-md-6">
                         <input type="password" class="form-control" name="password_confirmation" v-model="form.password_confirmation" :class="{'is-invalid': form.errors.has('password_confirmation')}">
@@ -55,7 +55,7 @@
                                 @click.prevent="update"
                                 :disabled="form.busy">
 
-                            Update
+                            {{__('Update')}}
                         </button>
                     </div>
                 </div>

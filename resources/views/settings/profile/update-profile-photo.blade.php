@@ -1,6 +1,6 @@
 <spark-update-profile-photo :user="user" inline-template>
     <div class="card card-default" v-if="user">
-        <div class="card-header">Profile Photo</div>
+        <div class="card-header">{{__('Profile Photo')}}</div>
 
         <div class="card-body">
             <div class="alert alert-danger" v-if="form.errors.has('photo')">
@@ -15,7 +15,7 @@
                         </div>
                         <div class="spark-uploader mr-4">
                             <input ref="photo" type="file" class="spark-uploader-control" name="photo" @change="update" :disabled="form.busy">
-                            <div class="btn btn-outline-dark">Update Photo</div>
+                            <div class="btn btn-outline-dark">{{__('Update Photo')}}</div>
                         </div>
                     </div>
                 </div>

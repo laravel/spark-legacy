@@ -3,7 +3,7 @@
         <!-- Update Payment Method Heading -->
         <div class="card-header">
             <div class="pull-left">
-                Update Payment Method
+                {{__('Update Payment Method')}}
             </div>
 
             <div class="pull-right">
@@ -26,13 +26,12 @@
         <div class="card-body">
             <!-- Payment Method Update Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your payment method has been updated.
+                {{__('Your payment method has been updated.')}}
             </div>
 
             <!-- Generic 500 Level Error Message / Braintree Threw Exception -->
             <div class="alert alert-danger" v-if="form.errors.has('form')">
-                We had trouble updating your payment method. It's possible your payment provider is preventing
-                us from charging the payment method. Please contact your payment provider or customer support.
+                {{__('We had trouble updating your payment method. It\'s possible your payment provider is preventing us from charging the payment method. Please contact your payment provider or customer support.')}}
             </div>
 
             <form role="form">
@@ -43,11 +42,11 @@
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary" :disabled="form.busy">
                         <span v-if="form.busy">
-                            <i class="fa fa-btn fa-spinner fa-spin"></i> Updating
+                            <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Updating')}}
                         </span>
 
                         <span v-else>
-                            Update
+                            {{__('Update')}}
                         </span>
                     </button>
                 </div>

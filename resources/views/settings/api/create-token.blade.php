@@ -22,16 +22,16 @@
 
                     <!-- Token Abilities -->
                     <div class="form-group row" v-if="availableAbilities.length > 0">
-                        <label class="col-md-4 col-form-label text-md-right">Token Can</label>
+                        <label class="col-md-4 col-form-label text-md-right">{{__('Token Can')}}</label>
 
                         <div class="col-md-6">
                             <div class="mb-2">
                                 <button class="btn btn-default" @click.prevent="assignAllAbilities" v-if=" ! allAbilitiesAssigned">
-                                    <i class="fa fa-btn fa-check"></i> Assign All Abilities
+                                    <i class="fa fa-btn fa-check"></i> {{__('Assign All Abilities')}}
                                 </button>
 
                                 <button class="btn btn-default" @click.prevent="removeAllAbilities" v-if="allAbilitiesAssigned">
-                                    <i class="fa fa-btn fa-times"></i> Remove All Abilities
+                                    <i class="fa fa-btn fa-times"></i> {{__('Remove All Abilities')}}
                                 </button>
                             </div>
 
@@ -61,7 +61,7 @@
                                     @click.prevent="create"
                                     :disabled="form.busy">
 
-                                Create
+                                {{__('Create')}}
                             </button>
                         </div>
                     </div>
@@ -75,15 +75,15 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            API Token
+                            {{__('API Token')}}
                         </h5>
                     </div>
 
                     <div class="modal-body">
                         <div class="alert alert-warning">
-                            Here is your new API token. <strong>This is the only time the token will ever
-                            be displayed, so be sure not to lose it!</strong> You may revoke the token
-                            at any time from your API settings.
+                            {{__('Here is your new API token.')}}
+                             <strong>{{__('This is the only time the token will ever be displayed, so be sure not to lose it!')}}</strong>
+                            {{__('You may revoke the token at any time from your API settings.')}}
                         </div>
 
                         <textarea id="api-token" class="form-control"
@@ -94,10 +94,10 @@
                     <!-- Modal Actions -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" @click="selectToken">
-                        <span v-if="copyCommandSupported">Copy To Clipboard</span>
-                        <span v-else>Select All</span>
+                        <span v-if="copyCommandSupported">{{__('Copy To Clipboard')}}</span>
+                        <span v-else>{{__('Select All')}}</span>
                         </button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
                     </div>
                 </div>
             </div>
