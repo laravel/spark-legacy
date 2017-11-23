@@ -48,11 +48,11 @@
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <!-- Impersonation -->
                             @if (session('spark:impersonator'))
-                                <h6 class="dropdown-header">Impersonation</h6>
+                                <h6 class="dropdown-header">{{__('Impersonation')}}</h6>
 
                                 <!-- Stop Impersonating -->
                                 <a class="dropdown-item" href="/spark/kiosk/users/stop-impersonating">
-                                    <i class="fa fa-fw fa-btn fa-user-secret"></i> Back To My Account
+                                    <i class="fa fa-fw fa-btn fa-user-secret"></i> {{__('Back To My Account')}}
                                 </a>
 
                                 <div class="dropdown-divider"></div>
@@ -67,11 +67,11 @@
                             @include('spark::nav.subscriptions')
 
                             <!-- Settings -->
-                            <h6 class="dropdown-header">Settings</h6>
+                            <h6 class="dropdown-header">{{__('Settings')}}</h6>
 
                             <!-- Your Settings -->
                             <a class="dropdown-item" href="/settings">
-                                <i class="fa fa-fw fa-btn fa-cog"></i> Your Settings
+                                <i class="fa fa-fw fa-btn fa-cog"></i> {{__('Your Settings')}}
                             </a>
 
                             <div class="dropdown-divider"></div>
@@ -88,7 +88,7 @@
 
                             <!-- Logout -->
                             <a class="dropdown-item" href="/logout">
-                                <i class="fa fa-fw fa-btn fa-sign-out"></i> Logout
+                                <i class="fa fa-fw fa-btn fa-sign-out"></i> {{__('Logout')}}
                             </a>
                         </div>
                     </li>

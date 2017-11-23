@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card card-default">
                     <div class="card-body">
-                        <i class="fa fa-btn fa-spinner fa-spin"></i> Loading
+                        <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Loading')}}
                     </div>
                 </div>
             </div>
@@ -33,17 +33,17 @@
                                 <div class="col-md-9">
                                     <!-- Email Address -->
                                     <p>
-                                        <strong>Email Address:</strong> <a :href="'mailto:'+profile.email">@{{ profile.email }}</a>
+                                        <strong>{{__('Email Address')}}:</strong> <a :href="'mailto:'+profile.email">@{{ profile.email }}</a>
                                     </p>
 
                                     <!-- Joined Date -->
                                     <p>
-                                        <strong>Joined:</strong> @{{ profile.created_at | datetime }}
+                                        <strong>{{__('Joined')}}:</strong> @{{ profile.created_at | datetime }}
                                     </p>
 
                                     <!-- Subscription -->
                                     <p>
-                                        <strong>Subscription:</strong>
+                                        <strong>{{__('Subscription')}}:</strong>
 
                                         <span v-if="activePlan(profile)">
                                             <a :href="customerUrlOnBillingProvider(profile)" target="_blank">
@@ -52,13 +52,13 @@
                                         </span>
 
                                         <span v-else>
-                                            None
+                                            {{__('None')}}
                                         </span>
                                     </p>
 
                                     <!-- Total Revenue -->
                                     <p>
-                                        <strong>Total Revenue:</strong> @{{ revenue | currency(spark.currencySymbol) }}
+                                        <strong>{{__('Total Revenue')}}:</strong> @{{ revenue | currency(spark.currencySymbol) }}
                                     </p>
                                 </div>
                             </div>
@@ -66,11 +66,11 @@
 
                         <div class="card-footer card-flush text-right">
                             <button class="btn btn-primary btn-sm" v-if="spark.usesStripe && profile.stripe_id" @click="addDiscount(profile)">
-                                Apply Discount
+                                {{__('Apply Discount')}}
                             </button>
 
                             <button class="btn btn-default btn-sm" @click="impersonate(profile)" :disabled="user.id === profile.id">
-                                Impersonate
+                                {{__('Impersonate')}}
                             </button>
                         </div>
                     </div>
@@ -82,15 +82,15 @@
                 <div class="col-md-12">
                     <div class="card card-default">
                         <div class="card-header">
-                            {{ ucfirst(str_plural(Spark::teamString())) }}
+                            {{ ucfirst(__(str_plural(Spark::teamString()))) }}
                         </div>
 
                         <div class="card-body">
                             <table class="table table-borderless m-b-none">
                                 <thead>
                                     <th></th>
-                                    <th>Name</th>
-                                    <th>Subscription</th>
+                                    <th>{{__('Name')}}</th>
+                                    <th>{{__('Subscription')}}</th>
                                 </thead>
 
                                 <tbody>
@@ -117,7 +117,7 @@
                                                 </span>
 
                                                 <span v-else>
-                                                    None
+                                                    {{__('None')}}
                                                 </span>
                                             </div>
                                         </td>

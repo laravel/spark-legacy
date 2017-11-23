@@ -2,14 +2,14 @@
     <div>
         <div class="card card-default">
             <div class="card-header">
-                Create API Token
+                {{__('Create API Token')}}
             </div>
 
             <div class="card-body">
                 <form role="form">
                     <!-- Token Name -->
                     <div class="form-group row">
-                        <label class="col-md-4 col-form-label text-md-right">Token Name</label>
+                        <label class="col-md-4 col-form-label text-md-right">{{__('Token Name')}}</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="name" v-model="form.name"  :class="{'is-invalid': form.errors.has('name')}">

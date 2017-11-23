@@ -4,7 +4,7 @@
 
         <div class="card card-default mb-4">
             <div class="card-header">
-                <h2 class="card-title mb-0">Metrics</h2>
+                <h2 class="card-title mb-0">{{__('Metrics')}}</h2>
             </div>
             <div class="card-body">
                 <div class="metrics">
@@ -19,7 +19,7 @@
                         </div>
                         <div>
                             <h2 class="metric-title mb-0">
-                                Recurring Revenue
+                                {{__('Recurring Revenue')}}
                             </h2>
                             <p class="metric-stat mb-0">
                                 @{{ monthlyRecurringRevenue | currency }}
@@ -41,7 +41,7 @@
                         </div>
                         <div>
                             <h2 class="metric-title mb-0">
-                                Total Volume
+                                {{__('Total Volume')}}
                             </h2>
                             <p class="metric-stat">
                                 @{{ totalVolume | currency }}
@@ -60,11 +60,10 @@
                         <div>
                             <h2 class="metric-title mb-0">
                                 @if(Spark::teamTrialDays())
-                                    Teams
+                                    {{__('Teams Currently Trialing')}}
                                 @else
-                                    Users
+                                    {{__('Users Currently Trialing')}}
                                 @endif
-                                Currently Trialing
                             </h2>
                             <p class="metric-stat">
                                 @{{ totalTrialUsers }}
@@ -79,7 +78,7 @@
         <div class="row" v-show="indicators.length > 0">
             <div class="col-md-12">
                 <div class="card card-default">
-                    <div class="card-header">Monthly Recurring Revenue</div>
+                    <div class="card-header">{{__('Monthly Recurring Revenue')}}</div>
 
                     <div class="card-body">
                         <canvas id="monthlyRecurringRevenueChart" height="100"></canvas>
@@ -92,7 +91,7 @@
         <div class="row" v-show="indicators.length > 0">
             <div class="col-md-12">
                 <div class="card card-default">
-                    <div class="card-header">Yearly Recurring Revenue</div>
+                    <div class="card-header">{{__('Yearly Recurring Revenue')}}</div>
 
                     <div class="card-body">
                         <canvas id="yearlyRecurringRevenueChart" height="100"></canvas>
@@ -105,7 +104,7 @@
             <!-- Daily Volume Chart -->
             <div class="col-md-6">
                 <div class="card card-default">
-                    <div class="card-header">Daily Volume</div>
+                    <div class="card-header">{{__('Daily Volume')}}</div>
 
                     <div class="card-body">
                         <canvas id="dailyVolumeChart" height="100"></canvas>
@@ -116,7 +115,7 @@
             <!-- Daily New Users Chart -->
             <div class="col-md-6">
                 <div class="card card-default">
-                    <div class="card-header">New Users</div>
+                    <div class="card-header">{{__('New Users')}}</div>
 
                     <div class="card-body">
                         <canvas id="newUsersChart" height="100"></canvas>
@@ -129,27 +128,27 @@
         <div class="row" v-if="plans.length > 0">
             <div class="col-md-12">
                 <div class="card card-default">
-                    <div class="card-header">Subscribers</div>
+                    <div class="card-header">{{__('Subscribers')}}</div>
 
                     <div class="table-responsive">
                         <table class="table table-valign-middle mb-0">
                             <thead>
-                            <th>Name</th>
-                            <th>Subscribers</th>
-                            <th>Trialing</th>
+                            <th>{{__('Name')}}</th>
+                            <th>{{__('Subscribers')}}</th>
+                            <th>{{__('Trialing')}}</th>
                             </thead>
 
                             <tbody>
                             <tr v-if="genericTrialUsers">
                                 <td>
                                     <div class="btn-table-align">
-                                        On Generic Trial
+                                        {{__('On Generic Trial')}}
                                     </div>
                                 </td>
 
                                 <td>
                                     <div class="btn-table-align">
-                                        N/A
+                                        {{__('N/A')}}
                                     </div>
                                 </td>
 

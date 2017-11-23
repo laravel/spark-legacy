@@ -5,33 +5,32 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Add Discount (@{{ discountingUser.name }})
+                            {{__('Add Discount')}} (@{{ discountingUser.name }})
                         </h5>
                     </div>
 
                     <div class="modal-body">
                         <!-- Current Discount -->
                         <div class="alert alert-success" v-if="currentDiscount">
-                            This user has a discount of @{{ formattedDiscount(currentDiscount) }}
-                            for @{{ formattedDiscountDuration(currentDiscount) }}.
+                            <?php echo __('This user has a discount of :discountAmount for :discountDuration.', ['discountAmount' => '{{ formattedDiscount(currentDiscount) }}', 'discountDuration' => '{{ formattedDiscountDuration(currentDiscount) }}']); ?>
                         </div>
 
                         <!-- Add Discount Form -->
                         <form role="form">
                             <!-- Discount Type -->
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-md-right">Discount Type</label>
+                                <label class="col-sm-4 col-form-label text-md-right">{{__('Discount Type')}}</label>
 
                                 <div class="col-sm-6">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="amount" v-model="form.type">&nbsp;&nbsp;Amount
+                                            <input type="radio" value="amount" v-model="form.type">&nbsp;&nbsp;{{__('Amount')}}
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="percent" v-model="form.type">&nbsp;&nbsp;Percentage
+                                            <input type="radio" value="percent" v-model="form.type">&nbsp;&nbsp;{{__('Percentage')}}
                                         </label>
                                     </div>
 
@@ -44,9 +43,9 @@
                             <!-- Discount Value -->
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">
-                                    <span v-if="form.type == 'percent'">Percentage</span>
+                                    <span v-if="form.type == 'percent'">{{__('Percentage')}}</span>
 
-                                    <span v-if="form.type == 'amount'">Amount</span>
+                                    <span v-if="form.type == 'amount'">{{__('Amount')}}</span>
                                 </label>
 
                                 <div class="col-md-6">
@@ -60,24 +59,24 @@
 
                             <!-- Discount Duration -->
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label text-md-right">Discount Duration</label>
+                                <label class="col-sm-4 col-form-label text-md-right">{{__('Discount Duration')}}</label>
 
                                 <div class="col-sm-6">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="once" v-model="form.duration">&nbsp;&nbsp;Once
+                                            <input type="radio" value="once" v-model="form.duration">&nbsp;&nbsp;{{__('Once')}}
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="forever" v-model="form.duration">&nbsp;&nbsp;Forever
+                                            <input type="radio" value="forever" v-model="form.duration">&nbsp;&nbsp;{{__('Forever')}}
                                         </label>
                                     </div>
 
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" value="repeating" v-model="form.duration">&nbsp;&nbsp;Multiple Months
+                                            <input type="radio" value="repeating" v-model="form.duration">&nbsp;&nbsp;{{__('Multiple Months')}}
                                         </label>
                                     </div>
 
@@ -90,7 +89,7 @@
                             <!-- Duration Months -->
                             <div class="form-group row" v-if="form.duration == 'repeating'">
                                 <label class="col-md-4 col-form-label text-md-right">
-                                    Months
+                                    {{__('Months')}}
                                 </label>
 
                                 <div class="col-md-6">
@@ -106,15 +105,15 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Cancel')}}</button>
 
                         <button type="button" class="btn btn-primary" @click="applyDiscount" :disabled="form.busy">
                             <span v-if="form.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Applying
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Applying')}}
                             </span>
 
                             <span v-else>
-                                Apply Discount
+                                {{__('Apply Discount')}}
                             </span>
                         </button>
                     </div>

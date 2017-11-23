@@ -2,7 +2,7 @@
     @if (Spark::usesTeams() && Spark::onlyTeamPlans())
         <!-- Team Name -->
         <div class="form-group row" v-if=" ! invitation">
-            <label class="col-md-4 col-form-label text-md-right">{{ ucfirst(Spark::teamString()) }} Name</label>
+            <label class="col-md-4 col-form-label text-md-right">{{ __(':tramString Name', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
 
             <div class="col-md-6">
                 <input type="text" class="form-control" name="team" v-model="registerForm.team" :class="{'is-invalid': registerForm.errors.has('team')}" autofocus>
@@ -16,13 +16,13 @@
         @if (Spark::teamsIdentifiedByPath())
             <!-- Team Slug (Only Shown When Using Paths For Teams) -->
             <div class="form-group row" v-if=" ! invitation">
-                <label class="col-md-4 col-form-label text-md-right">{{ ucfirst(Spark::teamString()) }} Slug</label>
+                <label class="col-md-4 col-form-label text-md-right">{{ __(':tramString Slug', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="team_slug" v-model="registerForm.team_slug" :class="{'is-invalid': registerForm.errors.has('team_slug')}" autofocus>
 
                     <small class="form-text text-muted" v-show="! registerForm.errors.has('team_slug')">
-                        This slug is used to identify your {{ Spark::teamString() }} in URLs.
+                        {{__('This slug is used to identify your :teamString in URLs.', ['teamString' => __(Spark::teamString())])}}
                     </small>
 
                     <span class="invalid-feedback" v-show="registerForm.errors.has('team_slug')">
@@ -35,7 +35,7 @@
 
     <!-- Name -->
     <div class="form-group row">
-        <label class="col-md-4 col-form-label text-md-right">Name</label>
+        <label class="col-md-4 col-form-label text-md-right">{{__('Name')}}</label>
 
         <div class="col-md-6">
             <input type="text" class="form-control" name="name" v-model="registerForm.name" :class="{'is-invalid': registerForm.errors.has('name')}" autofocus>
@@ -48,7 +48,7 @@
 
     <!-- E-Mail Address -->
     <div class="form-group row">
-        <label class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+        <label class="col-md-4 col-form-label text-md-right">{{__('E-Mail Address')}}</label>
 
         <div class="col-md-6">
             <input type="email" class="form-control" name="email" v-model="registerForm.email" :class="{'is-invalid': registerForm.errors.has('email')}">
@@ -61,7 +61,7 @@
 
     <!-- Password -->
     <div class="form-group row">
-        <label class="col-md-4 col-form-label text-md-right">Password</label>
+        <label class="col-md-4 col-form-label text-md-right">{{__('Password')}}</label>
 
         <div class="col-md-6">
             <input type="password" class="form-control" name="password" v-model="registerForm.password" :class="{'is-invalid': registerForm.errors.has('password')}">
@@ -74,7 +74,7 @@
 
     <!-- Password Confirmation -->
     <div class="form-group row">
-        <label class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+        <label class="col-md-4 col-form-label text-md-right">{{__('Confirm Password')}}</label>
 
         <div class="col-md-6">
             <input type="password" class="form-control" name="password_confirmation" v-model="registerForm.password_confirmation" :class="{'is-invalid': registerForm.errors.has('password_confirmation')}">
@@ -92,7 +92,7 @@
                 <div class="form-check">
                     <label class="form-check-label">
                         <input type="checkbox" name="terms" class="form-check-input" v-model="registerForm.terms">
-                        I Accept The <a href="/terms" target="_blank">Terms Of Service</a>
+                        <a href="/terms" target="_blank">{{__('I Accept The Terms Of Service')}}</a>
                     </label>
 
                     <span class="text-danger" v-show="registerForm.errors.has('terms')">
@@ -106,11 +106,11 @@
             <div class="col-md-6 offset-md-4">
                 <button class="btn btn-primary" @click.prevent="register" :disabled="registerForm.busy">
                     <span v-if="registerForm.busy">
-                        <i class="fa fa-btn fa-spinner fa-spin"></i> Registering
+                        <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Registering')}}
                     </span>
 
                     <span v-else>
-                        <i class="fa fa-btn fa-check-circle"></i> Register
+                        <i class="fa fa-btn fa-check-circle"></i> {{__('Register')}}
                     </span>
                 </button>
             </div>

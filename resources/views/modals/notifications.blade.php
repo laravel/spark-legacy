@@ -11,11 +11,11 @@
                     <div class="modal-header text-center">
                         <div class="btn-group">
                             <button class="btn btn-light" :class="{'active': showingNotifications}" @click="showNotifications" style="width: 50%;">
-                                Notifications
+                                {{__('Notifications')}}
                             </button>
 
                             <button class="btn btn-light" :class="{'active': showingAnnouncements}" @click="showAnnouncements" style="width: 50%;">
-                                Announcements <i class="fa fa-circle text-danger p-l-xs" v-if="hasUnreadAnnouncements"></i>
+                                {{__('Announcements')}} <i class="fa fa-circle text-danger p-l-xs" v-if="hasUnreadAnnouncements"></i>
                             </button>
                         </div>
                     </div>
@@ -23,13 +23,12 @@
                     <div class="modal-body">
                         <!-- Informational Messages -->
                         <div class="notification-container" v-if="loadingNotifications">
-                            <i class="fa fa-btn fa-spinner fa-spin"></i> Loading Notifications
+                            <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Loading Notifications')}}
                         </div>
 
                         <div class="notification-container" v-if=" ! loadingNotifications && activeNotifications.length == 0">
                             <div class="alert alert-warning m-b-none">
-                                We don't have anything to show you right now! But when we do,
-                                we'll be sure to let you know. Talk to you soon!
+                                {{__('We don\'t have anything to show you right now! But when we do, we\'ll be sure to let you know. Talk to you soon!')}}
                             </div>
                         </div>
 
@@ -109,7 +108,7 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
                     </div>
                 </div>
             </div>

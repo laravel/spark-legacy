@@ -15,28 +15,27 @@
             <div class="row justify-content-center" v-if="selectedPlan && selectedPlan.price > 0">
                 <div class="col-md-8">
                     <div class="card card-default">
-                        <div class="card-header">Billing Information</div>
+                        <div class="card-header">{{__('Billing Information')}}</div>
 
                         <div class="card-body">
                             <!-- Generic 500 Level Error Message / Stripe Threw Exception -->
                             <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
-                                We had trouble validating your card. It's possible your card provider is preventing
-                                us from charging the card. Please contact your card provider or customer support.
+                                {{__('We had trouble validating your card. It\'s possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.')}}
                             </div>
 
                             <form role="form">
                                 <!-- Billing Address Fields -->
                                 @if (Spark::collectsBillingAddress())
-                                    <h2><i class="fa fa-btn fa-map-marker"></i> Billing Address</h2>
+                                    <h2><i class="fa fa-btn fa-map-marker"></i> {{__('Billing Address')}}</h2>
 
                                     @include('spark::auth.register-address')
 
-                                    <h2><i class="fa fa-btn fa-credit-card"></i> Credit Card</h2>
+                                    <h2><i class="fa fa-btn fa-credit-card"></i> {{__('Credit Card')}}</h2>
                                 @endif
 
                                 <!-- Cardholder's Name -->
                                 <div class="form-group row">
-                                    <label for="name" class="col-md-4 col-form-label text-md-right">Cardholder's Name</label>
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Cardholder\'s Name')}}</label>
 
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="name" v-model="cardForm.name">
@@ -45,7 +44,7 @@
 
                                 <!-- Card Number -->
                                 <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Card Number</label>
+                                    <label class="col-md-4 col-form-label text-md-right">{{__('Card Number')}}</label>
 
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="number" data-stripe="number" v-model="cardForm.number" :class="{'is-invalid': cardForm.errors.has('number')}">
@@ -58,7 +57,7 @@
 
                                 <!-- Security Code -->
                                 <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Security Code</label>
+                                    <label class="col-md-4 col-form-label text-md-right">{{__('Security Code')}}</label>
 
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="cvc" data-stripe="cvc" v-model="cardForm.cvc">
@@ -67,7 +66,7 @@
 
                                 <!-- Expiration -->
                                 <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Expiration</label>
+                                    <label class="col-md-4 col-form-label text-md-right">{{__('Expiration')}}</label>
 
                                     <!-- Month -->
                                     <div class="col-md-3">
@@ -84,7 +83,7 @@
 
                                 <!-- ZIP Code -->
                                 <div class="form-group row" v-if=" ! spark.collectsBillingAddress">
-                                    <label class="col-md-4 col-form-label text-md-right">ZIP / Postal Code</label>
+                                    <label class="col-md-4 col-form-label text-md-right">{{__('ZIP / Postal Code')}}</label>
 
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="zip" v-model="registerForm.zip" :class="{'is-invalid': registerForm.errors.has('zip')}">
@@ -97,7 +96,7 @@
 
                                 <!-- Coupon Code -->
                                 <div class="form-group row" v-if="query.coupon">
-                                    <label class="col-md-4 col-form-label text-md-right">Coupon Code</label>
+                                    <label class="col-md-4 col-form-label text-md-right">{{__('Coupon Code')}}</label>
 
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name="coupon" v-model="registerForm.coupon" :class="{'is-invalid': registerForm.errors.has('coupon')}">
@@ -114,7 +113,7 @@
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" v-model="registerForm.terms">
-                                                I Accept The <a href="/terms" target="_blank">Terms Of Service</a>
+                                                <a href="/terms" target="_blank">{{__('I Accept The Terms Of Service')}}</a>
 
                                                 <span class="invalid-feedback" v-show="registerForm.errors.has('terms')">
                                                     <strong>@{{ registerForm.errors.get('terms') }}</strong>
@@ -130,9 +129,9 @@
 
                                     <div class="col-md-6">
                                         <div class="alert alert-info" style="margin: 0;">
-                                            <strong>Tax:</strong> @{{ taxAmount(selectedPlan) | currency }}
+                                            <strong>{{__('Tax')}}:</strong> @{{ taxAmount(selectedPlan) | currency }}
                                             <br><br>
-                                            <strong>Total Price Including Tax:</strong>
+                                            <strong>{{__('Total Price Including Tax')}}:</strong>
                                             @{{ priceWithTax(selectedPlan) | currency }} / @{{ selectedPlan.interval | capitalize }}
                                         </div>
                                     </div>
@@ -143,11 +142,11 @@
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary" @click.prevent="register" :disabled="registerForm.busy">
                                             <span v-if="registerForm.busy">
-                                                <i class="fa fa-btn fa-spinner fa-spin"></i> Registering
+                                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Registering')}}
                                             </span>
 
                                             <span v-else>
-                                                <i class="fa fa-btn fa-check-circle"></i> Register
+                                                <i class="fa fa-btn fa-check-circle"></i> {{__('Register')}}
                                             </span>
                                         </button>
                                     </div>

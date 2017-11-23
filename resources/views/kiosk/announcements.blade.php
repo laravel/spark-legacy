@@ -1,19 +1,17 @@
 <spark-kiosk-announcements inline-template>
     <div>
         <div class="card card-default">
-            <div class="card-header">Create Announcement</div>
+            <div class="card-header">{{__('Create Announcement')}}</div>
 
             <div class="card-body">
                 <div class="alert alert-info">
-                    Announcements you create here will be sent to the "Product Announcements" section of
-                    the notifications modal window, informing your users about new features and improvements
-                    to your application.
+                    {{__('Announcements you create here will be sent to the "Product Announcements" section of the notifications modal window, informing your users about new features and improvements to your application.')}}
                 </div>
 
                 <form role="form">
                     <!-- Announcement -->
                     <div class="form-group row" :class="{'is-invalid': createForm.errors.has('body')}">
-                        <label class="col-md-4 col-form-label text-md-right">Announcement</label>
+                        <label class="col-md-4 col-form-label text-md-right">{{__('{{__('Announcement')}}')}}</label>
 
                         <div class="col-md-6">
                             <textarea class="form-control" name="announcement" rows="7" v-model="createForm.body" style="font-family: monospace;">
@@ -27,7 +25,7 @@
 
                     <!-- Action Text -->
                     <div class="form-group row" :class="{'is-invalid': createForm.errors.has('action_text')}">
-                        <label class="col-md-4 col-form-label text-md-right">Action Button Text</label>
+                        <label class="col-md-4 col-form-label text-md-right">{{__('Action Button Text')}}</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="action_text" v-model="createForm.action_text">
@@ -40,7 +38,7 @@
 
                     <!-- Action URL -->
                     <div class="form-group row" :class="{'is-invalid': createForm.errors.has('action_url')}">
-                        <label class="col-md-4 col-form-label text-md-right">Action Button URL</label>
+                        <label class="col-md-4 col-form-label text-md-right">{{__('Action Button URL')}}</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="action_url" v-model="createForm.action_url">
@@ -58,7 +56,7 @@
                                     @click.prevent="create"
                                     :disabled="createForm.busy">
 
-                                Create
+                                {{__('Create')}}
                             </button>
                         </div>
                     </div>
@@ -68,14 +66,14 @@
 
         <!-- Recent Announcements List -->
         <div class="card card-default" v-if="announcements.length > 0">
-            <div class="card-header">Recent Announcements</div>
+            <div class="card-header">{{__('Recent Announcements')}}</div>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
                     <thead>
                         <th class="th-fit"></th>
-                        <th>Date</th>
-                        <th>Body</th>
+                        <th>{{__('Date')}}</th>
+                        <th>{{__('Announcement')}}</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -128,7 +126,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Update Announcement
+                            {{__('Update Announcement')}}
                         </h5>
                     </div>
 
@@ -137,7 +135,7 @@
                         <form role="form">
                             <!-- Announcement -->
                             <div class="form-group row" :class="{'is-invalid': updateForm.errors.has('body')}">
-                                <label class="col-md-4 col-form-label text-md-right">Announcement</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{__('Announcement')}}</label>
 
                                 <div class="col-md-6">
                                     <textarea class="form-control" rows="7" v-model="updateForm.body" style="font-family: monospace;">
@@ -151,7 +149,7 @@
 
                             <!-- Action Text -->
                             <div class="form-group row" :class="{'is-invalid': updateForm.errors.has('action_text')}">
-                                <label class="col-md-4 col-form-label text-md-right">Action Button Text</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{__('Action Button Text')}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="action_text" v-model="updateForm.action_text">
@@ -164,7 +162,7 @@
 
                             <!-- Action URL -->
                             <div class="form-group row" :class="{'is-invalid': updateForm.errors.has('action_url')}">
-                                <label class="col-md-4 col-form-label text-md-right">Action Button URL</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{__('Action Button URL')}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="action_url" v-model="updateForm.action_url">
@@ -179,10 +177,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
 
                         <button type="button" class="btn btn-primary" @click="update" :disabled="updateForm.busy">
-                            Update
+                            {{__('Update')}}
                         </button>
                     </div>
                 </div>
@@ -195,20 +193,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Delete Announcement
+                            {{__('Delete Announcement')}}
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this announcement?
+                        {{__('Are you sure you want to delete this announcement?')}}
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('No, Go Back')}}</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteAnnouncement" :disabled="deleteForm.busy">
-                            Yes, Delete
+                            {{__('Yes, Delete')}}
                         </button>
                     </div>
                 </div>

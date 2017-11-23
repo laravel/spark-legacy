@@ -2,10 +2,10 @@
 <div class="row" v-if="coupon">
     <div class="col-md-8 col-md-offset-2">
         <div class="card card-success">
-            <div class="card-header">Discount</div>
+            <div class="card-header">{{__('Discount')}}</div>
 
             <div class="card-body">
-                The coupon's @{{ discount }} discount will be applied to your subscription!
+                <?php echo __('The coupon :value discount will be applied to your subscription!', ['value' => '{{ discount }}']); ?>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
 <div class="row" v-if="invalidCoupon">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-danger">
-            Whoops! This coupon code is invalid.
+            {{__('Whoops! This coupon code is invalid.')}}
         </div>
     </div>
 </div>
@@ -24,7 +24,7 @@
 <div class="row" v-if="invitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-success">
-            We found your invitation to the <strong>@{{ invitation.team.name }}</strong> {{ Spark::teamString() }}!
+            <?php echo __('We found your invitation to the :teamName :teamString!', ['teamName' => '{{ invitation.team.name }}', 'teamString' => __(Spark::teamString())]); ?>
         </div>
     </div>
 </div>
@@ -33,7 +33,7 @@
 <div class="row" v-if="invalidInvitation">
     <div class="col-md-8 col-md-offset-2">
         <div class="alert alert-danger">
-            Whoops! This invitation code is invalid.
+            {{__('Whoops! This invitation code is invalid.')}}
         </div>
     </div>
 </div>
@@ -44,7 +44,7 @@
         <div class="card card-default">
             <div class="card-header">
                 <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
-                    Subscription
+                    {{__('Subscription')}}
                 </div>
 
                 <!-- Interval Selector Button Group -->
@@ -55,7 +55,7 @@
                                 @click="showMonthlyPlans"
                                 :class="{'active': showingMonthlyPlans}">
 
-                            Monthly
+                            {{__('Monthly')}}
                         </button>
 
                         <!-- Yearly Plans -->
@@ -63,7 +63,7 @@
                                 @click="showYearlyPlans"
                                 :class="{'active': showingYearlyPlans}">
 
-                            Yearly
+                            {{__('Yearly')}}
                         </button>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                 <!-- European VAT Notice -->
                 @if (Spark::collectsEuropeanVat())
                     <p class="m-4">
-                        All subscription plan prices are excluding applicable VAT.
+                        {{__('All subscription plan prices are excluding applicable VAT.')}}
                     </p>
                 @endif
 
@@ -100,14 +100,14 @@
                             <!-- Plan Features Button -->
                             <td>
                                 <button class="btn btn-default" @click="showPlanDetails(plan)">
-                                Features
+                                {{__('Features')}}
                                 </button>
                             </td>
 
                             <!-- Plan Price -->
                             <td>
                                 <span v-if="plan.price == 0" class="table-plan-text">
-                                    Free
+                                    {{__('Free')}}
                                 </span>
 
                                 <span v-else class="table-plan-text">
@@ -118,7 +118,7 @@
                             <!-- Trial Days -->
                             <td class="table-plan-price table-plane-text text-right">
                                 <span v-if="plan.trialDays && ! hasSubscribed(plan)">
-                                    @{{ plan.trialDays}} Day Trial
+                                    <?php echo __(':trialDays Day Trial', ['trialDays' => '{{ plan.trialDays }}']); ?>
                                 </span>
                             </td>
                         </tr>
@@ -135,11 +135,11 @@
         <div class="card card-default">
             <div class="card-header">
                 <span v-if="paidPlans.length > 0">
-                    Profile
+                    {{__('Profile')}}
                 </span>
 
                 <span v-else>
-                    Register
+                    {{__('Register')}}
                 </span>
             </div>
 

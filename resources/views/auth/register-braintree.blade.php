@@ -15,13 +15,12 @@
             <div class="row justify-content-center" v-show="selectedPlan && selectedPlan.price > 0">
                 <div class="col-md-8">
                     <div class="card card-default">
-                        <div class="card-header"><i class="fa fa-btn fa-credit-card"></i> Billing</div>
+                        <div class="card-header"><i class="fa fa-btn fa-credit-card"></i> {{__('Billing')}}</div>
 
                         <div class="card-body">
                             <!-- Generic 500 Level Error Message / Stripe Threw Exception -->
                             <div class="alert alert-danger" v-if="registerForm.errors.has('form')">
-                                We had trouble validating your card. It's possible your card provider is preventing
-                                us from charging the card. Please contact your card provider or customer support.
+                                {{__('We had trouble validating your card. It\'s possible your card provider is preventing us from charging the card. Please contact your card provider or customer support.')}}
                             </div>
 
                             <form role="form">
@@ -30,7 +29,7 @@
 
                                 <!-- Coupon Code -->
                                 <div class="form-group row" v-if="query.coupon">
-                                    <label for="number" class="col-md-4 col-form-label text-md-right">Coupon Code</label>
+                                    <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Coupon Code')}}</label>
 
                                     <div class="col-sm-6">
                                         <input type="text" class="form-control" name="coupon" v-model="registerForm.coupon" :class="{'is-invalid': registerForm.errors.has('coupon')}">
@@ -47,7 +46,7 @@
                                         <div class="checkbox">
                                             <label>
                                                 <input type="checkbox" v-model="registerForm.terms">
-                                                I Accept The <a href="/terms" target="_blank">Terms Of Service</a>
+                                                <a href="/terms" target="_blank">{{__('I Accept The Terms Of Service')}}</a>
 
                                                 <span class="invalid-feedback" v-show="registerForm.errors.has('terms')">
                                                     <strong>@{{ registerForm.errors.get('terms') }}</strong>
@@ -62,11 +61,11 @@
                                     <div class="col-sm-6 offset-sm-4">
                                         <button type="submit" class="btn btn-primary" :disabled="registerForm.busy">
                                             <span v-if="registerForm.busy">
-                                                <i class="fa fa-btn fa-spinner fa-spin"></i> Registering
+                                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Registering')}}
                                             </span>
 
                                             <span v-else>
-                                                <i class="fa fa-btn fa-check-circle"></i> Register
+                                                <i class="fa fa-btn fa-check-circle"></i> {{__('Register')}}
                                             </span>
                                         </button>
                                     </div>

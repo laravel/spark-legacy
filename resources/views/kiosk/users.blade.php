@@ -17,32 +17,32 @@
 
             <!-- Searching -->
             <div class="card card-default" v-if="searching">
-                <div class="card-header">Search Results</div>
+                <div class="card-header">{{__('Search Results')}}</div>
 
                 <div class="card-body">
-                    <i class="fa fa-btn fa-spinner fa-spin"></i> Searching
+                    <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Searching')}}
                 </div>
             </div>
 
             <!-- No Search Results -->
             <div class="card card-default" v-if=" ! searching && noSearchResults">
-                <div class="card-header">Search Results</div>
+                <div class="card-header">{{__('Search Results')}}</div>
 
                 <div class="card-body">
-                    No users matched the given criteria.
+                    {{__('No users matched the given criteria.')}}
                 </div>
             </div>
 
             <!-- User Search Results -->
             <div class="card card-default" v-if=" ! searching && searchResults.length > 0">
-                <div class="card-header">Search Results</div>
+                <div class="card-header">{{__('Search Results')}}</div>
 
                 <div class="table-responsive">
                     <table class="table table-valign-middle mb-0">
                         <thead>
                             <th></th>
-                            <th>Name</th>
-                            <th>E-Mail Address</th>
+                            <th>{{__('Name')}}</th>
+                            <th>{{__('E-Mail Address')}}</th>
                             <th class="th-fit"></th>
                         </thead>
 

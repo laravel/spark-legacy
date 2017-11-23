@@ -1,6 +1,6 @@
 <!-- Address -->
 <div class="form-group row">
-    <label class="col-md-4 col-form-label text-md-right">Address</label>
+    <label class="col-md-4 col-form-label text-md-right">{{__('Address')}}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="registerForm.address" lazy :class="{'is-invalid': registerForm.errors.has('address')}">
@@ -13,7 +13,7 @@
 
 <!-- Address Line 2 -->
 <div class="form-group row">
-    <label class="col-md-4 col-form-label text-md-right">Address Line 2</label>
+    <label class="col-md-4 col-form-label text-md-right">{{__('Address Line 2')}}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model="registerForm.address_line_2" lazy :class="{'is-invalid': registerForm.errors.has('address_line_2')}">
@@ -26,7 +26,7 @@
 
 <!-- City -->
 <div class="form-group row">
-    <label class="col-md-4 col-form-label text-md-right">City</label>
+    <label class="col-md-4 col-form-label text-md-right">{{__('City')}}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model.lazy="registerForm.city" :class="{'is-invalid': registerForm.errors.has('city')}">
@@ -39,7 +39,7 @@
 
 <!-- State & ZIP Code -->
 <div class="form-group row">
-    <label class="col-md-4 col-form-label text-md-right">State & ZIP / Postal Code</label>
+    <label class="col-md-4 col-form-label text-md-right">{{__('State & ZIP / Postal Code')}}</label>
 
     <!-- State -->
     <div class="col-sm-3">
@@ -62,7 +62,7 @@
 
 <!-- Country -->
 <div class="form-group row">
-    <label class="col-md-4 col-form-label text-md-right">Country</label>
+    <label class="col-md-4 col-form-label text-md-right">{{__('Country')}}</label>
 
     <div class="col-sm-6">
         <select class="form-control" v-model.lazy="registerForm.country" :class="{'is-invalid': registerForm.errors.has('country')}">
@@ -79,7 +79,7 @@
 
 <!-- European VAT ID -->
 <div class="form-group row" v-if="countryCollectsVat">
-    <label class="col-md-4 col-form-label text-md-right">VAT ID</label>
+    <label class="col-md-4 col-form-label text-md-right">{{__('VAT ID')}}</label>
 
     <div class="col-sm-6">
         <input type="text" class="form-control" v-model.lazy="registerForm.vat_id" :class="{'is-invalid': registerForm.errors.has('vat_id')}">

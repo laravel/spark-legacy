@@ -1,10 +1,10 @@
 <!-- Teams -->
-<h6 class="dropdown-header">{{ ucfirst(str_plural(Spark::teamString())) }}</h6>
+<h6 class="dropdown-header">{{ ucfirst(__(str_plural(Spark::teamString()))) }}</h6>
 
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())
     <a class="dropdown-item" href="/settings#/{{str_plural(Spark::teamString())}}">
-        <i class="fa fa-fw fa-btn fa-plus-circle"></i> Create {{ ucfirst(Spark::teamString()) }}
+        <i class="fa fa-fw fa-btn fa-plus-circle"></i> {{__('Create :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}
     </a>
 @endif
 

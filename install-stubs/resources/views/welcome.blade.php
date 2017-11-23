@@ -73,13 +73,13 @@
         <nav class="links">
             <a href="/login" style="margin-right: 15px;">
                 <button>
-                    Login
+                    {{__('Login')}}
                 </button>
             </a>
 
             <a href="/register">
                 <button>
-                    Register
+                    {{__('Register')}}
                 </button>
             </a>
         </nav>

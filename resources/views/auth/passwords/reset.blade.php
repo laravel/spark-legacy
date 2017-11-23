@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card card-default">
-                <div class="card-header">Reset Password</div>
+                <div class="card-header">{{__('Reset Password')}}</div>
 
                 <div class="card-body">
                     <form role="form" method="POST" action="{{ url('/password/reset') }}">
@@ -15,7 +15,7 @@
 
                         <!-- E-Mail Address -->
                         <div class="form-group row{{ $errors->has('email') ? ' is-invalid' : '' }}">
-                            <label class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{__('E-Mail Address')}}</label>
 
                             <div class="col-md-6">
                                 <input type="email" class="form-control" name="email" value="{{ $email or old('email') }}" autofocus>
@@ -30,7 +30,7 @@
 
                         <!-- Password -->
                         <div class="form-group row{{ $errors->has('password') ? ' is-invalid' : '' }}">
-                            <label class="col-md-4 col-form-label text-md-right">Password</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{__('E-Mail Address')}}</label>
 
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password">
@@ -45,7 +45,7 @@
 
                         <!-- Password Confirmation -->
                         <div class="form-group row{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}">
-                            <label class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                            <label class="col-md-4 col-form-label text-md-right">{{__('Confirm Password')}}</label>
                             <div class="col-md-6">
                                 <input type="password" class="form-control" name="password_confirmation">
 
@@ -61,7 +61,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-refresh"></i> Reset Password
+                                    <i class="fa fa-btn fa-refresh"></i> {{__('Reset Password')}}
                                 </button>
                             </div>
                         </div>
