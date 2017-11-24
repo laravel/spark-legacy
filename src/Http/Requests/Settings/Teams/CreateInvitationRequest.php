@@ -69,7 +69,7 @@ class CreateInvitationRequest extends FormRequest
         }
 
         if ($this->exceedsMaxTeamMembers($plan) || $this->exceedsMaxCollaborators($plan)) {
-            $validator->errors()->add('email', 'Please upgrade your subscription to add more team members.');
+            $validator->errors()->add('email', __('Please upgrade your subscription to add more team members.'));
         }
     }
 
@@ -107,7 +107,7 @@ class CreateInvitationRequest extends FormRequest
     protected function verifyEmailNotAlreadyOnTeam($validator, $team)
     {
         if ($team->users()->where('email', $this->email)->exists()) {
-            $validator->errors()->add('email', 'That user is already on the team.');
+            $validator->errors()->add('email', __('That user is already on the team.'));
         }
 
         return $this;
@@ -123,7 +123,7 @@ class CreateInvitationRequest extends FormRequest
     protected function verifyEmailNotAlreadyInvited($validator, $team)
     {
         if ($team->invitations()->where('email', $this->email)->exists()) {
-            $validator->errors()->add('email', 'That user is already invited to the team.');
+            $validator->errors()->add('email', __('That user is already invited to the team.'));
         }
 
         return $this;

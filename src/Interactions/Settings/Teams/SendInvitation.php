@@ -38,7 +38,7 @@ class SendInvitation implements Contract
     protected function emailInvitation($invitation)
     {
         Mail::send($this->view($invitation), compact('invitation'), function ($m) use ($invitation) {
-            $m->to($invitation->email)->subject('New Invitation!');
+            $m->to($invitation->email)->subject(__('New Invitation!'));
         });
     }
 

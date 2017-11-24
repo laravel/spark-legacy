@@ -28,7 +28,7 @@ class CreateSubscriptionRequest extends FormRequest
     protected function validateCoupon($validator)
     {
         if (! app(CouponRepository::class)->valid($this->coupon)) {
-            $validator->errors()->add('coupon', 'This coupon code is invalid.');
+            $validator->errors()->add('coupon', __('This coupon code is invalid.'));
         }
     }
 }

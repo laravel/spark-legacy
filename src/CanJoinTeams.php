@@ -134,7 +134,7 @@ trait CanJoinTeams
     public function switchToTeam($team)
     {
         if (! $this->onTeam($team)) {
-            throw new InvalidArgumentException("The user does not belong to the given team.");
+            throw new InvalidArgumentException(__("The user does not belong to the given team."));
         }
 
         $this->current_team_id = $team->id;

@@ -88,7 +88,7 @@ class RegisterRequest extends FormRequest
     protected function validateCoupon($validator)
     {
         if (! app(CouponRepository::class)->valid($this->coupon)) {
-            $validator->errors()->add('coupon', 'This coupon code is invalid.');
+            $validator->errors()->add('coupon', __('This coupon code is invalid.'));
         }
     }
 
@@ -101,7 +101,7 @@ class RegisterRequest extends FormRequest
     protected function validateInvitation($validator)
     {
         if (! $this->invitation()) {
-            $validator->errors()->add('invitation', 'This invitation code is invalid.');
+            $validator->errors()->add('invitation', __('This invitation code is invalid.'));
         }
     }
 

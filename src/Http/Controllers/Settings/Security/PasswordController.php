@@ -35,7 +35,7 @@ class PasswordController extends Controller
         if (! Hash::check($request->current_password, $request->user()->password)) {
             return response()->json([
                 'errors' => [
-                    'current_password' => ['The given password does not match our records.']
+                    'current_password' => [__('The given password does not match our records.')]
                 ]
             ], 422);
         }

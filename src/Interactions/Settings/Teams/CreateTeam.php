@@ -49,7 +49,9 @@ class CreateTeam implements Contract
         }
 
         if ($plan->teams <= $user->ownedTeams()->count()) {
-            $validator->errors()->add('name', 'Please upgrade your subscription to create more '.str_plural(Spark::teamString()).'.');
+            $validator->errors()->add('name',
+                __('Please upgrade your subscription to create more :teamsString.', ['teamsString' => __(str_plural(Spark::teamString()))])
+            );
         }
     }
 

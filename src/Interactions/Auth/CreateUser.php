@@ -42,7 +42,7 @@ class CreateUser implements Contract
     {
         return Validator::make(
             $request->all(), Spark::call(static::class.'@rules', [$request]),
-            [], ['address_line_2' => 'second address line']
+            [], ['address_line_2' => __('second address line')]
         );
     }
 

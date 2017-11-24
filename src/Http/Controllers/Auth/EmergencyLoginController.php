@@ -69,7 +69,7 @@ class EmergencyLoginController extends Controller
 
         if (! Hash::check($request->token, $resetCode)) {
             return redirect('login')->withErrors([
-                'token' => 'The emergency token was invalid.'
+                'token' => __('The emergency token was invalid.')
             ]);
         }
 

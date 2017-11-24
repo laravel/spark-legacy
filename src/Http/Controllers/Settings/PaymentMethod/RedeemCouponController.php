@@ -49,7 +49,7 @@ class RedeemCouponController extends Controller
             return response()->json([
                 'errors' => [
                     'coupon' => [
-                        'This coupon code is invalid.'
+                        __('This coupon code is invalid.')
                     ]
                 ]
             ], 422);

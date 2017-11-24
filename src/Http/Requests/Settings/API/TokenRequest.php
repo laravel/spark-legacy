@@ -55,7 +55,7 @@ class TokenRequest extends FormRequest
     public function messages()
     {
         return [
-            'abilities.required' => 'Please select at least one ability.',
+            'abilities.required' => __('Please select at least one ability.'),
         ];
     }
 }

@@ -43,7 +43,7 @@ class TwoFactorAuthController extends Controller
             return response()->json([
                 'errors' => [
                     'phone' => [
-                        'We were not able to enable two-factor authentication for this phone number.'
+                        __('We were not able to enable two-factor authentication for this phone number.')
                     ]
                 ]
             ], 422);
