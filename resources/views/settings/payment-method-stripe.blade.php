@@ -2,11 +2,10 @@
     <div>
         <!-- Current Discount -->
         <div class="card card-success" v-if="currentDiscount">
-            <div class="card-header">Current Discount</div>
+            <div class="card-header">{{__('Current Discount')}}</div>
 
             <div class="card-body">
-                You currently receive a discount of @{{ formattedDiscount(currentDiscount) }}
-                for @{{ formattedDiscountDuration(currentDiscount) }}.
+                <?php echo __('You currently receive a discount of :amount for :duration.', ['amount' => '{{ formattedDiscount(currentDiscount) }}', 'duration' => '@{{ formattedDiscountDuration(currentDiscount) }}']); ?>
             </div>
         </div>
 

@@ -1,12 +1,12 @@
 <spark-mailed-invitations :invitations="invitations" inline-template>
     <div>
         <div class="card card-default" v-if="invitations.length > 0">
-            <div class="card-header">Mailed Invitations</div>
+            <div class="card-header">{{__('Mailed Invitations')}}</div>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
                     <thead>
-                        <th>E-Mail Address</th>
+                        <th>{{__('E-Mail Address')}}</th>
                         <th class="th-fit">&nbsp;</th>
                     </thead>
 

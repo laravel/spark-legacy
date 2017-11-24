@@ -1,14 +1,14 @@
 <spark-current-teams :user="user" :teams="teams" inline-template>
     <div>
         <div class="card card-default">
-            <div class="card-header">Current {{ ucfirst(str_plural(Spark::teamString())) }}</div>
+            <div class="card-header">{{__('Current :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}</div>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
                     <thead>
                         <th class="th-fit"></th>
-                        <th>Name</th>
-                        <th>Owner</th>
+                        <th>{{__('Name')}}</th>
+                        <th>{{__('Owner')}}</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -30,7 +30,7 @@
                             <td>
                                 <div class="btn-table-align">
                                     <span v-if="user.id == team.owner.id">
-                                        You
+                                        {{__('You')}}
                                     </span>
 
                                     <span v-else>
@@ -73,20 +73,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Leave {{ ucfirst(Spark::teamString()) }} (@{{ leavingTeam.name }})
+                            {{__('Leave :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ leavingTeam.name }})
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to leave this {{ Spark::teamString() }}?
+                        {{__('Are you sure you want to leave this :teamString?', ['teamString' => __(Spark::teamString())])}}
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('No, Go Back')}}</button>
 
                         <button type="button" class="btn btn-warning" @click="leaveTeam" :disabled="leaveTeamForm.busy">
-                            Yes, Leave
+                            {{__('Yes, Leave')}}
                         </button>
                     </div>
                 </div>
@@ -99,26 +99,26 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Delete {{ ucfirst(Spark::teamString()) }} (@{{ deletingTeam.name }})
+                            {{__('Delete :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to delete this {{ Spark::teamString() }}? If you choose to delete the {{ Spark::teamString() }}, all of the
-                        {{ Spark::teamString() }}'s data will be permanently deleted.
+                        {{__('Are you sure you want to delete this :teamString?', ['teamString' => __(Spark::teamString())])}}
+                        {{__('If you choose to delete the :teamString all data will be permanently deleted.', ['teamString' => __(Spark::teamString())])}}
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('No, Go Back')}}</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteTeam" :disabled="deleteTeamForm.busy">
                             <span v-if="deleteTeamForm.busy">
-                                <i class="fa fa-btn fa-spinner fa-spin"></i> Deleting
+                                <i class="fa fa-btn fa-spinner fa-spin"></i> {{__('Deleting')}}
                             </span>
 
                             <span v-else>
-                                Yes, Delete
+                                {{__('Yes, Delete')}}
                             </span>
                         </button>
                     </div>

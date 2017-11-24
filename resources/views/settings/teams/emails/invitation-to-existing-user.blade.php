@@ -1,14 +1,13 @@
-Hi!
+{{__('Hi!')}}
 
 <br><br>
 
-{{ $invitation->team->owner->name }} has invited you to join their {{ Spark::teamString() }}!
+{{__(':userName has invited you to join their :teamString', ['userName' => $invitation->team->owner->name, 'teamString' => __(Spark::teamString())])}}
 
 <br><br>
 
-Since you already have an account, you may accept the invitation from your
-account settings screen.
+{{__('Since you already have an account, you may accept the invitation from your account settings screen.')}}
 
 <br><br>
 
-See you soon!
+{{__('See you soon!')}}

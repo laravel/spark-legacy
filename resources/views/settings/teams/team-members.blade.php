@@ -1,14 +1,16 @@
 <spark-team-members :user="user" :team="team" inline-template>
     <div>
         <div class="card card-default">
-            <div class="card-header">{{ ucfirst(Spark::teamString()) }} Members (@{{ team.users.length }})</div>
+            <div class="card-header">
+                {{__(':teamString Members', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ team.users.length }})
+            </div>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
                     <thead>
                         <th class="th-fit"></th>
-                        <th>Name</th>
-                        <th v-if="roles.length > 1">Role</th>
+                        <th>{{__('Name')}}</th>
+                        <th v-if="roles.length > 1">{{__('Role')}}</th>
                         <th class="th-fit" v-if="roles.length > 1"><!-- Edit Team Member Button --></th>
                         <th class="th-fit"></th>
                     </thead>
@@ -23,7 +25,7 @@
                             <!-- Name -->
                             <td>
                                 <span v-if="member.id === user.id">
-                                    You
+                                    {{__('You')}}
                                 </span>
 
                                 <span v-else>
@@ -67,7 +69,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Edit {{ ucfirst(Spark::teamString()) }} Member (@{{ updatingTeamMember.name }})
+                            {{__('Edit :teamString Member', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ updatingTeamMember.name }})
                         </h5>
                     </div>
 
@@ -75,7 +77,9 @@
                         <!-- Update Team Member Form -->
                         <form role="form">
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">{{ ucfirst(Spark::teamString()) }} Member Role</label>
+                                <label class="col-md-4 col-form-label text-md-right">
+                                    {{__(':teamString Member Role', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+                                </label>
 
                                 <div class="col-md-6">
                                     <select class="form-control" v-model="updateTeamMemberForm.role" :class="{'is-invalid': updateTeamMemberForm.errors.has('role')}">
@@ -94,10 +98,10 @@
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('Close')}}</button>
 
                         <button type="button" class="btn btn-primary" @click="update" :disabled="updateTeamMemberForm.busy">
-                            Update
+                            {{__('Update')}}
                         </button>
                     </div>
                 </div>
@@ -110,20 +114,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Remove {{ ucfirst(Spark::teamString()) }} Member (@{{ deletingTeamMember.name }})
+                            {{__('Remove :teamString Member', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ deletingTeamMember.name }})
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        Are you sure you want to remove this {{ ucfirst(Spark::teamString()) }} member?
+                        {{__('Are you sure you want to remove this :teamString member?', ['teamString' => __(Spark::teamString())])}}
                     </div>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">No, Go Back</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">{{__('No, Go Back')}}</button>
 
                         <button type="button" class="btn btn-danger" @click="deleteMember" :disabled="deleteTeamMemberForm.busy">
-                            Yes, Remove
+                            {{__('Yes, Remove')}}
                         </button>
                     </div>
                 </div>

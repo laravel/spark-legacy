@@ -1,12 +1,12 @@
 <spark-pending-invitations inline-template>
     <div>
         <div class="card card-default" v-if="invitations.length > 0">
-            <div class="card-header">Pending Invitations</div>
+            <div class="card-header">{{__('Pending Invitations')}}</div>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
                     <thead>
-                        <th>{{ ucfirst(Spark::teamString()) }}</th>
+                        <th>{{ ucfirst(__(Spark::teamString())) }}</th>
                         <th></th>
                         <th></th>
                     </thead>

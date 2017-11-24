@@ -9,13 +9,15 @@
                     <img src="{{asset('/img/create-team.svg')}}" class="h-90">
                 </div>
                 <h4>
-                    Where's Your {{ ucfirst(Spark::teamString()) }}?
+                    {{__('Where\'s your :teamString?', ['teamString' => ucfirst(__(Spark::teamString()))])}}
                 </h4>
                 <p class="intro-copy">
-                    It looks like you're not part of any {{ Spark::teamString() }}!
+                    {{__('It looks like you\'re not part of any :teamString!', ['teamString' => ucfirst(__(Spark::teamString()))])}}
                 </p>
                 <div class="intro-btn">
-                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}" class="btn btn-outline-dark">Create {{ ucwords(Spark::teamString()) }}</a>
+                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}" class="btn btn-outline-dark">
+                        {{__('Create :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+                    </a>
                 </div>
             </div>
         </div>

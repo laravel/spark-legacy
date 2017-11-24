@@ -1,17 +1,19 @@
 <spark-update-team-name :user="user" :team="team" inline-template>
     <div class="card card-default">
-        <div class="card-header">Update {{ ucfirst(Spark::teamString()) }} Name</div>
+        <div class="card-header">
+            {{__('Update :teamString Name', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+        </div>
 
         <div class="card-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                Your {{ Spark::teamString() }} name has been updated!
+                {{__('Your :teamString name has been updated!', ['teamString' => ucfirst(__(Spark::teamString()))])}}
             </div>
 
             <form role="form">
                 <!-- Name -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label text-md-right">Name</label>
+                    <label class="col-md-4 control-label text-md-right">{{__('Name')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="name" v-model="form.name" :class="{'is-invalid': form.errors.has('name')}">
@@ -29,7 +31,7 @@
                                 @click.prevent="update"
                                 :disabled="form.busy">
 
-                            Update
+                            {{__('Update')}}
                         </button>
                     </div>
                 </div>
