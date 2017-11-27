@@ -91,11 +91,10 @@
             <div class="col-md-6 offset-md-4">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="checkbox" name="terms" class="form-check-input" v-model="registerForm.terms">
-                        <a href="/terms" target="_blank">{{__('I Accept The Terms Of Service')}}</a>
+                        <input type="checkbox" class="form-check-input" v-model="registerForm.terms">
+                        {!! __('I Accept :linkOpenThe Terms Of Service:linkClose', ['linkOpen' => '<a href="/terms" target="_blank">', 'linkClose' => '</a>']) !!}
                     </label>
-
-                    <span class="text-danger" v-show="registerForm.errors.has('terms')">
+                    <span class="invalid-feedback" v-show="registerForm.errors.has('terms')">
                         <strong>@{{ registerForm.errors.get('terms') }}</strong>
                     </span>
                 </div>

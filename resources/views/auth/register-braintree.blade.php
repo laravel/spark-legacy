@@ -43,15 +43,14 @@
                                 <!-- Terms And Conditions -->
                                 <div class="form-group" :class="{'is-invalid': registerForm.errors.has('terms')}">
                                     <div class="col-sm-6 offset-sm-3">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox" v-model="registerForm.terms">
-                                                <a href="/terms" target="_blank">{{__('I Accept The Terms Of Service')}}</a>
-
-                                                <span class="invalid-feedback" v-show="registerForm.errors.has('terms')">
-                                                    <strong>@{{ registerForm.errors.get('terms') }}</strong>
-                                                </span>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input type="checkbox" class="form-check-input" v-model="registerForm.terms">
+                                                {!! __('I Accept :linkOpenThe Terms Of Service:linkClose', ['linkOpen' => '<a href="/terms" target="_blank">', 'linkClose' => '</a>']) !!}
                                             </label>
+                                            <span class="invalid-feedback" v-show="registerForm.errors.has('terms')">
+                                                <strong>@{{ registerForm.errors.get('terms') }}</strong>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
