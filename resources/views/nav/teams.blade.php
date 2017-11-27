@@ -4,7 +4,7 @@
 <!-- Create Team -->
 @if (Spark::createsAdditionalTeams())
     <a class="dropdown-item" href="/settings#/{{str_plural(Spark::teamString())}}">
-        <i class="fa fa-fw fa-btn fa-plus-circle"></i> {{__('Create :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+        <i class="fa fa-fw text-left fa-btn fa-plus-circle"></i> {{__('Create :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}
     </a>
 @endif
 
@@ -12,7 +12,7 @@
 @if (Spark::showsTeamSwitcher())
     <a class="dropdown-item" v-for="team in teams" :href="'/{{ str_plural(Spark::teamString()) }}/'+ team.id +'/switch'">
         <span v-if="user.current_team_id == team.id">
-            <i class="fa fa-fw fa-btn fa-check text-success"></i> @{{ team.name }}
+            <i class="fa fa-fw text-left fa-btn fa-check text-success"></i> @{{ team.name }}
         </span>
 
         <span v-else>

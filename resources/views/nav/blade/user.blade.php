@@ -44,7 +44,7 @@
                             <!-- Stop Impersonating -->
                             <li>
                                 <a href="/spark/kiosk/users/stop-impersonating">
-                                    <i class="fa fa-fw fa-btn fa-user-secret"></i> {{__('Back To My Account')}}
+                                    <i class="fa fa-fw text-left fa-btn fa-user-secret"></i> {{__('Back To My Account')}}
                                 </a>
                             </li>
 
@@ -65,7 +65,7 @@
                         <!-- Your Settings -->
                         <li>
                             <a href="/settings">
-                                <i class="fa fa-fw fa-btn fa-cog"></i> {{__('Your Settings')}}
+                                <i class="fa fa-fw text-left fa-btn fa-cog"></i> {{__('Your Settings')}}
                             </a>
                         </li>
 
@@ -79,7 +79,7 @@
                         <!-- Logout -->
                         <li>
                             <a href="/logout">
-                                <i class="fa fa-fw fa-btn fa-sign-out"></i> {{__('Logout')}}
+                                <i class="fa fa-fw text-left fa-btn fa-sign-out"></i> {{__('Logout')}}
                             </a>
                         </li>
                     </ul>

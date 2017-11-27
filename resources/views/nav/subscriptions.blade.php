@@ -3,7 +3,7 @@
     <h6 class="dropdown-header">{{__('Trial')}}</h6>
 
     <a class="dropdown-item" href="/settings#/subscription">
-        <i class="fa fa-fw fa-btn fa-shopping-bag"></i> {{__('Subscribe')}}
+        <i class="fa fa-fw text-left fa-btn fa-shopping-bag"></i> {{__('Subscribe')}}
     </a>
 
     <div class="dropdown-divider"></div>
@@ -14,7 +14,7 @@
     <h6 class="dropdown-header">{{__('Trial')}}</h6>
 
     <a class="dropdown-item" href="/settings/{{ str_plural(Spark::teamString()) }}/{{ Auth::user()->currentTeam()->id }}#/subscription">
-        <i class="fa fa-fw fa-btn fa-shopping-bag"></i> {{__('Subscribe')}}
+        <i class="fa fa-fw text-left fa-btn fa-shopping-bag"></i> {{__('Subscribe')}}
     </a>
 
     <div class="dropdown-divider"></div>
