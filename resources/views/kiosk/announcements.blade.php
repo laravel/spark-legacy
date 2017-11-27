@@ -11,7 +11,7 @@
                 <form role="form">
                     <!-- Announcement -->
                     <div class="form-group row" :class="{'is-invalid': createForm.errors.has('body')}">
-                        <label class="col-md-4 col-form-label text-md-right">{{__('{{__('Announcement')}}')}}</label>
+                        <label class="col-md-4 col-form-label text-md-right">{{__('Announcement')}}</label>
 
                         <div class="col-md-6">
                             <textarea class="form-control" name="announcement" rows="7" v-model="createForm.body" style="font-family: monospace;">
