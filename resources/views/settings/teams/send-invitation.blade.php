@@ -1,4 +1,4 @@
-<spark-send-invitation :user="user" :team="team" :billable-type="billableType" inline-template>
+<spark-send-invitation :user="user" :team="team" :billable-type="billableType" default-role="{{Spark::defaultRole()}}" inline-template>
     <div class="card card-default">
         <div class="card-header">{{__('Send Invitation')}}</div>
 
@@ -25,16 +25,14 @@
                 </div>
 
                 <!-- Role -->
-                <div class="form-group" :class="{'has-error': form.errors.has('role')}" v-if="roles.length > 0">
-                    <label class="col-md-4 control-label">Role</label>
+                <div class="form-group row" v-if="roles.length > 0">
+                    <label class="col-md-4 col-form-label text-md-right">Role</label>
 
                     <div class="col-md-6">
-                        <select class="form-control" v-model="form.role">
-                            <option v-for="role in roles" :value="role.value">
-                                @{{ role.text }}
-                            </option>
+                        <select class="form-control" v-model="form.role" :class="{'is-invalid': form.errors.has('role')}" >
+                            <option v-for="role in roles" :value="role.value">@{{ role.text }}</option>
                         </select>
-                        <span class="help-block" v-show="form.errors.has('role')">
+                        <span class="invalid-feedback" v-show="form.errors.has('role')">
                             @{{ form.errors.get('role') }}
                         </span>
                     </div>

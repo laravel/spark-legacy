@@ -28,7 +28,6 @@ trait ProvidesScriptVariables
             'currencySymbol' => Cashier::usesCurrencySymbol(),
             'env' => config('app.env'),
             'roles' => Spark::roles(),
-            'defaultRole' => Spark::defaultRole(),
             'state' => Spark::call(InitialFrontendState::class.'@forUser', [Auth::user()]),
             'stripeKey' => config('services.stripe.key'),
             'teamString' => Spark::teamString(),

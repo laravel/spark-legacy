@@ -1,5 +1,5 @@
 module.exports = {
-    props: ['user', 'team', 'billableType'],
+    props: ['user', 'team', 'billableType', 'defaultRole'],
 
     /**
      * The component's data.
@@ -12,7 +12,7 @@ module.exports = {
 
             form: new SparkForm({
                 email: '',
-                role: Spark.defaultRole
+                role: this.defaultRole
             })
         };
     },

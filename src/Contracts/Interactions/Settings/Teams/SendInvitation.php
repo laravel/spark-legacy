@@ -12,5 +12,5 @@ interface SendInvitation
      * @param  string  $role
      * @return \Laravel\Spark\Invitation
      */
-    public function handle($team, $email, $role = '');
+    public function handle($team, $email, $role);
 }

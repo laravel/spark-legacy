@@ -1,38 +1,22 @@
-<!-- Coupon -->
-<div class="row" v-if="coupon">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="card card-success">
-            <div class="card-header">{{__('Discount')}}</div>
-
-            <div class="card-body">
-                <?php echo __('The coupon :value discount will be applied to your subscription!', ['value' => '{{ discount }}']); ?>
-            </div>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <!-- Coupon -->
+        <div class="alert alert-success" v-if="coupon">
+            <?php echo __('The coupon :value discount will be applied to your subscription!', ['value' => '{{ discount }}']); ?>
         </div>
-    </div>
-</div>
 
-<!-- Invalid Coupon -->
-<div class="row" v-if="invalidCoupon">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="alert alert-danger">
+        <!-- Invalid Coupon -->
+        <div class="alert alert-danger" v-if="invalidCoupon">
             {{__('Whoops! This coupon code is invalid.')}}
         </div>
-    </div>
-</div>
 
-<!-- Invitation -->
-<div class="row" v-if="invitation">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="alert alert-success">
+        <!-- Invitation -->
+        <div class="alert alert-success" v-if="invitation">
             <?php echo __('We found your invitation to the :teamName :teamString!', ['teamName' => '{{ invitation.team.name }}', 'teamString' => __(Spark::teamString())]); ?>
         </div>
-    </div>
-</div>
 
-<!-- Invalid Invitation -->
-<div class="row" v-if="invalidInvitation">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="alert alert-danger">
+        <!-- Invalid Invitation -->
+        <div class="alert alert-danger" v-if="invalidInvitation">
             {{__('Whoops! This invitation code is invalid.')}}
         </div>
     </div>
