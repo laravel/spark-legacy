@@ -11,7 +11,7 @@
             <form role="form" v-if="canInviteMoreTeamMembers">
                 <!-- E-Mail Address -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label text-md-right">{{__('E-Mail Address')}}</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('E-Mail Address')}}</label>
 
                     <div class="col-md-6">
                         <input type="email" class="form-control" name="email" v-model="form.email" :class="{'is-invalid': form.errors.has('email')}">
