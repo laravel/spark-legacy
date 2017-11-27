@@ -127,9 +127,6 @@ module.exports = {
                 })
                 .catch (response => {
                     //
-                })
-                .finally(function () {
-                    this.refreshStatesAndProvinces();
                 });
         },
 
