@@ -22,7 +22,7 @@
                 </div>
 
                 <!-- Redeem Button -->
-                <div class="form-group row">
+                <div class="form-group row mb-0">
                     <div class="offset-md-4 col-md-6">
                         <button type="submit" class="btn btn-primary"
                                 @click.prevent="redeem"

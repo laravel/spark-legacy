@@ -49,7 +49,7 @@
                 </div>
 
                 <!-- Update Button -->
-                <div class="form-group">
+                <div class="form-group mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary"
                                 @click.prevent="update"

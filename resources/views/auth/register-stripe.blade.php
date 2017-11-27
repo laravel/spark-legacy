@@ -138,7 +138,7 @@
                                 </div>
 
                                 <!-- Register Button -->
-                                <div class="form-group row">
+                                <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary" @click.prevent="register" :disabled="registerForm.busy">
                                             <span v-if="registerForm.busy">
