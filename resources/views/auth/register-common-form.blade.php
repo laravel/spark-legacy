@@ -2,7 +2,7 @@
     @if (Spark::usesTeams() && Spark::onlyTeamPlans())
         <!-- Team Name -->
         <div class="form-group row" v-if=" ! invitation">
-            <label class="col-md-4 col-form-label text-md-right">{{ __(':tramString Name', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
+            <label class="col-md-4 col-form-label text-md-right">{{ __(':teamString Name', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
 
             <div class="col-md-6">
                 <input type="text" class="form-control" name="team" v-model="registerForm.team" :class="{'is-invalid': registerForm.errors.has('team')}" autofocus>
@@ -16,7 +16,7 @@
         @if (Spark::teamsIdentifiedByPath())
             <!-- Team Slug (Only Shown When Using Paths For Teams) -->
             <div class="form-group row" v-if=" ! invitation">
-                <label class="col-md-4 col-form-label text-md-right">{{ __(':tramString Slug', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
+                <label class="col-md-4 col-form-label text-md-right">{{ __(':teamString Slug', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="team_slug" v-model="registerForm.team_slug" :class="{'is-invalid': registerForm.errors.has('team_slug')}" autofocus>
