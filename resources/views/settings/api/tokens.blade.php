@@ -14,7 +14,7 @@
                         </thead>
 
                         <tbody>
-                        <tr class="reveal" v-for="token in tokens">
+                        <tr v-for="token in tokens">
                             <!-- Name -->
                             <td>
                                 <div class="btn-table-align">
@@ -44,17 +44,13 @@
 
                             <!-- Edit Button -->
                             <td class="td-fit">
-                                <div class="reveal-target text-right ">
-                                    <button class="btn-reset" @click="editToken(token)">
-                                        <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
-                                            <path fill="#95A2AE" d="M12.3 3.7L0 16v4h4L16.3 7.7l-4-4zm1.4-1.4L16 0l4 4-2.3 2.3-4-4z"/>
-                                        </svg>
+                                <div class="text-right ">
+                                    <button class="btn btn-outline-primary" @click="editToken(token)">
+                                        <i class="fa fa-cog"></i>
                                     </button>
 
-                                    <button class="btn-reset" @click="approveTokenDelete(token)">
-                                        <svg class="icon-20 icon-sidenav " xmlns="http://www.w3.org/2000/svg ">
-                                            <path fill="#95A2AE " d="M4 2l2-2h4l2 2h4v2H0V2h4zM1 6h14l-1 14H2L1 6zm5 2v10h1V8H6zm3 0v10h1V8H9z " />
-                                        </svg>
+                                    <button class="btn btn-outline-danger" @click="approveTokenDelete(token)">
+                                        <i class="fa fa-remove"></i>
                                     </button>
                                 </div>
                             </td>
@@ -80,7 +76,7 @@
                         <form role="form">
                             <!-- Token Name -->
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label">{{__('Token Name')}}</label>
+                                <label class="col-md-4 col-form-label text-md-right">{{__('Token Name')}}</label>
 
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="name" v-model="updateTokenForm.name" :class="{'is-invalid': updateTokenForm.errors.has('name')}">

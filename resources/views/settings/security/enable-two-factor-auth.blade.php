@@ -11,7 +11,7 @@
             <form role="form">
                 <!-- Country Code -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label">{{__('Country Code')}}</label>
+                    <label class="col-md-4 col-form-label">{{__('Country Code')}}</label>
 
                     <div class="col-md-6">
                         <input type="number" class="form-control" name="country_code" v-model="form.country_code" :class="{'is-invalid': form.errors.has('country_code')}">
@@ -24,7 +24,7 @@
 
                 <!-- Phone Number -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label">{{__('Phone Number')}}</label>
+                    <label class="col-md-4 col-form-label">{{__('Phone Number')}}</label>
 
                     <div class="col-md-6">
                         <input type="tel" class="form-control" name="phone" v-model="form.phone" :class="{'is-invalid': form.errors.has('phone')}">

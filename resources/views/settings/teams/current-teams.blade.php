@@ -13,7 +13,7 @@
                     </thead>
 
                     <tbody>
-                        <tr class="reveal" v-for="team in teams">
+                        <tr  v-for="team in teams">
                             <!-- Photo -->
                             <td>
                                 <img :src="team.photo_url" class="spark-profile-photo">
@@ -41,25 +41,23 @@
 
                             <!-- Edit Button -->
                             <td class="td-fit">
-                                <div class="reveal-target text-right">
-                                    <a :href="'/settings/{{str_plural(Spark::teamString())}}/'+team.id">
-                                        <button class="btn btn-primary">
-                                            <i class="fa fa-cog"></i>
-                                        </button>
-                                    </a>
-
-                                    <button class="btn btn-warning" @click="approveLeavingTeam(team)"
-                                            data-toggle="tooltip" title="Leave Team"
-                                            v-if="user.id !== team.owner_id">
-                                        <i class="fa fa-sign-out"></i>
+                                <a :href="'/settings/{{str_plural(Spark::teamString())}}/'+team.id">
+                                    <button class="btn btn-outline-primary">
+                                        <i class="fa fa-cog"></i>
                                     </button>
+                                </a>
 
-                                    @if (Spark::createsAdditionalTeams())
-                                        <button class="btn btn-danger-outline" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
-                                            <i class="fa fa-times"></i>
-                                        </button>
-                                    @endif
-                                </div>
+                                <button class="btn btn-outline-warning" @click="approveLeavingTeam(team)"
+                                        data-toggle="tooltip" title="Leave Team"
+                                        v-if="user.id !== team.owner_id">
+                                    <i class="fa fa-sign-out"></i>
+                                </button>
+
+                                @if (Spark::createsAdditionalTeams())
+                                    <button class="btn btn-outline-danger" @click="approveTeamDelete(team)" v-if="user.id === team.owner_id">
+                                        <i class="fa fa-times"></i>
+                                    </button>
+                                @endif
                             </td>
                         </tr>
                     </tbody>

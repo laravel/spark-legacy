@@ -11,8 +11,7 @@
                         <th class="th-fit"></th>
                         <th>{{__('Name')}}</th>
                         <th v-if="roles.length > 1">{{__('Role')}}</th>
-                        <th class="th-fit" v-if="roles.length > 1"><!-- Edit Team Member Button --></th>
-                        <th class="th-fit"></th>
+                        <th>&nbsp;</th>
                     </thead>
 
                     <tbody>
@@ -38,23 +37,13 @@
                                 @{{ teamMemberRole(member) }}
                             </td>
 
-                            <!-- Edit Button -->
-                            <td v-if="roles.length > 0">
-                                <button class="btn btn-primary"
-                                    @click="editTeamMember(member)"
-                                    v-if="canEditTeamMember(member)">
-
-                                    <i class="fa fa-pencil"></i>
+                            <td class="td-fit">
+                                <button class="btn btn-outline-primary" @click="editTeamMember(member)" v-if="roles.length > 1 && canEditTeamMember(member)">
+                                    <i class="fa fa-cog"></i>
                                 </button>
-                            </td>
 
-                            <!-- Delete Button -->
-                            <td>
-                                <button class="btn btn-danger-outline"
-                                    @click="approveTeamMemberDelete(member)"
-                                    v-if="canDeleteTeamMember(member)">
-
-                                    <i class="fa fa-times"></i>
+                                <button class="btn btn-outline-danger" @click="approveTeamMemberDelete(member)" v-if="canDeleteTeamMember(member)">
+                                <i class="fa fa-remove"></i>
                                 </button>
                             </td>
                         </tr>
@@ -78,7 +67,7 @@
                         <form role="form">
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">
-                                    {{__(':teamString Member Role', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+                                    {{__('Role')}}
                                 </label>
 
                                 <div class="col-md-6">

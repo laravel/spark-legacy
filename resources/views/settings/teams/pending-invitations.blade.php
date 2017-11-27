@@ -7,8 +7,7 @@
                 <table class="table table-valign-middle mb-0">
                     <thead>
                         <th>{{ ucfirst(__(Spark::teamString())) }}</th>
-                        <th></th>
-                        <th></th>
+                        <th>&nbsp;</th>
                     </thead>
 
                     <tbody>
@@ -21,16 +20,13 @@
                             </td>
 
                             <!-- Accept Button -->
-                            <td>
-                                <button class="btn btn-success" @click="accept(invitation)">
+                            <td class="td-fit">
+                                <button class="btn btn-outline-success" @click="accept(invitation)">
                                     <i class="fa fa-check"></i>
                                 </button>
-                            </td>
 
-                            <!-- Reject Button -->
-                            <td>
-                                <button class="btn btn-danger-outline" @click="reject(invitation)">
-                                    <i class="fa fa-times"></i>
+                                <button class="btn btn-outline-danger" @click="reject(invitation)">
+                                <i class="fa fa-times"></i>
                                 </button>
                             </td>
                         </tr>

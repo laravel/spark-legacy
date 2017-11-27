@@ -13,7 +13,7 @@
             <form role="form">
                 <!-- Name -->
                 <div class="form-group row">
-                    <label class="col-md-4 control-label text-md-right">{{__('Name')}}</label>
+                    <label class="col-md-4 col-form-label text-md-right">{{__('Name')}}</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="name" v-model="form.name" :class="{'is-invalid': form.errors.has('name')}">
@@ -25,7 +25,7 @@
                 </div>
 
                 <!-- Update Button -->
-                <div class="form-group row">
+                <div class="form-group row mb-0">
                     <div class="offset-md-4 col-md-6">
                         <button type="submit" class="btn btn-primary"
                                 @click.prevent="update"
