@@ -162,7 +162,7 @@
                                 <!-- Plan Name -->
                                 <td>
                                     <div class="btn-table-align">
-                                        @{{ plan.name }} (@{{ plan.interval | capitalize }})
+                                        @{{ plan.name }} (@{{ __(plan.interval) | capitalize }})
                                     </div>
                                 </td>
 

@@ -95,7 +95,7 @@
                                 </span>
 
                                 <span v-else class="table-plan-text">
-                                    <strong class="table-plan-price">@{{ plan.price | currency }}</strong> / @{{ plan.interval | capitalize }}
+                                    <strong class="table-plan-price">@{{ plan.price | currency }}</strong> / @{{ __(plan.interval) | capitalize }}
                                 </span>
                             </td>
 

@@ -18,6 +18,7 @@ trait ProvidesScriptVariables
     public static function scriptVariables()
     {
         return [
+            'translations' => (array) json_decode(file_get_contents(resource_path('lang/'.app()->getLocale().'.json'))),
             'braintreeMerchantId' => config('services.braintree.merchant_id'),
             'braintreeToken' => Spark::billsUsingBraintree() ? BraintreeClientToken::generate() : null,
             'cardUpFront' => Spark::needsCardUpFront(),

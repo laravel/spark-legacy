@@ -47,7 +47,7 @@
 
                                         <span v-if="activePlan(profile)">
                                             <a :href="customerUrlOnBillingProvider(profile)" target="_blank">
-                                                @{{ activePlan(profile).name }} (@{{ activePlan(profile).interval | capitalize }})
+                                                @{{ activePlan(profile).name }} (@{{ __(activePlan(profile).interval) | capitalize }})
                                             </a>
                                         </span>
 
@@ -112,7 +112,7 @@
                                             <div class="btn-table-align">
                                                 <span v-if="activePlan(team)">
                                                     <a :href="customerUrlOnBillingProvider(team)" target="_blank">
-                                                        @{{ activePlan(team).name }} (@{{ activePlan(team).interval | capitalize }})
+                                                        @{{ activePlan(team).name }} (@{{ __(activePlan(team).interval) | capitalize }})
                                                     </a>
                                                 </span>
 

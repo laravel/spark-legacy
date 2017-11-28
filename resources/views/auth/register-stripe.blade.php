@@ -131,7 +131,7 @@
                                             <strong>{{__('Tax')}}:</strong> @{{ taxAmount(selectedPlan) | currency }}
                                             <br><br>
                                             <strong>{{__('Total Price Including Tax')}}:</strong>
-                                            @{{ priceWithTax(selectedPlan) | currency }} / @{{ selectedPlan.interval | capitalize }}
+                                            @{{ priceWithTax(selectedPlan) | currency }} / @{{ __(selectedPlan.interval) | capitalize }}
                                         </div>
                                     </div>
                                 </div>
