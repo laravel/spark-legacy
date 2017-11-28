@@ -8,9 +8,14 @@ window.moment = require('moment');
 window.Promise = require('promise');
 window.Cookies = require('js-cookie');
 window.Popper = require('popper.js').default;
-window.__ = key => {
-    return Spark.translations[key]
-         ? Spark.translations[key] : key;
+window.__ = (key, replace) => {
+    var translation = Spark.translations[key] ? Spark.translations[key] : key;
+
+    _.forEach(replace, (value, key) => {
+        translation = translation.replace(':'+key, value);
+    });
+    
+    return translation;
 };
 
 /*
