@@ -1,4 +1,6 @@
 {
+    "team": "team",
+    "teams": "teams",
     ":teamString Members": ":teamString Members",
     ":teamString Name": ":teamString Name",
     ":teamString Photo": ":teamString Photo",
@@ -116,6 +118,7 @@
     "Message": "Message",
     "Metrics": "Metrics",
     "Monthly": "Monthly",
+    "Yearly": "Yearly",
     "Monthly Recurring Revenue": "Monthly Recurring Revenue",
     "Months": "Months",
     "Multiple Months": "Multiple Months",
