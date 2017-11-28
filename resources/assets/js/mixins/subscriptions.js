@@ -39,7 +39,7 @@ module.exports = {
                     if (errors.response.status == 422) {
                         this.planForm.errors.set(errors.response.data.errors);
                     } else {
-                        this.planForm.errors.set({plan: ["We were unable to update your subscription. Please contact customer support."]});
+                        this.planForm.errors.set({plan: [__("We were unable to update your subscription. Please contact customer support.")]});
                     }
                 })
                 .finally(() => {

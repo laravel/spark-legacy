@@ -219,8 +219,8 @@ module.exports = {
          */
         showSupportRequestSuccessMessage() {
             swal({
-                title: 'Got It!',
-                text: 'We have received your message and will respond soon!',
+                title: __('Got It!'),
+                text: __('We have received your message and will respond soon!'),
                 type: 'success',
                 showConfirmButton: false,
                 timer: 2000
