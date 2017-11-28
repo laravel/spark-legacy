@@ -8,7 +8,7 @@
                         <!-- Search Field -->
                         <input type="text" id="kiosk-users-search" class="form-control"
                                 name="search"
-                                placeholder="Search By Name Or E-Mail Address..."
+                                placeholder="__('Search By Name Or E-Mail Address...')"
                                 v-model="searchForm.query"
                                 @keyup.enter="search">
                     </form>

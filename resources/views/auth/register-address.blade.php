@@ -43,7 +43,7 @@
 
     <!-- State -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="State" v-model.lazy="registerForm.state" :class="{'is-invalid': registerForm.errors.has('state')}">
+        <input type="text" class="form-control" placeholder="{{__('State')}}" v-model.lazy="registerForm.state" :class="{'is-invalid': registerForm.errors.has('state')}">
 
         <span class="invalid-feedback" v-show="registerForm.errors.has('state')">
             @{{ registerForm.errors.get('state') }}
@@ -52,7 +52,7 @@
 
     <!-- Zip Code -->
     <div class="col-sm-3">
-        <input type="text" class="form-control" placeholder="Postal Code" v-model.lazy="registerForm.zip">
+        <input type="text" class="form-control" placeholder="{{__('Postal Code')}}" v-model.lazy="registerForm.zip">
 
         <span class="invalid-feedback" v-show="registerForm.errors.has('zip')">
             @{{ registerForm.errors.get('zip') }}
