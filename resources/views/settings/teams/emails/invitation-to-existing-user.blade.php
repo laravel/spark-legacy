@@ -2,7 +2,7 @@
 
 <br><br>
 
-{{__(':userName has invited you to join their :teamString', ['userName' => $invitation->team->owner->name, 'teamString' => __(Spark::teamString())])}}
+{{__(':userName has invited you to join their :teamString!', ['userName' => $invitation->team->owner->name, 'teamString' => __(Spark::teamString())])}}
 
 <br><br>
 
