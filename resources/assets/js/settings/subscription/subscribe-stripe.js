@@ -19,7 +19,7 @@ module.exports = {
             taxRate: 0,
 
             form: new SparkForm({
-                existing_card: this.user.card_last_four ? '1' : '0',
+                existing_card: this.existingCard() ? '1' : '0',
                 stripe_token: '',
                 plan: '',
                 coupon: null,
@@ -172,6 +172,14 @@ module.exports = {
          */
         showPlanDetails(plan) {
             this.$parent.$emit('showPlanDetails', plan);
+        },
+
+        
+        /**
+         * The existing card if any.
+         */
+        existingCard() {
+            return this.team ? this.team.card_last_four : this.usercard_last_four;
         }
     },
 

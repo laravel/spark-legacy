@@ -17,12 +17,12 @@
 
                 <form role="form">
                     <!-- Payment Method -->
-                    <div class="form-group row" v-if="user.card_last_four">
+                    <div class="form-group row" v-if="existingCard()">
                         <label for="existing_card" class="col-md-4 col-form-label text-md-right">{{__('Payment Method')}}</label>
 
                         <div class="col-md-6">
                             <select name="existing_card" v-model="form.existing_card" id="existing_card" class="form-control">
-                                <option value="1">@{{__('Use ************'+user.card_last_four)}}</option>
+                                <option value="1">@{{__('Use ************'+existingCard())}}</option>
                                 <option value="0">{{__('Use a different card')}}</option>
                             </select>
                         </div>
