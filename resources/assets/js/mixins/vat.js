@@ -4,7 +4,7 @@ module.exports = {
          * Determine if the given country collects European VAT.
          */
         collectsVat(country) {
-            return Spark.collectsEuropeanVat ? _.contains([
+            return Spark.collectsEuropeanVat ? _.includes([
                 'BE', 'BG', 'CZ', 'DK', 'DE',
                 'EE', 'IE', 'GR', 'ES', 'FR',
                 'HR', 'IT', 'CY', 'LV', 'LT',

@@ -26,11 +26,7 @@
                             <form role="form">
                                 <!-- Billing Address Fields -->
                                 @if (Spark::collectsBillingAddress())
-                                    <h2><i class="fa fa-btn fa-map-marker"></i> {{__('Billing Address')}}</h2>
-
                                     @include('spark::auth.register-address')
-
-                                    <h2><i class="fa fa-btn fa-credit-card"></i> {{__('Credit Card')}}</h2>
                                 @endif
 
                                 <!-- Cardholder's Name -->
