@@ -19,7 +19,7 @@ class CreateStripeSubscriptionRequest extends CreateSubscriptionRequest implemen
     public function validator()
     {
         $validator = Validator::make($this->all(), [
-            'stripe_token' => 'required',
+            'stripe_token' => 'required_if:existing_card,0',
             'plan' => 'required|in:'.Spark::activePlanIdList(),
             'vat_id' => 'nullable|max:50|vat_id',
         ]);

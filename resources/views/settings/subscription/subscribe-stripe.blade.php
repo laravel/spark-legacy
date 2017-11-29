@@ -16,69 +16,83 @@
                 </div>
 
                 <form role="form">
+                    <!-- Payment Method -->
+                    <div class="form-group row" v-if="user.card_last_four">
+                        <label for="existing_card" class="col-md-4 col-form-label text-md-right">{{__('Payment Method')}}</label>
+
+                        <div class="col-md-6">
+                            <select name="existing_card" v-model="form.existing_card" id="existing_card" class="form-control">
+                                <option value="1">@{{__('Use ************'+user.card_last_four)}}</option>
+                                <option value="0">{{__('Use a different card')}}</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <!-- Billing Address Fields -->
                     @if (Spark::collectsBillingAddress())
                         @include('spark::settings.subscription.subscribe-address')
                     @endif
 
-                    <!-- Cardholder's Name -->
-                    <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Cardholder\'s Name')}}</label>
+                    <div v-if="!shouldUseExistingCard">
+                        <!-- Cardholder's Name -->
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Cardholder\'s Name')}}</label>
 
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="name" v-model="cardForm.name">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="name" v-model="cardForm.name">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Card Number -->
-                    <div class="form-group row">
-                        <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Card Number')}}</label>
+                        <!-- Card Number -->
+                        <div class="form-group row">
+                            <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Card Number')}}</label>
 
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="number" data-stripe="number" v-model="cardForm.number" :class="{'is-invalid': cardForm.errors.has('number')}">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="number" data-stripe="number" v-model="cardForm.number" :class="{'is-invalid': cardForm.errors.has('number')}">
 
-                        <span class="invalid-feedback" v-show="cardForm.errors.has('number')">
-                            @{{ cardForm.errors.get('number') }}
-                        </span>
+                                <span class="invalid-feedback" v-show="cardForm.errors.has('number')">
+                                    @{{ cardForm.errors.get('number') }}
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Security Code -->
-                    <div class="form-group row">
-                        <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Security Code')}}</label>
+                        <!-- Security Code -->
+                        <div class="form-group row">
+                            <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Security Code')}}</label>
 
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="cvc" data-stripe="cvc" v-model="cardForm.cvc">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="cvc" data-stripe="cvc" v-model="cardForm.cvc">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Expiration -->
-                    <div class="form-group row">
-                        <label class="col-md-4 col-form-label text-md-right">{{__('Expiration')}}</label>
+                        <!-- Expiration -->
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right">{{__('Expiration')}}</label>
 
-                        <div class="col-md-6">
-                            <div class="row">
-                                <!-- Month -->
-                                <div class="col">
-                                    <input type="text" class="form-control" name="month"
-                                           placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
-                                </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <!-- Month -->
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="month"
+                                               placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
+                                    </div>
 
-                                <!-- Year -->
-                                <div class="col">
-                                    <input type="text" class="form-control" name="year"
-                                           placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
+                                    <!-- Year -->
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="year"
+                                               placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- ZIP Code -->
-                    <div class="form-group row" v-if=" ! spark.collectsBillingAddress">
-                        <label for="number" class="col-md-4 col-form-label text-md-right">{{__('ZIP / Postal Code')}}</label>
+                        <!-- ZIP Code -->
+                        <div class="form-group row" v-if=" ! spark.collectsBillingAddress">
+                            <label for="number" class="col-md-4 col-form-label text-md-right">{{__('ZIP / Postal Code')}}</label>
 
-                        <div class="col-md-6">
-                            <input type="text" class="form-control" name="zip" v-model="form.zip">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="zip" v-model="form.zip">
+                            </div>
                         </div>
                     </div>
 

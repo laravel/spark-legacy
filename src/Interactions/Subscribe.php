@@ -52,7 +52,7 @@ class Subscribe implements Contract
         // Here we will create the actual subscription on the service and fire off the event
         // letting other listeners know a user has subscribed, which will allow any hooks
         // to fire that need to send the subscription data to any external metrics app.
-        $subscription->create($data[$this->token]);
+        $subscription->create($data[$this->token] ?? null);
 
         event(new UserSubscribed(
             $user = $user->fresh(), $plan, $fromRegistration
