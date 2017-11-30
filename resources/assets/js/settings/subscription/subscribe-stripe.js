@@ -19,7 +19,7 @@ module.exports = {
             taxRate: 0,
 
             form: new SparkForm({
-                existing_card: this.existingCard() ? '1' : '0',
+                use_exiting_payment_method: this.hasPaymentMethod() ? '1' : '0',
                 stripe_token: '',
                 plan: '',
                 coupon: null,
@@ -105,7 +105,7 @@ module.exports = {
 
             this.form.startProcessing();
 
-            if (this.shouldUseExistingCard) {
+            if (this.form.use_exiting_payment_method == '1') {
                 return this.createSubscription();
             }
 
@@ -174,12 +174,12 @@ module.exports = {
             this.$parent.$emit('showPlanDetails', plan);
         },
 
-        
+
         /**
-         * The existing card if any.
+         * Determine if the user/team has a payment method defined.
          */
-        existingCard() {
-            return this.team ? this.team.card_last_four : this.usercard_last_four;
+        hasPaymentMethod() {
+            return this.team ? this.team.card_last_four : this.user.card_last_four;
         }
     },
 
@@ -224,14 +224,6 @@ module.exports = {
                    this.form.zip +
                    this.form.country +
                    this.form.vat_id;
-        },
-
-
-        /**
-         * Determine if an existing card should be used.
-         */
-        shouldUseExistingCard() {
-            return this.form.existing_card == '1';
         }
     }
 };

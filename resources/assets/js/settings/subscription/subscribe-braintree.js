@@ -17,6 +17,7 @@ module.exports = {
     data() {
         return {
             form: new SparkForm({
+                use_exiting_payment_method: this.hasPaymentMethod() ? '1' : '0',
                 braintree_type: '',
                 braintree_token: '',
                 plan: '',
@@ -79,6 +80,16 @@ module.exports = {
          */
         showPlanDetails(plan) {
             this.$parent.$emit('showPlanDetails', plan);
+        },
+
+
+        /**
+         * Determine if the user/team has a payment method defined.
+         */
+        hasPaymentMethod() {
+            return this.team
+                ? this.team.card_last_four || this.team.paypal_email
+                : this.user.card_last_four || this.user.paypal_email;
         }
     },
 
