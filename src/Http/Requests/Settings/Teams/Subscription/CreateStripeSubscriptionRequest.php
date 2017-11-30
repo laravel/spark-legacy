@@ -18,7 +18,7 @@ class CreateStripeSubscriptionRequest extends CreateSubscriptionRequest implemen
     public function validator()
     {
         $validator = $this->baseValidator([
-            'stripe_token' => 'required',
+            'stripe_token' => 'required_if:existing_card,0',
             'vat_id' => 'nullable|max:50|vat_id',
         ]);
 

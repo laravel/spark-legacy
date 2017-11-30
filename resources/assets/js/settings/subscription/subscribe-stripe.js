@@ -19,6 +19,7 @@ module.exports = {
             taxRate: 0,
 
             form: new SparkForm({
+                existing_card: this.existingCard() ? '1' : '0',
                 stripe_token: '',
                 plan: '',
                 coupon: null,
@@ -104,6 +105,10 @@ module.exports = {
 
             this.form.startProcessing();
 
+            if (this.shouldUseExistingCard) {
+                return this.createSubscription();
+            }
+
              // Here we will build out the payload to send to Stripe to obtain a card token so
              // we can create the actual subscription. We will build out this data that has
              // this credit card number, CVC, etc. and exchange it for a secure token ID.
@@ -167,6 +172,14 @@ module.exports = {
          */
         showPlanDetails(plan) {
             this.$parent.$emit('showPlanDetails', plan);
+        },
+
+        
+        /**
+         * The existing card if any.
+         */
+        existingCard() {
+            return this.team ? this.team.card_last_four : this.usercard_last_four;
         }
     },
 
@@ -211,6 +224,14 @@ module.exports = {
                    this.form.zip +
                    this.form.country +
                    this.form.vat_id;
+        },
+
+
+        /**
+         * Determine if an existing card should be used.
+         */
+        shouldUseExistingCard() {
+            return this.form.existing_card == '1';
         }
     }
 };
