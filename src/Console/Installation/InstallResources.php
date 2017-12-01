@@ -44,6 +44,7 @@ class InstallResources
             SPARK_STUB_PATH.'/package.json' => base_path('package.json'),
             SPARK_STUB_PATH.'/resources/assets/sass/app.scss' => resource_path('assets/sass/app.scss'),
             SPARK_STUB_PATH.'/resources/lang/en/validation.php' => resource_path('lang/en/validation.php'),
+            SPARK_STUB_PATH.'/resources/lang/en/teams.php' => resource_path('lang/en/teams.php'),
             SPARK_STUB_PATH.'/resources/lang/en.json' => resource_path('lang/en.json'),
             SPARK_STUB_PATH.'/resources/views/welcome.blade.php' => resource_path('views/welcome.blade.php'),
             SPARK_STUB_PATH.'/resources/views/home.blade.php' => resource_path('views/home.blade.php'),
