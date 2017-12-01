@@ -31,7 +31,7 @@ trait DeterminesPlanEligibility
         // back to the client informing them of this limitation and they can upgrade.
         if (! $this->userIsEligibleForPlan($plan)) {
             $validator->errors()->add(
-                'plan', trans('spark::validation.eligibility')
+                'plan', trans('teams.not_eligible_based_on_current_members_teams')
             );
         }
     }

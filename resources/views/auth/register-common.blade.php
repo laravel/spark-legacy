@@ -12,7 +12,7 @@
 
         <!-- Invitation -->
         <div class="alert alert-success" v-if="invitation">
-            <?php echo __('We found your invitation to the :teamName :teamString!', ['teamName' => '{{ invitation.team.name }}', 'teamString' => __(Spark::teamString())]); ?>
+            <?php echo __('teams.we_found_invitation_to_team', ['teamName' => '{{ invitation.team.name }}']); ?>
         </div>
 
         <!-- Invalid Invitation -->

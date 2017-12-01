@@ -16,7 +16,7 @@
             <div class="col-md-3 spark-settings-tabs">
                 <aside>
                     <h3 class="nav-heading ">
-                        {{ ucfirst(Spark::teamString()) }} {{__('Settings')}}
+                        {{__('teams.team_settings')}}
                     </h3>
                     <ul class="nav flex-column mb-4 ">
                         @if (Auth::user()->ownsTeam($team))
@@ -27,7 +27,7 @@
                   4.343 7 6v2c0 1.657 1.343 3 3 3s3-1.343 3-3V6c0-1.657-1.343-3-3-3zM3.3472 14.4444C4.7822 16.5884 7.2262 18 10
                   18c2.7737 0 5.2177-1.4116 6.6528-3.5556C14.6268 13.517 12.3738 13 10 13s-4.627.517-6.6528 1.4444z "></path>
                                     </svg>
-                                    {{ ucfirst(Spark::teamString()) }} {{__('Profile')}}
+                                    {{__('teams.team_profile')}}
                                 </a>
                             </li>
                         @endif
@@ -49,7 +49,7 @@
               4-1 6-1zm8.4.2c1.3 0 2.6.4 3.8 1l-1 5.8H16l-1 4h-4l.4-2h1.3l1.6-8.8zM12 0c2.3 0 4 1.8 4 4s-1.7 4-4 4c-.4 0-.8
               0-1.2-.2.8-1 1.3-2.4 1.3-3.8s0-2.7-1-3.8l1-.2z " />
                                         </svg>
-                                        {{__('View all :teamsString', ['teamsString' => ucfirst(__(str_plural(Spark::teamString())))])}}
+                                        {{__('teams.view_all_teams')}}
                                     </a>
                                 </li>
                             @else
@@ -68,7 +68,7 @@
                 @if (Spark::canBillTeams() && Auth::user()->ownsTeam($team))
                     <aside>
                         <h3 class="nav-heading ">
-                            {{ ucfirst(Spark::teamString()) }} {{__('Billing')}}
+                            {{__('teams.team_billing')}}
                         </h3>
                         <ul class="nav flex-column mb-4 ">
                             @if (Spark::hasPaidTeamPlans())

@@ -36,7 +36,7 @@ class CreateInvitationNotification
     {
         $this->notifications->create($event->user, [
             'icon' => 'fa-users',
-            'body' => __('You have been invited to join the :teamName :teamString!', ['teamName' => $event->team->name, 'teamString' => __(Spark::teamString())]),
+            'body' => __('teams.you_have_been_invited_to_join_team', ['teamName' => $event->team->name]),
             'action_text' => 'View Invitations',
             'action_url' => '/settings#/'.str_plural(Spark::teamString()),
         ]);

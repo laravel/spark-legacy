@@ -112,7 +112,7 @@ return [
     */
 
     'attributes' => [
-        'team' => Spark::teamString()
+        'team' => 'team'
     ],
 
 ];

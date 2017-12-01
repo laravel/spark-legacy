@@ -60,7 +60,7 @@
                         <div>
                             <h2 class="metric-title mb-0">
                                 @if(Spark::teamTrialDays())
-                                    {{__('Teams Currently Trialing')}}
+                                    {{__('teams.teams_currently_trialing')}}
                                 @else
                                     {{__('Users Currently Trialing')}}
                                 @endif

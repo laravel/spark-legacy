@@ -1,7 +1,7 @@
 <spark-current-teams :user="user" :teams="teams" inline-template>
     <div>
         <div class="card card-default">
-            <div class="card-header">{{__('Current :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}</div>
+            <div class="card-header">{{__('teams.current_teams')}}</div>
 
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
@@ -71,12 +71,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            {{__('Leave :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ leavingTeam.name }})
+                            {{__('teams.leave_team')}} (@{{ leavingTeam.name }})
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        {{__('Are you sure you want to leave this :teamString?', ['teamString' => __(Spark::teamString())])}}
+                        {{__('teams.are_you_sure_you_want_to_leave_team')}}
                     </div>
 
                     <!-- Modal Actions -->
@@ -97,13 +97,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            {{__('Delete :teamString', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+                            {{__('teams.delete_team')}}
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        {{__('Are you sure you want to delete this :teamString?', ['teamString' => __(Spark::teamString())])}}
-                        {{__('If you choose to delete the :teamString all data will be permanently deleted.', ['teamString' => __(Spark::teamString())])}}
+                        {{__('teams.are_you_sure_you_want_to_delete_team')}}
+                        {{__('teams.if_you_delete_team_all_data_will_be_deleted')}}
                     </div>
 
                     <!-- Modal Actions -->

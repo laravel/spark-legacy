@@ -16,7 +16,7 @@
                     <div class="col-md-6">
                         <input type="email" class="form-control" name="email" v-model="form.email" :class="{'is-invalid': form.errors.has('email')}">
                         <span class="invalid-feedback" v-if="hasTeamMembersLimit">
-                            <?php echo __('You currently have :count invitation(s) remaining.', ['count' => '{{ remainingTeamMembers }}']); ?>
+                            <?php echo __('teams.you_have_x_invitations_remaining', ['count' => '{{ remainingTeamMembers }}']); ?>
                         </span>
                         <span class="invalid-feedback" v-show="form.errors.has('email')">
                             @{{ form.errors.get('email') }}

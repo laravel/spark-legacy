@@ -1,11 +1,11 @@
 <spark-subscribe-stripe :user="user" :team="team"
-                :plans="plans" :billable-type="billableType" inline-template>
+                        :plans="plans" :billable-type="billableType" inline-template>
 
     <div>
         <!-- Common Subscribe Form Contents -->
-        @include('spark::settings.subscription.subscribe-common')
+    @include('spark::settings.subscription.subscribe-common')
 
-        <!-- Billing Information -->
+    <!-- Billing Information -->
         <div class="card card-default" v-show="selectedPlan">
             <div class="card-header">{{__('Billing Information')}}</div>
 
@@ -17,13 +17,13 @@
 
                 <form role="form">
                     <!-- Payment Method -->
-                    <div class="form-group row" v-if="existingCard()">
-                        <label for="existing_card" class="col-md-4 col-form-label text-md-right">{{__('Payment Method')}}</label>
+                    <div class="form-group row" v-if="hasPaymentMethod()">
+                        <label for="use_exiting_payment_method" class="col-md-4 col-form-label text-md-right">{{__('Payment Method')}}</label>
 
                         <div class="col-md-6">
-                            <select name="existing_card" v-model="form.existing_card" id="existing_card" class="form-control">
-                                <option value="1">@{{__('Use ************'+existingCard())}}</option>
-                                <option value="0">{{__('Use a different card')}}</option>
+                            <select name="use_exiting_payment_method" v-model="form.use_exiting_payment_method" id="use_exiting_payment_method" class="form-control">
+                                <option value="1">{{__('Use existing payment method')}}</option>
+                                <option value="0">{{__('Use a different method')}}</option>
                             </select>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         @include('spark::settings.subscription.subscribe-address')
                     @endif
 
-                    <div v-if="!shouldUseExistingCard">
+                    <div v-if="form.use_exiting_payment_method != '1'">
                         <!-- Cardholder's Name -->
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Cardholder\'s Name')}}</label>

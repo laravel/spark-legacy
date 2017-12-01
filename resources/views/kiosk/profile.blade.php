@@ -82,7 +82,7 @@
                 <div class="col-md-12">
                     <div class="card card-default">
                         <div class="card-header">
-                            {{ ucfirst(__(str_plural(Spark::teamString()))) }}
+                            {{__('teams.teams')}}
                         </div>
 
                         <div class="card-body">

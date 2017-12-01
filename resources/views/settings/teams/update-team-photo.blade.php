@@ -1,7 +1,7 @@
 <spark-update-team-photo :user="user" :team="team" inline-template>
     <div class="card card-default" v-if="user">
         <div class="card-header">
-            {{__(':teamString Photo', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+            {{__('teams.team_photo')}}
         </div>
 
         <div class="card-body">

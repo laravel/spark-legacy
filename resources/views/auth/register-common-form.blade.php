@@ -2,7 +2,7 @@
     @if (Spark::usesTeams() && Spark::onlyTeamPlans())
         <!-- Team Name -->
         <div class="form-group row" v-if=" ! invitation">
-            <label class="col-md-4 col-form-label text-md-right">{{ __(':teamString Name', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
+            <label class="col-md-4 col-form-label text-md-right">{{ __('teams.team_name') }}</label>
 
             <div class="col-md-6">
                 <input type="text" class="form-control" name="team" v-model="registerForm.team" :class="{'is-invalid': registerForm.errors.has('team')}" autofocus>
@@ -16,13 +16,13 @@
         @if (Spark::teamsIdentifiedByPath())
             <!-- Team Slug (Only Shown When Using Paths For Teams) -->
             <div class="form-group row" v-if=" ! invitation">
-                <label class="col-md-4 col-form-label text-md-right">{{ __(':teamString Slug', ['teamString' => ucfirst(__(Spark::teamString()))]) }}</label>
+                <label class="col-md-4 col-form-label text-md-right">{{ __('teams.team_slug') }}</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="team_slug" v-model="registerForm.team_slug" :class="{'is-invalid': registerForm.errors.has('team_slug')}" autofocus>
 
                     <small class="form-text text-muted" v-show="! registerForm.errors.has('team_slug')">
-                        {{__('This slug is used to identify your :teamString in URLs.', ['teamString' => __(Spark::teamString())])}}
+                        {{__('teams.slug_input_explanation')}}
                     </small>
 
                     <span class="invalid-feedback" v-show="registerForm.errors.has('team_slug')">

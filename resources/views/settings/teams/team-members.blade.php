@@ -2,7 +2,7 @@
     <div>
         <div class="card card-default">
             <div class="card-header">
-                {{__(':teamString Members', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ team.users.length }})
+                {{__('teams.team_members')}} (@{{ team.users.length }})
             </div>
 
             <div class="table-responsive">
@@ -58,7 +58,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            {{__('Edit :teamString Member', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ updatingTeamMember.name }})
+                            {{__('teams.edit_team_member')}} (@{{ updatingTeamMember.name }})
                         </h5>
                     </div>
 
@@ -103,12 +103,12 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            {{__('Remove :teamString Member', ['teamString' => ucfirst(__(Spark::teamString()))])}} (@{{ deletingTeamMember.name }})
+                            {{__('teams.remove_team_member')}} (@{{ deletingTeamMember.name }})
                         </h5>
                     </div>
 
                     <div class="modal-body">
-                        {{__('Are you sure you want to remove this :teamString member?', ['teamString' => __(Spark::teamString())])}}
+                        {{__('teams.are_you_sure_you_want_to_delete_member')}}
                     </div>
 
                     <!-- Modal Actions -->

@@ -1,13 +1,13 @@
 <spark-update-team-name :user="user" :team="team" inline-template>
     <div class="card card-default">
         <div class="card-header">
-            {{__('Update :teamString Name', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+            {{__('teams.update_team_name')}}
         </div>
 
         <div class="card-body">
             <!-- Success Message -->
             <div class="alert alert-success" v-if="form.successful">
-                {{__('Your :teamString name has been updated!', ['teamString' => ucfirst(__(Spark::teamString()))])}}
+                {{__('teams.team_name_was_updated')}}
             </div>
 
             <form role="form">

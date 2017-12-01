@@ -6,7 +6,7 @@
             <div class="table-responsive">
                 <table class="table table-valign-middle mb-0">
                     <thead>
-                        <th>{{ ucfirst(__(Spark::teamString())) }}</th>
+                        <th>{{ __('teams.team') }}</th>
                         <th>&nbsp;</th>
                     </thead>
 
