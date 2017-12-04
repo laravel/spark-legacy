@@ -42,7 +42,7 @@ class CreateTrialEndingNotification
             'icon' => 'fa-clock-o',
             'body' => __("teams.team_trial_will_expire_on", ['date' => $event->team->trial_ends_at->format('F jS')]),
             'action_text' => 'Subscribe',
-            'action_url' => '/settings/'.str_plural(Spark::teamString()).'/'.$event->team->id.'#/subscription',
+            'action_url' => '/settings/'.Spark::teamsPrefix().'/'.$event->team->id.'#/subscription',
         ]);
     }
 }

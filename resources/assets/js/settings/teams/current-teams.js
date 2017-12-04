@@ -63,7 +63,7 @@ module.exports = {
          * Delete the given team.
          */
         deleteTeam() {
-            Spark.delete(`/settings/${Spark.pluralTeamString}/${this.deletingTeam.id}`, this.deleteTeamForm)
+            Spark.delete(`/settings/${Spark.teamsPrefix}/${this.deletingTeam.id}`, this.deleteTeamForm)
                 .then(() => {
                     Bus.$emit('updateUser');
                     Bus.$emit('updateTeams');
@@ -79,7 +79,7 @@ module.exports = {
          * Get the URL for leaving a team.
          */
         urlForLeaving() {
-            return `/settings/${Spark.pluralTeamString}/${this.leavingTeam.id}/members/${this.user.id}`;
+            return `/settings/${Spark.teamsPrefix}/${this.leavingTeam.id}/members/${this.user.id}`;
         }
     }
 };

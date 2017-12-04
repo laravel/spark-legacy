@@ -38,7 +38,7 @@ class CreateInvitationNotification
             'icon' => 'fa-users',
             'body' => __('teams.you_have_been_invited_to_join_team', ['teamName' => $event->team->name]),
             'action_text' => 'View Invitations',
-            'action_url' => '/settings#/'.str_plural(Spark::teamString()),
+            'action_url' => '/settings#/'.Spark::teamsPrefix(),
         ]);
     }
 }

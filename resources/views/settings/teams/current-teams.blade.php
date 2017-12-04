@@ -41,7 +41,7 @@
 
                             <!-- Edit Button -->
                             <td class="td-fit">
-                                <a :href="'/settings/{{str_plural(Spark::teamString())}}/'+team.id">
+                                <a :href="'/settings/{{Spark::teamsPrefix()}}/'+team.id">
                                     <button class="btn btn-outline-primary">
                                         <i class="fa fa-cog"></i>
                                     </button>

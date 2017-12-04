@@ -23,7 +23,7 @@ class VerifyTeamIsSubscribed
 
         return $request->ajax() || $request->wantsJson()
                                 ? response('Subscription Required.', 402)
-                                : redirect('/settings/'.str_plural(Spark::teamString()).'/'.$request->user()->currentTeam->id.'#/subscription');
+                                : redirect('/settings/'.Spark::teamsPrefix().'/'.$request->user()->currentTeam->id.'#/subscription');
     }
 
     /**

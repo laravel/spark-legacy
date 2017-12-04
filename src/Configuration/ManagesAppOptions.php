@@ -26,11 +26,11 @@ trait ManagesAppOptions
     public static $createsAdditionalTeams = true;
 
     /**
-     * The name used in the URI and interface to describe a team.
+     * The prefix used in the URI to describe teams.
      *
      * @var string
      */
-    public static $teamString = 'team';
+    public static $teamsPrefix = 'teams';
 
     /**
      * Minimum length a user given password can be.
@@ -124,24 +124,24 @@ trait ManagesAppOptions
     }
 
     /**
-     * Get the string used to describe a team.
+     * Get the string used to describe teams.
      *
      * @return string
      */
-    public static function teamString()
+    public static function teamsPrefix()
     {
-        return static::$teamString;
+        return static::$teamsPrefix;
     }
 
     /**
-     * Set the string used to describe a team.
+     * Set the string used to describe teams.
      *
      * @param  string  $string
      * @return void
      */
-    public static function referToTeamAs($string)
+    public static function prefixTeamsAs($string)
     {
-        static::$teamString = $string;
+        static::$teamsPrefix = $string;
     }
 
     /**

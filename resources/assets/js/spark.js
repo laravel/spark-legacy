@@ -144,7 +144,7 @@ module.exports = {
          * Get the current team list.
          */
         getTeams() {
-            axios.get('/'+Spark.pluralTeamString)
+            axios.get('/'+Spark.teamsPrefix)
                 .then(response => {
                     this.teams = response.data;
                 });
@@ -155,7 +155,7 @@ module.exports = {
          * Get the current team.
          */
         getCurrentTeam() {
-            axios.get(`/${Spark.pluralTeamString}/current`)
+            axios.get(`/${Spark.teamsPrefix}/current`)
                 .then(response => {
                     this.currentTeam = response.data;
                 })

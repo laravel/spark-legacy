@@ -207,7 +207,7 @@ module.exports = {
         urlForNewSubscription() {
             return this.billingUser
                             ? '/settings/subscription'
-                            : `/settings/${Spark.pluralTeamString}/${this.team.id}/subscription`;
+                            : `/settings/${Spark.teamsPrefix}/${this.team.id}/subscription`;
         },
 
 

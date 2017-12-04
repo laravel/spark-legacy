@@ -15,7 +15,7 @@
                     {{__('teams.looks_like_you_are_not_part_of_team')}}
                 </p>
                 <div class="intro-btn">
-                    <a href="/settings#/{{ str_plural(Spark::teamString()) }}" class="btn btn-outline-dark">
+                    <a href="/settings#/{{ Spark::teamsPrefix() }}" class="btn btn-outline-dark">
                         {{__('teams.create_team')}}
                     </a>
                 </div>

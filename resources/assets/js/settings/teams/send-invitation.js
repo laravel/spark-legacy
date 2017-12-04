@@ -100,7 +100,7 @@ module.exports = {
          * Send a team invitation.
          */
         send() {
-            Spark.post(`/settings/${Spark.pluralTeamString}/${this.team.id}/invitations`, this.form)
+            Spark.post(`/settings/${Spark.teamsPrefix}/${this.team.id}/invitations`, this.form)
                 .then(() => {
                     this.form.email = '';
                     this.role.email = Spark.defaultRole;
@@ -123,7 +123,7 @@ module.exports = {
          * Get the available member roles.
          */
         getRoles() {
-            axios.get(`/settings/${Spark.pluralTeamString}/roles`)
+            axios.get(`/settings/${Spark.teamsPrefix}/roles`)
                 .then(response => {
                     this.roles = response.data;
                 });

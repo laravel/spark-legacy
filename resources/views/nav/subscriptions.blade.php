@@ -13,7 +13,7 @@
     <!-- Team Trial Reminder -->
     <h6 class="dropdown-header">{{__('Trial')}}</h6>
 
-    <a class="dropdown-item" href="/settings/{{ str_plural(Spark::teamString()) }}/{{ Auth::user()->currentTeam()->id }}#/subscription">
+    <a class="dropdown-item" href="/settings/{{ Spark::teamsPrefix() }}/{{ Auth::user()->currentTeam()->id }}#/subscription">
         <i class="fa fa-fw text-left fa-btn fa-shopping-bag"></i> {{__('Subscribe')}}
     </a>
 
