@@ -16,7 +16,7 @@
 @if (Spark::showsTeamSwitcher())
     @foreach (Auth::user()->teams as $team)
         <li>
-            <a href="/{{ Spark::teamsPrefix() }}/{{ $team->id }}/switch">
+            <a href="/settings/{{ Spark::teamsPrefix() }}/{{ $team->id }}/switch">
                 @if (Auth::user()->current_team_id === $team->id)
                     <i class="fa fa-fw text-left fa-btn fa-check text-success"></i> {{ $team->name }}
                 @else

@@ -38,7 +38,7 @@ module.exports = {
 
             this.loadingCurrentDiscount = true;
 
-            axios.get(`/${Spark.teamsPrefix}/coupon/${team.id}`)
+            axios.get(`/settings/${Spark.teamsPrefix}/coupon/${team.id}`)
                 .then(response => {
                     if (response.status == 200) {
                         this.currentDiscount = response.data;

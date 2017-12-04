@@ -10,7 +10,7 @@
 
 <!-- Switch Current Team -->
 @if (Spark::showsTeamSwitcher())
-    <a class="dropdown-item" v-for="team in teams" :href="'/{{ Spark::teamsPrefix() }}/'+ team.id +'/switch'">
+    <a class="dropdown-item" v-for="team in teams" :href="'/settings/{{ Spark::teamsPrefix() }}/'+ team.id +'/switch'">
         <span v-if="user.current_team_id == team.id">
             <i class="fa fa-fw text-left fa-btn fa-check text-success"></i> @{{ team.name }}
         </span>

@@ -36,9 +36,9 @@ $router->group(['middleware' => 'web'], function ($router) {
         $router->get('/settings/'.Spark::teamsPrefix().'/roles', 'Settings\Teams\TeamMemberRoleController@all');
         $router->get('/settings/'.Spark::teamsPrefix().'/{team}', 'Settings\Teams\DashboardController@show')->name('settings.team');
 
-        $router->get('/'.Spark::teamsPrefix().'', 'TeamController@all');
-        $router->get('/'.Spark::teamsPrefix().'/current', 'TeamController@current');
-        $router->get('/'.Spark::teamsPrefix().'/{team_id}', 'TeamController@show');
+        $router->get('/settings/'.Spark::teamsPrefix(), 'TeamController@all');
+        $router->get('/settings/'.Spark::teamsPrefix().'/current', 'TeamController@current');
+        $router->get('/settings/'.Spark::teamsPrefix().'/json/{team_id}', 'TeamController@show');
         $router->post('/settings/'.Spark::teamsPrefix(), 'Settings\Teams\TeamController@store');
         $router->post('/settings/'.Spark::teamsPrefix().'/{team}/photo', 'Settings\Teams\TeamPhotoController@update');
         $router->put('/settings/'.Spark::teamsPrefix().'/{team}/name', 'Settings\Teams\TeamNameController@update');
@@ -55,7 +55,7 @@ $router->group(['middleware' => 'web'], function ($router) {
         $router->put('/settings/'.Spark::teamsPrefix().'/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@update');
         $router->delete('/settings/'.Spark::teamsPrefix().'/{team}/members/{team_member}', 'Settings\Teams\TeamMemberController@destroy');
         $router->delete('/settings/'.Spark::teamsPrefix().'/{team}', 'Settings\Teams\TeamController@destroy');
-        $router->get('/'.Spark::teamsPrefix().'/{team}/switch', 'TeamController@switchCurrentTeam');
+        $router->get('/settings/'.Spark::teamsPrefix().'/{team}/switch', 'TeamController@switchCurrentTeam');
 
         // Billing
 
@@ -80,7 +80,7 @@ $router->group(['middleware' => 'web'], function ($router) {
         );
 
         // Coupons...
-        $router->get('/'.Spark::teamsPrefix().'/coupon/{id}', 'TeamCouponController@current');
+        $router->get('/settings/'.Spark::teamsPrefix().'/coupon/{id}', 'TeamCouponController@current');
 
         // Invoices...
         $router->get('/settings/'.Spark::teamsPrefix().'/{team}/invoices', 'Settings\Teams\Billing\InvoiceController@all');

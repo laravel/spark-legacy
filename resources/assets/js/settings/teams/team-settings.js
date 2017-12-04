@@ -46,7 +46,7 @@ module.exports = {
          * Get the team being managed.
          */
         getTeam() {
-            axios.get(`/${Spark.teamsPrefix}/${this.teamId}`)
+            axios.get(`/settings/${Spark.teamsPrefix}/json/${this.teamId}`)
                 .then(response => {
                     this.team = response.data;
                 });
