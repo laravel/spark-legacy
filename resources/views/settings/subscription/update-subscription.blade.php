@@ -83,7 +83,9 @@
                                     </span>
 
                                     <span v-else>
-                                        <strong class="table-plan-price">@{{ priceWithTax(plan) | currency }}</strong> / @{{ __(plan.interval) | capitalize }}
+                                        <strong class="table-plan-price">@{{ priceWithTax(plan) | currency }}</strong>
+                                        @{{plan.perSeat ? '/ '+ plan.seatString : ''}}
+                                        / @{{ __(plan.interval) | capitalize }}
                                     </span>
                                 </div>
                             </td>

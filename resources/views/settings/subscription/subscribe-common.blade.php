@@ -64,7 +64,9 @@
                     <!-- Plan Price -->
                     <td>
                         <span class="table-plan-text">
-                            <strong class="table-plan-price">@{{ plan.price | currency }}</strong> / @{{ __(plan.interval) | capitalize }}
+                            <strong class="table-plan-price">@{{ plan.price | currency }}</strong>
+                            @{{plan.perSeat ? '/ '+ plan.seatString : ''}}
+                            / @{{ __(plan.interval) | capitalize }}
                         </div>
                     </td>
 
