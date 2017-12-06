@@ -71,11 +71,11 @@ trait Billable
     /**
      * Add seats to the current subscription.
      *
-     * @param  string  $subscription
      * @param  int  $count
+     * @param  string  $subscription
      * @return void
      */
-    public function addSeat($subscription = 'default', $count = 1)
+    public function addSeat($count = 1, $subscription = 'default')
     {
         $subscription = $this->subscription($subscription);
 
@@ -89,11 +89,11 @@ trait Billable
     /**
      * Remove seats from the current subscription.
      *
-     * @param  string  $subscription
      * @param  int  $count
+     * @param  string  $subscription
      * @return void
      */
-    public function removeSeat($subscription = 'default', $count = 1)
+    public function removeSeat($count = 1, $subscription = 'default')
     {
         $subscription = $this->subscription($subscription);
 
@@ -107,11 +107,11 @@ trait Billable
     /**
      * Update the number of seats in the current subscription.
      *
-     * @param  string  $subscription
      * @param  int  $count
+     * @param  string  $subscription
      * @return void
      */
-    public function updateSeats($subscription = 'default', $count = 1)
+    public function updateSeats($count, $subscription = 'default')
     {
         $subscription = $this->subscription($subscription);
 
