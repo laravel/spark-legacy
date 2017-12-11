@@ -33,7 +33,21 @@ trait ManagesBillingProviders
      * @var string
      */
     public static $teamSeatName;
-    
+
+    /**
+     * Indicates that the application should charge users per team.
+     *
+     * @var bool
+     */
+    public static $chargesPerTeam = false;
+
+    /**
+     * Indicates that the application should charge teams per member.
+     *
+     * @var bool
+     */
+    public static $chargesTeamsPerMember = false;
+
     /**
      * Indicates if the application requires a credit card up-front.
      *
@@ -140,6 +154,46 @@ trait ManagesBillingProviders
     public static function teamSeatName()
     {
         return static::$teamSeatName;
+    }
+
+    /**
+     * Indicate that the application should charge users per team.
+     *
+     * @return void
+     */
+    public static function chargePerTeam()
+    {
+        static::$chargesPerTeam = true;
+    }
+
+    /**
+     * Determine if the application charges users per team.
+     *
+     * @return bool
+     */
+    public static function chargesUsersPerTeam()
+    {
+        return static::$chargesPerTeam;
+    }
+
+    /**
+     * Indicate that the application should charge teams per member.
+     *
+     * @return void
+     */
+    public static function chargeTeamsPerMember()
+    {
+        static::$chargesTeamsPerMember = true;
+    }
+
+    /**
+     * Determine if the application charges teams per member.
+     *
+     * @return bool
+     */
+    public static function chargesTeamsPerMember()
+    {
+        return static::$chargesTeamsPerMember;
     }
 
     /**

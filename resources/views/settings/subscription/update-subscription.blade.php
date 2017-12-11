@@ -85,7 +85,9 @@
                                     <span v-else>
                                         <strong class="table-plan-price">@{{ priceWithTax(plan) | currency }}</strong>
                                         @{{ plan.type == 'user' && spark.chargesUsersPerSeat ? '/ '+ spark.seatName : '' }}
+                                        @{{ plan.type == 'user' && spark.chargesUsersPerTeam ? '/ '+ __('teams.team') : '' }}
                                         @{{ plan.type == 'team' && spark.chargesTeamsPerSeat ? '/ '+ spark.teamSeatName : '' }}
+                                        @{{ plan.type == 'team' && spark.chargesTeamsPerMember ? '/ '+ __('teams.member') : '' }}
                                         / @{{ __(plan.interval) | capitalize }}
                                     </span>
                                 </div>
