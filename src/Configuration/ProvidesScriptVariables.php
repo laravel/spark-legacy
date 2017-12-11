@@ -37,6 +37,10 @@ trait ProvidesScriptVariables
             'usesBraintree' => Spark::billsUsingBraintree(),
             'usesTeams' => Spark::usesTeams(),
             'usesStripe' => Spark::billsUsingStripe(),
+            'chargesUsersPerSeat' => Spark::chargesUsersPerSeat(),
+            'seatName' => Spark::seatName(),
+            'chargesTeamsPerSeat' => Spark::chargesTeamsPerSeat(),
+            'teamSeatName' => Spark::teamSeatName(),
         ];
     }
 }

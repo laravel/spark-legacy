@@ -96,7 +96,8 @@
 
                                 <span v-else class="table-plan-text">
                                     <strong class="table-plan-price">@{{ plan.price | currency }}</strong>
-                                    @{{plan.perSeat ? '/ '+ plan.seatString : ''}}
+                                    @{{ plan.type == 'user' && spark.chargesUsersPerSeat ? '/ '+ spark.seatName : '' }}
+                                    @{{ plan.type == 'team' && spark.chargesTeamsPerSeat ? '/ '+ spark.teamSeatName : '' }}
                                     / @{{ __(plan.interval) | capitalize }}
                                 </span>
                             </td>

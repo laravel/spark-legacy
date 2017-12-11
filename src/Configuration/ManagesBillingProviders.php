@@ -7,6 +7,34 @@ use Exception;
 trait ManagesBillingProviders
 {
     /**
+     * Indicates that the application should charge users per seat.
+     *
+     * @var bool
+     */
+    public static $chargesPerSeat = false;
+
+    /**
+     * The name used to describe a seat.
+     *
+     * @var string
+     */
+    public static $seatName;
+
+    /**
+     * Indicates that the application should charge teams per seat.
+     *
+     * @var bool
+     */
+    public static $chargesTeamsPerSeat = false;
+
+    /**
+     * The name used to describe a team seat.
+     *
+     * @var string
+     */
+    public static $teamSeatName;
+    
+    /**
      * Indicates if the application requires a credit card up-front.
      *
      * @var bool
@@ -49,6 +77,70 @@ trait ManagesBillingProviders
      * @var string
      */
     public static $homeCountry;
+
+    /**
+     * Indicate that the application should charge users per seat.
+     *
+     * @param  string  $name
+     * @return void
+     */
+    public static function chargePerSeat($name)
+    {
+        static::$chargesPerSeat = true;
+        static::$seatName = $name;
+    }
+
+    /**
+     * Determine if the application charges users per seat.
+     *
+     * @return bool
+     */
+    public static function chargesUsersPerSeat()
+    {
+        return static::$chargesPerSeat;
+    }
+
+    /**
+     * The name that describes a seat.
+     *
+     * @return string
+     */
+    public static function seatName()
+    {
+        return static::$seatName;
+    }
+
+    /**
+     * Indicate that the application should charge teams per seat.
+     *
+     * @param  string  $name
+     * @return void
+     */
+    public static function chargeTeamsPerSeat($name)
+    {
+        static::$chargesTeamsPerSeat = true;
+        static::$teamSeatName = $name;
+    }
+
+    /**
+     * Determine if the application charges teams per seat.
+     *
+     * @return bool
+     */
+    public static function chargesTeamsPerSeat()
+    {
+        return static::$chargesTeamsPerSeat;
+    }
+
+    /**
+     * The name that describes a team seat.
+     *
+     * @return string
+     */
+    public static function teamSeatName()
+    {
+        return static::$teamSeatName;
+    }
 
     /**
      * Indicates that the application does not require a card up front.

@@ -75,7 +75,8 @@
                         <td>
                             <div class="btn-table-align">
                                 <strong class="table-plan-price">@{{ priceWithTax(plan) | currency }}</strong>
-                                @{{plan.perSeat ? '/ '+ plan.seatString : ''}}
+                                @{{ plan.type == 'user' && spark.chargesUsersPerSeat ? '/ '+ spark.seatName : '' }}
+                                @{{ plan.type == 'team' && spark.chargesTeamsPerSeat ? '/ '+ spark.teamSeatName : '' }}
                                 / @{{ __(plan.interval) | capitalize }}
                             </div>
                         </td>

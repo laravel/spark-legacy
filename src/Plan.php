@@ -28,20 +28,6 @@ class Plan implements JsonSerializable
     public $price = 0;
 
     /**
-     * Indicates if the plan price is per-seat.
-     *
-     * @var bool
-     */
-    public $perSeat = false;
-
-    /**
-     * The plan's seat string.
-     *
-     * @var string
-     */
-    public $perSeatString;
-
-    /**
      * The plan's interval.
      *
      * @var string
@@ -78,7 +64,7 @@ class Plan implements JsonSerializable
 
     /**
      * The style of the plan.
-     *
+     *ri
      * @var string
      */
     public $type = 'user';
@@ -218,20 +204,6 @@ class Plan implements JsonSerializable
     }
 
     /**
-     * Indicate that the plan price is per-seat.
-     *
-     * @param  string  $seatString
-     * @return $this
-     */
-    public function perSeat($seatString)
-    {
-        $this->perSeat = true;
-        $this->seatString = $seatString;
-
-        return $this;
-    }
-
-    /**
      * Get the array form of the plan for serialization.
      *
      * @return array
@@ -242,8 +214,6 @@ class Plan implements JsonSerializable
             'id' => $this->id,
             'name' => $this->name,
             'price' => $this->price,
-            'perSeat' => $this->perSeat,
-            'seatString' => $this->seatString,
             'trialDays' => $this->trialDays,
             'interval' => $this->interval,
             'features' => $this->features,

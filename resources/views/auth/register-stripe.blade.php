@@ -128,7 +128,8 @@
                                             <br><br>
                                             <strong>{{__('Total Price Including Tax')}}:</strong>
                                             @{{ priceWithTax(selectedPlan) | currency }}
-                                            @{{plan.perSeat ? '/ '+ plan.seatString : ''}}
+                                            @{{ selectedPlan.type == 'user' && spark.chargesUsersPerSeat ? '/ '+ spark.seatName : '' }}
+                                            @{{ selectedPlan.type == 'team' && spark.chargesTeamsPerSeat ? '/ '+ spark.teamSeatName : '' }}
                                             / @{{ __(selectedPlan.interval) | capitalize }}
                                         </div>
                                     </div>
