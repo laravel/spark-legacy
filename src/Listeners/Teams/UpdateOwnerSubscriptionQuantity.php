@@ -2,8 +2,8 @@
 
 namespace Laravel\Spark\Listeners\Teams;
 
-use Laravel\Spark\Events\Teams\TeamCreated;
 use Laravel\Spark\Spark;
+use Laravel\Spark\Events\Teams\TeamCreated;
 
 class UpdateOwnerSubscriptionQuantity
 {

@@ -36,7 +36,7 @@ return [
     "please_upgrade_to_create_more_teams" => "Please upgrade your subscription to create more teams.",
     "team_trial_will_expire_on" => "The team's trial period will expire on :date.",
     "you_have_been_invited_to_join_team" => "You have been invited to join the :teamName team!",
-    "please_upgrade_to_add_more_teams" => " Please upgrade your subscription to add more team members.",
+    "please_upgrade_to_add_more_members" => " Please upgrade your subscription to add more team members.",
     "user_already_on_team" => "That user is already on the team.",
     "user_already_invited_to_team" => "That user is already invited to the team.",
     "user_doesnt_belong_to_team" => "The user does not belong to the given team.",

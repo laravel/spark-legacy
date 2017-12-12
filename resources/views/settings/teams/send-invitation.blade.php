@@ -59,8 +59,7 @@
 
             <div v-else>
                 <span class="text-danger">
-                    {{__('Your current plan doesn\'t allow you to invite more members')}},
-                    <a href="{{ url('/settings#/subscription') }}">{{__('please upgrade your subscription')}}</a>.
+                    {{__('Your current plan doesn\'t allow you to invite more members, please upgrade your subscription.')}}
                 </span>
             </div>
         </div>
