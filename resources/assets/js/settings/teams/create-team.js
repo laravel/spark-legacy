@@ -75,6 +75,10 @@ module.exports = {
          * Check if the user can create more teams.
          */
         canCreateMoreTeams() {
+            if (Spark.chargesUsersPerTeam && !this.activePlan) {
+                return false;
+            }
+
             if (! this.hasTeamLimit) {
                 return true;
             }
