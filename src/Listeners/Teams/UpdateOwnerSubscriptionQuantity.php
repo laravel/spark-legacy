@@ -19,7 +19,7 @@ class UpdateOwnerSubscriptionQuantity
             return;
         }
 
-        if ($event instanceof TeamCreated && $event->team->owner->ownedTeams()->count() > 1) {
+        if ($event instanceof TeamCreated) {
             $this->incrementQuantity($event->team->owner);
         } else {
             $this->decrementQuantity($event->team->owner);
