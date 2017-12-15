@@ -52,12 +52,14 @@ module.exports = {
             this.removeActiveClassFromTabs();
 
             const tab = $(`${this.pushStateSelector} a[href="#${hash}"][data-toggle="tab"]`);
-
             if (tab.length > 0) {
                 tab.tab('show');
-            }
 
-            this.broadcastTabChange(hash, parameters);
+                this.broadcastTabChange(hash, parameters);
+            }
+            else {
+                this.activateFirstTab();
+            }
         },
 
 
