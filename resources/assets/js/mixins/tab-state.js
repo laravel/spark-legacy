@@ -55,9 +55,12 @@ module.exports = {
 
             if (tab.length > 0) {
                 tab.tab('show');
+
+                this.broadcastTabChange(hash, parameters);
+            } else {
+                this.activateFirstTab();
             }
 
-            this.broadcastTabChange(hash, parameters);
         },
 
 
