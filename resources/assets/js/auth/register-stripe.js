@@ -5,7 +5,8 @@ module.exports = {
     mixins: [
         require('./../mixins/register'),
         require('./../mixins/plans'),
-        require('./../mixins/vat')
+        require('./../mixins/vat'),
+        require('./../mixins/stripe')
     ],
 
 
@@ -15,6 +16,8 @@ module.exports = {
     data() {
         return {
             query: null,
+
+            cardElement: null,
 
             coupon: null,
             invalidCoupon: false,
@@ -76,6 +79,23 @@ module.exports = {
             ) {
                 this.registerForm.team_slug = val.toLowerCase().replace(/[\s\W-]+/g, '-');
             }
+        },
+
+
+        /**
+         * Watch for changes on the selected plan.
+         */
+        selectedPlan(val){
+            if (!val || val.price == 0) {
+                this.cardElement = null;
+                return;
+            }
+
+            if (!this.cardElement) {
+                this.$nextTick(()=> {
+                    this.cardElement = this.createCardElement('#card-element');
+                });
+            }
         }
     },
 
@@ -84,8 +104,6 @@ module.exports = {
      * The component has been created by Vue.
      */
     created() {
-        Stripe.setPublishableKey(Spark.stripeKey);
-
         this.getPlans();
 
         this.guessCountry();
@@ -103,14 +121,6 @@ module.exports = {
 
             this.registerForm.invitation = this.query.invitation;
         }
-    },
-
-
-    /**
-     * Prepare the component.
-     */
-    mounted() {
-        //
     },
 
 
@@ -158,40 +168,33 @@ module.exports = {
                 return this.sendRegistration();
             }
 
-            Stripe.card.createToken(this.stripePayload(), (status, response) => {
+            // Here we will build out the payload to send to Stripe to obtain a card token so
+            // we can create the actual subscription. We will build out this data that has
+            // this credit card number, CVC, etc. and exchange it for a secure token ID.
+            const payload = {
+                name: this.cardForm.name,
+                address_line1: this.registerForm.address || '',
+                address_line2: this.registerForm.address_line_2 || '',
+                address_city: this.registerForm.city || '',
+                address_state: this.registerForm.state || '',
+                address_zip: this.registerForm.zip || '',
+                address_country: this.registerForm.country || '',
+            };
+
+            this.stripe.createToken(this.cardElement, payload).then(response => {
                 if (response.error) {
-                    this.cardForm.errors.set({number: [response.error.message]})
+                    this.cardForm.errors.set({card: [
+                        response.error.message
+                    ]});
+
                     this.registerForm.busy = false;
                 } else {
-                    this.registerForm.stripe_token = response.id;
+                    this.registerForm.stripe_token = response.token.id;
+
                     this.sendRegistration();
                 }
             });
         },
-
-
-        /**
-         * Build the Stripe payload based on the form input.
-         */
-        stripePayload() {
-            // Here we will build out the payload to send to Stripe to obtain a card token so
-            // we can create the actual subscription. We will build out this data that has
-            // this credit card number, CVC, etc. and exchange it for a secure token ID.
-            return {
-                name: this.cardForm.name,
-                number: this.cardForm.number,
-                cvc: this.cardForm.cvc,
-                exp_month: this.cardForm.month,
-                exp_year: this.cardForm.year,
-                address_line1: this.registerForm.address,
-                address_line2: this.registerForm.address_line_2,
-                address_city: this.registerForm.city,
-                address_state: this.registerForm.state,
-                address_zip: this.registerForm.zip,
-                address_country: this.registerForm.country,
-            };
-        },
-
 
         /*
          * After obtaining the Stripe token, send the registration to Spark.

@@ -2,7 +2,7 @@
 
 @section('scripts')
     @if (Spark::billsUsingStripe())
-        <script src="https://js.stripe.com/v2/"></script>
+        <script src="https://js.stripe.com/v3/"></script>
     @else
         <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
     @endif
