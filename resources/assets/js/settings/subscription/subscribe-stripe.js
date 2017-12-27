@@ -7,7 +7,8 @@ module.exports = {
     mixins: [
         require('./../../mixins/plans'),
         require('./../../mixins/subscriptions'),
-        require('./../../mixins/vat')
+        require('./../../mixins/vat'),
+        require('./../../mixins/stripe')
     ],
 
 
@@ -17,6 +18,8 @@ module.exports = {
     data() {
         return {
             taxRate: 0,
+
+            cardElement: null,
 
             form: new SparkForm({
                 use_exiting_payment_method: this.hasPaymentMethod() ? '1' : '0',
@@ -33,12 +36,7 @@ module.exports = {
             }),
 
             cardForm: new SparkForm({
-                name: '',
-                number: '',
-                cvc: '',
-                month: '',
-                year: '',
-                zip: ''
+                name: ''
             })
         };
     },
@@ -62,7 +60,7 @@ module.exports = {
      * Prepare the component.
      */
     mounted() {
-        Stripe.setPublishableKey(Spark.stripeKey);
+        this.cardElement = this.createCardElement('#card-element');
 
         this.initializeBillingAddress();
 
@@ -114,30 +112,26 @@ module.exports = {
              // this credit card number, CVC, etc. and exchange it for a secure token ID.
             const payload = {
                 name: this.cardForm.name,
-                number: this.cardForm.number,
-                cvc: this.cardForm.cvc,
-                exp_month: this.cardForm.month,
-                exp_year: this.cardForm.year,
-                address_line1: this.form.address,
-                address_line2: this.form.address_line_2,
-                address_city: this.form.city,
-                address_state: this.form.state,
-                address_zip: this.form.zip,
-                address_country: this.form.country
+                address_line1: this.form.address || '',
+                address_line2: this.form.address_line_2 || '',
+                address_city: this.form.city || '',
+                address_state: this.form.state || '',
+                address_zip: this.form.zip || '',
+                address_country: this.form.country || ''
             };
 
              // Next, we will send the payload to Stripe and handle the response. If we have a
              // valid token we can send that to the server and use the token to create this
              // subscription on the back-end. Otherwise, we will show the error messages.
-            Stripe.card.createToken(payload, (status, response) => {
+            this.stripe.createToken(this.cardElement, payload).then(response => {
                 if (response.error) {
-                    this.cardForm.errors.set({number: [
+                    this.cardForm.errors.set({card: [
                         response.error.message
-                    ]})
+                    ]});
 
                     this.form.busy = false;
                 } else {
-                    this.createSubscription(response.id);
+                    this.createSubscription(response.token.id);
                 }
             });
         },

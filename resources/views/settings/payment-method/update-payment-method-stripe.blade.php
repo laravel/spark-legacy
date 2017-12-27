@@ -42,51 +42,15 @@
                     </div>
                 </div>
 
-                <!-- Card Number -->
+                <!-- Card Details -->
                 <div class="form-group row">
-                    <label for="number" class="col-md-4 col-form-label text-md-right">{{__('Card Number')}}</label>
+                    <label for="name" class="col-md-4 col-form-label text-md-right">{{__('Card')}}</label>
 
                     <div class="col-md-6">
-                        <input type="text"
-                            class="form-control"
-                            data-stripe="number"
-                            :placeholder="placeholder"
-                            :class="{'is-invalid': cardForm.errors.has('number')}"
-                            v-model="cardForm.number">
-
-                        <span class="invalid-feedback" v-show="cardForm.errors.has('number')">
-                            @{{ cardForm.errors.get('number') }}
+                        <div id="card-element"></div>
+                        <span class="invalid-feedback" v-show="cardForm.errors.has('card')">
+                            @{{ cardForm.errors.get('card') }}
                         </span>
-                    </div>
-                </div>
-
-                <!-- Security Code -->
-                <div class="form-group row">
-                    <label for="cvc" class="col-md-4 col-form-label text-md-right">{{__('Security Code')}}</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" data-stripe="cvc" v-model="cardForm.cvc">
-                    </div>
-                </div>
-
-                <!-- Expiration Information -->
-                <div class="form-group row">
-                    <label class="col-md-4 col-form-label text-md-right">{{__('Expiration')}}</label>
-
-                    <div class="col-md-6">
-                        <div class="row">
-                            <!-- Month -->
-                            <div class="col">
-                                <input type="text" class="form-control"
-                                    placeholder="MM" maxlength="2" data-stripe="exp-month" v-model="cardForm.month">
-                            </div>
-
-                            <!-- Year -->
-                            <div class="col">
-                                <input type="text" class="form-control"
-                                    placeholder="YYYY" maxlength="4" data-stripe="exp-year" v-model="cardForm.year">
-                            </div>  
-                        </div>
                     </div>
                 </div>
 
