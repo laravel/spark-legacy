@@ -18,7 +18,7 @@ trait ProvidesScriptVariables
     public static function scriptVariables()
     {
         return [
-            'translations' => (array) json_decode(file_get_contents(resource_path('lang/'.app()->getLocale().'.json'))),
+            'translations' => (array) json_decode(file_get_contents(resource_path('lang/'.app()->getLocale().'.json'))) + ['teams.team' => trans('teams.team'), 'teams.member' => trans('teams.member')],
             'braintreeMerchantId' => config('services.braintree.merchant_id'),
             'braintreeToken' => Spark::billsUsingBraintree() ? BraintreeClientToken::generate() : null,
             'cardUpFront' => Spark::needsCardUpFront(),
@@ -37,6 +37,12 @@ trait ProvidesScriptVariables
             'usesBraintree' => Spark::billsUsingBraintree(),
             'usesTeams' => Spark::usesTeams(),
             'usesStripe' => Spark::billsUsingStripe(),
+            'chargesUsersPerSeat' => Spark::chargesUsersPerSeat(),
+            'seatName' => Spark::seatName(),
+            'chargesTeamsPerSeat' => Spark::chargesTeamsPerSeat(),
+            'teamSeatName' => Spark::teamSeatName(),
+            'chargesUsersPerTeam' => Spark::chargesUsersPerTeam(),
+            'chargesTeamsPerMember' => Spark::chargesTeamsPerMember(),
         ];
     }
 }

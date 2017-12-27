@@ -69,6 +69,60 @@ trait Billable
     }
 
     /**
+     * Add seats to the current subscription.
+     *
+     * @param  int  $count
+     * @param  string  $subscription
+     * @return void
+     */
+    public function addSeat($count = 1, $subscription = 'default')
+    {
+        $subscription = $this->subscription($subscription);
+
+        if (Spark::prorates()) {
+            $subscription->incrementQuantity($count);
+        } else {
+            $subscription->noProrate()->incrementQuantity($count);
+        }
+    }
+
+    /**
+     * Remove seats from the current subscription.
+     *
+     * @param  int  $count
+     * @param  string  $subscription
+     * @return void
+     */
+    public function removeSeat($count = 1, $subscription = 'default')
+    {
+        $subscription = $this->subscription($subscription);
+
+        if (Spark::prorates()) {
+            $subscription->decrementQuantity($count);
+        } else {
+            $subscription->noProrate()->decrementQuantity($count);
+        }
+    }
+
+    /**
+     * Update the number of seats in the current subscription.
+     *
+     * @param  int  $count
+     * @param  string  $subscription
+     * @return void
+     */
+    public function updateSeats($count, $subscription = 'default')
+    {
+        $subscription = $this->subscription($subscription);
+
+        if (Spark::prorates()) {
+            $subscription->updateQuantity($count);
+        } else {
+            $subscription->noProrate()->updateQuantity($count);
+        }
+    }
+
+    /**
      * Get the available billing plans for the given entity.
      *
      * @return \Illuminate\Support\Collection

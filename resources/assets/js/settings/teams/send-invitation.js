@@ -77,9 +77,14 @@ module.exports = {
          * Check if the user can invite more team members.
          */
         canInviteMoreTeamMembers() {
+            if (Spark.chargesTeamsPerMember && !this.activePlan) {
+                return false;
+            }
+
             if (! this.hasTeamMembersLimit) {
                 return true;
             }
+
             return this.remainingTeamMembers > 0;
         }
     },

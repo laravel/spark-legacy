@@ -61,7 +61,7 @@ trait CanJoinTeams
      */
     public function ownedTeams()
     {
-        return $this->teams()->where('owner_id', $this->getKey());
+        return $this->hasMany(Spark::teamModel(), 'owner_id');
     }
 
     /**

@@ -64,7 +64,7 @@ class Plan implements JsonSerializable
 
     /**
      * The style of the plan.
-     *
+     *ri
      * @var string
      */
     public $type = 'user';

@@ -95,7 +95,7 @@ trait ManagesAvailablePlans
     {
         return static::hasPaidTeamPlans() || static::$billsTeams;
     }
-
+    
     /**
      * Define or retrieve an application wide promotion for new registrations.
      *

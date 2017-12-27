@@ -127,7 +127,12 @@
                                             <strong>{{__('Tax')}}:</strong> @{{ taxAmount(selectedPlan) | currency }}
                                             <br><br>
                                             <strong>{{__('Total Price Including Tax')}}:</strong>
-                                            @{{ priceWithTax(selectedPlan) | currency }} / @{{ __(selectedPlan.interval) | capitalize }}
+                                            @{{ priceWithTax(selectedPlan) | currency }}
+                                            @{{ selectedPlan.type == 'user' && spark.chargesUsersPerSeat ? '/ '+ spark.seatName : '' }}
+                                            @{{ selectedPlan.type == 'user' && spark.chargesUsersPerTeam ? '/ '+ __('teams.team') : '' }}
+                                            @{{ selectedPlan.type == 'team' && spark.chargesTeamsPerSeat ? '/ '+ spark.teamSeatName : '' }}
+                                            @{{ selectedPlan.type == 'team' && spark.chargesTeamsPerMember ? '/ '+ __('teams.member') : '' }}
+                                            / @{{ __(selectedPlan.interval) | capitalize }}
                                         </div>
                                     </div>
                                 </div>
