@@ -14,6 +14,7 @@
 
     <!-- CSS -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="{{ Spark::usesRightToLeftTheme() ? 'css/app-rtl.css' : 'css/app.css' }}" rel="stylesheet">
 
     <!-- Scripts -->
     @yield('scripts', '')

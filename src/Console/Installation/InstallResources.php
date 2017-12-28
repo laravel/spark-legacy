@@ -43,6 +43,7 @@ class InstallResources
             SPARK_STUB_PATH.'/webpack.mix.js' => base_path('webpack.mix.js'),
             SPARK_STUB_PATH.'/package.json' => base_path('package.json'),
             SPARK_STUB_PATH.'/resources/assets/sass/app.scss' => resource_path('assets/sass/app.scss'),
+            SPARK_STUB_PATH.'/resources/assets/sass/app-rtl.scss' => resource_path('assets/sass/app-rtl.scss'),
             SPARK_STUB_PATH.'/resources/lang/en/validation.php' => resource_path('lang/en/validation.php'),
             SPARK_STUB_PATH.'/resources/lang/en/teams.php' => resource_path('lang/en/teams.php'),
             SPARK_STUB_PATH.'/resources/lang/en.json' => resource_path('lang/en.json'),

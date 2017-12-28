@@ -1,5 +1,6 @@
 let mix = require('laravel-mix');
-var path = require('path');
+let exec = require('child_process').exec;
+let path = require('path');
 
 /*
  |--------------------------------------------------------------------------
@@ -13,10 +14,15 @@ var path = require('path');
  */
 
 mix.sass('resources/assets/sass/app.scss', 'public/css')
-   .copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js/sweetalert.min.js')
-   .copy('node_modules/sweetalert/dist/sweetalert.css', 'public/css/sweetalert.css')
-   .js('resources/assets/js/app.js', 'public/js')
-   .webpackConfig({
+    .copy('node_modules/sweetalert/dist/sweetalert.min.js', 'public/js/sweetalert.min.js')
+    .copy('node_modules/sweetalert/dist/sweetalert.css', 'public/css/sweetalert.css')
+    .js('resources/assets/js/app.js', 'public/js')
+    .sass('resources/assets/sass/app-rtl.scss', 'public/css')
+    .then(() => {
+        exec('node_modules/rtlcss/bin/rtlcss.js public/css/app-rtl.css ./public/css/app-rtl.css');
+    })
+    .version(['public/css/app-rtl.css'])
+    .webpackConfig({
         resolve: {
             modules: [
                 path.resolve(__dirname, 'vendor/laravel/spark/resources/assets/js'),
@@ -26,4 +32,4 @@ mix.sass('resources/assets/sass/app.scss', 'public/css')
                 'vue$': 'vue/dist/vue.js'
             }
         }
-   });
+    });

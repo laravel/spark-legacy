@@ -14,7 +14,7 @@
 
     <!-- CSS -->
     <link href="/css/sweetalert.css" rel="stylesheet">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix(Spark::usesRightToLeftTheme() ? 'css/app-rtl.css' : 'css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     @yield('scripts', '')
