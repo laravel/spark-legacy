@@ -1,10 +1,15 @@
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
+@import '~sweetalert/dist/sweetalert.css';
 @import 'custom';
 
 // Vue Cloak
 [v-cloak] {
   display: none;
+}
+
+body {
+  direction: ltr;
 }
 
 .profile-photo-preview {

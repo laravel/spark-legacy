@@ -40,6 +40,13 @@ trait ManagesAppOptions
     public static $minimumPasswordLength = 6;
 
     /**
+     * Indicates that the application should use the right-to-left theme.
+     *
+     * @var string
+     */
+    public static $usesRightToLeftTheme = false;
+
+    /**
      * Where to redirect users after authentication.
      *
      * @return string
@@ -159,5 +166,25 @@ trait ManagesAppOptions
 
             return new static;
         }
+    }
+
+    /**
+     * Determine if the application should use the right-to-left theme.
+     *
+     * @return bool
+     */
+    public static function usesRightToLeftTheme()
+    {
+        return static::$usesRightToLeftTheme;
+    }
+
+    /**
+     * Indication that the application should use the right-to-left theme.
+     *
+     * @return void
+     */
+    public static function useRightToLeftTheme()
+    {
+        static::$usesRightToLeftTheme = true;
     }
 }
