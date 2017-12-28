@@ -3,12 +3,12 @@
     <div>
         <div class="card card-default">
             <div class="card-header">
-                <div class="pull-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
+                <div class="float-left" :class="{'btn-table-align': hasMonthlyAndYearlyPlans}">
                     {{__('Update Subscription')}}
                 </div>
 
                 <!-- Interval Selector Button Group -->
-                <div class="pull-right">
+                <div class="float-right">
                     <div class="btn-group btn-group-sm" v-if="hasMonthlyAndYearlyPlans">
                         <!-- Monthly Plans -->
                         <button type="button" class="btn btn-light"

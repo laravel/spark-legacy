@@ -2,11 +2,11 @@
     <div class="card card-default">
         <!-- Update Payment Method Heading -->
         <div class="card-header">
-            <div class="pull-left">
+            <div class="float-left">
                 {{__('Update Payment Method')}}
             </div>
 
-            <div class="pull-right">
+            <div class="float-right">
                 <span v-if="billable.card_last_four">
                     <i :class="['fa', 'fa-btn', cardIcon]"></i>
                     ************@{{ billable.card_last_four }}

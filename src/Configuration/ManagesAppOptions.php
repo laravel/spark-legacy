@@ -42,7 +42,7 @@ trait ManagesAppOptions
     /**
      * Indicates that the application should use the right-to-left theme.
      *
-     * @var string
+     * @var bool
      */
     public static $usesRightToLeftTheme = false;
 
