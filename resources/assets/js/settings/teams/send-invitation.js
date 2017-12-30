@@ -108,7 +108,7 @@ module.exports = {
             Spark.post(`/settings/${Spark.teamsPrefix}/${this.team.id}/invitations`, this.form)
                 .then(() => {
                     this.form.email = '';
-                    this.role.email = Spark.defaultRole;
+                    this.form.role = Spark.defaultRole;
 
                     this.$parent.$emit('updateInvitations');
                 });
