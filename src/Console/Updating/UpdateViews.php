@@ -155,7 +155,7 @@ class UpdateViews
     protected function shouldOverwriteView($view)
     {
         return $this->command->confirm(
-            '    ⇒ View ['.$this->relativeViewPath($view).'] has been modified. Override?'
+            '    ⇒ View ['.$this->relativeViewPath($view).'] has been modified. Overwrite?'
         );
     }
 
