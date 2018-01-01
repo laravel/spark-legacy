@@ -43,9 +43,9 @@ class UpdateViews
     public function update()
     {
         $this->viewsThatHaveBeenPublished()->each(function ($view) {
-            $this->viewIsUnchanged($view)
-                            ? $this->updateView($view)
-                            : $this->showModifiedNotification($view);
+            if ($this->viewIsUnchanged($view) || $this->shouldOverwriteView($view)) {
+                $this->updateView($view);
+            }
         });
 
         $this->installNewViews();
@@ -147,15 +147,15 @@ class UpdateViews
     }
 
     /**
-     * Notify the user that the given view has been modified.
+     * Ask the user if the given view should be overwritten.
      *
      * @param  \SplFileInfo  $view
-     * @return void
+     * @return bool
      */
-    protected function showModifiedNotification($view)
+    protected function shouldOverwriteView($view)
     {
-        $this->command->comment(
-            '    ⇒ View ['.$this->relativeViewPath($view).'] has been modified. Skipping...'
+        return $this->command->confirm(
+            '    ⇒ View ['.$this->relativeViewPath($view).'] has been modified. Override?'
         );
     }
 
