@@ -10,7 +10,7 @@
                             <div class="col-md-12">
                                 <input type="text" id="kiosk-users-search" class="form-control"
                                         name="search"
-                                        placeholder="Search By Name Or E-Mail Address. Use * as a wildcard."
+                                        placeholder="Search by name or e-mail address. Use * as a wildcard."
                                         v-model="searchForm.query"
                                         @keyup.enter="search">
                             </div>
