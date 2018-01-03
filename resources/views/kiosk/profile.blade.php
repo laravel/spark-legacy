@@ -34,7 +34,7 @@
                                     </button>
 
                                     <!-- Impersonate Button -->
-                                    <button class="btn btn-default" @click="impersonate(profile)" :disabled="user.id === profile.id">
+                                    <button class="btn btn-default" @click="impersonate(profile)" :disabled="user.id === profile.id" title="Impersonate User">
                                         <i class="fa fa-user-secret"></i>
                                     </button>
                                 </div>
