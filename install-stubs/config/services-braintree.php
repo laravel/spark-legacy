@@ -33,8 +33,8 @@ return [
         'model'  => App\User::class,
         'env' => env('BRAINTREE_ENV'),
         'merchant_id' => env('BRAINTREE_MERCHANT_ID'),
-        'key' => env('BRAINTREE_PUBLIC_KEY'),
-        'secret' => env('BRAINTREE_PRIVATE_KEY'),
+        'public_key' => env('BRAINTREE_PUBLIC_KEY'),
+        'private_key' => env('BRAINTREE_PRIVATE_KEY'),
     ],
 
 ];
