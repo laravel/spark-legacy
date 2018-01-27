@@ -9,6 +9,7 @@ use Laravel\Spark\Events\Auth\UserRegistered;
 use Laravel\Spark\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Laravel\Spark\Contracts\Interactions\Auth\Register;
+use Illuminate\Support\Facades\App;
 use Laravel\Spark\Contracts\Http\Requests\Auth\RegisterRequest;
 
 class RegisterController extends Controller
@@ -35,6 +36,10 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm(Request $request)
     {
+        if(!$request->get('invitation')){
+            if(config('app.registrationWithInvitationOnly'))
+                App::abort(403, 'Access denied');
+        }
         if (Spark::promotion() && ! $request->filled('coupon')) {
             // If the application is running a site-wide promotion, we will redirect the user
             // to a register URL that contains the promotional coupon ID, which will force
