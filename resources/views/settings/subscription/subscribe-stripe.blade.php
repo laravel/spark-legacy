@@ -50,7 +50,7 @@
 
                     <!-- Security Code -->
                     <div class="form-group">
-                        <label for="number" class="col-md-4 control-label">Security Code</label>
+                        <label for="cvc" class="col-md-4 control-label">Security Code</label>
 
                         <div class="col-md-6">
                             <input type="text" class="form-control" name="cvc" data-stripe="cvc" v-model="cardForm.cvc">
