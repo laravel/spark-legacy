@@ -30,6 +30,11 @@
     "extra": {
         "branch-alias": {
             "dev-master": "4.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Laravel\\Spark\\Providers\\SparkServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev"
