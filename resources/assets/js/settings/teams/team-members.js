@@ -12,7 +12,7 @@ module.exports = {
             updatingTeamMember: null,
             deletingTeamMember: null,
 
-            updateTeamMemberForm: $.extend(true, new SparkForm({
+            updateTeamMemberForm: Vue.util.extend(true, new SparkForm({
                 role: ''
             }), Spark.forms.updateTeamMember),
 
