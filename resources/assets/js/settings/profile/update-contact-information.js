@@ -6,7 +6,7 @@ module.exports = {
      */
     data() {
         return {
-            form: $.extend(true, new SparkForm({
+            form: Vue.util.extend(true, new SparkForm({
                 name: '',
                 email: ''
             }), Spark.forms.updateContactInformation)
