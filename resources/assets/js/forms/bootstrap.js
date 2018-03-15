@@ -20,4 +20,4 @@ require('./errors');
 /**
  * Add additional HTTP / form helpers to the Spark object.
  */
-$.extend(Spark, require('./http'));
+Vue.util.extend(Spark, require('./http'));

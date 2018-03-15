@@ -19,7 +19,7 @@ module.exports = {
             coupon: null,
             invalidCoupon: false,
 
-            registerForm: $.extend(true, new SparkForm({
+            registerForm: Vue.util.extend(true, new SparkForm({
                 braintree_type: '',
                 braintree_token: '',
                 plan: '',

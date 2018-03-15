@@ -22,7 +22,7 @@ module.exports = {
             country: null,
             taxRate: 0,
 
-            registerForm: $.extend(true, new SparkForm({
+            registerForm: Vue.util.extend(true, new SparkForm({
                 stripe_token: '',
                 plan: '',
                 team: '',
