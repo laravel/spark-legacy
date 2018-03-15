@@ -4,7 +4,7 @@
 window.SparkForm = function (data) {
     var form = this;
 
-    $.extend(this, data);
+    Vue.util.extend(this, data);
 
     /**
      * Create the form error helper instance.
