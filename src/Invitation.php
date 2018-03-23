@@ -44,7 +44,7 @@ class Invitation extends Model
     }
 
     /**
-     * Determine if the coupon is expired.
+     * Determine if the invitation is expired.
      *
      * @return bool
      */
