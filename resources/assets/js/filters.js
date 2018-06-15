@@ -2,7 +2,7 @@
  * Format the given date.
  */
 Vue.filter('date', value => {
-    return moment.utc(value).local().format('MMMM Do, YYYY')
+    return moment.utc(value).local().format('LL')
 });
 
 
@@ -10,7 +10,7 @@ Vue.filter('date', value => {
  * Format the given date as a timestamp.
  */
 Vue.filter('datetime', value => {
-    return moment.utc(value).local().format('MMMM Do, YYYY h:mm A');
+    return moment.utc(value).local().format('LL') + ' ' + moment.utc(value).local().format('LT');
 });
 
 
