@@ -38,7 +38,7 @@ module.exports = {
          * Get the total plan price including the applicable tax.
          */
         priceWithTax(plan) {
-            return plan.price + this.taxAmount(plan);
+            return parseFloat(plan.price) + this.taxAmount(plan);
         }
     }
 };
