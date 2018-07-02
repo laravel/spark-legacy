@@ -30,6 +30,8 @@ module.exports = {
     created() {
         var self = this;
 
+        self.getAnnouncements();
+        
         Bus.$on('sparkHashChanged', function (hash, parameters) {
             if (hash == 'announcements' && self.announcements.length === 0) {
                 self.getAnnouncements();
