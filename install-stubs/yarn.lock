@@ -426,9 +426,9 @@ aws4@^1.8.0:
   version "1.13.2"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.13.2.tgz#0aa167216965ac9474ccfa83892cfb6b3e1e52ef"
 
-axios@^0.33.0:
-  version "0.33.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.33.0.tgz#91fc5e231db5b81ab6474c0a945a603c55601f6e"
+axios@^0.34.0:
+  version "0.34.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.34.0.tgz#8ecc4e5d865e3f36c9dc432ee490a88e8dd009c2"
   dependencies:
     follow-redirects "^1.15.4"
     form-data "^4.0.4"
